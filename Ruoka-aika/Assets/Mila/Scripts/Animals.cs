@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Animals : MonoBehaviour
@@ -18,11 +17,13 @@ public class Animals : MonoBehaviour
             //Checks if the animal is allowed to eat the food
             List<string> allowedFoods = RandomAnimalAndFood.randomAnimalAndFood.animalToFoodMap[gameObject.name];
 
+            //Determines wether the food was in that animals dictionary or not 
             if (allowedFoods.Contains(foodThatCollidedName))
             {
                 Debug.Log(gameObject.name + " saa syödä " + foodThatCollidedName);
                 //Chooses a new food
                 RandomAnimalAndFood.randomAnimalAndFood.RandomFood();
+                //Chooses a new animal
                 RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
 
             }
