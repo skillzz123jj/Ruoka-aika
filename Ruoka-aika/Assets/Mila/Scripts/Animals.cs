@@ -25,6 +25,8 @@ public class Animals : MonoBehaviour
                 RandomAnimalAndFood.randomAnimalAndFood.RandomFood();
                 //Chooses a new animal
                 RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
+                //Resets the timer for the food after its been fed
+                RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
 
             }
             else
@@ -32,6 +34,7 @@ public class Animals : MonoBehaviour
                 Debug.Log(gameObject.name + " ei saa syödä " + foodThatCollidedName);
                 RandomAnimalAndFood.randomAnimalAndFood.RandomFood();
                 RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
+                RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
 
             }
         }
