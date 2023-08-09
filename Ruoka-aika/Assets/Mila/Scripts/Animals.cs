@@ -25,8 +25,19 @@ public class Animals : MonoBehaviour
                 RandomAnimalAndFood.randomAnimalAndFood.RandomFood();
                 //Chooses a new animal
                 RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
-                //Resets the timer for the food after its been fed
-                RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
+                //Resets the timer for the food after its been fed based on difficulty
+                if (Difficulty.difficulty.easy)
+                {
+                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 100;
+                }
+                else if (Difficulty.difficulty.normal)
+                {
+                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
+                }
+                else if (Difficulty.difficulty.hard)
+                {
+                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 5;
+                }
 
             }
             else
@@ -34,7 +45,18 @@ public class Animals : MonoBehaviour
                 Debug.Log(gameObject.name + " ei saa syödä " + foodThatCollidedName);
                 RandomAnimalAndFood.randomAnimalAndFood.RandomFood();
                 RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
-                RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
+                if (Difficulty.difficulty.easy)
+                {
+                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 100;
+                }
+                else if (Difficulty.difficulty.normal)
+                {
+                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
+                }
+                else if (Difficulty.difficulty.hard)
+                {
+                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 5;
+                }
 
             }
         }
