@@ -17,6 +17,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public float timerToChangeFood = 10;
     public float timerToChangeAnimal = 20;
+    int numAnimalsToChoose = 4;
 
     GameObject randomFood;
     GameObject randomFoodPrevious;
@@ -44,15 +45,25 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     private void Update()
     {
-
         timerToChangeFood -= Time.deltaTime;
 
+        //Timer depends which difficulty was chosen
         if (timerToChangeFood <= 0)
         {
             StartCoroutine(ChangeFoodAndAnimal());
-            timerToChangeFood = 10;
+            if (Difficulty.difficulty.easy)
+            {
+                timerToChangeFood = 100;
+            }
+            else if (Difficulty.difficulty.normal)
+            {
+                timerToChangeFood = 10;
+            }
+            else if (Difficulty.difficulty.hard)
+            {
+                timerToChangeFood = 5;
+            }
         }
-
 
         timerToChangeAnimal -= Time.deltaTime;
 
@@ -61,11 +72,8 @@ public class RandomAnimalAndFood : MonoBehaviour
             timeForAChange = true;
             AnimalToGetSwapped();
             AddFoods();
-            timerToChangeAnimal = 25;
+            timerToChangeAnimal = 20;
         }
-
-
-
     }
 
     private IEnumerator ChangeFoodAndAnimal()
@@ -104,9 +112,9 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public void ChooseRandomAnimals()
     {
-        //This determines how many animals are chosen can be changed
-        int numAnimalsToChoose = 4;
-
+        //The amount of animals depends on difficulty
+        CheckForDifficulty();
+        
         //Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
         List<int> amountOfAnimals = new List<int>();
 
@@ -335,6 +343,24 @@ public class RandomAnimalAndFood : MonoBehaviour
         food.transform.position = newPosition;
         // Sets the selected food as active in the scene
         food.SetActive(true);
+    }
+
+    //This method checks what difficulty was chosen 
+    void CheckForDifficulty()
+    {
+        if (Difficulty.difficulty.easy)
+        {
+            numAnimalsToChoose = 3;
+        }
+        else if (Difficulty.difficulty.normal)
+        {
+            numAnimalsToChoose = 4;
+        }
+        else if (Difficulty.difficulty.hard)
+        {
+            numAnimalsToChoose = 5;
+        }
+        else { numAnimalsToChoose = 4; }
     }
 }
 
