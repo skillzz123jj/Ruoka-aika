@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Animals : MonoBehaviour
 {
@@ -17,48 +20,27 @@ public class Animals : MonoBehaviour
             //Checks if the animal is allowed to eat the food
             List<string> allowedFoods = RandomAnimalAndFood.randomAnimalAndFood.animalToFoodMap[gameObject.name];
 
-            //Determines wether the food was in that animals dictionary or not 
             if (allowedFoods.Contains(foodThatCollidedName))
             {
-                Debug.Log(gameObject.name + " saa syödä " + foodThatCollidedName);
+                Debug.Log(gameObject.name + " can eat " + foodThatCollidedName);
                 //Chooses a new food
-                RandomAnimalAndFood.randomAnimalAndFood.RandomFood();
-                //Chooses a new animal
+                RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
                 RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
-                //Resets the timer for the food after its been fed based on difficulty
-                if (Difficulty.difficulty.easy)
-                {
-                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 100;
-                }
-                else if (Difficulty.difficulty.normal)
-                {
-                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
-                }
-                else if (Difficulty.difficulty.hard)
-                {
-                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 5;
-                }
+                RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
 
             }
             else
             {
-                Debug.Log(gameObject.name + " ei saa syödä " + foodThatCollidedName);
-                RandomAnimalAndFood.randomAnimalAndFood.RandomFood();
+                Debug.Log(gameObject.name + " cannot eat " + foodThatCollidedName);
+                RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
                 RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
-                if (Difficulty.difficulty.easy)
-                {
-                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 100;
-                }
-                else if (Difficulty.difficulty.normal)
-                {
-                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
-                }
-                else if (Difficulty.difficulty.hard)
-                {
-                    RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 5;
-                }
+                RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
 
             }
         }
     }
+
 }
+
+
+

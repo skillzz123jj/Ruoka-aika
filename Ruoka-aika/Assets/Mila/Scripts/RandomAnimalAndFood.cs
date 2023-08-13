@@ -4,28 +4,37 @@ using UnityEngine;
 
 public class RandomAnimalAndFood : MonoBehaviour
 {
-    public List<GameObject> animals = new List<GameObject>();
-    public List<GameObject> chosenAnimals = new List<GameObject>();
-    public List<GameObject> animalsThatWerentChosen = new List<GameObject>();
+    [SerializeField] List<GameObject> animals = new List<GameObject>();
+    [SerializeField] List<GameObject> chosenAnimals = new List<GameObject>();
+    [SerializeField] List<GameObject> animalsThatWerentChosen = new List<GameObject>();
     [SerializeField] List<GameObject> foods = new List<GameObject>();
     [SerializeField] List<GameObject> allFoods = new List<GameObject>();
+    [SerializeField] List<GameObject> chosenFoods = new List<GameObject>();
 
-    public Transform lineStart;
-    public Transform lineEnd;
-    public Transform lineStartFood;
-    public Transform lineEndFood;
+    [SerializeField] Transform lineStart;
+    [SerializeField] Transform lineEnd;
+    [SerializeField] Transform lineStartFood;
+    [SerializeField] Transform lineEndFood;
 
     public float timerToChangeFood = 10;
     public float timerToChangeAnimal = 20;
-    int numAnimalsToChoose = 4;
 
     GameObject randomFood;
-    GameObject randomFoodPrevious;
     GameObject correctRandomAnimal;
     GameObject animalThatGetsSwapped;
 
-    private bool isFoodChanging = false;
-    private bool timeForAChange;
+    private bool timeForAChangeOfAnimal;
+
+    //Bools to determine how many foods will be chosen
+    bool foodsToChoose1;
+    bool foodsToChoose2 = true;
+    bool foodsToChoose3;
+    bool foodsToChoose4;
+    bool foodsToChoose5;
+
+    public int numberOfFoodsToChoose;
+    int numAnimalsToChoose = 4;
+
 
     //Allows other scripts to access this one
     public static RandomAnimalAndFood randomAnimalAndFood;
@@ -47,7 +56,6 @@ public class RandomAnimalAndFood : MonoBehaviour
     {
         timerToChangeFood -= Time.deltaTime;
 
-        //Timer depends which difficulty was chosen
         if (timerToChangeFood <= 0)
         {
             StartCoroutine(ChangeFoodAndAnimal());
@@ -69,41 +77,67 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         if (timerToChangeAnimal <= 0)
         {
-            timeForAChange = true;
+            timeForAChangeOfAnimal = true;
             AnimalToGetSwapped();
             AddFoods();
-            timerToChangeAnimal = 20;
+            timerToChangeAnimal = 60;
         }
-    }
 
+        //These change how many foods spawn during runtime (Will be replaced later to check for points instead)
+        if (Input.GetKey(KeyCode.Q))
+        {
+            foodsToChoose1 = true;
+            foodsToChoose2 = false;
+            foodsToChoose3 = false;
+            foodsToChoose4 = false;
+            foodsToChoose5 = false;
+        }
+        if (Input.GetKey(KeyCode.W))
+        {
+            foodsToChoose1 = false;
+            foodsToChoose2 = true;
+            foodsToChoose3 = false;
+            foodsToChoose4 = false;
+            foodsToChoose5 = false;
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            foodsToChoose1 = false;
+            foodsToChoose2 = false;
+            foodsToChoose3 = true;
+            foodsToChoose4 = false;
+            foodsToChoose5 = false;
+        }
+        if (Input.GetKey(KeyCode.R))
+        {
+            foodsToChoose1 = false;
+            foodsToChoose2 = false;
+            foodsToChoose3 = false;
+            foodsToChoose4 = true;
+            foodsToChoose5 = false;
+        }
+        if (Input.GetKey(KeyCode.T))
+        {
+            foodsToChoose1 = false;
+            foodsToChoose2 = false;
+            foodsToChoose3 = false;
+            foodsToChoose4 = false;
+            foodsToChoose5 = true;
+        }
+        CheckForCurrentLevel();
+    }
     private IEnumerator ChangeFoodAndAnimal()
     {
-        //Exits the coroutine if if the bool is true
-        if (isFoodChanging)
-        {
-            yield break;
-        }
-
-        isFoodChanging = true;
-
-        //A slight delay to ensure that user cant see the food change
+        //A slight delay to ensure that the user can't see the food change
         float transitionDuration = 0.5f;
 
-        float elapsedTime = 0;
+        //Wait for the transition duration
+        yield return new WaitForSeconds(transitionDuration);
 
-        //This allows for a smooth transition without pausing the game
-        while (elapsedTime < transitionDuration)
-        {
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        RandomFood();
-        RandomCorrectAnimal();
-
-        isFoodChanging = false;
+        RandomFood(numberOfFoodsToChoose);
 
     }
+
     private void Start()
     {
         randomAnimalAndFood = this;
@@ -112,9 +146,9 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public void ChooseRandomAnimals()
     {
-        //The amount of animals depends on difficulty
+        //This determines how many animals are chosen       
         CheckForDifficulty();
-        
+
         //Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
         List<int> amountOfAnimals = new List<int>();
 
@@ -163,7 +197,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
 
         AddFoods();
-        RandomFood();
+        RandomFood(1);
         RandomCorrectAnimal();
     }
 
@@ -208,8 +242,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method chooses the animal that gets changed
     void AnimalToGetSwapped()
     {
-
-        if (timeForAChange)
+        if (timeForAChangeOfAnimal)
         {
             do
             {
@@ -261,7 +294,6 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method checks which animals were chosen and gets their corresponding foods and adds them on one list
     public void AddFoods()
     {
-
         //Adds the chosen animals corresponding foods in the foods list
         foreach (GameObject animal in chosenAnimals)
         {
@@ -274,78 +306,86 @@ public class RandomAnimalAndFood : MonoBehaviour
                 {
                     //Find the corresponding food object and add it to the foods list
                     GameObject food = GameObject.Find(foodName);
-                    // food.SetActive(true);
                     foods.Add(food);
                 }
             }
 
         }
-        //Sets the foods that werent chosen inactive
+        //Sets the foods that were chosen active and others inactive 
         foreach (GameObject food in allFoods)
         {
             food.SetActive(false);
 
         }
-        foreach (GameObject food in foods)
+        foreach (GameObject food in chosenFoods)
         {
-            if (food == randomFood)
-            {
-                food.SetActive(true);
-            }
+            food.SetActive(true);
         }
     }
-
-    //This method takes the chosen foods and then chooses a random food from those
-    public void RandomFood()
+    public void RandomFood(int numberOfFoodsToChoose)
     {
-        //Chooses a random number and correlates it to the foods in foodsList
-        int chosenFood = Random.Range(0, foods.Count);
-        randomFood = foods[chosenFood];
+        //Clear the list of chosen foods so it can be filled again
+        chosenFoods.Clear();
 
-        Debug.Log(randomFood.name);
+        //This does the calculations based on how many foods are being chosen 
+        numberOfFoodsToChoose = Mathf.Clamp(numberOfFoodsToChoose, 1, 5);
 
-        //If the new food is the same as the old food it reactivates it so it goes back to its initial position
-        if (randomFoodPrevious == randomFood)
+        //Deactivate all the foods so that there arent any unnecessary ones active
+        foreach (GameObject notChosen in allFoods)
         {
-            randomFood.SetActive(false);
-            FoodPosition(randomFood);
+            notChosen.SetActive(false);
         }
 
-        //Deactivates all the foods that werent chosen 
-        foreach (GameObject notChosen in foods)
+        //Copy of the foods list to preserve that one
+        List<GameObject> availableFoods = new List<GameObject>(foods);
+
+        //Chooses foods based on the given amount
+        for (int i = 0; i < numberOfFoodsToChoose; i++)
         {
-            if (notChosen != randomFood)
+            //Chooses a food from availableFoods and makes sure it doesnt get chosen again (It still sometimes does needs to be looked at)
+            int chosenFoodIndex = Random.Range(0, availableFoods.Count);
+            GameObject chosenFood = availableFoods[chosenFoodIndex];
+            chosenFoods.Add(chosenFood);
+            availableFoods.RemoveAt(chosenFoodIndex);
+
+            //Goes over all the chosen foods once more and gives it a position
+            for (int t = 0; t < chosenFoods.Count; t++)
             {
-                notChosen.SetActive(false);
+                FoodPosition(chosenFoods[t]);
+                chosenFoods[t].SetActive(true);
             }
         }
-        //Sets the foods position
-        FoodPosition(randomFood);
-        //This makes sure that its able to check if the food has been chosen already
-        randomFoodPrevious = randomFood;
     }
 
     //This method calculates the foods position on a given line so that its always random
     public void FoodPosition(GameObject food)
     {
-        //These are the starting and ending points and the food/foods are randomly set evenly on that line
-        Vector3 startPosition = lineStartFood.position;
-        Vector3 endPosition = lineEndFood.position;
+        //Makes sure there actually are foods in that list
+        if (chosenFoods.Count > 0)
+        {
+            //Finds the position for that food from chosenFoodsList
+            int foodIndex = chosenFoods.IndexOf(food);
 
-        //Calculates the positions as a float based on the index of the food in the list
-        int foodIndex = foods.IndexOf(food);
-        float t = foodIndex / (float)(foods.Count - 1);
+            if (chosenFoods.Count > 1)
+            {
+                //Calculates the position on a given line with this calculation
+                float t = (float)foodIndex / (chosenFoods.Count - 1);
+                Vector3 startPosition = lineStartFood.position;
+                Vector3 endPosition = lineEndFood.position;
+                Vector3 newPosition = Vector3.Lerp(startPosition, endPosition, t);
 
-        //Counts the position based on the given line and the calculation above
-        Vector3 newPosition = Vector3.Lerp(startPosition, endPosition, t);
-
-        // Sets the food in its position
-        food.transform.position = newPosition;
-        // Sets the selected food as active in the scene
-        food.SetActive(true);
+                //Sets the food in its position
+                food.transform.position = newPosition;
+            }
+            else
+            {
+                //If there is only 1 food it gets set to the start of the line
+                food.transform.position = lineStartFood.position;
+            }
+        }
     }
 
-    //This method checks what difficulty was chosen 
+    //This method changes the amount of animals that are present based on difficulty
     void CheckForDifficulty()
     {
         if (Difficulty.difficulty.easy)
@@ -362,6 +402,29 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
         else { numAnimalsToChoose = 4; }
     }
+
+    //This method changes the amount of foods that are going to spawn
+    void CheckForCurrentLevel()
+    {
+        if (foodsToChoose1)
+        {
+            numberOfFoodsToChoose = 1;
+        }
+        if (foodsToChoose2)
+        {
+            numberOfFoodsToChoose = 2;
+        }
+        else if (foodsToChoose3)
+        {
+            numberOfFoodsToChoose = 3;
+        }
+        else if (foodsToChoose4)
+        {
+            numberOfFoodsToChoose = 4;
+        }
+        else if (foodsToChoose5)
+        {
+            numberOfFoodsToChoose = 5;
+        }
+    }
 }
-
-
