@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7a3b1a60eb4fd9a4a904e53216ce38ef
+guid: 03b706c2293645c43bba88633d8e3dda
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -103,7 +103,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: strutsi_0
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 58
+        width: 248
+        height: 392
+      alignment: 9
+      pivot: {x: 0.46253154, y: 0.55136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa136e4d44bf5444ae3097e7233b14f
+      internalID: -655037507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strutsi_1
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 133
+        width: 145
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d165f67a27eb6a94eaa4c7019bb369a1
+      internalID: -778237036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strutsi_2
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 255
+        width: 141
+        height: 110
+      alignment: 9
+      pivot: {x: 0.54027367, y: 0.55631685}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7d230bbbeaaad43ac75afc1b756e23
+      internalID: 1337478918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: strutsi_3
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 374
+        width: 137
+        height: 116
+      alignment: 9
+      pivot: {x: 0.45478296, y: 0.50000054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 660a749f0467d6845b30e8fe20fb7ef2
+      internalID: 533326917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +198,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      strutsi_0: -655037507
+      strutsi_1: -778237036
+      strutsi_2: 1337478918
+      strutsi_3: 533326917
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
