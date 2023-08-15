@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6b0ff493a6786ca4ba14d54c9da8a61b
+guid: 7a3b1a60eb4fd9a4a904e53216ce38ef
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -103,7 +103,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "Lehm\xE4_0"
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 227
+        width: 203
+        height: 171
+      alignment: 9
+      pivot: {x: 0.42370942, y: 0.4607544}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ede086cd297fc41852db0a01cdb3c6
+      internalID: 1885208216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Lehm\xE4_1"
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 239
+        width: 203
+        height: 176
+      alignment: 9
+      pivot: {x: 0.44659665, y: 0.4706688}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e83ab17a47b67849bd0eb5166707cec
+      internalID: -1172511176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Lehm\xE4_2"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 26
+        width: 195
+        height: 191
+      alignment: 9
+      pivot: {x: 0.42322686, y: 0.475675}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2384bc9779b8cef44a14802afeb64a8d
+      internalID: 1951182038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Lehm\xE4_3"
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 17
+        width: 309
+        height: 223
+      alignment: 9
+      pivot: {x: 0.43651515, y: 0.56944865}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44398a62a9ffc414badf7de449b9a98e
+      internalID: -1365454451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +198,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      "Lehm\xE4_0": 1885208216
+      "Lehm\xE4_1": -1172511176
+      "Lehm\xE4_2": 1951182038
+      "Lehm\xE4_3": -1365454451
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
