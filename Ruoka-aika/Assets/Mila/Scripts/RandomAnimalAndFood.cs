@@ -26,8 +26,8 @@ public class RandomAnimalAndFood : MonoBehaviour
     private bool timeForAChangeOfAnimal;
 
     //Bools to determine how many foods will be chosen
-    bool foodsToChoose1;
-    bool foodsToChoose2 = true;
+    bool foodsToChoose1 = true;
+    bool foodsToChoose2;
     bool foodsToChoose3;
     bool foodsToChoose4;
     bool foodsToChoose5;
@@ -38,18 +38,21 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     //Allows other scripts to access this one
     public static RandomAnimalAndFood randomAnimalAndFood;
+    public Dictionary<string, string> foodsForAnimalsMap = new Dictionary<string, string>();
 
     //Dictionary to map animal names to their corresponding food items
     public Dictionary<string, List<string>> animalToFoodMap = new Dictionary<string, List<string>>()
     {
-        { "Koira", new List<string> { "Pihvi", "Paisti" } },
+        { "Koira", new List<string> { "Pihvi", "Paisti", "Nakki" } },
         { "Pupu", new List<string> { "Porkkana", "Kaali" } },
         { "Lehmä", new List<string> { "Vehnä/Kaura", "Leipä" } },
         { "Lammas", new List<string> { "Vehnä/Kaura", "Pizza" } },
         { "Possu", new List<string> { "Porkkana", "Pähkinät" } },
         { "Strutsi", new List<string> { "Pähkinät", "Kurkku" } },
         { "Kissa", new List<string> { "Kala", "Pihvi" } },
-        { "Kana", new List<string> { "Lehdet/Nurtsi", "Oliivi" } }
+        { "Kana", new List<string> { "Lehdet/Nurtsi", "Oliivi" } },
+        { "Alpakka", new List<string> { "Kurkku", "Oliivi" } },
+        { "Pesukarhu", new List<string> { "Nakki", "Appelsiini" } }
     };
 
     private void Update()
@@ -58,7 +61,9 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         if (timerToChangeFood <= 0)
         {
-            StartCoroutine(ChangeFoodAndAnimal());
+            RandomFood(numberOfFoodsToChoose);
+
+            RandomCorrectAnimal();
             if (Difficulty.difficulty.easy)
             {
                 timerToChangeFood = 100;
@@ -126,17 +131,6 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
         CheckForCurrentLevel();
     }
-    private IEnumerator ChangeFoodAndAnimal()
-    {
-        //A slight delay to ensure that the user can't see the food change
-        float transitionDuration = 0.5f;
-
-        //Wait for the transition duration
-        yield return new WaitForSeconds(transitionDuration);
-
-        RandomFood(numberOfFoodsToChoose);
-
-    }
 
     private void Start()
     {
@@ -144,6 +138,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         ChooseRandomAnimals();
     }
 
+    //This method chooses the initial animals and their positions
     public void ChooseRandomAnimals()
     {
         //This determines how many animals are chosen       
@@ -201,42 +196,50 @@ public class RandomAnimalAndFood : MonoBehaviour
         RandomCorrectAnimal();
     }
 
-    //This method chooses one animal to be the `correct` one so if two animals eat the same food only one of them can have it
+    //This method chooses an animal for each chosen food
     public void RandomCorrectAnimal()
     {
-        //Get a list of animals that can eat the randomly chosen food.
-        List<GameObject> possibleAnimals = new List<GameObject>();
-        string randomFoodName = randomFood.name;
+        int foodIndex = 0;
+        //Clears the dictioanry that checks what animals are allowed to eat the foods
+        foodsForAnimalsMap.Clear();
 
-        //This finds which animal/animals are allowed to eat the chosen food
-        foreach (var entry in animalToFoodMap)
+        //For each food it checks if the animal can eat it and adds it to possible animals
+        foreach (GameObject food in chosenFoods)
         {
-            if (entry.Value.Contains(randomFoodName))
+            string randomFoodName = food.name;
+
+            List<GameObject> possibleAnimals = new List<GameObject>();
+
+            foreach (var entry in animalToFoodMap)
             {
-                //Check if the GameObject exists in the scene before adding it to possibleAnimals
-                GameObject animal = GameObject.Find(entry.Key);
-                if (animal != null)
+                if (entry.Value.Contains(randomFoodName))
                 {
-                    possibleAnimals.Add(animal);
+                    GameObject animal = GameObject.Find(entry.Key);
+                    if (animal != null)
+                    {
+                        possibleAnimals.Add(animal);
+                    }
                 }
             }
-        }
 
-        //If there are no animals that can eat the selected food choose any random animal from the chosenAnimals list
-        if (possibleAnimals.Count == 0)
-        {
-            int randomAnimalIndex = Random.Range(0, chosenAnimals.Count);
-            correctRandomAnimal = chosenAnimals[randomAnimalIndex];
-        }
-        else
-        {
-            // Randomly choose one of the possible animals that can eat the selected food.
-            int correctAnimalIndex = Random.Range(0, possibleAnimals.Count);
-            correctRandomAnimal = possibleAnimals[correctAnimalIndex];
+            if (possibleAnimals.Count > 0)
+            {
+                //Assign the correct animal for this food based on its index in the list
+                int correctAnimalIndex = foodIndex % possibleAnimals.Count;
+                correctRandomAnimal = possibleAnimals[correctAnimalIndex];
+            }
+            else
+            {
+                //If there are no possible animals, choose a random one from chosenAnimals list
+                int randomAnimalIndex = Random.Range(0, chosenAnimals.Count);
+                correctRandomAnimal = chosenAnimals[randomAnimalIndex];
+            }
 
-        }
+            Debug.Log("Syötä " + food.name + " " + correctRandomAnimal.name);
 
-        Debug.Log("Sy�t� ruoka " + correctRandomAnimal.name);
+            foodsForAnimalsMap.Add(correctRandomAnimal.name, food.name);
+            foodIndex++;
+        }
     }
 
     //This method chooses the animal that gets changed
@@ -255,7 +258,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
         ActuallyChangeTheAnimal();
 
-        Debug.Log("Animal to get swapped " + animalThatGetsSwapped);
+        Debug.Log("Eläin joka vaihdetaan " + animalThatGetsSwapped);
 
     }
     //This method chooses a random animal from the ones that havent been chosen 
