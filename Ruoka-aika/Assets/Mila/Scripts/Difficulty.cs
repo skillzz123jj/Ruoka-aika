@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Difficulty : MonoBehaviour
 {
+    //This script only stores what difficulty has been chosen 
     public bool easy;
     public bool normal = true;
     public bool hard;
@@ -24,33 +25,6 @@ public class Difficulty : MonoBehaviour
 
             Destroy(gameObject);
         }
-    }
-
-  
-    public void StartGame(int scene)
-    {
-        SceneManager.LoadScene(scene);
-    }
-
-
-    //Checks for the chosen difficulty option
-    public void Easy()
-    {
-        easy = true;
-        normal = false;
-        hard = false;
-    }
-    public void Normal()
-    {
-        easy = false;
-        normal = true;
-        hard = false;
-    }
-    public void Hard()
-    {
-        easy = false;
-        normal = false;
-        hard = true;
     }
 }
 

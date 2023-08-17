@@ -32,12 +32,14 @@ public class RandomAnimalAndFood : MonoBehaviour
     bool foodsToChoose4;
     bool foodsToChoose5;
 
+    public int foodsLeft;
     public int numberOfFoodsToChoose;
     int numAnimalsToChoose = 4;
 
-
     //Allows other scripts to access this one
     public static RandomAnimalAndFood randomAnimalAndFood;
+
+    //This dictionary stores the temporary animals and their foods 
     public Dictionary<string, string> foodsForAnimalsMap = new Dictionary<string, string>();
 
     //Dictionary to map animal names to their corresponding food items
@@ -61,6 +63,11 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         if (timerToChangeFood <= 0)
         {
+            if (foodsLeft > 0)
+            {
+                Score.scoreScript.ScoreDown();
+
+            }
             RandomFood(numberOfFoodsToChoose);
 
             RandomCorrectAnimal();
@@ -196,7 +203,6 @@ public class RandomAnimalAndFood : MonoBehaviour
         RandomCorrectAnimal();
     }
 
-    //This method chooses an animal for each chosen food
     public void RandomCorrectAnimal()
     {
         int foodIndex = 0;
@@ -204,9 +210,9 @@ public class RandomAnimalAndFood : MonoBehaviour
         foodsForAnimalsMap.Clear();
 
         //For each food it checks if the animal can eat it and adds it to possible animals
-        foreach (GameObject food in chosenFoods)
+        foreach (GameObject obj in chosenFoods)
         {
-            string randomFoodName = food.name;
+            string randomFoodName = obj.name;
 
             List<GameObject> possibleAnimals = new List<GameObject>();
 
@@ -224,20 +230,20 @@ public class RandomAnimalAndFood : MonoBehaviour
 
             if (possibleAnimals.Count > 0)
             {
-                //Assign the correct animal for this food based on its index in the list
+                // Assign the correct animal for this food based on its index in the list
                 int correctAnimalIndex = foodIndex % possibleAnimals.Count;
                 correctRandomAnimal = possibleAnimals[correctAnimalIndex];
             }
             else
             {
-                //If there are no possible animals, choose a random one from chosenAnimals list
+                // If there are no possible animals, choose a random one from chosenAnimals list
                 int randomAnimalIndex = Random.Range(0, chosenAnimals.Count);
                 correctRandomAnimal = chosenAnimals[randomAnimalIndex];
             }
 
-            Debug.Log("Syötä " + food.name + " " + correctRandomAnimal.name);
+            Debug.Log("Syötä " + obj.name + " " + correctRandomAnimal.name);
 
-            foodsForAnimalsMap.Add(correctRandomAnimal.name, food.name);
+            foodsForAnimalsMap.Add(correctRandomAnimal.name, obj.name);
             foodIndex++;
         }
     }
@@ -258,7 +264,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
         ActuallyChangeTheAnimal();
 
-        Debug.Log("Eläin joka vaihdetaan " + animalThatGetsSwapped);
+       // Debug.Log("Eläin joka vaihdetaan " + animalThatGetsSwapped);
 
     }
     //This method chooses a random animal from the ones that havent been chosen 
