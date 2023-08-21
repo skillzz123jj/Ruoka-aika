@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Animals : MonoBehaviour
 {
+    [SerializeField] Animator anim;
+   
     //Checks for collisions and if the animal is allowed to eat that food
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -19,20 +21,28 @@ public class Animals : MonoBehaviour
             {
                 //If the animal is allowed to eat the food and the score goes up
                 Debug.Log(gameObject.name + " saa syödä " + foodThatCollidedName);
+                anim.SetTrigger("Iloinen");
                 Score.scoreScript.ScoreUp();
                 RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
                 foodThatCollided.SetActive(false);
+                
                 RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
+                Invoke("ResetIloinenTrigger", 0.1f);
+
             }
         }
         else
         {
             //If it was fed to the wrong animal player loses a life
             Debug.Log(gameObject.name + " ei saa syödä " + foodThatCollidedName);
+            anim.SetTrigger("Surullinen");
             RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
             RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
             foodThatCollided.SetActive(false);
+            
             Score.scoreScript.WrongFood();
+            Invoke("ResetSadTrigger", 0.1f);
+
         }
 
         if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft <= 0)
@@ -42,6 +52,18 @@ public class Animals : MonoBehaviour
             RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
             RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
         }
+    }
+
+    void ResetIloinenTrigger()
+    {
+        Debug.Log("Resetting Iloinen Trigger");
+        anim.ResetTrigger("Iloinen");
+    }
+
+    void ResetSadTrigger()
+    {
+        Debug.Log("Resetting Sad Trigger");
+        anim.ResetTrigger("Surullinen");
     }
 }
 
