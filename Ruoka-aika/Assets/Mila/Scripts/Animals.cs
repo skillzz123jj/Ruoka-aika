@@ -21,7 +21,7 @@ public class Animals : MonoBehaviour
             if (allowedFoods.Contains(foodThatCollidedName))
             {
                 //If the animal is allowed to eat the food and the score goes up
-                Debug.Log(gameObject.name + " saa syödä " + foodThatCollidedName);
+                Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
                 animExpression.SetTrigger("Iloinen");
                 animTail.SetTrigger("Häntä");
                 Score.scoreScript.ScoreUp();
@@ -34,7 +34,7 @@ public class Animals : MonoBehaviour
         else
         {
             //If it was fed to the wrong animal player loses a life
-            Debug.Log(gameObject.name + " ei saa syödä " + foodThatCollidedName);
+            Debug.Log($"{gameObject.name} ei saa syödä {foodThatCollidedName}");
             animExpression.SetTrigger("Surullinen");
             RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
             RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
@@ -52,6 +52,8 @@ public class Animals : MonoBehaviour
         }
     }
 }
+
+
 
 
 
