@@ -10,6 +10,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     [SerializeField] List<GameObject> foods = new List<GameObject>();
     [SerializeField] List<GameObject> allFoods = new List<GameObject>();
     [SerializeField] List<GameObject> chosenFoods = new List<GameObject>();
+    [SerializeField] List<GameObject> bowls = new List<GameObject>();
     List<string> foodsWithoutAssociations = new List<string>
     {
         "Rengas", "Jäätelö", "Sitruuna", "Karkki"
@@ -113,55 +114,61 @@ public class RandomAnimalAndFood : MonoBehaviour
     }
 
     //This method chooses the initial animals and their positions
+
     public void ChooseRandomAnimals()
     {
-        //This determines how many animals are chosen       
+        // This determines how many animals are chosen       
         CheckForDifficulty();
 
-        //Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
+        // Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
         List<int> amountOfAnimals = new List<int>();
+
 
         for (int i = 0; i < animals.Count; i++)
         {
             amountOfAnimals.Add(i);
         }
 
-        //This chooses 4 random animals from the list by running the loop 4 times 
-        for (int i = 0; i < numAnimalsToChoose; i++)
-        {
-            //Randomly chooses a number and stores it in randomAnimal
-            int randomAnimal = Random.Range(0, amountOfAnimals.Count);
-            //Corresponds the random number to the animals list and adds it to chosenAnimals (We do these temporary lists so the actual lists dont get changed)
-            chosenAnimals.Add(animals[amountOfAnimals[randomAnimal]]);
-            //Removes the randomly generated randomAnimal in order to prevent it to be chosen again
-            amountOfAnimals.RemoveAt(randomAnimal);
-        }
-
-        //These are the starting and ending points and the animals are set randomly and evenly on that line
+        // These are the starting and ending points and the animals are set randomly and evenly on that line
         Vector3 startPosition = lineStart.position;
         Vector3 endPosition = lineEnd.position;
 
-        //Runs this loop 4 times to get a position for each animal
-        for (int i = 0; i < chosenAnimals.Count; i++)
+        for (int i = 0; i < numAnimalsToChoose; i++)
         {
-            //Calculates the positions as a float and stores it in t
-            float t = i / (float)(chosenAnimals.Count - 1);
-            //Counts the position based on the given line and the calculation above
+            // Randomly chooses a number and stores it in randomAnimal
+            int randomAnimal = Random.Range(0, amountOfAnimals.Count);
+            int randomBowl = Random.Range(0, bowls.Count);
+
+            // Corresponds the random number to the animals list and adds it to chosenAnimals
+            chosenAnimals.Add(animals[amountOfAnimals[randomAnimal]]);
+
+            // Set the position of the chosen animal
+            float t = i / (float)(numAnimalsToChoose - 1);
             Vector3 newPosition = Vector3.Lerp(startPosition, endPosition, t);
-            //Sets the animal in its position
             chosenAnimals[i].transform.position = newPosition;
-            //Sets the selected animal as active in the scene
-            chosenAnimals[i].SetActive(true);
+
+            // Set the position of the chosen bowl to match the animal's position
+            bowls[randomBowl].transform.position = newPosition;
+
+
+            // Remove the randomly generated randomAnimal to prevent it from being chosen again
+            amountOfAnimals.RemoveAt(randomAnimal);
+            bowls.RemoveAt(randomBowl);
         }
 
-        //This gets all the animals and checks which of them arent in chosenAnimals and deactivates them 
+        // Set all the selected animals as active in the scene
+        foreach (GameObject animal in chosenAnimals)
+        {
+            animal.SetActive(true);
+        }
+
+        // This gets all the animals and checks which of them aren't in chosenAnimals and deactivates them 
         foreach (GameObject obj in animals)
         {
             if (!chosenAnimals.Contains(obj))
             {
                 obj.SetActive(false);
                 animalsThatWerentChosen.Add(obj);
-
             }
         }
 
