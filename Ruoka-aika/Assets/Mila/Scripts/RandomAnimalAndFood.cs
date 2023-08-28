@@ -9,7 +9,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     [SerializeField] List<GameObject> animalsThatWerentChosen = new List<GameObject>();
     [SerializeField] List<GameObject> foods = new List<GameObject>();
     [SerializeField] List<GameObject> allFoods = new List<GameObject>();
-    [SerializeField] List<GameObject> chosenFoods = new List<GameObject>();
+    [SerializeField] public List<GameObject> chosenFoods = new List<GameObject>();
     [SerializeField] List<GameObject> bowls = new List<GameObject>();
     List<string> foodsWithoutAssociations = new List<string>
     {

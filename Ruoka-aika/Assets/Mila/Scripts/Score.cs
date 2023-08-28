@@ -37,8 +37,20 @@ public class Score : MonoBehaviour
     }
     public void ScoreDown()
     {
+        //This checks if the remaining foods are ones that cant be fed and makes sure they dont lower the score
+        int increaseAmount = 0;
+        foreach (GameObject food in RandomAnimalAndFood.randomAnimalAndFood.chosenFoods)
+        {
+            if (food.CompareTag("EiSyötävä"))
+            {
+                increaseAmount++;
+            }
+        }
+
         //Takes the amount of foods that were left when the timer ran out and lowers it from total score
         int decreaseAmount = RandomAnimalAndFood.randomAnimalAndFood.foodsLeft;
+        decreaseAmount -= increaseAmount;
+
         if (score >= decreaseAmount)
         {
             score -= decreaseAmount;
@@ -50,6 +62,7 @@ public class Score : MonoBehaviour
         }
 
         scoreTEXT.text = score.ToString();
+        increaseAmount = 0;
     }
     public void WrongFood()
     {
