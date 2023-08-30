@@ -62,7 +62,8 @@ public class RandomAnimalAndFood : MonoBehaviour
         { "Kissa", new List<string> { "Kala", "Pihvi" } },
         { "Kana", new List<string> { "Lehdet/Nurtsi", "Oliivi" } },
         { "Alpakka", new List<string> { "Kurkku", "Oliivi" } },
-        { "Pesukarhu", new List<string> { "Nakki", "Appelsiini" } }
+        { "Pesukarhu", new List<string> { "Nakki", "Appelsiini" } },
+         { "Hevonen", new List<string> { "Jyvät", "Retiisi" } }
     };
 
     private void Update()
@@ -103,7 +104,8 @@ public class RandomAnimalAndFood : MonoBehaviour
             timerToChangeAnimal = 60;
         }
 
-        AmountOfFoods();
+        //AmountOfFoods();
+        AmountOfScore();
         CheckForCurrentLevel();
     }
 
@@ -514,6 +516,82 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         }
         if (Input.GetKey(KeyCode.U))
+        {
+            foodsToChoose1 = false;
+            foodsToChoose2 = false;
+            foodsToChoose3 = false;
+            foodsToChoose4 = false;
+            foodsToChoose5 = false;
+            foodsToChoose6 = false;
+            foodsToChoose7 = true;
+        }
+
+    }
+    void AmountOfScore()
+    {
+        //These change how many foods spawn during runtime 
+        if (Score.scoreScript.score <= 7)
+        {
+            foodsToChoose1 = true;
+            foodsToChoose2 = false;
+            foodsToChoose3 = false;
+            foodsToChoose4 = false;
+            foodsToChoose5 = false;
+            foodsToChoose6 = false;
+            foodsToChoose7 = false;
+        }
+        else if (Score.scoreScript.score <= 20)
+        {
+            foodsToChoose1 = false;
+            foodsToChoose2 = true;
+            foodsToChoose3 = false;
+            foodsToChoose4 = false;
+            foodsToChoose5 = false;
+            foodsToChoose6 = false;
+            foodsToChoose7 = false;
+        }
+        else if (Score.scoreScript.score <= 30)
+        {
+            foodsToChoose1 = false;
+            foodsToChoose2 = false;
+            foodsToChoose3 = true;
+            foodsToChoose4 = false;
+            foodsToChoose5 = false;
+            foodsToChoose6 = false;
+            foodsToChoose7 = false;
+        }
+        else if (Score.scoreScript.score <= 50)
+        {
+            foodsToChoose1 = false;
+            foodsToChoose2 = false;
+            foodsToChoose3 = false;
+            foodsToChoose4 = true;
+            foodsToChoose5 = false;
+            foodsToChoose6 = false;
+            foodsToChoose7 = false;
+        }
+        else if (Score.scoreScript.score <= 65)
+        {
+            foodsToChoose1 = false;
+            foodsToChoose2 = false;
+            foodsToChoose3 = false;
+            foodsToChoose4 = false;
+            foodsToChoose5 = true;
+            foodsToChoose6 = false;
+            foodsToChoose7 = false;
+        }
+        else if (Score.scoreScript.score <= 75)
+        {
+            foodsToChoose1 = false;
+            foodsToChoose2 = false;
+            foodsToChoose3 = false;
+            foodsToChoose4 = false;
+            foodsToChoose5 = false;
+            foodsToChoose6 = true;
+            foodsToChoose7 = false;
+
+        }
+        else if (Score.scoreScript.score <= 100)
         {
             foodsToChoose1 = false;
             foodsToChoose2 = false;
