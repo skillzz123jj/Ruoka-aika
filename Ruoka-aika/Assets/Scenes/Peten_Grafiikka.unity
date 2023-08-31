@@ -363,7 +363,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4913163303810072229, guid: c98e7b9ca39e2e34ba1ccc584c521d25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -823,8 +823,8 @@ MonoBehaviour:
   - {fileID: 152866244}
   - {fileID: 2127462370}
   m_Bounds:
-    m_Center: {x: -8.11201, y: -2.7225223, z: 0}
-    m_Extent: {x: 1.636275, y: 1.7574698, z: 0}
+    m_Center: {x: -0.009265065, y: 0.0023800135, z: 0}
+    m_Extent: {x: 1.6362748, y: 1.75747, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
