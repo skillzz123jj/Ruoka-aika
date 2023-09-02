@@ -13,7 +13,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     [SerializeField] List<GameObject> bowls = new List<GameObject>();
     List<string> foodsWithoutAssociations = new List<string>
     {
-        "Rengas", "Jäätelö", "Sitruuna", "Karkki"
+        "Rengas", "Jäätelö", "Sitruuna", "Karkki", "Chili"
     };
 
     [SerializeField] Transform lineStart;
@@ -53,14 +53,14 @@ public class RandomAnimalAndFood : MonoBehaviour
     //Dictionary to map animal names to their corresponding food items
     public Dictionary<string, List<string>> animalToFoodMap = new Dictionary<string, List<string>>()
     {
-        { "Koira", new List<string> { "Pihvi", "Paisti", "Nakki" } },
+        { "Koira", new List<string> { "Pihvi", "Paisti", "Luu" } },
         { "Pupu", new List<string> { "Porkkana", "Kaali" } },
-        { "Lehmä", new List<string> { "Vehnä/Kaura", "Leipä" } },
-        { "Lammas", new List<string> { "Vehnä/Kaura", "Pizza" } },
+        { "Lehmä", new List<string> { "Kurkku", "Leipä" } },
+        { "Lammas", new List<string> { "Retiisi", "Pizza" } },
         { "Possu", new List<string> { "Porkkana", "Pähkinät" } },
         { "Strutsi", new List<string> { "Pähkinät", "Kurkku" } },
         { "Kissa", new List<string> { "Kala", "Pihvi" } },
-        { "Kana", new List<string> { "Lehdet/Nurtsi", "Oliivi" } },
+        { "Kana", new List<string> { "Jyvät", "Oliivi" } },
         { "Alpakka", new List<string> { "Kurkku", "Oliivi" } },
         { "Pesukarhu", new List<string> { "Nakki", "Appelsiini" } },
          { "Hevonen", new List<string> { "Jyvät", "Retiisi" } }

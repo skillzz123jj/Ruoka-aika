@@ -13,7 +13,7 @@ public class Animals : MonoBehaviour
         GameObject foodThatCollided = collision.gameObject;
         string foodThatCollidedName = foodThatCollided.name;
 
-        //Checks if the food dictionary contains the food that the animal collided with
+        //Checks if the food dictionary contains the animal that the food collided with
         if (RandomAnimalAndFood.randomAnimalAndFood.foodsForAnimalsMap.ContainsKey(gameObject.name))
         {
             string allowedFoods = RandomAnimalAndFood.randomAnimalAndFood.foodsForAnimalsMap[gameObject.name];
