@@ -8,6 +8,7 @@ public class ButtonManager : MonoBehaviour
 
     void Start()
     {
+        //Sets the default button when the game ends
         EventSystem.current.SetSelectedGameObject(defaultButton.gameObject);
     }
 }
