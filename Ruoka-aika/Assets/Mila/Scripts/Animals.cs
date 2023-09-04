@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,8 +23,12 @@ public class Animals : MonoBehaviour
             {
                 //If the animal is allowed to eat the food and the score goes up
                 Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
-                animExpression.SetTrigger("Iloinen");
-                animTail.SetTrigger("Häntä");
+                if (animExpression != null)
+                {
+                    animExpression.SetTrigger("Iloinen");
+                    animTail.SetTrigger("Häntä");
+
+                }               
                 Score.scoreScript.ScoreUp();
                 RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
                 foodThatCollided.SetActive(false);
@@ -35,7 +40,11 @@ public class Animals : MonoBehaviour
         {
             //If it was fed to the wrong animal player loses a life
             Debug.Log($"{gameObject.name} ei saa syödä {foodThatCollidedName}");
-            animExpression.SetTrigger("Surullinen");
+            if (animExpression != null)
+            {
+                animExpression.SetTrigger("Surullinen");
+            }
+          
             RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
             RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
             foodThatCollided.SetActive(false);
@@ -44,12 +53,20 @@ public class Animals : MonoBehaviour
         }
 
         if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft <= 0)
-        {
-            //When there are no more foods left in the scene it randomly generates new ones
-            RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
-            RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
-            RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
+        {        
+            StartCoroutine(delayFoods(1.0f));
         }
+    }
+
+    //Spawns new foods with a slight delay to slow down the game 
+    public IEnumerator delayFoods(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
+        RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
+        RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
+
     }
 }
 

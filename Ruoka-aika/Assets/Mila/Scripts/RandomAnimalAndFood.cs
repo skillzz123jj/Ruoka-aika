@@ -26,9 +26,9 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     GameObject randomFood;
     GameObject correctRandomAnimal;
-    GameObject animalThatGetsSwapped;
 
-    private bool timeForAChangeOfAnimal;
+
+    public bool canChangeAnimal;
 
     //Bools to determine how many foods will be chosen
     bool foodsToChoose1 = true;
@@ -98,13 +98,11 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         if (timerToChangeAnimal <= 0)
         {
-            timeForAChangeOfAnimal = true;
-            AnimalToGetSwapped();
+            ChangeRandomAnimal();
             AddFoods();
             timerToChangeAnimal = 60;
         }
 
-        //AmountOfFoods();
         AmountOfScore();
         CheckForCurrentLevel();
     }
@@ -182,7 +180,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     public void RandomCorrectAnimal()
     {
         int foodIndex = 0;
-        //Clears the dictioanry that checks what animals are allowed to eat the foods
+        //Clears the dictionary that checks what animals are allowed to eat the foods
         foodsForAnimalsMap.Clear();
 
         //For each food it checks if the animal can eat it and adds it to possible animals
@@ -231,28 +229,14 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
     }
 
-    //This method chooses the animal that gets changed
-    void AnimalToGetSwapped()
-    {
-        if (timeForAChangeOfAnimal)
-        {
-            do
-            {
-                //Chooses a random animal from chosen animals to get rid of
-                int randomAnimalIndex = Random.Range(0, chosenAnimals.Count);
-                animalThatGetsSwapped = chosenAnimals[randomAnimalIndex];
-
-                //Keeps running this loop till the animal that is about to get swapped is no longer the one that is the current animal to be fed
-            } while (animalThatGetsSwapped == correctRandomAnimal);
-        }
-        ActuallyChangeTheAnimal();
-
-       // Debug.Log($"Eläin joka vaihdetaan {animalThatGetsSwapped}");
-
-    }
+ 
     //This method chooses a random animal from the ones that havent been chosen 
-    void ActuallyChangeTheAnimal()
+    void ChangeRandomAnimal()
     {
+        //Chooses the animal that gets swapped out
+        int randomSwappedAnimalIndex = Random.Range(0, chosenAnimals.Count);
+        GameObject animalThatGetsSwapped = chosenAnimals[randomSwappedAnimalIndex];
+
         //Chooses a random animal from the ones that arent currently in the scene
         int randomAnimalIndex = Random.Range(0, animalsThatWerentChosen.Count);
         GameObject animalThatGetsPutIn = animalsThatWerentChosen[randomAnimalIndex];
