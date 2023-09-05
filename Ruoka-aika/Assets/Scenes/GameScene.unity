@@ -279,7 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &40226064
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +769,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
+  good: 0
+  bad: 0
 --- !u!61 &121922008
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -974,7 +975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &145897543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,7 +1448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &240304756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,7 +1657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &262317977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,6 +2702,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
+  good: 0
+  bad: 0
 --- !u!61 &497446272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2983,7 +2983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3797,6 +3796,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &600050448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600050450}
+  - component: {fileID: 600050449}
+  m_Layer: 0
+  m_Name: ActiveFood
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &600050449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600050448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d0de5432588164880b295a13827241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doTheThing: 0
+--- !u!4 &600050450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600050448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.3174386, y: -2.3970308, z: -3.8063345}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &612099129
 GameObject:
   m_ObjectHideFlags: 0
@@ -4204,7 +4248,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &683579169
 GameObject:
   m_ObjectHideFlags: 0
@@ -4414,7 +4457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &696161925
 GameObject:
   m_ObjectHideFlags: 0
@@ -4517,6 +4559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
+  good: 0
+  bad: 0
 --- !u!61 &696161929
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4900,7 +4944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &721205675
 GameObject:
   m_ObjectHideFlags: 0
@@ -5172,6 +5215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 756984153}
   animTail: {fileID: 551161474}
+  good: 0
+  bad: 0
 --- !u!61 &756984151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5296,6 +5341,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 769570749}
   animTail: {fileID: 11530900}
+  good: 0
+  bad: 0
 --- !u!61 &769570746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5536,7 +5583,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &785056107
 GameObject:
   m_ObjectHideFlags: 0
@@ -5639,6 +5685,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
+  good: 0
+  bad: 0
 --- !u!61 &785056111
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5927,7 +5975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &819557839
 GameObject:
   m_ObjectHideFlags: 0
@@ -6137,7 +6184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &872557955
 GameObject:
   m_ObjectHideFlags: 0
@@ -6558,7 +6604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &1023525021
 GameObject:
   m_ObjectHideFlags: 0
@@ -6749,7 +6794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &1182782445
 GameObject:
   m_ObjectHideFlags: 0
@@ -6991,7 +7035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &1227722487
 GameObject:
   m_ObjectHideFlags: 0
@@ -7117,7 +7160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &1283740304
 GameObject:
   m_ObjectHideFlags: 0
@@ -7243,7 +7285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &1306704397
 GameObject:
   m_ObjectHideFlags: 0
@@ -7400,6 +7441,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 1310583678}
   animTail: {fileID: 1895630028}
+  good: 0
+  bad: 0
 --- !u!61 &1310583676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7800,7 +7843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!61 &1438685633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8080,7 +8122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &1479067470
 GameObject:
   m_ObjectHideFlags: 0
@@ -8661,6 +8702,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
+  good: 0
+  bad: 0
 --- !u!61 &1598555234
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9084,7 +9127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &1783208578
 GameObject:
   m_ObjectHideFlags: 0
@@ -9315,6 +9357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 1823923901}
   animTail: {fileID: 585547641}
+  good: 0
+  bad: 0
 --- !u!61 &1823923899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9801,7 +9845,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!61 &1905808431
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10133,6 +10176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
+  good: 0
+  bad: 0
 --- !u!61 &1959898044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10336,7 +10381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &1999268001
 GameObject:
   m_ObjectHideFlags: 0
@@ -10524,6 +10568,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animExpression: {fileID: 2005010708}
   animTail: {fileID: 578486196}
+  good: 0
+  bad: 0
 --- !u!61 &2005010706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10717,7 +10763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &2029470520
 GameObject:
   m_ObjectHideFlags: 0
@@ -10843,7 +10888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!1 &2117881148
 GameObject:
   m_ObjectHideFlags: 0
@@ -11086,7 +11130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
 --- !u!114 &2145211240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11099,4 +11142,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggedObject: {fileID: 0}
