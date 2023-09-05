@@ -47,11 +47,11 @@ public class RandomAnimalAndFood : MonoBehaviour
     public static RandomAnimalAndFood randomAnimalAndFood;
 
     //This dictionary stores the temporary animals and their foods 
-    public Dictionary<string, string> foodsForAnimalsMap = new Dictionary<string, string>();
+    public Dictionary<string, string> TempDictionary = new Dictionary<string, string>();
 
 
     //Dictionary to map animal names to their corresponding food items
-    public Dictionary<string, List<string>> animalToFoodMap = new Dictionary<string, List<string>>()
+    public Dictionary<string, List<string>> AnimalsFoodsDictionary = new Dictionary<string, List<string>>()
     {
         { "Koira", new List<string> { "Pihvi", "Paisti", "Luu" } },
         { "Pupu", new List<string> { "Porkkana", "Kaali" } },
@@ -114,7 +114,6 @@ public class RandomAnimalAndFood : MonoBehaviour
     }
 
     //This method chooses the initial animals and their positions
-
     public void ChooseRandomAnimals()
     {
         // This determines how many animals are chosen       
@@ -181,7 +180,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     {
         int foodIndex = 0;
         //Clears the dictionary that checks what animals are allowed to eat the foods
-        foodsForAnimalsMap.Clear();
+        TempDictionary.Clear();
 
         //For each food it checks if the animal can eat it and adds it to possible animals
         foreach (GameObject obj in chosenFoods)
@@ -196,7 +195,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
             List<GameObject> possibleAnimals = new List<GameObject>();
 
-            foreach (var entry in animalToFoodMap)
+            foreach (var entry in AnimalsFoodsDictionary)
             {
                 if (entry.Value.Contains(randomFoodName))
                 {
@@ -224,7 +223,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
 
             //Adds it to the temporary dictionary
-            foodsForAnimalsMap.Add(correctRandomAnimal.name, obj.name);
+            TempDictionary.Add(correctRandomAnimal.name, obj.name);
             foodIndex++;
         }
     }
@@ -277,10 +276,10 @@ public class RandomAnimalAndFood : MonoBehaviour
         foreach (GameObject animal in chosenAnimals)
         {
             // Check if the animal name exists in the dictionary
-            if (animalToFoodMap.ContainsKey(animal.name))
+            if (AnimalsFoodsDictionary.ContainsKey(animal.name))
             {
                 // Fetches the foods from the dictionary for each animal
-                List<string> foodItems = animalToFoodMap[animal.name];
+                List<string> foodItems = AnimalsFoodsDictionary[animal.name];
                 foreach (string foodName in foodItems)
                 {
                     // Only add the food if it hasn't been added before
