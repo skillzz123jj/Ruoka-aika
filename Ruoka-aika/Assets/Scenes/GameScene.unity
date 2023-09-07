@@ -3825,7 +3825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d0de5432588164880b295a13827241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doTheThing: 0
+  foodWasFed: 0
 --- !u!4 &600050450
 Transform:
   m_ObjectHideFlags: 0
@@ -7566,7 +7566,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314074845}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.498594, y: 0.8272818, z: 0.031495996}
+  m_LocalPosition: {x: 8.75, y: -21.3, z: 0.031495996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9812,7 +9812,7 @@ GameObject:
   - component: {fileID: 1905808430}
   m_Layer: 0
   m_Name: Chili
-  m_TagString: Untagged
+  m_TagString: "EiSy\xF6t\xE4v\xE4"
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

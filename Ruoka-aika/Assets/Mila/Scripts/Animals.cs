@@ -102,17 +102,19 @@ public class Animals : MonoBehaviour
         //Checks if the food dictionary contains the animal that the food collided with
         if (RandomAnimalAndFood.randomAnimalAndFood.TempDictionary.ContainsKey(gameObject.name))
         {
-            string allowedFoods = RandomAnimalAndFood.randomAnimalAndFood.TempDictionary[gameObject.name];
+            List<string> allowedFoods = RandomAnimalAndFood.randomAnimalAndFood.TempDictionary[gameObject.name];
 
             //This checks if the animal can eat the food and sets the bools accordingly
             if (allowedFoods.Contains(foodThatCollidedName))
             {
+                Debug.Log("good");
                 good = true;
                 bad = false;
             }
         }
         else
         {
+            Debug.Log("bad");
             bad = true;
             good = false;
         }
@@ -168,10 +170,11 @@ public class Animals : MonoBehaviour
         }
         Score.scoreScript.ScoreUp();
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
+        foodThatCollided.transform.position = new Vector2(0, -20);
         foodThatCollided.SetActive(false);
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
 
-        if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft >= 0)
+        if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft == 0)
         {
             Invoke("NewFoods", 0.5F);
         }
@@ -188,10 +191,11 @@ public class Animals : MonoBehaviour
 
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
-        foodThatCollided.SetActive(false);
+        foodThatCollided.transform.position = new Vector2(0, -20);
+        foodThatCollided.SetActive(false);      
         Score.scoreScript.WrongFood();
 
-        if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft >= 0)
+        if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft == 0)
         {
             Invoke("NewFoods", 0.5F);
         }

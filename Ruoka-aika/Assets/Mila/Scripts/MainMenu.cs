@@ -30,23 +30,17 @@ public class MainMenu : MonoBehaviour
         if (Difficulty.difficulty.easy)
         {
             easyButton.image.sprite = easyHighlightSprite;
-            //normalButton.image.sprite = normalDefaultSprite;
-            //hardButton.image.sprite = hardDefaultSprite;
-
+            
         }
         if (Difficulty.difficulty.normal)
         {
             normalButton.image.sprite = normalHighlightSprite;
-            //easyButton.image.sprite = easyDefaultSprite;
-            //hardButton.image.sprite = hardDefaultSprite;
-
+           
         }
         if (Difficulty.difficulty.hard)
         {
             hardButton.image.sprite = hardHighlightSprite;
-            //easyButton.image.sprite = easyDefaultSprite;
-            //normalButton.image.sprite = normalDefaultSprite;
-
+            
         }
     }
 
@@ -79,8 +73,5 @@ public class MainMenu : MonoBehaviour
         normalButton.image.sprite = normalDefaultSprite;
 
     }
-
-
-
 }
 

@@ -47,7 +47,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     public static RandomAnimalAndFood randomAnimalAndFood;
 
     //This dictionary stores the temporary animals and their foods 
-    public Dictionary<string, string> TempDictionary = new Dictionary<string, string>();
+    public Dictionary<string, List<string>> TempDictionary = new Dictionary<string, List<string>>();
 
 
     //Dictionary to map animal names to their corresponding food items
@@ -78,6 +78,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
             }
             RandomFood(numberOfFoodsToChoose);
+           
 
             RandomCorrectAnimal();
             if (Difficulty.difficulty.easy)
@@ -173,9 +174,16 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         AddFoods();
         RandomFood(1);
+        //Goes over all the chosen foods once more and gives them positions
+        for (int t = 0; t < chosenFoods.Count; t++)
+        {
+            FoodPosition(chosenFoods[t]);
+            chosenFoods[t].SetActive(true);
+        }
         RandomCorrectAnimal();
     }
 
+    //This method assigns the foods for each animal
     public void RandomCorrectAnimal()
     {
         int foodIndex = 0;
@@ -222,13 +230,21 @@ public class RandomAnimalAndFood : MonoBehaviour
 
             Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
 
-            //Adds it to the temporary dictionary
-            TempDictionary.Add(correctRandomAnimal.name, obj.name);
+            if (TempDictionary.ContainsKey(correctRandomAnimal.name))
+            {
+                //If the animal is in the dictionary this adds it another food as a value
+                TempDictionary[correctRandomAnimal.name].Add(obj.name);
+            }
+            else
+            {
+                //If the animal wasnt in the temporary dictionary it adds it alongside a new list for numerous foods
+                List<string> newList = new List<string> { obj.name };
+                TempDictionary[correctRandomAnimal.name] = newList;
+            }
             foodIndex++;
         }
     }
 
- 
     //This method chooses a random animal from the ones that havent been chosen 
     void ChangeRandomAnimal()
     {
@@ -320,6 +336,8 @@ public class RandomAnimalAndFood : MonoBehaviour
             food.SetActive(true);
         }
     }
+
+ 
     public void RandomFood(int numberOfFoodsToChoose)
     {
         //Clear the list of chosen foods so it can be filled again
@@ -341,7 +359,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         //Chooses foods based on the given amount
         for (int i = 0; i < numberOfFoodsToChoose; i++)
         {
-            //Chooses a food from availableFoods and makes sure it doesnt get chosen again (It still sometimes does needs to be looked at)
+            //Chooses a food from availableFoods and makes sure it doesnt get chosen again 
             int chosenFoodIndex = Random.Range(0, availableFoods.Count);
             GameObject chosenFood = availableFoods[chosenFoodIndex];
             chosenFoods.Add(chosenFood);
