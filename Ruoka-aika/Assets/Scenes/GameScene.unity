@@ -165,10 +165,11 @@ GameObject:
   - component: {fileID: 19811820}
   - component: {fileID: 19811822}
   - component: {fileID: 19811821}
+  - component: {fileID: 19811824}
   - component: {fileID: 19811823}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Etana
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,7 +277,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 19811819}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &19811824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19811819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &40226064
@@ -424,7 +437,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51869659}
   - component: {fileID: 51869660}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 53664445}
   - component: {fileID: 53664446}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +743,7 @@ GameObject:
   - component: {fileID: 121922008}
   - component: {fileID: 121922007}
   - component: {fileID: 121922009}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Lehm\xE4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,9 +888,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 123644136}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Lehm\xE4"
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -909,10 +922,11 @@ GameObject:
   - component: {fileID: 135644136}
   - component: {fileID: 135644138}
   - component: {fileID: 135644137}
+  - component: {fileID: 135644140}
   - component: {fileID: 135644139}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sitruuna
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1020,7 +1034,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 135644135}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &135644140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135644135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &145897543
@@ -1032,9 +1058,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 145897544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Kana
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1065,7 +1091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 151965027}
   - component: {fileID: 151965028}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1149,7 +1175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170039854}
   - component: {fileID: 170039855}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1316,9 +1342,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 180310411}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Strutsi
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1348,9 +1374,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 181400763}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Alpakka
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1382,10 +1408,11 @@ GameObject:
   - component: {fileID: 184676909}
   - component: {fileID: 184676911}
   - component: {fileID: 184676910}
+  - component: {fileID: 184676913}
   - component: {fileID: 184676912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Oliivi
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1493,7 +1520,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 184676908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &184676913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184676908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &240304756
@@ -1506,7 +1545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 240304757}
   - component: {fileID: 240304758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kissa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1591,10 +1630,11 @@ GameObject:
   - component: {fileID: 252024790}
   - component: {fileID: 252024792}
   - component: {fileID: 252024791}
+  - component: {fileID: 252024794}
   - component: {fileID: 252024793}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Leip\xE4"
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1613,7 +1653,7 @@ Transform:
   m_Children:
   - {fileID: 53664445}
   m_Father: {fileID: 1314074846}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &252024791
 BoxCollider2D:
@@ -1702,7 +1742,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 252024789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &252024794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252024789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &262317977
@@ -1715,7 +1767,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262317978}
   - component: {fileID: 262317979}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: possu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1966,6 +2018,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: kana
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7854501953593628634, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2009,6 +2069,34 @@ PrefabInstance:
     - target: {fileID: -7552582706839291426, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4461737097685415800, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1422132056621170853, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 386791141387813222, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297364353584691495, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514277267147506254, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157741701538757237, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6933941941371952049, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 7dab74ed8e54ed14194c7c169125b6d0, type: 3}
@@ -2124,9 +2212,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 417636127}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Kissa
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2157,7 +2245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 436741051}
   - component: {fileID: 436741052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Tausta '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2241,7 +2329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 438710519}
   - component: {fileID: 438710520}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2325,7 +2413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 467633528}
   - component: {fileID: 467633529}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2409,7 +2497,7 @@ GameObject:
   m_Component:
   - component: {fileID: 471119338}
   - component: {fileID: 471119339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2664,7 +2752,7 @@ GameObject:
   - component: {fileID: 497446272}
   - component: {fileID: 497446271}
   - component: {fileID: 497446270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Kissa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2811,10 +2899,11 @@ GameObject:
   - component: {fileID: 508751055}
   - component: {fileID: 508751057}
   - component: {fileID: 508751056}
+  - component: {fileID: 508751059}
   - component: {fileID: 508751058}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pizza
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2827,7 +2916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508751054}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.53, y: -1.58, z: 0}
+  m_LocalPosition: {x: 5.5300007, y: -1.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2922,7 +3011,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 508751054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &508751059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508751054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &519420028
@@ -3052,9 +3153,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 532816652}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lammas
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3222,7 +3323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 536555987}
   - component: {fileID: 536555988}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Tausta '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3307,6 +3408,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: strutsi
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: f950fe814cc23be40a77ef7395a8070f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8268928029025307584, guid: f950fe814cc23be40a77ef7395a8070f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: f950fe814cc23be40a77ef7395a8070f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3350,6 +3459,14 @@ PrefabInstance:
     - target: {fileID: -7552582706839291426, guid: f950fe814cc23be40a77ef7395a8070f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4546919045956300991, guid: f950fe814cc23be40a77ef7395a8070f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 386791141387813222, guid: f950fe814cc23be40a77ef7395a8070f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: f950fe814cc23be40a77ef7395a8070f, type: 3}
@@ -3531,8 +3648,16 @@ PrefabInstance:
       value: lammas
       objectReference: {fileID: 0}
     - target: {fileID: -8653719598885068355, guid: e23ebd400dbe97f4cae0315ff23cd318, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: e23ebd400dbe97f4cae0315ff23cd318, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8268928029025307584, guid: e23ebd400dbe97f4cae0315ff23cd318, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: e23ebd400dbe97f4cae0315ff23cd318, type: 3}
       propertyPath: m_RootOrder
@@ -3589,6 +3714,14 @@ PrefabInstance:
     - target: {fileID: -7552582706839291426, guid: e23ebd400dbe97f4cae0315ff23cd318, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4546919045956300991, guid: e23ebd400dbe97f4cae0315ff23cd318, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 386791141387813222, guid: e23ebd400dbe97f4cae0315ff23cd318, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: e23ebd400dbe97f4cae0315ff23cd318, type: 3}
@@ -3860,7 +3993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 648219460}
   - component: {fileID: 648219461}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Tausta '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3945,10 +4078,11 @@ GameObject:
   - component: {fileID: 659768721}
   - component: {fileID: 659768723}
   - component: {fileID: 659768722}
+  - component: {fileID: 659768725}
   - component: {fileID: 659768724}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Kurkku
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3967,7 +4101,7 @@ Transform:
   m_Children:
   - {fileID: 467633528}
   m_Father: {fileID: 1314074846}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &659768722
 BoxCollider2D:
@@ -4056,7 +4190,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 659768720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &659768725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659768720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &683579169
@@ -4069,7 +4215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 683579170}
   - component: {fileID: 683579171}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4154,10 +4300,11 @@ GameObject:
   - component: {fileID: 685726590}
   - component: {fileID: 685726592}
   - component: {fileID: 685726591}
+  - component: {fileID: 685726594}
   - component: {fileID: 685726593}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Porkkana
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4265,7 +4412,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 685726589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &685726594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685726589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &696161925
@@ -4281,7 +4440,7 @@ GameObject:
   - component: {fileID: 696161929}
   - component: {fileID: 696161928}
   - component: {fileID: 696161930}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Koira
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4428,10 +4587,11 @@ GameObject:
   - component: {fileID: 712699484}
   - component: {fileID: 712699486}
   - component: {fileID: 712699485}
+  - component: {fileID: 712699488}
   - component: {fileID: 712699487}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Kala
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4450,7 +4610,7 @@ Transform:
   m_Children:
   - {fileID: 536555987}
   m_Father: {fileID: 1314074846}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &712699485
 BoxCollider2D:
@@ -4539,7 +4699,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 712699483}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &712699488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712699483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &721205675
@@ -4552,7 +4724,7 @@ GameObject:
   m_Component:
   - component: {fileID: 721205676}
   - component: {fileID: 721205677}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4636,7 +4808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 731137561}
   - component: {fileID: 731137562}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Tausta '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4724,7 +4896,7 @@ GameObject:
   - component: {fileID: 756984150}
   - component: {fileID: 756984152}
   - component: {fileID: 756984153}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Strutsi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4895,7 +5067,7 @@ GameObject:
   - component: {fileID: 769570745}
   - component: {fileID: 769570744}
   - component: {fileID: 769570749}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Kana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5063,10 +5235,11 @@ GameObject:
   - component: {fileID: 779020585}
   - component: {fileID: 779020587}
   - component: {fileID: 779020586}
+  - component: {fileID: 779020589}
   - component: {fileID: 779020588}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Nakki
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5085,7 +5258,7 @@ Transform:
   m_Children:
   - {fileID: 968892899}
   m_Father: {fileID: 1314074846}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &779020586
 BoxCollider2D:
@@ -5174,7 +5347,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 779020584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &779020589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779020584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &785056107
@@ -5190,7 +5375,7 @@ GameObject:
   - component: {fileID: 785056111}
   - component: {fileID: 785056110}
   - component: {fileID: 785056112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Possu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5368,7 +5553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 814013593}
   - component: {fileID: 814013594}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5453,10 +5638,11 @@ GameObject:
   - component: {fileID: 814517608}
   - component: {fileID: 814517610}
   - component: {fileID: 814517609}
+  - component: {fileID: 814517612}
   - component: {fileID: 814517611}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rengas
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5469,7 +5655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814517607}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.47, y: 0.02, z: 0}
+  m_LocalPosition: {x: 19.47, y: 0.01999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5564,7 +5750,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 814517607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &814517612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814517607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &819557839
@@ -5577,7 +5775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 819557840}
   - component: {fileID: 819557841}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5662,9 +5860,11 @@ GameObject:
   - component: {fileID: 851917921}
   - component: {fileID: 851917923}
   - component: {fileID: 851917922}
-  m_Layer: 0
+  - component: {fileID: 851917925}
+  - component: {fileID: 851917924}
+  m_Layer: 7
   m_Name: Lehdet/Nurtsi
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5676,14 +5876,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851917920}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 17.76, y: -1.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 170039854}
   m_Father: {fileID: 1314074846}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &851917922
 BoxCollider2D:
@@ -5763,6 +5963,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &851917924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851917920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &851917925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851917920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &968892898
 GameObject:
   m_ObjectHideFlags: 0
@@ -5773,7 +5997,7 @@ GameObject:
   m_Component:
   - component: {fileID: 968892899}
   - component: {fileID: 968892900}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Tausta '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5858,10 +6082,11 @@ GameObject:
   - component: {fileID: 1007338159}
   - component: {fileID: 1007338161}
   - component: {fileID: 1007338160}
+  - component: {fileID: 1007338163}
   - component: {fileID: 1007338162}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Jyv\xE4t"
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5969,7 +6194,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1007338158}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1007338163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007338158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1023525021
@@ -6034,10 +6271,11 @@ GameObject:
   - component: {fileID: 1182638216}
   - component: {fileID: 1182638218}
   - component: {fileID: 1182638217}
+  - component: {fileID: 1182638220}
   - component: {fileID: 1182638219}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Karkki
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6145,7 +6383,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1182638215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1182638220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182638215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1182782445
@@ -6243,10 +6493,11 @@ GameObject:
   - component: {fileID: 1219963491}
   - component: {fileID: 1219963493}
   - component: {fileID: 1219963492}
+  - component: {fileID: 1219963495}
   - component: {fileID: 1219963494}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Retiisi
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6259,7 +6510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219963490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21, y: 0.02, z: 0}
+  m_LocalPosition: {x: 21, y: 0.01999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6354,7 +6605,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1219963490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1219963495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219963490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1227722487
@@ -6368,10 +6631,11 @@ GameObject:
   - component: {fileID: 1227722488}
   - component: {fileID: 1227722490}
   - component: {fileID: 1227722489}
+  - component: {fileID: 1227722492}
   - component: {fileID: 1227722491}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Vehn\xE4/Kaura"
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6390,7 +6654,7 @@ Transform:
   m_Children:
   - {fileID: 2117881149}
   m_Father: {fileID: 1314074846}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1227722489
 BoxCollider2D:
@@ -6479,7 +6743,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1227722487}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1227722492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227722487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1252047217
@@ -6627,10 +6903,11 @@ GameObject:
   - component: {fileID: 1283740305}
   - component: {fileID: 1283740307}
   - component: {fileID: 1283740306}
+  - component: {fileID: 1283740309}
   - component: {fileID: 1283740308}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Kaali
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6738,7 +7015,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1283740304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1283740309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283740304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1306704397
@@ -6751,7 +7040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1306704398}
   - component: {fileID: 1306704399}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "lehm\xE4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6839,7 +7128,7 @@ GameObject:
   - component: {fileID: 1310583675}
   - component: {fileID: 1310583674}
   - component: {fileID: 1310583678}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pesukarhu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7005,9 +7294,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1314074846}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ruoat
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7024,20 +7313,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1227722488}
   - {fileID: 851917921}
   - {fileID: 252024790}
   - {fileID: 712699484}
   - {fileID: 779020585}
   - {fileID: 659768721}
-  - {fileID: 1227722488}
   - {fileID: 184676909}
   - {fileID: 508751055}
   - {fileID: 1283740305}
   - {fileID: 2029470521}
   - {fileID: 2145211236}
   - {fileID: 685726590}
-  - {fileID: 1967661552}
   - {fileID: 1782428163}
+  - {fileID: 1967661552}
   - {fileID: 19811820}
   - {fileID: 1007338159}
   - {fileID: 1182638216}
@@ -7059,7 +7348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1327675291}
   - component: {fileID: 1327675292}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: koira
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7174,7 +7463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1408121461}
   - component: {fileID: 1408121462}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7259,10 +7548,11 @@ GameObject:
   - component: {fileID: 1470379371}
   - component: {fileID: 1470379373}
   - component: {fileID: 1470379372}
+  - component: {fileID: 1470379375}
   - component: {fileID: 1470379374}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mato
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7275,7 +7565,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470379370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.92, y: -1.6, z: 0}
+  m_LocalPosition: {x: 1.9200001, y: -1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7370,7 +7660,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1470379370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1470379375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470379370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1479067470
@@ -7646,7 +7948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1493612227}
   - component: {fileID: 1493612228}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7761,9 +8063,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1516834377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pesukarhu
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7928,9 +8230,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1531769825}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Koira
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7995,7 +8297,7 @@ GameObject:
   - component: {fileID: 1598555234}
   - component: {fileID: 1598555233}
   - component: {fileID: 1598555235}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pupu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8277,9 +8579,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1716085233}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pupu
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8310,7 +8612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1732331443}
   - component: {fileID: 1732331444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Tausta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8530,10 +8832,11 @@ GameObject:
   - component: {fileID: 1782428163}
   - component: {fileID: 1782428165}
   - component: {fileID: 1782428164}
+  - component: {fileID: 1782428167}
   - component: {fileID: 1782428166}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pihvi
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8552,7 +8855,7 @@ Transform:
   m_Children:
   - {fileID: 1408121461}
   m_Father: {fileID: 1314074846}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1782428164
 BoxCollider2D:
@@ -8641,7 +8944,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1782428162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1782428167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782428162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1783208578
@@ -8654,7 +8969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1783208579}
   - component: {fileID: 1783208580}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Tausta '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8737,9 +9052,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1807332538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "El\xE4imet"
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8815,7 +9130,7 @@ GameObject:
   - component: {fileID: 1823923898}
   - component: {fileID: 1823923897}
   - component: {fileID: 1823923901}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Alpakka
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8982,7 +9297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1852598725}
   - component: {fileID: 1852598726}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Tausta '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9151,6 +9466,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: pesukarhu
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 7a9dc6825dae998429dae580b5d6b461, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8268928029025307584, guid: 7a9dc6825dae998429dae580b5d6b461, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7704287994595893555, guid: 7a9dc6825dae998429dae580b5d6b461, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 7a9dc6825dae998429dae580b5d6b461, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9195,6 +9522,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4546919045956300991, guid: 7a9dc6825dae998429dae580b5d6b461, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2029940662096828510, guid: 7a9dc6825dae998429dae580b5d6b461, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 386791141387813222, guid: 7a9dc6825dae998429dae580b5d6b461, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 7a9dc6825dae998429dae580b5d6b461, type: 3}
 --- !u!4 &1895630026 stripped
@@ -9238,7 +9577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1901634016}
   - component: {fileID: 1901634017}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pupu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9440,6 +9779,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: alpakka
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 8779a10d99d569742b7702939ea8b531, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8268928029025307584, guid: 8779a10d99d569742b7702939ea8b531, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 8779a10d99d569742b7702939ea8b531, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -9492,6 +9839,14 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Center.y
       value: -1.0255808
       objectReference: {fileID: 0}
+    - target: {fileID: -4546919045956300991, guid: 8779a10d99d569742b7702939ea8b531, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 386791141387813222, guid: 8779a10d99d569742b7702939ea8b531, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: 8779a10d99d569742b7702939ea8b531, type: 3}
 --- !u!1 &1967661551
@@ -9505,10 +9860,11 @@ GameObject:
   - component: {fileID: 1967661552}
   - component: {fileID: 1967661554}
   - component: {fileID: 1967661553}
+  - component: {fileID: 1967661556}
   - component: {fileID: 1967661555}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paisti
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9527,7 +9883,7 @@ Transform:
   m_Children:
   - {fileID: 1732331443}
   m_Father: {fileID: 1314074846}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1967661553
 BoxCollider2D:
@@ -9616,7 +9972,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1967661551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1967661556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967661551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2005010702
@@ -9633,7 +10001,7 @@ GameObject:
   - component: {fileID: 2005010705}
   - component: {fileID: 2005010707}
   - component: {fileID: 2005010708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lammas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9801,10 +10169,11 @@ GameObject:
   - component: {fileID: 2015040028}
   - component: {fileID: 2015040030}
   - component: {fileID: 2015040029}
+  - component: {fileID: 2015040032}
   - component: {fileID: 2015040031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "J\xE4\xE4tel\xF6"
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9912,7 +10281,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2015040027}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2015040032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015040027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2029470520
@@ -9926,10 +10307,11 @@ GameObject:
   - component: {fileID: 2029470521}
   - component: {fileID: 2029470523}
   - component: {fileID: 2029470522}
+  - component: {fileID: 2029470525}
   - component: {fileID: 2029470524}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "P\xE4hkin\xE4t"
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9942,7 +10324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029470520}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.99, y: 0, z: 0}
+  m_LocalPosition: {x: 1.9899998, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10037,7 +10419,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2029470520}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2029470525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029470520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2117881148
@@ -10050,7 +10444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2117881149}
   - component: {fileID: 2117881150}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 'Tausta '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10133,9 +10527,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2141199940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Possu
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10169,9 +10563,9 @@ GameObject:
   - component: {fileID: 2145211237}
   - component: {fileID: 2145211240}
   - component: {fileID: 2145211239}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Appelsiini
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10279,7 +10673,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2145211235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 42109481bd91c884fbac0acac80144d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2145211240
@@ -10291,6 +10685,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2145211235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
+  m_Script: {fileID: 11500000, guid: 3bf643a1826894e44955db39541f5758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
