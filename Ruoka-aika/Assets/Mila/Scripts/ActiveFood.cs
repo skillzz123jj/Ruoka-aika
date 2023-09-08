@@ -6,6 +6,8 @@ public class ActiveFood : MonoBehaviour
 {
     public bool foodWasFed;
 
+    public GameObject wrongFoodSprite;
+
     public static ActiveFood activeFood;
 
     void Start()
@@ -19,11 +21,11 @@ public class ActiveFood : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
             foodWasFed = true;
-            Invoke("resetBool", 0.2f);
+            Invoke("ResetBool", 0.2f);
         }
     }
 
-    void resetBool()
+    void ResetBool()
     {
         foodWasFed = false;
     }
