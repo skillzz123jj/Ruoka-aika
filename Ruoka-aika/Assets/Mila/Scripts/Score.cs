@@ -27,11 +27,14 @@ public class Score : MonoBehaviour
         if (errors == 3)
         {
             randomAnimalAndFood.SetActive(false);
-            gameOverScreen.SetActive(true);
-
+            Invoke("EndTheGame", 1.5f);
         }
     }
 
+    void EndTheGame()
+    {
+        gameOverScreen.SetActive(true);
+    }
     public void ScoreUp()
     {
         score++;

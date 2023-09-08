@@ -39,6 +39,8 @@ public class RandomAnimalAndFood : MonoBehaviour
     bool foodsToChoose6;
     bool foodsToChoose7;
 
+    public bool nowIsAGoodTime;
+
     public int foodsLeft;
     public int numberOfFoodsToChoose;
     int numAnimalsToChoose = 4;
@@ -77,10 +79,10 @@ public class RandomAnimalAndFood : MonoBehaviour
                 Score.scoreScript.ScoreDown();
 
             }
-            RandomFood(numberOfFoodsToChoose);
-           
 
+            RandomFood(numberOfFoodsToChoose);
             RandomCorrectAnimal();
+
             if (Difficulty.difficulty.easy)
             {
                 timerToChangeFood = 100;
@@ -99,15 +101,19 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         if (timerToChangeAnimal <= 0)
         {
-            ChangeRandomAnimal();
-            AddFoods();
-            timerToChangeAnimal = 60;
+            nowIsAGoodTime = true;
         }
 
         AmountOfScore();
         CheckForCurrentLevel();
     }
 
+    public void CanChangeAnimal()
+    {
+        ChangeRandomAnimal();
+        AddFoods();
+        timerToChangeAnimal = 60;
+    }
     private void Start()
     {
         randomAnimalAndFood = this;

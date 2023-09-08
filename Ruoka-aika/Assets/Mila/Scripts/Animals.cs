@@ -173,11 +173,7 @@ public class Animals : MonoBehaviour
         foodThatCollided.transform.position = new Vector2(0, -20);
         foodThatCollided.SetActive(false);
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
-
-        if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft == 0)
-        {
-            Invoke("NewFoods", 0.5F);
-        }
+        HandleChanges();
     }
 
     void BadFood()
@@ -190,15 +186,53 @@ public class Animals : MonoBehaviour
         }
 
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
-        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
-        foodThatCollided.transform.position = new Vector2(0, -20);
-        foodThatCollided.SetActive(false);      
+        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;  
         Score.scoreScript.WrongFood();
+        WrongFoodSprite();
+        HandleChanges();
+        
+    }
 
+    //This method adds a sprite on the food if it was fed to the incorrect animal
+    void WrongFoodSprite()
+    {       
+        ActiveFood.activeFood.wrongFoodSprite.transform.position = foodThatCollided.transform.position;
+        ActiveFood.activeFood.wrongFoodSprite.SetActive(true);
+        Invoke("ResetSprite", 1.5f);
+    }
+
+    //This one gets rid of the sprite and the food after a slight delay
+    void ResetSprite()
+    {
+        ActiveFood.activeFood.wrongFoodSprite.SetActive(false); 
+        foodThatCollided.SetActive(false);
+        ActiveFood.activeFood.wrongFoodSprite.transform.position = new Vector2(0, -20);
+     
+    }
+
+    //If there are no more foods this one gives more foods
+    void HandleChanges()
+    {
         if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft == 0)
         {
-            Invoke("NewFoods", 0.5F);
+            //This changes animals 
+            if (RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime)
+            {
+                //A slight delay to make it more smooth
+                Invoke("ChangeAnimalWithADelay", 3.0f);
+            }
+            else
+            {
+                Invoke("NewFoods", 1.5F);
+            }
         }
+    }
+    //Changes the animal when the player isnt feeding any
+    void ChangeAnimalWithADelay()
+    {
+        RandomAnimalAndFood.randomAnimalAndFood.CanChangeAnimal();
+        RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime = false;
+
     }
 }
 
