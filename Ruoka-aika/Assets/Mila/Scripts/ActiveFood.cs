@@ -7,6 +7,7 @@ public class ActiveFood : MonoBehaviour
     public bool foodWasFed;
 
     public GameObject wrongFoodSprite;
+    public GameObject obstacle;
 
     public static ActiveFood activeFood;
 
@@ -23,6 +24,7 @@ public class ActiveFood : MonoBehaviour
             foodWasFed = true;
             Invoke("ResetBool", 0.2f);
         }
+     
     }
 
     void ResetBool()

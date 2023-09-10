@@ -27,7 +27,9 @@ public class RandomAnimalAndFood : MonoBehaviour
     GameObject randomFood;
     GameObject correctRandomAnimal;
 
+    [SerializeField] Animator smokeAnim;    
 
+    public GameObject smoke;
     public bool canChangeAnimal;
 
     //Bools to determine how many foods will be chosen
@@ -258,6 +260,10 @@ public class RandomAnimalAndFood : MonoBehaviour
         int randomSwappedAnimalIndex = Random.Range(0, chosenAnimals.Count);
         GameObject animalThatGetsSwapped = chosenAnimals[randomSwappedAnimalIndex];
 
+        smoke.transform.position = animalThatGetsSwapped.transform.position;
+        smoke.SetActive(true);
+        smokeAnim.SetTrigger("Savu");
+        
         //Chooses a random animal from the ones that arent currently in the scene
         int randomAnimalIndex = Random.Range(0, animalsThatWerentChosen.Count);
         GameObject animalThatGetsPutIn = animalsThatWerentChosen[randomAnimalIndex];
@@ -287,7 +293,6 @@ public class RandomAnimalAndFood : MonoBehaviour
             food.SetActive(true);
         }
     }
-
 
     public void AddFoods()
     {
@@ -537,7 +542,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     void AmountOfScore()
     {
         //These change how many foods spawn during runtime 
-        if (Score.scoreScript.score <= 7)
+        if (Score.scoreScript.score <= 7) //7
         {
             foodsToChoose1 = true;
             foodsToChoose2 = false;
@@ -547,7 +552,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             foodsToChoose6 = false;
             foodsToChoose7 = false;
         }
-        else if (Score.scoreScript.score <= 20)
+        else if (Score.scoreScript.score <= 10) //20
         {
             foodsToChoose1 = false;
             foodsToChoose2 = true;
@@ -557,7 +562,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             foodsToChoose6 = false;
             foodsToChoose7 = false;
         }
-        else if (Score.scoreScript.score <= 30)
+        else if (Score.scoreScript.score <= 15) //30
         {
             foodsToChoose1 = false;
             foodsToChoose2 = false;
@@ -567,7 +572,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             foodsToChoose6 = false;
             foodsToChoose7 = false;
         }
-        else if (Score.scoreScript.score <= 50)
+        else if (Score.scoreScript.score <= 20) //50
         {
             foodsToChoose1 = false;
             foodsToChoose2 = false;
@@ -577,7 +582,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             foodsToChoose6 = false;
             foodsToChoose7 = false;
         }
-        else if (Score.scoreScript.score <= 65)
+        else if (Score.scoreScript.score <= 25) //65
         {
             foodsToChoose1 = false;
             foodsToChoose2 = false;
@@ -587,7 +592,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             foodsToChoose6 = false;
             foodsToChoose7 = false;
         }
-        else if (Score.scoreScript.score <= 75)
+        else if (Score.scoreScript.score <= 30) //75
         {
             foodsToChoose1 = false;
             foodsToChoose2 = false;
@@ -598,7 +603,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             foodsToChoose7 = false;
 
         }
-        else if (Score.scoreScript.score <= 100)
+        else if (Score.scoreScript.score <= 35) //100
         {
             foodsToChoose1 = false;
             foodsToChoose2 = false;
