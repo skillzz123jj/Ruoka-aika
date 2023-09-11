@@ -6,11 +6,13 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     [SerializeField] TMP_Text scoreTEXT;
-    [SerializeField] TMP_Text livesTEXT;
     [SerializeField] GameObject gameOverScreen;
     [SerializeField] GameObject randomAnimalAndFood;
+    [SerializeField] GameObject error1;
+    [SerializeField] GameObject error2;
+    [SerializeField] GameObject error3;
     public int score;
-    public int lives = 3;
+    public int errors = 0;
 
     public static Score scoreScript;
 
@@ -22,14 +24,17 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        if (lives == 0)
+        if (errors == 3)
         {
             randomAnimalAndFood.SetActive(false);
-            gameOverScreen.SetActive(true);
-
+            Invoke("EndTheGame", 1.5f);
         }
     }
 
+    void EndTheGame()
+    {
+        gameOverScreen.SetActive(true);
+    }
     public void ScoreUp()
     {
         score++;
@@ -37,8 +42,20 @@ public class Score : MonoBehaviour
     }
     public void ScoreDown()
     {
+        //This checks if the remaining foods are ones that cant be fed and makes sure they dont lower the score
+        int increaseAmount = 0;
+        foreach (GameObject food in RandomAnimalAndFood.randomAnimalAndFood.chosenFoods)
+        {
+            if (food.CompareTag("EiSyötävä"))
+            {
+                increaseAmount++;
+            }
+        }
+
         //Takes the amount of foods that were left when the timer ran out and lowers it from total score
         int decreaseAmount = RandomAnimalAndFood.randomAnimalAndFood.foodsLeft;
+        decreaseAmount -= increaseAmount;
+
         if (score >= decreaseAmount)
         {
             score -= decreaseAmount;
@@ -50,11 +67,22 @@ public class Score : MonoBehaviour
         }
 
         scoreTEXT.text = score.ToString();
+        increaseAmount = 0;
     }
     public void WrongFood()
     {
-        lives--;
-        livesTEXT.text = lives.ToString();
-
+        errors++;
+        if (errors >= 1)
+        {
+            error1.SetActive(true);
+        }
+        if (errors >= 2)
+        {
+            error2.SetActive(true);
+        }
+        if (errors >= 3)
+        {
+            error3.SetActive(true);
+        }
     }
 }
