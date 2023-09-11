@@ -3,10 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ruoka
-  - "EiSy\xF6t\xE4v\xE4"
-  - Food
+  tags: []
   layers:
   - Default
   - TransparentFX
