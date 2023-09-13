@@ -9444,6 +9444,9 @@ MonoBehaviour:
   - {fileID: 1486512108}
   - {fileID: 313192190}
   - {fileID: 1502830300}
+  foodPositions: []
+  startPosition: {x: -5.31, y: -3}
+  spaceBetweenFoods: {x: 2, y: 0}
   lineStart: {fileID: 1924773394}
   lineEnd: {fileID: 1761411278}
   lineStartFood: {fileID: 1581875379}
