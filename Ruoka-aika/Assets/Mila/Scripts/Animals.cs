@@ -23,28 +23,32 @@ public class Animals : MonoBehaviour
             foodThatCollided = collision.gameObject;
             foodThatCollidedName = foodThatCollided.name;
 
-            //Checks if the food dictionary contains the animal that the food collided with
+            /*So here it first checks if the animal is even in that dictionary if not well wrong food anyway
+            if however the animal is in that dictionary it adds the animals foods in a list and then checks if 
+            if the animal can eat the collided food or not*/
             if (RandomAnimalAndFood.randomAnimalAndFood.TempDictionary.ContainsKey(gameObject.name))
             {
                 List<string> allowedFoods = RandomAnimalAndFood.randomAnimalAndFood.TempDictionary[gameObject.name];
 
                 //This checks if the animal can eat the food and sets the bools accordingly
                 if (allowedFoods.Contains(foodThatCollidedName))
-                {
-                  //  Debug.Log("good");
+                {               
                     good = true;
                     bad = false;
+                }
+                else
+                {
+                    bad = true;
+                    good = false;
                 }
             }
             else
             {
-               // Debug.Log("bad");
                 bad = true;
                 good = false;
             }
 
         }
-   
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -60,15 +64,13 @@ public class Animals : MonoBehaviour
         if (ActiveFood.activeFood.foodWasFed)
         {
             if (good)
-            {
-               
+            {              
                 GoodFood();
                 good = false;
 
             }
             else if (bad)
-            {
-               
+            {              
                 BadFood();
                 bad = false;
 

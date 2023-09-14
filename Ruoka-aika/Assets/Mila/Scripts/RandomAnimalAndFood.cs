@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class RandomAnimalAndFood : MonoBehaviour
 {
     [SerializeField] List<GameObject> animals = new List<GameObject>();
     [SerializeField] List<GameObject> chosenAnimals = new List<GameObject>();
     [SerializeField] List<GameObject> animalsThatWerentChosen = new List<GameObject>();
     [SerializeField] List<GameObject> foods = new List<GameObject>();
-    [SerializeField] List<GameObject> allFoods = new List<GameObject>();
+    [SerializeField] public List<GameObject> allFoods = new List<GameObject>();
     [SerializeField] public List<GameObject> chosenFoods = new List<GameObject>();
     [SerializeField] List<GameObject> bowls = new List<GameObject>();
+
+    public List<Vector2> foodPositions = new List<Vector2>();
+
+    public Vector2 startPosition;
+    public Vector2 spaceBetweenFoods;
+
     List<string> foodsWithoutAssociations = new List<string>
     {
         "Rengas", "Jäätelö", "Sitruuna", "Karkki", "Chili"
@@ -18,16 +25,13 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     [SerializeField] Transform lineStart;
     [SerializeField] Transform lineEnd;
-    [SerializeField] Transform lineStartFood;
-    [SerializeField] Transform lineEndFood;
 
     public float timerToChangeFood = 10;
     public float timerToChangeAnimal = 20;
 
-    GameObject randomFood;
     GameObject correctRandomAnimal;
 
-    [SerializeField] Animator smokeAnim;    
+    [SerializeField] Animator smokeAnim;
 
     public GameObject smoke;
     public bool canChangeAnimal;
@@ -53,6 +57,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This dictionary stores the temporary animals and their foods 
     public Dictionary<string, List<string>> TempDictionary = new Dictionary<string, List<string>>();
 
+    public Dictionary<GameObject, Vector2> FoodPositionDictionary = new Dictionary<GameObject, Vector2>();
 
     //Dictionary to map animal names to their corresponding food items
     public Dictionary<string, List<string>> AnimalsFoodsDictionary = new Dictionary<string, List<string>>()
@@ -182,12 +187,6 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         AddFoods();
         RandomFood(1);
-        //Goes over all the chosen foods once more and gives them positions
-        for (int t = 0; t < chosenFoods.Count; t++)
-        {
-            FoodPosition(chosenFoods[t]);
-            chosenFoods[t].SetActive(true);
-        }
         RandomCorrectAnimal();
     }
 
@@ -263,7 +262,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         smoke.transform.position = animalThatGetsSwapped.transform.position;
         smoke.SetActive(true);
         smokeAnim.SetTrigger("Savu");
-        
+
         //Chooses a random animal from the ones that arent currently in the scene
         int randomAnimalIndex = Random.Range(0, animalsThatWerentChosen.Count);
         GameObject animalThatGetsPutIn = animalsThatWerentChosen[randomAnimalIndex];
@@ -348,11 +347,12 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
     }
 
- 
+
     public void RandomFood(int numberOfFoodsToChoose)
     {
         //Clear the list of chosen foods so it can be filled again
         chosenFoods.Clear();
+        FoodPositionDictionary.Clear();
 
         foodsLeft = numberOfFoodsToChoose;
         //This is just makes sure the amount isnt less than 1 or more then 7
@@ -376,39 +376,26 @@ public class RandomAnimalAndFood : MonoBehaviour
             chosenFoods.Add(chosenFood);
             availableFoods.RemoveAt(chosenFoodIndex);
 
-            //Goes over all the chosen foods once more and gives them positions
-            for (int t = 0; t < chosenFoods.Count; t++)
-            {
-                FoodPosition(chosenFoods[t]);
-                chosenFoods[t].SetActive(true);
-            }
+            PositionFoodsRandomly(chosenFoods);
+
         }
     }
 
-    //This method calculates the foods position on a given line so that its always random
-    public void FoodPosition(GameObject food)
+    //This method gives the foods their positions
+    public void PositionFoodsRandomly(List<GameObject> foods)
     {
-        //Makes sure there actually are foods in that list
-        if (chosenFoods.Count > 0)
+        Vector3 currentPosition = startPosition;
+
+        foreach (GameObject food in foods)
         {
-            //Finds the position for that food from chosenFoodsList
-            int foodIndex = chosenFoods.IndexOf(food);
+            food.transform.position = currentPosition;
+            currentPosition.x += spaceBetweenFoods.x;
+            food.SetActive(true);
 
-            if (chosenFoods.Count > 1)
+            if (!FoodPositionDictionary.ContainsKey(food))
             {
-                //Calculates the position on a given line with this calculation
-                float t = (float)foodIndex / (chosenFoods.Count - 1);
-                Vector3 startPosition = lineStartFood.position;
-                Vector3 endPosition = lineEndFood.position;
-                Vector3 newPosition = Vector3.Lerp(startPosition, endPosition, t);
-
-                //Sets the food in its position
-                food.transform.position = newPosition;
-            }
-            else
-            {
-                //If there is only 1 food it gets set to the start of the line
-                food.transform.position = lineStartFood.position;
+                Vector2 foodPosition = food.transform.position;
+                FoodPositionDictionary.Add(food, foodPosition);
             }
         }
     }
