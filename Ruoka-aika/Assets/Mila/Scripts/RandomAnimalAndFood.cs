@@ -62,13 +62,13 @@ public class RandomAnimalAndFood : MonoBehaviour
     //Dictionary to map animal names to their corresponding food items
     public Dictionary<string, List<string>> AnimalsFoodsDictionary = new Dictionary<string, List<string>>()
     {
-        { "Koira", new List<string> { "Pihvi", "Paisti", "Luu" } },
+        { "Koira", new List<string> { "Pihvi", "Paisti", "Luu", "Koiranruoka", "Broileri" } },
         { "Pupu", new List<string> { "Porkkana", "Kaali" } },
         { "Lehmä", new List<string> { "Kurkku", "Leipä" } },
         { "Lammas", new List<string> { "Retiisi", "Pizza" } },
-        { "Possu", new List<string> { "Porkkana", "Pähkinät" } },
-        { "Strutsi", new List<string> { "Pähkinät", "Kurkku" } },
-        { "Kissa", new List<string> { "Kala", "Pihvi" } },
+        { "Possu", new List<string> { "Porkkana", "Pähkinät", "Sienet" } },
+        { "Strutsi", new List<string> { "Pähkinät", "Kurkku", "Mato", "Etana" } },
+        { "Kissa", new List<string> { "Kala", "Pihvi", "Kissanruoka", "Kinkku" } },
         { "Kana", new List<string> { "Jyvät", "Oliivi" } },
         { "Alpakka", new List<string> { "Kurkku", "Oliivi" } },
         { "Pesukarhu", new List<string> { "Nakki", "Appelsiini" } },
@@ -291,6 +291,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             //We set them all active so that they can be put in the foods list
             food.SetActive(true);
         }
+     
     }
 
     public void AddFoods()
@@ -391,6 +392,8 @@ public class RandomAnimalAndFood : MonoBehaviour
             food.transform.position = currentPosition;
             currentPosition.x += spaceBetweenFoods.x;
             food.SetActive(true);
+            //var enableMovement = GetComponent<DragAndDrop>();
+            //enableMovement.move = true;
 
             if (!FoodPositionDictionary.ContainsKey(food))
             {
@@ -602,4 +605,5 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
 
     }
+
 }
