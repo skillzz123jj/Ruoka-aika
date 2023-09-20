@@ -112,6 +112,10 @@ public class Animals : MonoBehaviour
         {
             animExpression.SetTrigger("Surullinen");
         }
+        if (foodThatCollided.CompareTag("EiSyötävä"))
+        {
+            RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Remove(foodThatCollided);
+        }
 
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;  
@@ -159,7 +163,7 @@ public class Animals : MonoBehaviour
     //Changes the animal when the player isnt feeding any
     void ChangeAnimalWithADelay()
     {
-        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 3;
+        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
         RandomAnimalAndFood.randomAnimalAndFood.CanChangeAnimal();
         RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime = false;
 
