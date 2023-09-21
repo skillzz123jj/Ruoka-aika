@@ -80,9 +80,9 @@ public class Animals : MonoBehaviour
         }
     }
 
+    //Spawns new foods when the old ones have been fed  
     public void NewFoods()
     {
-        //Spawns new foods when the old ones have been fed       
         RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
         RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
@@ -101,23 +101,19 @@ public class Animals : MonoBehaviour
         }
         StartCoroutine(ShrinkFood());
         Score.scoreScript.ScoreUp();
-       // RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
-       // foodThatCollided.transform.position = new Vector2(0, -20);
-        //foodThatCollided.SetActive(false);
-        //RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
-      //  HandleChanges();
     }
   
+   
     private IEnumerator ShrinkFood()
     {
-        var disable = goodFood.GetComponent<DragAndDrop>();
-        disable.enabled = false;    
+        var script = goodFood.GetComponent<DragAndDrop>();
+        script.enabled = false; 
+        
         Vector3 initialScale = goodFood.transform.localScale;
-       // GameObject food = goodFood;
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
       
-
+        //Pauses the code while the food shrinks
         while (goodFood.transform.localScale.x > 0.0f)
         {
             goodFood.transform.localScale -= Vector3.one * shrinkSpeed * Time.deltaTime;
@@ -126,8 +122,8 @@ public class Animals : MonoBehaviour
         }
         HandleChanges();
 
-        disable.enabled = true;
-
+        //Resets the food for future selection
+        script.enabled = true;
         goodFood.transform.position = new Vector2(0, -20);
         goodFood.SetActive(false);
         goodFood.transform.localScale = initialScale;
@@ -177,12 +173,12 @@ public class Animals : MonoBehaviour
 
     }
 
-    //If there are no more foods this one gives more foods
+    //If there are no more foods this one handles that
     void HandleChanges()
     {
         if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft == 0)
         {
-            //This changes animals 
+            //This makes sure that animals only get swapped when there arent any foods 
             if (RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime)
             {
                 //A slight delay to make it more smooth
@@ -195,7 +191,7 @@ public class Animals : MonoBehaviour
             }
         }
     }
-    //Changes the animal when the player isnt feeding any
+    //Changes the animals
     void ChangeAnimalWithADelay()
     {
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 100;
