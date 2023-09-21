@@ -52,7 +52,6 @@ public class MainMenu : MonoBehaviour
         normalButton.image.sprite = normalDefaultSprite;
         hardButton.image.sprite = hardDefaultSprite;
 
-
     }
     public void Normal()
     {
@@ -62,8 +61,8 @@ public class MainMenu : MonoBehaviour
         easyButton.image.sprite = easyDefaultSprite;
         hardButton.image.sprite = hardDefaultSprite;
 
-
     }
+
     public void Hard()
     {
         Difficulty.difficulty.easy = false;
