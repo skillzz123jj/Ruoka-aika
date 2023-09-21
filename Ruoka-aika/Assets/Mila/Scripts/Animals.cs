@@ -8,9 +8,11 @@ public class Animals : MonoBehaviour
     [SerializeField] Animator animTail;
 
     GameObject foodThatCollided;
-    GameObject justATest;
+    GameObject badFood;
+    GameObject goodFood;
     string foodThatCollidedName;
 
+    float shrinkSpeed = 0.7f;
     public bool good;
     public bool bad;
 
@@ -85,29 +87,60 @@ public class Animals : MonoBehaviour
         RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
     }
+
     void GoodFood()
     {
         //If the animal is allowed to eat the food and the score goes up
         Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
+        goodFood = foodThatCollided;
         if (animExpression != null)
         {
             animExpression.SetTrigger("Iloinen");
             animTail.SetTrigger("Häntä");
 
         }
+        StartCoroutine(ShrinkFood());
         Score.scoreScript.ScoreUp();
+       // RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
+       // foodThatCollided.transform.position = new Vector2(0, -20);
+        //foodThatCollided.SetActive(false);
+        //RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
+      //  HandleChanges();
+    }
+  
+    private IEnumerator ShrinkFood()
+    {
+        var disable = goodFood.GetComponent<DragAndDrop>();
+        disable.enabled = false;    
+        Vector3 initialScale = goodFood.transform.localScale;
+       // GameObject food = goodFood;
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
-        foodThatCollided.transform.position = new Vector2(0, -20);
-        foodThatCollided.SetActive(false);
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
+      
+
+        while (goodFood.transform.localScale.x > 0.0f)
+        {
+            goodFood.transform.localScale -= Vector3.one * shrinkSpeed * Time.deltaTime;
+
+            yield return null;
+        }
         HandleChanges();
+
+        disable.enabled = true;
+
+        goodFood.transform.position = new Vector2(0, -20);
+        goodFood.SetActive(false);
+        goodFood.transform.localScale = initialScale;
+
     }
 
     void BadFood()
     {
         //If the food was fed to the wrong animal player loses a life
         Debug.Log($"{gameObject.name} ei saa syödä {foodThatCollidedName}");
-        justATest = foodThatCollided;
+        badFood = foodThatCollided;
+        var script = badFood.GetComponent<DragAndDrop>();
+        script.enabled = false;
         if (animExpression != null)
         {
             animExpression.SetTrigger("Surullinen");
@@ -137,9 +170,11 @@ public class Animals : MonoBehaviour
     void ResetSprite()
     {
         ActiveFood.activeFood.wrongFoodSprite.SetActive(false); 
-        justATest.SetActive(false);
+        badFood.SetActive(false);
         ActiveFood.activeFood.wrongFoodSprite.transform.position = new Vector2(0, -20);
-     
+        var script = badFood.GetComponent<DragAndDrop>();
+        script.enabled = true;
+
     }
 
     //If there are no more foods this one gives more foods
@@ -156,14 +191,14 @@ public class Animals : MonoBehaviour
             }
             else
             {
-                Invoke("NewFoods", 1.5F);
+                Invoke("NewFoods", 3F);
             }
         }
     }
     //Changes the animal when the player isnt feeding any
     void ChangeAnimalWithADelay()
     {
-        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
+        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 100;
         RandomAnimalAndFood.randomAnimalAndFood.CanChangeAnimal();
         RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime = false;
 

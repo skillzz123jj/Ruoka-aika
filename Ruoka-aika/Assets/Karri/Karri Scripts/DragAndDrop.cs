@@ -11,7 +11,8 @@ public class DragAndDrop : MonoBehaviour
     public static DragAndDrop dragAndDrop;
     public void OnMouseDown()
     {
-        isDragging = true;        
+        isDragging = true;
+        move = true;
 
     }
 
