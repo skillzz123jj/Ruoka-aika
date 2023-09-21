@@ -35,6 +35,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public GameObject smoke;
     public bool canChangeAnimal;
+    bool justChangedAnimals;
 
     //Bools to determine how many foods will be chosen
     bool foodsToChoose1 = true;
@@ -111,14 +112,16 @@ public class RandomAnimalAndFood : MonoBehaviour
             nowIsAGoodTime = true;
         }
 
-        AmountOfScore();
+        AmountOfFoods();
         CheckForCurrentLevel();
     }
 
     public void CanChangeAnimal()
     {
+        justChangedAnimals = true;
         ChangeRandomAnimal();
         AddFoods();
+        timerToChangeFood = 10;
         timerToChangeAnimal = 60;
     }
     private void Start()
@@ -291,6 +294,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             //We set them all active so that they can be put in the foods list
             food.SetActive(true);
         }
+        
      
     }
 
@@ -342,13 +346,29 @@ public class RandomAnimalAndFood : MonoBehaviour
         {
             food.SetActive(false);
         }
+        if (justChangedAnimals)
+        {
+            Invoke("Delay", 2f);
+        }
+        else
+        {
+            foreach (GameObject food in chosenFoods)
+            {
+                food.SetActive(true);
+            }
+        }    
+    }
+
+    //This gives the foods with a slight delay when an animal was just swapped to make it more smooth
+    void Delay()
+    {
         foreach (GameObject food in chosenFoods)
         {
             food.SetActive(true);
         }
+        justChangedAnimals = false;
+
     }
-
-
     public void RandomFood(int numberOfFoodsToChoose)
     {
         //Clear the list of chosen foods so it can be filled again
@@ -392,8 +412,6 @@ public class RandomAnimalAndFood : MonoBehaviour
             food.transform.position = currentPosition;
             currentPosition.x += spaceBetweenFoods.x;
             food.SetActive(true);
-            //var enableMovement = GetComponent<DragAndDrop>();
-            //enableMovement.move = true;
 
             if (!FoodPositionDictionary.ContainsKey(food))
             {
@@ -454,82 +472,6 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
     }
     void AmountOfFoods()
-    {
-        //These change how many foods spawn during runtime (Will be replaced later to check for points instead)
-        if (Input.GetKey(KeyCode.Q))
-        {
-            foodsToChoose1 = true;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = true;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        if (Input.GetKey(KeyCode.E))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = true;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        if (Input.GetKey(KeyCode.R))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = true;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        if (Input.GetKey(KeyCode.T))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = true;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        if (Input.GetKey(KeyCode.Y))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = true;
-            foodsToChoose7 = false;
-
-        }
-        if (Input.GetKey(KeyCode.U))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = true;
-        }
-
-    }
-    void AmountOfScore()
     {
         //These change how many foods spawn during runtime 
         if (Score.scoreScript.score <= 7) //7
