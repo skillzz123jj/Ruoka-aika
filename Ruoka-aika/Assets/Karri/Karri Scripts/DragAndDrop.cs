@@ -8,6 +8,9 @@ public class DragAndDrop : MonoBehaviour
     private bool isDragging;
     public bool move = true;
 
+    public Vector2 initialPosition;
+    public float moveSpeed = 3.0f;
+
     public static DragAndDrop dragAndDrop;
     public void OnMouseDown()
     {
@@ -51,10 +54,12 @@ public class DragAndDrop : MonoBehaviour
         {
           if (move)
             {
-                transform.position = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
-            }
-      
-          
+                //Moves the food slowly back to its initial position if it isnt on any animal
+                initialPosition = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
+                Vector3 newPosition = Vector2.Lerp(transform.position, initialPosition, Time.deltaTime * moveSpeed);
+                transform.position = newPosition;
+
+            }       
         }
     }
     
