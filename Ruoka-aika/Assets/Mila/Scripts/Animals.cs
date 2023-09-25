@@ -9,12 +9,14 @@ public class Animals : MonoBehaviour
 
     GameObject foodThatCollided;
     GameObject badFood;
-    GameObject goodFood;
     string foodThatCollidedName;
 
     float shrinkSpeed = 0.7f;
     public bool good;
     public bool bad;
+    bool isShrinking;
+
+    Queue<GameObject> foodQueue = new Queue<GameObject>();
 
     //Checks for collisions and if the animal is allowed to eat that food
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,7 +27,7 @@ public class Animals : MonoBehaviour
             foodThatCollided = collision.gameObject;
             foodThatCollidedName = foodThatCollided.name;
 
-            /*So here it first checks if the animal is even in that dictionary if not well wrong food anyway
+            /*So here it first checks if the animal is even in that dictionary if not well wrong food anyway,
             if however the animal is in that dictionary it adds the animals foods in a list and then checks if 
             if the animal can eat the collided food or not*/
             if (RandomAnimalAndFood.randomAnimalAndFood.TempDictionary.ContainsKey(gameObject.name))
@@ -92,27 +94,36 @@ public class Animals : MonoBehaviour
     {
         //If the animal is allowed to eat the food and the score goes up
         Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
-        goodFood = foodThatCollided;
+
         if (animExpression != null)
         {
             animExpression.SetTrigger("Iloinen");
             animTail.SetTrigger("Häntä");
 
         }
-        StartCoroutine(ShrinkFood());
+        if (isShrinking)
+        {
+            //If numerous foods were fed to one animal the foods wait in a queue till its their turn to shrink
+            foodQueue.Enqueue(foodThatCollided);
+        }
+        else
+        {   
+            StartCoroutine(ShrinkFood(foodThatCollided));
+        }
+
         Score.scoreScript.ScoreUp();
     }
   
-   
-    private IEnumerator ShrinkFood()
+    private IEnumerator ShrinkFood(GameObject goodFood)
     {
+        isShrinking = true;
         var script = goodFood.GetComponent<DragAndDrop>();
         script.enabled = false; 
         
         Vector3 initialScale = goodFood.transform.localScale;
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
-      
+
         //Pauses the code while the food shrinks
         while (goodFood.transform.localScale.x > 0.0f)
         {
@@ -127,7 +138,14 @@ public class Animals : MonoBehaviour
         goodFood.transform.position = new Vector2(0, -20);
         goodFood.SetActive(false);
         goodFood.transform.localScale = initialScale;
+        isShrinking = false;
 
+        //Keeps calling this function till the queue is empty
+        if (foodQueue.Count > 0)
+        {
+            var nextFood = foodQueue.Dequeue();
+            StartCoroutine(ShrinkFood(nextFood));
+        }
     }
 
     void BadFood()
