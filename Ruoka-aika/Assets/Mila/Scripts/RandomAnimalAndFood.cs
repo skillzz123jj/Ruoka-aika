@@ -66,8 +66,8 @@ public class RandomAnimalAndFood : MonoBehaviour
     public Dictionary<string, List<string>> AnimalsFoodsDictionary = new Dictionary<string, List<string>>()
     {
         { "Koira", new List<string> { "Pihvi", "Paisti", "Luu", "Koiranruoka", "Broileri" } },
-        { "Pupu", new List<string> { "Porkkana", "Kaali" } },
-        { "Lehmä", new List<string> { "Kurkku", "Leipä" } },
+        { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet" } },
+        { "Lehmä", new List<string> { "Kurkku", "Leipä", "Vehnä" } },
         { "Lammas", new List<string> { "Retiisi", "Pizza" } },
         { "Possu", new List<string> { "Porkkana", "Pähkinät", "Sienet" } },
         { "Strutsi", new List<string> { "Pähkinät", "Kurkku", "Mato", "Etana" } },
@@ -282,7 +282,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
             else
             {
-                Debug.LogError("No instruction found");
+                //Debug.LogError("No instruction found");
             }
         }
     }
