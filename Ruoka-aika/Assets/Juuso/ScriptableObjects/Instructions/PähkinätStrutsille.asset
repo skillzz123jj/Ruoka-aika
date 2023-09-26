@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb690157ac3a2514aa30bc3d43b30be1, type: 3}
+  m_Name: "P\xE4hkin\xE4tStrutsille"
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 8c7009e5d45f3fe4cb2f89a0b98d2afd, type: 3}
+  textInstruction: "Sy\xF6t\xE4 p\xE4hkin\xE4t strutsille."
+  combo: {fileID: 11400000, guid: ed1c2c4ccb2a21f4db2706fe0032299d, type: 2}
