@@ -13,6 +13,8 @@ public class RandomAnimalAndFood : MonoBehaviour
     [SerializeField] public List<GameObject> chosenFoods = new List<GameObject>();
     [SerializeField] List<GameObject> bowls = new List<GameObject>();
 
+    public AudioSource audioSource;
+
     public List<Vector2> foodPositions = new List<Vector2>();
 
     public Vector2 startPosition;
@@ -64,8 +66,8 @@ public class RandomAnimalAndFood : MonoBehaviour
     public Dictionary<string, List<string>> AnimalsFoodsDictionary = new Dictionary<string, List<string>>()
     {
         { "Koira", new List<string> { "Pihvi", "Paisti", "Luu", "Koiranruoka", "Broileri" } },
-        { "Pupu", new List<string> { "Porkkana", "Kaali" } },
-        { "Lehmä", new List<string> { "Kurkku", "Leipä" } },
+        { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet" } },
+        { "Lehmä", new List<string> { "Kurkku", "Leipä", "Vehnä" } },
         { "Lammas", new List<string> { "Retiisi", "Pizza" } },
         { "Possu", new List<string> { "Porkkana", "Pähkinät", "Sienet" } },
         { "Strutsi", new List<string> { "Pähkinät", "Kurkku", "Mato", "Etana" } },
@@ -252,6 +254,36 @@ public class RandomAnimalAndFood : MonoBehaviour
                 TempDictionary[correctRandomAnimal.name] = newList;
             }
             foodIndex++;
+
+            // Retrieve the instruction for the combo and play it
+            Instruction instruction = InstructionManager.instance.GetInstructionForCombo(new FoodAnimalCombo
+            {
+                foodName = obj.name,
+                animalName = correctRandomAnimal.name
+            });
+
+            if (instruction != null)
+            {
+                
+                // Play the audio instruction and text instruction 
+                if (instruction.audioClip != null)
+                {
+                    if(audioSource != null)
+                    {
+                        audioSource.clip = instruction.audioClip;
+
+                        audioSource.Play();
+                    }
+                }
+                if (!string.IsNullOrEmpty(instruction.textInstruction))
+                {
+                    // Display text instruction using instruction.textInstruction
+                }
+            }
+            else
+            {
+                //Debug.LogError("No instruction found");
+            }
         }
     }
 

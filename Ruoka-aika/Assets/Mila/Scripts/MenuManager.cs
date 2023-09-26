@@ -16,8 +16,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject audioText;
     [SerializeField] GameObject restartText;
     [SerializeField] GameObject instructionText;
+    [SerializeField] GameObject instructions;
 
     //All of these handle the UI buttons on the top right corner
+    public void DisplayInstructions()
+    {
+        instructions.SetActive(!instructions.activeSelf);
+    }
     public void reloadGame(int scene)
     {
         SceneManager.LoadScene(scene);

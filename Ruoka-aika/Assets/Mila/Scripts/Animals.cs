@@ -7,6 +7,7 @@ public class Animals : MonoBehaviour
     [SerializeField] Animator animExpression;
     [SerializeField] Animator animTail;
 
+    
     GameObject foodThatCollided;
     GameObject badFood;
     string foodThatCollidedName;
@@ -171,24 +172,21 @@ public class Animals : MonoBehaviour
         HandleChanges();
         
     }
-
+    GameObject error;
     //This method adds a sprite on the food if it was fed to the incorrect animal
     void WrongFoodSprite()
-    {       
-        ActiveFood.activeFood.wrongFoodSprite.transform.position = foodThatCollided.transform.position;
-        ActiveFood.activeFood.wrongFoodSprite.SetActive(true);
-        Invoke("ResetSprite", 1.5f);
+    {
+        error = Instantiate(ActiveFood.activeFood.wrongFoodSprite, foodThatCollided.transform.position, Quaternion.identity);
+        Invoke("DestroySprite", 1.5f);
     }
 
     //This one gets rid of the sprite and the food after a slight delay
-    void ResetSprite()
+    void DestroySprite()
     {
-        ActiveFood.activeFood.wrongFoodSprite.SetActive(false); 
         badFood.SetActive(false);
-        ActiveFood.activeFood.wrongFoodSprite.transform.position = new Vector2(0, -20);
+        Destroy(error);
         var script = badFood.GetComponent<DragAndDrop>();
         script.enabled = true;
-
     }
 
     //If there are no more foods this one handles that
@@ -206,6 +204,7 @@ public class Animals : MonoBehaviour
             else
             {
                 Invoke("NewFoods", 3F);
+                ActiveFood.activeFood.SwitchToNextFood();
             }
         }
     }
