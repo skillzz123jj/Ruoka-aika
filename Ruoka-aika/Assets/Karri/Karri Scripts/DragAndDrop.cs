@@ -1,19 +1,23 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Generic;
 
 public class DragAndDrop : MonoBehaviour
 {
-    public Dictionary<GameObject, Vector2> FoodPositionDictionary = new Dictionary<GameObject, Vector2>();
+    private bool isDragging;
+    public bool move = true;
 
-    public float arrowKeysSpeed = 5.0f; // Adjust this speed as needed
+    public Vector2 initialPosition;
+    public float moveSpeed = 3.0f;
 
-    private bool isDragging = false;
-    private Vector3 offset;
-
+    public static DragAndDrop dragAndDrop;
     public void OnMouseDown()
     {
         isDragging = true;
-        offset = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        move = true;
+
     }
 
     public void OnMouseUp()
@@ -24,34 +28,48 @@ public class DragAndDrop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDragging)
+       if (isDragging)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = mousePosition + offset;
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = mousePosition;
 
-            // Update the position in the dictionary
-            if (FoodPositionDictionary.ContainsKey(gameObject))
+            // Check if this GameObject is in the dictionary
+            if (!RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary.ContainsKey(gameObject))
             {
-                FoodPositionDictionary[gameObject] = transform.position;
+                RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary.Add(gameObject, mousePosition);
             }
+
+            //if (!move)
+            //{
+            //    // Update the position in the dictionary
+            //    RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject] = mousePosition;
+
+            //}
+            //else
+            //{
+            //    gameObject.transform.position = intialPosition;
+            //}
         }
         else
         {
-            // Get input from the arrow keys only if not dragging with the mouse
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-
-            // Calculate the movement direction
-            Vector2 moveDirection = new Vector2(horizontalInput, verticalInput).normalized;
-
-            // Apply the movement
-            transform.Translate(moveDirection * arrowKeysSpeed * Time.deltaTime);
-
-            // Update the position in the dictionary
-            if (FoodPositionDictionary.ContainsKey(gameObject))
+          if (move)
             {
-                FoodPositionDictionary[gameObject] = transform.position;
+                //Moves the food slowly back to its initial position if it isnt on any animal
+                initialPosition = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
+                Vector3 newPosition = Vector2.Lerp(transform.position, initialPosition, Time.deltaTime * moveSpeed);
+                transform.position = newPosition;
+
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        move = false;
+
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        move = true;
     }
 }

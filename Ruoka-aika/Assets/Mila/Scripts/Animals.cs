@@ -8,11 +8,15 @@ public class Animals : MonoBehaviour
     [SerializeField] Animator animTail;
 
     GameObject foodThatCollided;
-    GameObject justATest;
+    GameObject badFood;
     string foodThatCollidedName;
 
+    float shrinkSpeed = 0.7f;
     public bool good;
     public bool bad;
+    bool isShrinking;
+
+    Queue<GameObject> foodQueue = new Queue<GameObject>();
 
     //Checks for collisions and if the animal is allowed to eat that food
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,7 +27,7 @@ public class Animals : MonoBehaviour
             foodThatCollided = collision.gameObject;
             foodThatCollidedName = foodThatCollided.name;
 
-            /*So here it first checks if the animal is even in that dictionary if not well wrong food anyway
+            /*So here it first checks if the animal is even in that dictionary if not well wrong food anyway,
             if however the animal is in that dictionary it adds the animals foods in a list and then checks if 
             if the animal can eat the collided food or not*/
             if (RandomAnimalAndFood.randomAnimalAndFood.TempDictionary.ContainsKey(gameObject.name))
@@ -78,39 +82,86 @@ public class Animals : MonoBehaviour
         }
     }
 
+    //Spawns new foods when the old ones have been fed  
     public void NewFoods()
     {
-        //Spawns new foods when the old ones have been fed       
         RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
         RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
     }
+
     void GoodFood()
     {
         //If the animal is allowed to eat the food and the score goes up
         Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
+
         if (animExpression != null)
         {
             animExpression.SetTrigger("Iloinen");
             animTail.SetTrigger("Häntä");
 
         }
+        if (isShrinking)
+        {
+            //If numerous foods were fed to one animal the foods wait in a queue till its their turn to shrink
+            foodQueue.Enqueue(foodThatCollided);
+        }
+        else
+        {   
+            StartCoroutine(ShrinkFood(foodThatCollided));
+        }
+
         Score.scoreScript.ScoreUp();
+    }
+  
+    private IEnumerator ShrinkFood(GameObject goodFood)
+    {
+        isShrinking = true;
+        var script = goodFood.GetComponent<DragAndDrop>();
+        script.enabled = false; 
+        
+        Vector3 initialScale = goodFood.transform.localScale;
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
-        foodThatCollided.transform.position = new Vector2(0, -20);
-        foodThatCollided.SetActive(false);
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
+
+        //Pauses the code while the food shrinks
+        while (goodFood.transform.localScale.x > 0.0f)
+        {
+            goodFood.transform.localScale -= Vector3.one * shrinkSpeed * Time.deltaTime;
+
+            yield return null;
+        }
         HandleChanges();
+
+        //Resets the food for future selection
+        script.enabled = true;
+        goodFood.transform.position = new Vector2(0, -20);
+        goodFood.SetActive(false);
+        goodFood.transform.localScale = initialScale;
+        isShrinking = false;
+
+        //Keeps calling this function till the queue is empty
+        if (foodQueue.Count > 0)
+        {
+            var nextFood = foodQueue.Dequeue();
+            StartCoroutine(ShrinkFood(nextFood));
+        }
     }
 
     void BadFood()
     {
         //If the food was fed to the wrong animal player loses a life
         Debug.Log($"{gameObject.name} ei saa syödä {foodThatCollidedName}");
-        justATest = foodThatCollided;
+        badFood = foodThatCollided;
+        var script = badFood.GetComponent<DragAndDrop>();
+        script.enabled = false;
         if (animExpression != null)
         {
             animExpression.SetTrigger("Surullinen");
+        }
+        if (foodThatCollided.CompareTag("EiSyötävä"))
+        {
+            RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Remove(foodThatCollided);
         }
 
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
@@ -133,17 +184,19 @@ public class Animals : MonoBehaviour
     void ResetSprite()
     {
         ActiveFood.activeFood.wrongFoodSprite.SetActive(false); 
-        justATest.SetActive(false);
+        badFood.SetActive(false);
         ActiveFood.activeFood.wrongFoodSprite.transform.position = new Vector2(0, -20);
-     
+        var script = badFood.GetComponent<DragAndDrop>();
+        script.enabled = true;
+
     }
 
-    //If there are no more foods this one gives more foods
+    //If there are no more foods this one handles that
     void HandleChanges()
     {
         if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft == 0)
         {
-            //This changes animals 
+            //This makes sure that animals only get swapped when there arent any foods 
             if (RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime)
             {
                 //A slight delay to make it more smooth
@@ -152,14 +205,14 @@ public class Animals : MonoBehaviour
             }
             else
             {
-                Invoke("NewFoods", 1.5F);
+                Invoke("NewFoods", 3F);
             }
         }
     }
-    //Changes the animal when the player isnt feeding any
+    //Changes the animals
     void ChangeAnimalWithADelay()
     {
-        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 3;
+        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 100;
         RandomAnimalAndFood.randomAnimalAndFood.CanChangeAnimal();
         RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime = false;
 
