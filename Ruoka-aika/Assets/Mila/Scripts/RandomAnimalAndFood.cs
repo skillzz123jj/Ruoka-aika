@@ -74,7 +74,8 @@ public class RandomAnimalAndFood : MonoBehaviour
         { "Kissa", new List<string> { "Kala", "Pihvi", "Kissanruoka", "Kinkku" } },
         { "Kana", new List<string> { "Jyvät", "Oliivi" } },
         { "Alpakka", new List<string> { "Kurkku", "Oliivi" } },
-        { "Pesukarhu", new List<string> { "Nakki", "Appelsiini" } },
+        { "Pesukarhu", new List<string> { "Nakki", "Appelsiini", "Lehdet", "Leipä", "Kala", "Kurkku", "Vehnä", "Oliivi", "Kaali",
+           "Pähkinät", "Porkkana", "Paisti", "Pihvi", "Etana", "Jyvät", "Mato", "Retiisi", "Luu", "Broileri", "Kinkku","Sienet"} },
          { "Hevonen", new List<string> { "Jyvät", "Retiisi" } }
     };
 

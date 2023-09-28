@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SeasonalChanges : MonoBehaviour
 {
@@ -9,27 +10,14 @@ public class SeasonalChanges : MonoBehaviour
     public Sprite fallSprite;
     public Sprite winterSprite;
 
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] Image spriteRenderer;
 
     public static SeasonalChanges seasonalChanges;
 
     private void Start()
     {
-        //Gets the correct sprite as soon as the game starts
-        spriteRenderer = GetComponent<SpriteRenderer>();
+       
         UpdateSeason();
-
-        //Doesnt destroy on the next scene if there arent any duplicates
-        if (seasonalChanges == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            seasonalChanges = this;
-        }
-        else
-        {
-
-            Destroy(gameObject);
-        }
     }
 
     private void UpdateSeason()
