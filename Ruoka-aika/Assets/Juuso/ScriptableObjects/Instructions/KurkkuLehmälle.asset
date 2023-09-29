@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb690157ac3a2514aa30bc3d43b30be1, type: 3}
+  m_Name: "KurkkuLehm\xE4lle"
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: be6a40fe476ef7645bb32315f36958ee, type: 3}
+  textInstruction: "Sy\xF6t\xE4 kurkku lehm\xE4lle."
+  combo: {fileID: 11400000, guid: 75e739e4b1a69774b9c521e9ce2491d7, type: 2}
