@@ -2398,7 +2398,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 52afbf50e32365c4d9a4c2ae87b43cbd, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: 96f1b9680256379448af09301a0c74c7, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -2414,7 +2414,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 20f4ca09df256154c97740217b70bb56, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: bd5df7a90790ea74491213f8b91b703b, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -2430,7 +2430,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 52afbf50e32365c4d9a4c2ae87b43cbd, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: 96f1b9680256379448af09301a0c74c7, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -2446,7 +2446,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 20f4ca09df256154c97740217b70bb56, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: bd5df7a90790ea74491213f8b91b703b, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -2518,7 +2518,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 20f4ca09df256154c97740217b70bb56, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: bd5df7a90790ea74491213f8b91b703b, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -2545,7 +2545,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 20f4ca09df256154c97740217b70bb56, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bd5df7a90790ea74491213f8b91b703b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3494,7 +3494,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 5ebc254bae4324a4ea787ea65b22dfed, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: dd7b53d2f412af84e820bd650d8a8293, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3510,7 +3510,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: ccdc7f6c6c6c3994c97a20a4a4519b05, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: 121424d835b64b84f9422a029bce3005, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3526,7 +3526,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 5ebc254bae4324a4ea787ea65b22dfed, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: dd7b53d2f412af84e820bd650d8a8293, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3542,7 +3542,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: ccdc7f6c6c6c3994c97a20a4a4519b05, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: 121424d835b64b84f9422a029bce3005, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3614,7 +3614,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: ccdc7f6c6c6c3994c97a20a4a4519b05, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: 121424d835b64b84f9422a029bce3005, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3653,7 +3653,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ccdc7f6c6c6c3994c97a20a4a4519b05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 121424d835b64b84f9422a029bce3005, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3703,12 +3703,12 @@ MonoBehaviour:
   easyButton: {fileID: 2123606475}
   normalButton: {fileID: 2038276616}
   hardButton: {fileID: 1383807339}
-  easyHighlightSprite: {fileID: 21300000, guid: 2cb8911fc2160274197247c6b2db234a, type: 3}
-  normalHighlightSprite: {fileID: 21300000, guid: 514d64a9792842b4997ff3db584eec78, type: 3}
-  hardHighlightSprite: {fileID: 21300000, guid: b2ebf0df19efa7547a9f59f9f4e1cf09, type: 3}
-  easyDefaultSprite: {fileID: 21300000, guid: a6eb658d04d96074eb14d1909cc6dd4f, type: 3}
-  normalDefaultSprite: {fileID: 21300000, guid: ccdc7f6c6c6c3994c97a20a4a4519b05, type: 3}
-  hardDefaultSprite: {fileID: 21300000, guid: 20f4ca09df256154c97740217b70bb56, type: 3}
+  easyHighlightSprite: {fileID: 21300000, guid: efcaff401bd155c4f871760656700e88, type: 3}
+  normalHighlightSprite: {fileID: 21300000, guid: dd7b53d2f412af84e820bd650d8a8293, type: 3}
+  hardHighlightSprite: {fileID: 21300000, guid: 96f1b9680256379448af09301a0c74c7, type: 3}
+  easyDefaultSprite: {fileID: 21300000, guid: 615f8763f75aad549b207466a25225ea, type: 3}
+  normalDefaultSprite: {fileID: 21300000, guid: 121424d835b64b84f9422a029bce3005, type: 3}
+  hardDefaultSprite: {fileID: 21300000, guid: bd5df7a90790ea74491213f8b91b703b, type: 3}
 --- !u!4 &2055496870
 Transform:
   m_ObjectHideFlags: 0
@@ -3830,7 +3830,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 77f8c3ab95b12964da09bcfe43c27f87, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: efcaff401bd155c4f871760656700e88, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3846,7 +3846,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: a6eb658d04d96074eb14d1909cc6dd4f, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: 615f8763f75aad549b207466a25225ea, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3862,7 +3862,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 77f8c3ab95b12964da09bcfe43c27f87, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: efcaff401bd155c4f871760656700e88, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3878,7 +3878,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: a6eb658d04d96074eb14d1909cc6dd4f, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: 615f8763f75aad549b207466a25225ea, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3934,7 +3934,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 514d64a9792842b4997ff3db584eec78, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: 2cb8911fc2160274197247c6b2db234a, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -3952,6 +3952,18 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2123606477}
+          m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: 121424d835b64b84f9422a029bce3005, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -3977,7 +3989,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a6eb658d04d96074eb14d1909cc6dd4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 615f8763f75aad549b207466a25225ea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

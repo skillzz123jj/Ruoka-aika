@@ -95,7 +95,7 @@ public class Animals : MonoBehaviour
     {
         //If the animal is allowed to eat the food and the score goes up
         Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
-
+        RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Remove(foodThatCollided);
         if (animExpression != null)
         {
             animExpression.SetTrigger("Iloinen");
@@ -132,7 +132,7 @@ public class Animals : MonoBehaviour
 
             yield return null;
         }
-        HandleChanges();
+    
 
         //Resets the food for future selection
         script.enabled = true;
@@ -140,6 +140,8 @@ public class Animals : MonoBehaviour
         goodFood.SetActive(false);
         goodFood.transform.localScale = initialScale;
         isShrinking = false;
+
+        HandleChanges();
 
         //Keeps calling this function till the queue is empty
         if (foodQueue.Count > 0)
@@ -154,6 +156,7 @@ public class Animals : MonoBehaviour
         //If the food was fed to the wrong animal player loses a life
         Debug.Log($"{gameObject.name} ei saa syödä {foodThatCollidedName}");
         badFood = foodThatCollided;
+        RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Remove(badFood);
         var script = badFood.GetComponent<DragAndDrop>();
         script.enabled = false;
         if (animExpression != null)
@@ -162,7 +165,7 @@ public class Animals : MonoBehaviour
         }
         if (foodThatCollided.CompareTag("EiSyötävä"))
         {
-            RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Remove(foodThatCollided);
+            RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Remove(badFood);
         }
 
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft--;
@@ -192,14 +195,14 @@ public class Animals : MonoBehaviour
     //If there are no more foods this one handles that
     void HandleChanges()
     {
-        if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft == 0)
+        if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft == 0 && !RandomAnimalAndFood.randomAnimalAndFood.changedFoodsRecently)
         {
+            RandomAnimalAndFood.randomAnimalAndFood.changedFoodsRecently = true;
             //This makes sure that animals only get swapped when there arent any foods 
             if (RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime)
             {
-                //A slight delay to make it more smooth
-                RandomAnimalAndFood.randomAnimalAndFood.smoke.SetActive(true);
-                Invoke("ChangeAnimalWithADelay", 2.0f);
+                RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime = false;
+                RandomAnimalAndFood.randomAnimalAndFood.CanChangeAnimal();
             }
             else
             {
@@ -207,14 +210,6 @@ public class Animals : MonoBehaviour
                 ActiveFood.activeFood.SwitchToNextFood();
             }
         }
-    }
-    //Changes the animals
-    void ChangeAnimalWithADelay()
-    {
-        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 100;
-        RandomAnimalAndFood.randomAnimalAndFood.CanChangeAnimal();
-        RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime = false;
-
     }
 }
 

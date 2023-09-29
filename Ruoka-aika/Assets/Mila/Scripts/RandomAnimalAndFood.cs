@@ -22,7 +22,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     List<string> foodsWithoutAssociations = new List<string>
     {
-        "Rengas", "Jäätelö", "Sitruuna", "Karkki", "Chili"
+        "Rengas", "Jäätelö", "Sitruuna", "Karkki", "Chili", "Pizza"
     };
 
     [SerializeField] Transform lineStart;
@@ -48,6 +48,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     bool foodsToChoose6;
     bool foodsToChoose7;
 
+    public bool changedFoodsRecently;
     public bool nowIsAGoodTime;
 
     public int foodsLeft;
@@ -68,7 +69,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         { "Koira", new List<string> { "Pihvi", "Paisti", "Luu", "Koiranruoka", "Broileri" } },
         { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet" } },
         { "Lehmä", new List<string> { "Kurkku", "Leipä", "Vehnä" } },
-        { "Lammas", new List<string> { "Retiisi", "Pizza" } },
+        { "Lammas", new List<string> { "Retiisi", "Lehdet" } },
         { "Possu", new List<string> { "Porkkana", "Pähkinät", "Sienet" } },
         { "Strutsi", new List<string> { "Pähkinät", "Kurkku", "Mato", "Etana" } },
         { "Kissa", new List<string> { "Kala", "Pihvi", "Kissanruoka", "Kinkku" } },
@@ -88,6 +89,17 @@ public class RandomAnimalAndFood : MonoBehaviour
             if (foodsLeft > 0)
             {
                 Score.scoreScript.ScoreDown();
+
+            }
+            if (nowIsAGoodTime)
+            {
+                nowIsAGoodTime = false;
+                CanChangeAnimal();
+            }
+            else
+            {
+                RandomFood(numberOfFoodsToChoose);
+                RandomCorrectAnimal();
 
             }
 
@@ -121,11 +133,12 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public void CanChangeAnimal()
     {
+        timerToChangeFood = 7;
         justChangedAnimals = true;
         ChangeRandomAnimal();
         AddFoods();
-        timerToChangeFood = 10;
         timerToChangeAnimal = 60;
+        nowIsAGoodTime = false;
     }
     private void Start()
     {
@@ -291,9 +304,22 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method chooses a random animal from the ones that havent been chosen 
     void ChangeRandomAnimal()
     {
-        //Chooses the animal that gets swapped out
-        int randomSwappedAnimalIndex = Random.Range(0, chosenAnimals.Count);
-        GameObject animalThatGetsSwapped = chosenAnimals[randomSwappedAnimalIndex];
+        string raccoon = "Pesukarhu";
+
+        GameObject raccoonObject = chosenAnimals.Find(obj => obj.name == raccoon);
+
+        GameObject animalThatGetsSwapped;
+
+        if (chosenAnimals.Contains(raccoonObject))
+        {
+            animalThatGetsSwapped = raccoonObject;
+        }
+        else
+        {
+            //Chooses the animal that gets swapped out
+            int randomSwappedAnimalIndex = Random.Range(0, chosenAnimals.Count);
+            animalThatGetsSwapped = chosenAnimals[randomSwappedAnimalIndex];
+        }
 
         smoke.transform.position = animalThatGetsSwapped.transform.position;
         smoke.SetActive(true);
@@ -452,6 +478,7 @@ public class RandomAnimalAndFood : MonoBehaviour
                 FoodPositionDictionary.Add(food, foodPosition);
             }
         }
+        changedFoodsRecently = false;
     }
 
     //This method changes the amount of animals that are present based on difficulty

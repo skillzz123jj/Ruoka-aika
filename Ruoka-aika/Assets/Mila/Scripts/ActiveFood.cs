@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class ActiveFood : MonoBehaviour
 {
-    [SerializeField] GameObject currentActiveFood;
+    public GameObject currentActiveFood;
+    SpriteRenderer backgroundSpriteRenderer;
     SpriteRenderer spriteRenderer;
     GameObject previousActiveFood;
 
+    Collider2D collider;
+
     [SerializeField] Sprite activeFoodBackground;
     [SerializeField] Sprite defaultBackground;
-
     public GameObject wrongFoodSprite;
 
     public bool foodWasFed;
@@ -57,7 +59,7 @@ public class ActiveFood : MonoBehaviour
         //// Move the active food
         //currentActiveFood.transform.Translate(movement);
 
-        // Check if a new food is clicked by the player
+        //Check if a new food is clicked by the player
         if (Input.GetMouseButtonDown(0))
         {
             GameObject newActiveFood = GetClickedFood();
@@ -134,20 +136,27 @@ public class ActiveFood : MonoBehaviour
             ChangeBackground(currentActiveFood);
         }
     }
-
     private void ResetBackground(GameObject food)
     {
+        collider = food.GetComponent<Collider2D>();
+        collider.isTrigger = false;
+        spriteRenderer = food.GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = 30;
         GameObject child = food.transform.GetChild(0).gameObject;
-        spriteRenderer = child.GetComponent<SpriteRenderer>();
-
-        spriteRenderer.sprite = defaultBackground;
+        backgroundSpriteRenderer = child.GetComponent<SpriteRenderer>();
+        backgroundSpriteRenderer.sortingOrder = 25;
+        backgroundSpriteRenderer.sprite = defaultBackground;
     }
 
     private void ChangeBackground(GameObject food)
     {
+        collider = food.GetComponent<Collider2D>();
+        collider.isTrigger = true;
+        spriteRenderer = food.GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = 32;
         GameObject child = food.transform.GetChild(0).gameObject;
-        spriteRenderer = child.GetComponent<SpriteRenderer>();
-
-        spriteRenderer.sprite = activeFoodBackground;
+        backgroundSpriteRenderer = child.GetComponent<SpriteRenderer>();
+        backgroundSpriteRenderer.sortingOrder = 31;
+        backgroundSpriteRenderer.sprite = activeFoodBackground;
     }
 }
