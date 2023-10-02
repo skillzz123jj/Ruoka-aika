@@ -6,10 +6,11 @@ public class Animals : MonoBehaviour
 {
     [SerializeField] Animator animExpression;
     [SerializeField] Animator animTail;
-
+    [SerializeField] AudioSource chewingSound;
     
     GameObject foodThatCollided;
     GameObject badFood;
+    GameObject error;
     string foodThatCollidedName;
 
     float shrinkSpeed = 0.7f;
@@ -69,7 +70,11 @@ public class Animals : MonoBehaviour
         if (ActiveFood.activeFood.foodWasFed)
         {
             if (good)
-            {              
+            { 
+                if (chewingSound != null)
+                {
+                    chewingSound.Play();
+                }           
                 GoodFood();
                 good = false;
 
@@ -89,6 +94,7 @@ public class Animals : MonoBehaviour
         RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
         RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
         RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
+        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
     }
 
     void GoodFood()
@@ -175,7 +181,7 @@ public class Animals : MonoBehaviour
         HandleChanges();
         
     }
-    GameObject error;
+
     //This method adds a sprite on the food if it was fed to the incorrect animal
     void WrongFoodSprite()
     {

@@ -6,7 +6,7 @@ using UnityEngine;
 public class RandomAnimalAndFood : MonoBehaviour
 {
     [SerializeField] List<GameObject> animals = new List<GameObject>();
-    [SerializeField] List<GameObject> chosenAnimals = new List<GameObject>();
+    [SerializeField] public List<GameObject> chosenAnimals = new List<GameObject>();
     [SerializeField] List<GameObject> animalsThatWerentChosen = new List<GameObject>();
     [SerializeField] List<GameObject> foods = new List<GameObject>();
     [SerializeField] public List<GameObject> allFoods = new List<GameObject>();
@@ -98,13 +98,19 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
             else
             {
+                //ActiveFood.activeFood.wasChosen = false;
+                ActiveFood.activeFood.currentActiveFood = null;
                 RandomFood(numberOfFoodsToChoose);
                 RandomCorrectAnimal();
+                timerToChangeFood = 10;
 
             }
-
+            //ActiveFood.activeFood.wasChosen = false;
+            ActiveFood.activeFood.currentActiveFood = null;
             RandomFood(numberOfFoodsToChoose);
             RandomCorrectAnimal();
+            timerToChangeFood = 10;
+
 
             if (Difficulty.difficulty.easy)
             {
@@ -456,21 +462,41 @@ public class RandomAnimalAndFood : MonoBehaviour
             chosenFoods.Add(chosenFood);
             availableFoods.RemoveAt(chosenFoodIndex);
 
-            PositionFoodsRandomly(chosenFoods);
+          
 
         }
+        PositionFoodsRandomly(chosenFoods);
     }
 
     //This method gives the foods their positions
+    public List<Vector2> copyOfFoodPositions = new List<Vector2>();
+    //This method gives the foods their positions
     public void PositionFoodsRandomly(List<GameObject> foods)
     {
-        Vector3 currentPosition = startPosition;
+        //  copyOfFoodPositions = new List<Vector2>(foodPositions);
+        //  Vector3 currentPosition = startPosition;
+        // currentPosition.x = Random.Range(-5.31f, 3f);
 
         foreach (GameObject food in foods)
         {
-            food.transform.position = currentPosition;
-            currentPosition.x += spaceBetweenFoods.x;
+            int index = Random.Range(0, foodPositions.Count);
+            Vector2 newPosition = foodPositions[index];
+
+            while (copyOfFoodPositions.Contains(newPosition))
+            {
+                index = Random.Range(0, foodPositions.Count);
+                newPosition = foodPositions[index];
+            }
+
+            copyOfFoodPositions.Add(newPosition);
+            //return newPosition;
+
+
+            //food.transform.position = currentPosition;
+            //currentPosition.x += spaceBetweenFoods.x;
+            food.transform.position = newPosition;
             food.SetActive(true);
+            //  foodPositions.RemoveAt(index);
 
             if (!FoodPositionDictionary.ContainsKey(food))
             {
@@ -478,6 +504,10 @@ public class RandomAnimalAndFood : MonoBehaviour
                 FoodPositionDictionary.Add(food, foodPosition);
             }
         }
+        copyOfFoodPositions.Clear();
+        //    copyOfFoodPositions.AddRange(foodPositions);
+        //foodPositions.Clear();
+        // foodPositions.AddRange(copyOfFoodPositions);
         changedFoodsRecently = false;
     }
 
