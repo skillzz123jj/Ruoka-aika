@@ -9,15 +9,12 @@ public class MainMenu : MonoBehaviour
 {
     public Button easyButton;
     public Button normalButton;
-    public Button hardButton;
 
     public Sprite easyHighlightSprite;
     public Sprite normalHighlightSprite;
-    public Sprite hardHighlightSprite;
 
     public Sprite easyDefaultSprite;
     public Sprite normalDefaultSprite;
-    public Sprite hardDefaultSprite;
 
     //These are for buttons
     public void StartGame(int scene)
@@ -37,11 +34,6 @@ public class MainMenu : MonoBehaviour
             normalButton.image.sprite = normalHighlightSprite;
            
         }
-        if (Difficulty.difficulty.hard)
-        {
-            hardButton.image.sprite = hardHighlightSprite;
-            
-        }
     }
 
     public void Easy()
@@ -50,7 +42,6 @@ public class MainMenu : MonoBehaviour
         Difficulty.difficulty.normal = false;
         Difficulty.difficulty.hard = false;
         normalButton.image.sprite = normalDefaultSprite;
-        hardButton.image.sprite = hardDefaultSprite;
 
     }
     public void Normal()
@@ -59,17 +50,6 @@ public class MainMenu : MonoBehaviour
         Difficulty.difficulty.normal = true;
         Difficulty.difficulty.hard = false;
         easyButton.image.sprite = easyDefaultSprite;
-        hardButton.image.sprite = hardDefaultSprite;
-
-    }
-
-    public void Hard()
-    {
-        Difficulty.difficulty.easy = false;
-        Difficulty.difficulty.normal = false;       
-        Difficulty.difficulty.hard = true;
-        easyButton.image.sprite = easyDefaultSprite;
-        normalButton.image.sprite = normalDefaultSprite;
 
     }
 }
