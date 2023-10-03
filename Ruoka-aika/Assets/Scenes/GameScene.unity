@@ -834,9 +834,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
-    m_PressedColor: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
-    m_DisabledColor: {r: 0.7843138, g: 0.7843138, b: 0.7843138, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1133,6 +1133,7 @@ MonoBehaviour:
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
   chewingSound: {fileID: 121922010}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &121922008
@@ -3460,9 +3461,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3759,6 +3760,7 @@ MonoBehaviour:
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
   chewingSound: {fileID: 497446274}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &497446272
@@ -4526,6 +4528,7 @@ Transform:
   m_Children:
   - {fileID: 1229945830}
   - {fileID: 657066999}
+  - {fileID: 809951167}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4727,9 +4730,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -6088,6 +6091,7 @@ MonoBehaviour:
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
   chewingSound: {fileID: 696161931}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &696161929
@@ -6296,9 +6300,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -6844,6 +6848,7 @@ MonoBehaviour:
   animExpression: {fileID: 756984153}
   animTail: {fileID: 1108225035}
   chewingSound: {fileID: 756984154}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &756984151
@@ -7068,6 +7073,7 @@ MonoBehaviour:
   animExpression: {fileID: 769570749}
   animTail: {fileID: 683507293}
   chewingSound: {fileID: 769570750}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &769570746
@@ -7618,6 +7624,7 @@ MonoBehaviour:
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
   chewingSound: {fileID: 785056113}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &785056111
@@ -7882,6 +7889,134 @@ Transform:
   m_Father: {fileID: 1770760520}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &809951166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 809951167}
+  - component: {fileID: 809951168}
+  m_Layer: 0
+  m_Name: "Virhe\xC4\xE4ni"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &809951167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809951166}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -352.66663, y: 50.404022, z: -2.272464}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 550668867}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &809951168
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809951166}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f6ca91a38bd13e9489d80e3da16e3182, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &814013592
 GameObject:
   m_ObjectHideFlags: 0
@@ -8453,9 +8588,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -9186,9 +9321,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -10946,6 +11081,7 @@ MonoBehaviour:
   animExpression: {fileID: 1310583678}
   animTail: {fileID: 24092739}
   chewingSound: {fileID: 0}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &1310583676
@@ -12124,6 +12260,7 @@ MonoBehaviour:
   - {x: 2.31, y: -3}
   - {x: 4.31, y: -3}
   - {x: 6.31, y: -3}
+  copyOfFoodPositions: []
   startPosition: {x: -5.31, y: -3}
   spaceBetweenFoods: {x: 2, y: 0}
   lineStart: {fileID: 1924773394}
@@ -12137,7 +12274,6 @@ MonoBehaviour:
   nowIsAGoodTime: 0
   foodsLeft: 0
   numberOfFoodsToChoose: 0
-  copyOfFoodPositions: []
 --- !u!4 &1488261228
 Transform:
   m_ObjectHideFlags: 0
@@ -13022,6 +13158,7 @@ MonoBehaviour:
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
   chewingSound: {fileID: 1598555236}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &1598555234
@@ -14149,6 +14286,7 @@ MonoBehaviour:
   animExpression: {fileID: 1823923901}
   animTail: {fileID: 1622072307}
   chewingSound: {fileID: 0}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &1823923899
@@ -14935,6 +15073,7 @@ MonoBehaviour:
   animExpression: {fileID: 0}
   animTail: {fileID: 0}
   chewingSound: {fileID: 0}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &1959898044
@@ -15331,6 +15470,7 @@ MonoBehaviour:
   animExpression: {fileID: 2005010708}
   animTail: {fileID: 2114649934}
   chewingSound: {fileID: 2005010709}
+  errorSound: {fileID: 809951168}
   good: 0
   bad: 0
 --- !u!61 &2005010706
@@ -15816,9 +15956,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:

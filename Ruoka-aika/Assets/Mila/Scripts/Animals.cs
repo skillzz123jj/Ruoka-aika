@@ -7,7 +7,8 @@ public class Animals : MonoBehaviour
     [SerializeField] Animator animExpression;
     [SerializeField] Animator animTail;
     [SerializeField] AudioSource chewingSound;
-    
+    [SerializeField] AudioSource errorSound;
+
     GameObject foodThatCollided;
     GameObject badFood;
     GameObject error;
@@ -80,7 +81,8 @@ public class Animals : MonoBehaviour
 
             }
             else if (bad)
-            {              
+            {
+                errorSound.Play();
                 BadFood();
                 bad = false;
 

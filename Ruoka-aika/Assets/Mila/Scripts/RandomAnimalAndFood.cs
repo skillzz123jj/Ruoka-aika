@@ -16,6 +16,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     public AudioSource audioSource;
 
     public List<Vector2> foodPositions = new List<Vector2>();
+    public List<Vector2> copyOfFoodPositions = new List<Vector2>();
 
     public Vector2 startPosition;
     public Vector2 spaceBetweenFoods;
@@ -462,26 +463,22 @@ public class RandomAnimalAndFood : MonoBehaviour
             chosenFoods.Add(chosenFood);
             availableFoods.RemoveAt(chosenFoodIndex);
 
-          
-
         }
         PositionFoodsRandomly(chosenFoods);
     }
 
-    //This method gives the foods their positions
-    public List<Vector2> copyOfFoodPositions = new List<Vector2>();
+
+ 
     //This method gives the foods their positions
     public void PositionFoodsRandomly(List<GameObject> foods)
     {
-        //  copyOfFoodPositions = new List<Vector2>(foodPositions);
-        //  Vector3 currentPosition = startPosition;
-        // currentPosition.x = Random.Range(-5.31f, 3f);
 
         foreach (GameObject food in foods)
         {
             int index = Random.Range(0, foodPositions.Count);
             Vector2 newPosition = foodPositions[index];
 
+            //Keeps finding a position till it finds one that isnt taken
             while (copyOfFoodPositions.Contains(newPosition))
             {
                 index = Random.Range(0, foodPositions.Count);
@@ -489,14 +486,8 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
 
             copyOfFoodPositions.Add(newPosition);
-            //return newPosition;
-
-
-            //food.transform.position = currentPosition;
-            //currentPosition.x += spaceBetweenFoods.x;
             food.transform.position = newPosition;
             food.SetActive(true);
-            //  foodPositions.RemoveAt(index);
 
             if (!FoodPositionDictionary.ContainsKey(food))
             {
@@ -505,9 +496,6 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
         }
         copyOfFoodPositions.Clear();
-        //    copyOfFoodPositions.AddRange(foodPositions);
-        //foodPositions.Clear();
-        // foodPositions.AddRange(copyOfFoodPositions);
         changedFoodsRecently = false;
     }
 
