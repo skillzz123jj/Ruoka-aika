@@ -6,7 +6,7 @@ using UnityEngine;
 public class RandomAnimalAndFood : MonoBehaviour
 {
     [SerializeField] List<GameObject> animals = new List<GameObject>();
-    [SerializeField] List<GameObject> chosenAnimals = new List<GameObject>();
+    [SerializeField] public List<GameObject> chosenAnimals = new List<GameObject>();
     [SerializeField] List<GameObject> animalsThatWerentChosen = new List<GameObject>();
     [SerializeField] List<GameObject> foods = new List<GameObject>();
     [SerializeField] public List<GameObject> allFoods = new List<GameObject>();
@@ -16,13 +16,14 @@ public class RandomAnimalAndFood : MonoBehaviour
     public AudioSource audioSource;
 
     public List<Vector2> foodPositions = new List<Vector2>();
+    public List<Vector2> copyOfFoodPositions = new List<Vector2>();
 
     public Vector2 startPosition;
     public Vector2 spaceBetweenFoods;
 
     List<string> foodsWithoutAssociations = new List<string>
     {
-        "Rengas", "Jäätelö", "Sitruuna", "Karkki", "Chili"
+        "Rengas", "Jäätelö", "Sitruuna", "Karkki", "Chili", "Pizza"
     };
 
     [SerializeField] Transform lineStart;
@@ -48,6 +49,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     bool foodsToChoose6;
     bool foodsToChoose7;
 
+    public bool changedFoodsRecently;
     public bool nowIsAGoodTime;
 
     public int foodsLeft;
@@ -68,7 +70,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         { "Koira", new List<string> { "Pihvi", "Paisti", "Luu", "Koiranruoka", "Broileri" } },
         { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet" } },
         { "Lehmä", new List<string> { "Kurkku", "Leipä", "Vehnä" } },
-        { "Lammas", new List<string> { "Retiisi", "Pizza" } },
+        { "Lammas", new List<string> { "Retiisi", "Lehdet" } },
         { "Possu", new List<string> { "Porkkana", "Pähkinät", "Sienet" } },
         { "Strutsi", new List<string> { "Pähkinät", "Kurkku", "Mato", "Etana" } },
         { "Kissa", new List<string> { "Kala", "Pihvi", "Kissanruoka", "Kinkku" } },
@@ -90,9 +92,26 @@ public class RandomAnimalAndFood : MonoBehaviour
                 Score.scoreScript.ScoreDown();
 
             }
+            if (nowIsAGoodTime)
+            {
+                nowIsAGoodTime = false;
+                CanChangeAnimal();
+            }
+            else
+            {
+                //ActiveFood.activeFood.wasChosen = false;
+                ActiveFood.activeFood.currentActiveFood = null;
+                RandomFood(numberOfFoodsToChoose);
+                RandomCorrectAnimal();
+                timerToChangeFood = 10;
 
+            }
+            //ActiveFood.activeFood.wasChosen = false;
+            ActiveFood.activeFood.currentActiveFood = null;
             RandomFood(numberOfFoodsToChoose);
             RandomCorrectAnimal();
+            timerToChangeFood = 10;
+
 
             if (Difficulty.difficulty.easy)
             {
@@ -121,11 +140,12 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public void CanChangeAnimal()
     {
+        timerToChangeFood = 7;
         justChangedAnimals = true;
         ChangeRandomAnimal();
         AddFoods();
-        timerToChangeFood = 10;
         timerToChangeAnimal = 60;
+        nowIsAGoodTime = false;
     }
     private void Start()
     {
@@ -291,9 +311,22 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method chooses a random animal from the ones that havent been chosen 
     void ChangeRandomAnimal()
     {
-        //Chooses the animal that gets swapped out
-        int randomSwappedAnimalIndex = Random.Range(0, chosenAnimals.Count);
-        GameObject animalThatGetsSwapped = chosenAnimals[randomSwappedAnimalIndex];
+        string raccoon = "Pesukarhu";
+
+        GameObject raccoonObject = chosenAnimals.Find(obj => obj.name == raccoon);
+
+        GameObject animalThatGetsSwapped;
+
+        if (chosenAnimals.Contains(raccoonObject))
+        {
+            animalThatGetsSwapped = raccoonObject;
+        }
+        else
+        {
+            //Chooses the animal that gets swapped out
+            int randomSwappedAnimalIndex = Random.Range(0, chosenAnimals.Count);
+            animalThatGetsSwapped = chosenAnimals[randomSwappedAnimalIndex];
+        }
 
         smoke.transform.position = animalThatGetsSwapped.transform.position;
         smoke.SetActive(true);
@@ -430,20 +463,30 @@ public class RandomAnimalAndFood : MonoBehaviour
             chosenFoods.Add(chosenFood);
             availableFoods.RemoveAt(chosenFoodIndex);
 
-            PositionFoodsRandomly(chosenFoods);
-
         }
+        PositionFoodsRandomly(chosenFoods);
     }
 
+
+ 
     //This method gives the foods their positions
     public void PositionFoodsRandomly(List<GameObject> foods)
     {
-        Vector3 currentPosition = startPosition;
 
         foreach (GameObject food in foods)
         {
-            food.transform.position = currentPosition;
-            currentPosition.x += spaceBetweenFoods.x;
+            int index = Random.Range(0, foodPositions.Count);
+            Vector2 newPosition = foodPositions[index];
+
+            //Keeps finding a position till it finds one that isnt taken
+            while (copyOfFoodPositions.Contains(newPosition))
+            {
+                index = Random.Range(0, foodPositions.Count);
+                newPosition = foodPositions[index];
+            }
+
+            copyOfFoodPositions.Add(newPosition);
+            food.transform.position = newPosition;
             food.SetActive(true);
 
             if (!FoodPositionDictionary.ContainsKey(food))
@@ -452,6 +495,8 @@ public class RandomAnimalAndFood : MonoBehaviour
                 FoodPositionDictionary.Add(food, foodPosition);
             }
         }
+        copyOfFoodPositions.Clear();
+        changedFoodsRecently = false;
     }
 
     //This method changes the amount of animals that are present based on difficulty

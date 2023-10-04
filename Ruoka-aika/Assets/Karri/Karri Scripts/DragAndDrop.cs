@@ -52,12 +52,14 @@ public class DragAndDrop : MonoBehaviour
         }
         else
         {
-          if (move)
+          if (move && gameObject != ActiveFood.activeFood.currentActiveFood)
             {
-                //Moves the food slowly back to its initial position if it isnt on any animal
                 initialPosition = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
-                Vector3 newPosition = Vector2.Lerp(transform.position, initialPosition, Time.deltaTime * moveSpeed);
-                transform.position = newPosition;
+
+             
+                float t = Time.deltaTime * moveSpeed;
+
+                transform.position = Vector3.Lerp(transform.position, initialPosition, t);
 
             }
         }
