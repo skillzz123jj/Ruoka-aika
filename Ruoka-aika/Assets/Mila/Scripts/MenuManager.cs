@@ -33,6 +33,7 @@ public class MenuManager : MonoBehaviour
     }
     public void MuteAudio()
     {
+        Difficulty.difficulty.audioMuted = true;
         audioButton.SetActive(false);
         muteAudioButton.SetActive(true);
         muteAudioText.SetActive(false);
@@ -41,11 +42,31 @@ public class MenuManager : MonoBehaviour
     }
     public void Audio()
     {
+        Difficulty.difficulty.audioMuted = false;
         audioButton.SetActive(true);
         muteAudioButton.SetActive(false);
         audioText.SetActive(false);
         EventSystem.current.SetSelectedGameObject(audioAsDefault.gameObject);
 
+    }
+    private void Update()
+    {
+        if (Difficulty.difficulty.audioMuted)
+        {
+            AudioListener.volume = 0f;
+            audioButton.SetActive(false);
+            muteAudioButton.SetActive(true);
+            muteAudioText.SetActive(false);
+
+        }
+        else
+        {
+            AudioListener.volume = 1f;
+            audioButton.SetActive(true);
+            muteAudioButton.SetActive(false);
+            audioText.SetActive(false);
+
+        }
     }
     public void ExitGameText()
     {

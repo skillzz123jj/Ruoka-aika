@@ -10,8 +10,10 @@ public class Difficulty : MonoBehaviour
     public bool normal = true;
     public bool hard;
 
+    public bool audioMuted;
+
     public static Difficulty difficulty;
-    
+
     void Start()
     {
         //Doesnt destroy on the next scene if there arent any duplicates
