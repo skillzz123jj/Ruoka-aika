@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
+    private Vector3 initialgPosition;
+
+    private Vector3 offset;
+
     private bool isDragging;
     public bool move = true;
 
@@ -16,6 +20,8 @@ public class DragAndDrop : MonoBehaviour
     {
         isDragging = true;
         move = true;
+        offset = transform.position - Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+
 
     }
 
@@ -28,17 +34,33 @@ public class DragAndDrop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (isDragging)
+
+        if (isDragging)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = mousePosition;
+
+            if (Input.touchCount > 0)
+            {
+                //Gives the food an offset when player is using a mobile device
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) + offset;
+
+            
+                transform.position = new Vector3(touchPosition.x - 1.5f, touchPosition.y + 0.5f, touchPosition.z);
+
+            }
+            else
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = mousePosition;
+            }
+
+      
 
             // Check if this GameObject is in the dictionary
-            if (!RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary.ContainsKey(gameObject))
-            {
-                RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary.Add(gameObject, mousePosition);
-            }
-            
+            //if (!RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary.ContainsKey(gameObject))
+            //{
+            //    RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary.Add(gameObject, mousePosition);
+            //}
+
             //if (!move)
             //{
             //    // Update the position in the dictionary
@@ -50,21 +72,21 @@ public class DragAndDrop : MonoBehaviour
             //    gameObject.transform.position = intialPosition; 
             //}
         }
-        else 
+        else
         {
-          if (move && gameObject != ActiveFood.activeFood.currentActiveFood)
+            if (move && gameObject != ActiveFood.activeFood.currentActiveFood)
             {
                 initialPosition = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
 
-             
+
                 float t = Time.deltaTime * moveSpeed;
 
                 transform.position = Vector3.Lerp(transform.position, initialPosition, t);
 
-            }       
+            }
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         move = false;
