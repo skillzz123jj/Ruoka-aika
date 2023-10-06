@@ -75,13 +75,15 @@ public class Animals : MonoBehaviour
                 if (chewingSound != null)
                 {
                     chewingSound.Play();
-                }           
+                }
+               // ActiveFood.activeFood.ResetBackground(foodThatCollided);
                 GoodFood();
                 good = false;
 
             }
             else if (bad)
             {
+                //ActiveFood.activeFood.ResetBackground(foodThatCollided);
                 errorSound.Play();
                 BadFood();
                 bad = false;
