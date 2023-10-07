@@ -39,12 +39,14 @@ public class Animals : MonoBehaviour
 
                 //This checks if the animal can eat the food and sets the bools accordingly
                 if (allowedFoods.Contains(foodThatCollidedName))
-                {               
+                {
+                  
                     good = true;
                     bad = false;
                 }
                 else
                 {
+                   
                     bad = true;
                     good = false;
                 }
@@ -217,7 +219,7 @@ public class Animals : MonoBehaviour
             else
             {
                 Invoke("NewFoods", 3F);
-                ActiveFood.activeFood.SwitchToNextFood();
+              //  ActiveFood.activeFood.SwitchToNextFood();
             }
         }
     }

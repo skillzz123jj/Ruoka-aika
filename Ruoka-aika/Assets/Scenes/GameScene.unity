@@ -5157,11 +5157,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentActiveFood: {fileID: 0}
   highLight: {fileID: 465730797}
-  mainCamera: {fileID: 519420031}
   activeFoodBackground: {fileID: 21300000, guid: a705ca9cbcd8fb64ab65f287805b5356, type: 3}
-  actuallyActiveFoodBackground: {fileID: 21300000, guid: 4f7840a7e2421434db3f0f035526a983, type: 3}
+  actuallyActiveFoodBackground: {fileID: 21300000, guid: a048315b2ca1f9e40a8d5f006500eb05, type: 3}
   defaultBackground: {fileID: 21300000, guid: f00f98b6dc2019748ac9e49a9ca5ea5d, type: 3}
   wrongFoodSprite: {fileID: 1229945828}
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
   moveSpeed: 4
   foodWasFed: 0
   speed: 5

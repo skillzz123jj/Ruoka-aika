@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
-    private Vector3 initialgPosition;
-
     private Vector3 offset;
 
     private bool isDragging;
@@ -20,8 +18,11 @@ public class DragAndDrop : MonoBehaviour
     {
         isDragging = true;
         move = true;
-        offset = transform.position - Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
 
+        if (Input.touchCount > 0)
+        {
+            offset = transform.position - Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+        }
 
     }
 
