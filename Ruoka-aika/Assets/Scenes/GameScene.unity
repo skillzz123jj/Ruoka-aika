@@ -5312,12 +5312,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d0de5432588164880b295a13827241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActiveFood: {fileID: 0}
   activeFoodBackground: {fileID: 21300000, guid: a705ca9cbcd8fb64ab65f287805b5356, type: 3}
+  actuallyActiveFoodBackground: {fileID: 21300000, guid: a048315b2ca1f9e40a8d5f006500eb05, type: 3}
   defaultBackground: {fileID: 21300000, guid: f00f98b6dc2019748ac9e49a9ca5ea5d, type: 3}
+  currentActiveFood: {fileID: 0}
   wrongFoodSprite: {fileID: 1229945828}
-  foodWasFed: 0
+  highLight: {fileID: 465730797}
+  moveSpeed: 3
   speed: 5
+  foodWasFed: 0
+  wasChosen: 0
+  animator: {fileID: 0}
 --- !u!4 &600050450
 Transform:
   m_ObjectHideFlags: 0
@@ -13718,7 +13723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1681795543
 RectTransform:
   m_ObjectHideFlags: 0

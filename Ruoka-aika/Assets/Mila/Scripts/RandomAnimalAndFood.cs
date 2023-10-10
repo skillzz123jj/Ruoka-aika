@@ -92,14 +92,14 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
             else
             {
-                //ActiveFood.activeFood.wasChosen = false;
+                ActiveFood.activeFood.wasChosen = false;
                 ActiveFood.activeFood.currentActiveFood = null;
                 RandomFood(numberOfFoodsToChoose);
                 RandomCorrectAnimal();
                 timerToChangeFood = 10;
 
             }
-            //ActiveFood.activeFood.wasChosen = false;
+            ActiveFood.activeFood.wasChosen = false;
             ActiveFood.activeFood.currentActiveFood = null;
             RandomFood(numberOfFoodsToChoose);
             RandomCorrectAnimal();
@@ -255,33 +255,33 @@ public class RandomAnimalAndFood : MonoBehaviour
                 int randomAnimalIndex = Random.Range(0, chosenAnimals.Count);
                 correctRandomAnimal = chosenAnimals[randomAnimalIndex];
             }
-            //if (correctRandomAnimal.name == "Alpakka")
-            //{
-            //    correctRandomAnimal.name = "alpaka";
-            //}
-            //else if (correctRandomAnimal.name == "Hevonen")
-            //{
-            //    correctRandomAnimal.name = "hevose";
-            //}
-            //else if (correctRandomAnimal.name == "Lammas")
-            //{
-            //    correctRandomAnimal.name = "lampaa";
-            //}
+            if (correctRandomAnimal.name == "Alpakka")
+            {
+                correctRandomAnimal.name = "alpaka";
+            }
+            else if (correctRandomAnimal.name == "Hevonen")
+            {
+                correctRandomAnimal.name = "hevose";
+            }
+            else if (correctRandomAnimal.name == "Lammas")
+            {
+                correctRandomAnimal.name = "lampaa";
+            }
 
-            //if (numberOfFoodsToChoose == 1)
-            //{
-               
-            //    instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle".ToLower();
-            //}
-            //else if (index == chosenFoods.Count - 1)
-            //{
-            //    instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle".ToLower();
-            //}
-            //else
-            //{
-            //    instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle ja ".ToLower();
-            //}
-                     
+            if (numberOfFoodsToChoose == 1)
+            {
+
+                instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle".ToLower();
+            }
+            else if (index == chosenFoods.Count - 1)
+            {
+                instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle".ToLower();
+            }
+            else
+            {
+                instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle ja ".ToLower();
+            }
+
             Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
 
             if (TempDictionary.ContainsKey(correctRandomAnimal.name))
