@@ -9,7 +9,7 @@ public class ActiveFood : MonoBehaviour
     SpriteRenderer spriteRenderer;
     GameObject previousActiveFood;
 
-    Collider2D collider;
+    Collider2D testCollider;
 
     [SerializeField] Sprite activeFoodBackground;
     [SerializeField] Sprite defaultBackground;
@@ -138,8 +138,8 @@ public class ActiveFood : MonoBehaviour
     }
     private void ResetBackground(GameObject food)
     {
-        collider = food.GetComponent<Collider2D>();
-        collider.isTrigger = false;
+        testCollider = food.GetComponent<Collider2D>();
+        testCollider.isTrigger = false;
         spriteRenderer = food.GetComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = 30;
         GameObject child = food.transform.GetChild(0).gameObject;
@@ -150,8 +150,8 @@ public class ActiveFood : MonoBehaviour
 
     private void ChangeBackground(GameObject food)
     {
-        collider = food.GetComponent<Collider2D>();
-        collider.isTrigger = true;
+        testCollider = food.GetComponent<Collider2D>();
+        testCollider.isTrigger = true;
         spriteRenderer = food.GetComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = 32;
         GameObject child = food.transform.GetChild(0).gameObject;
@@ -162,38 +162,41 @@ public class ActiveFood : MonoBehaviour
 }
 
 //using UnityEngine;
-
 //using System.Collections;
-//using System.Collections.Generic;
-//using System.Diagnostics;
-//using UnityEngine;
 
 //public class ActiveFood : MonoBehaviour
 //{
-//    public GameObject currentActiveFood;
-//    SpriteRenderer backgroundSpriteRenderer;
-//    SpriteRenderer spriteRenderer;
-//    GameObject previousActiveFood;
-//    public GameObject highLight;
-
-//    Collider2D collider;
-
 //    [SerializeField] Sprite activeFoodBackground;
 //    [SerializeField] Sprite actuallyActiveFoodBackground;
 //    [SerializeField] Sprite defaultBackground;
+
+//    SpriteRenderer backgroundSpriteRenderer;
+//    SpriteRenderer spriteRenderer;
+
+//    public GameObject currentActiveFood;
 //    public GameObject wrongFoodSprite;
+//    public GameObject highLight;
+//    GameObject previousActiveFood;
+//    GameObject actuallyActiveAnimal;
+//    GameObject food;
 
 //    public float moveSpeed = 3.0f;
-
-//    public bool foodWasFed;
-
 //    public float speed = 5.0f;
 
-//    private int currentFoodIndex = 0;
+//    int currentFoodIndex = 0;
+//    int currentAnimalIndex;
+
+//    public bool foodWasFed;
+//    public bool wasChosen;
+//    bool isMoving = false;
+//    bool isHovering;
+
+//    Collider2D foodCollider;
+//    Vector2 position;
+//    RaycastHit2D hit;
+//    [SerializeField] Animator animator;
 
 //    public static ActiveFood activeFood;
-
-//    private bool isMoving = false;
 
 //    void ResetBool()
 //    {
@@ -205,15 +208,34 @@ public class ActiveFood : MonoBehaviour
 //        activeFood = this;
 //        previousActiveFood = currentActiveFood;
 //    }
-//    public bool wasChosen;
+
 //    void Update()
 //    {
-//        // ChooseAnAnimal();
+//        //Convert the mouse position to world coordinates
+//        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-//        if (Input.GetKeyDown(KeyCode.Tab))
+//        //Create a raycast hit variable to store information about the hit
+//        hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+//        //Check if the ray hits a collider
+//        if (hit.collider != null)   
 //        {
-//            SwitchToNextFood();
+//            if (!isHovering)
+//            {
+//                HoverOnFood();
+//            }
+
+//            isHovering = true;
 //        }
+//        else
+//        {
+//            if (isHovering)
+//            {
+//                OnHoverExit();
+//            }
+//            isHovering = false;
+//        }
+
 //        if (Input.GetKeyDown(KeyCode.DownArrow))
 //        {
 //            wasChosen = false;
@@ -221,43 +243,31 @@ public class ActiveFood : MonoBehaviour
 //            SwitchToNextFood();
 //        }
 
-//        if (wasChosen != true)
+//        if (!wasChosen)
 //        {
-//            if (Input.GetKeyDown(KeyCode.LeftArrow))
+//            if (Input.GetKeyDown(KeyCode.Space))
 //            {
-//                SwitchToLeftFood();
+//                SwitchToNextFood();
 //            }
-//            if (Input.GetKeyDown(KeyCode.RightArrow))
+//            if (Input.GetKeyDown(KeyCode.Return))
 //            {
-//                SwitchToRightFood();
+//                wasChosen = true;
+//                ActuallyActive(currentActiveFood);
+//                highLight.SetActive(true);
+//                highLight.transform.position = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0].transform.position;
 //            }
 
 //        }
 //        else
 //        {
-//            highLight.SetActive(true);
-//            if (Input.GetKeyDown(KeyCode.LeftArrow))
+//            if (Input.GetKeyDown(KeyCode.Space))
 //            {
-//                ChooseAnAnimalOnTheLeft();
+//                ChooseAnAnimal();
 //            }
-//            if (Input.GetKeyDown(KeyCode.RightArrow))
-//            {
-//                ChooseAnAnimalOnTheRight();
-//            }
-
-//            //if (Input.GetKeyDown(KeyCode.Return))
-//            //{
-//            //    Vector2 animalPosition;
-//            //    animalPosition = actuallyActiveAnimal.transform.position;
-//            //    //actuallyActive.transform.position = animalPosition;
-
-//            //    float t = Time.deltaTime * moveSpeed;
-
-//            //    actuallyActive.transform.position = Vector3.Lerp(actuallyActive.transform.position, animalPosition, t);
-//            //}
 
 //            if (Input.GetKeyDown(KeyCode.Return) && !isMoving)
 //            {
+//                animator.SetTrigger("Valinta");
 //                StartCoroutine(MoveToPosition());
 //            }
 //        }
@@ -268,20 +278,6 @@ public class ActiveFood : MonoBehaviour
 //            foodWasFed = true;
 //            Invoke("ResetBool", 0.1f);
 //        }
-//        if (Input.GetKeyDown(KeyCode.Return))
-//        {
-//            wasChosen = true;
-//            ActuallyActive();
-//        }
-
-//        //// Handle movement using arrow keys or WASD
-//        //float horizontalInput = Input.GetAxis("Horizontal");
-//        //float verticalInput = Input.GetAxis("Vertical");
-
-//        //Vector2 movement = new Vector2(horizontalInput, verticalInput) * speed * Time.deltaTime;
-
-//        //// Move the active food
-//        //currentActiveFood.transform.Translate(movement);
 
 //        //Check if a new food is clicked by the player
 //        if (Input.GetMouseButtonDown(0))
@@ -291,18 +287,37 @@ public class ActiveFood : MonoBehaviour
 //            if (newActiveFood != null && newActiveFood != currentActiveFood)
 //            {
 
-//                ChangeBackground(newActiveFood);
-
+//                ActuallyActive(previousActiveFood);
 
 //                if (previousActiveFood != null)
 //                {
-//                    ChangeBackground(previousActiveFood);
+//                    ActuallyActive(previousActiveFood);
 //                }
 
 //                //Update the active food and the previous active food
 //                currentActiveFood = newActiveFood;
 //                previousActiveFood = newActiveFood;
 //            }
+//        }
+//    }
+
+//    void HoverOnFood()
+//    {
+//        food = hit.collider.gameObject;
+//        if (food != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
+//        {
+//            GameObject oye = food.transform.GetChild(0).gameObject;
+//            backgroundSpriteRenderer = oye.GetComponent<SpriteRenderer>();
+//            backgroundSpriteRenderer.sprite = activeFoodBackground;
+//        }
+//    }
+//    void OnHoverExit()
+//    {
+//        if (food != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
+//        {
+//            GameObject oye = food.transform.GetChild(0).gameObject;
+//            backgroundSpriteRenderer = oye.GetComponent<SpriteRenderer>();
+//            backgroundSpriteRenderer.sprite = defaultBackground;
 //        }
 //    }
 //    private GameObject GetClickedFood()
@@ -324,11 +339,12 @@ public class ActiveFood : MonoBehaviour
 
 //                if (currentActiveFood != null)
 //                {
+
 //                    ResetBackground(currentActiveFood);
 //                }
 
 //                currentActiveFood = clickedFood;
-//                ChangeBackground(currentActiveFood);
+//                ActuallyActive(currentActiveFood);
 //            }
 
 //            return clickedFood;
@@ -358,54 +374,10 @@ public class ActiveFood : MonoBehaviour
 //            ChangeBackground(currentActiveFood);
 //        }
 //    }
-
-//    public void SwitchToRightFood()
-//    {
-//        if (RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count == 0)
-//        {
-//            return;
-//        }
-
-//        if (currentActiveFood != null)
-//        {
-//            ResetBackground(currentActiveFood);
-//        }
-
-//        currentFoodIndex = (currentFoodIndex + 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count;
-
-//        currentActiveFood = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods[currentFoodIndex];
-
-//        if (currentActiveFood != null)
-//        {
-//            ChangeBackground(currentActiveFood);
-//        }
-//    }
-
-//    public void SwitchToLeftFood()
-//    {
-//        if (RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count == 0)
-//        {
-//            return;
-//        }
-
-//        if (currentActiveFood != null)
-//        {
-//            ResetBackground(currentActiveFood);
-//        }
-
-//        currentFoodIndex = (currentFoodIndex - 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count;
-
-//        currentActiveFood = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods[currentFoodIndex];
-
-//        if (currentActiveFood != null)
-//        {
-//            ChangeBackground(currentActiveFood);
-//        }
-//    }
 //    void ResetBackground(GameObject food)
 //    {
-//        collider = food.GetComponent<Collider2D>();
-//        collider.isTrigger = false;
+//        foodCollider = food.GetComponent<Collider2D>();
+//        foodCollider.isTrigger = false;
 //        spriteRenderer = food.GetComponent<SpriteRenderer>();
 //        spriteRenderer.sortingOrder = 30;
 //        GameObject child = food.transform.GetChild(0).gameObject;
@@ -416,8 +388,8 @@ public class ActiveFood : MonoBehaviour
 
 //    void ChangeBackground(GameObject food)
 //    {
-//        collider = food.GetComponent<Collider2D>();
-//        collider.isTrigger = true;
+//        foodCollider = food.GetComponent<Collider2D>();
+//        foodCollider.isTrigger = true;
 //        spriteRenderer = food.GetComponent<SpriteRenderer>();
 //        spriteRenderer.sortingOrder = 32;
 //        GameObject child = food.transform.GetChild(0).gameObject;
@@ -427,24 +399,22 @@ public class ActiveFood : MonoBehaviour
 //    }
 
 //    GameObject actuallyActive;
-//    private void ActuallyActive()
+//    private void ActuallyActive(GameObject food)
 //    {
-//        actuallyActive = currentActiveFood;
-
-//        collider = actuallyActive.GetComponent<Collider2D>();
-//        collider.isTrigger = true;
-//        spriteRenderer = actuallyActive.GetComponent<SpriteRenderer>();
+//        wasChosen = true;
+//        foodCollider = food.GetComponent<Collider2D>();
+//        foodCollider.isTrigger = true;
+//        spriteRenderer = food.GetComponent<SpriteRenderer>();
 //        spriteRenderer.sortingOrder = 32;
-//        GameObject child = actuallyActive.transform.GetChild(0).gameObject;
+//        GameObject child = food.transform.GetChild(0).gameObject;
 //        backgroundSpriteRenderer = child.GetComponent<SpriteRenderer>();
 //        backgroundSpriteRenderer.sortingOrder = 31;
 //        backgroundSpriteRenderer.sprite = actuallyActiveFoodBackground;
+//        actuallyActive = currentActiveFood;
 
 //    }
-//    int currentAnimalIndex;
-//    GameObject actuallyActiveAnimal;
-//    Vector2 position;
-//    void ChooseAnAnimalOnTheRight()
+
+//    void ChooseAnAnimal()
 //    {
 //        if (actuallyActive != null)
 //        {
@@ -463,34 +433,12 @@ public class ActiveFood : MonoBehaviour
 
 //        }
 //    }
-//    void ChooseAnAnimalOnTheLeft()
-//    {
-//        if (actuallyActive != null)
-//        {
-//            if (RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count == 0)
-//            {
-//                return;
-//            }
-//            currentAnimalIndex = (currentAnimalIndex - 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count;
-//            if (currentAnimalIndex < 0)
-//            {
-//                currentAnimalIndex += RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count;
-//            }
 
-
-//            actuallyActiveAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[currentAnimalIndex];
-
-//            position = actuallyActiveAnimal.transform.position;
-
-//            highLight.transform.position = position;
-
-//        }
-//    }
 
 //    private IEnumerator MoveToPosition()
 //    {
 //        isMoving = true;
-
+//        actuallyActive = currentActiveFood;
 //        Vector3 targetPosition = actuallyActiveAnimal.transform.position;
 //        Vector3 initialPosition = actuallyActive.transform.position;
 //        float journeyLength = Vector3.Distance(initialPosition, targetPosition);
