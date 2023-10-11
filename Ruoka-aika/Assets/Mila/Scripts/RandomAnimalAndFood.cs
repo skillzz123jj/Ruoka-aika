@@ -114,10 +114,6 @@ public class RandomAnimalAndFood : MonoBehaviour
             {
                 timerToChangeFood = 10;
             }
-            else if (Difficulty.difficulty.hard)
-            {
-                timerToChangeFood = 5;
-            }
         }
 
         timerToChangeAnimal -= Time.deltaTime;

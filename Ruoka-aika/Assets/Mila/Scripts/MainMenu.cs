@@ -40,7 +40,6 @@ public class MainMenu : MonoBehaviour
     {
         Difficulty.difficulty.easy = true;
         Difficulty.difficulty.normal = false;
-        Difficulty.difficulty.hard = false;
         normalButton.image.sprite = normalDefaultSprite;
 
     }
@@ -48,7 +47,6 @@ public class MainMenu : MonoBehaviour
     {
         Difficulty.difficulty.easy = false;
         Difficulty.difficulty.normal = true;
-        Difficulty.difficulty.hard = false;
         easyButton.image.sprite = easyDefaultSprite;
 
     }
