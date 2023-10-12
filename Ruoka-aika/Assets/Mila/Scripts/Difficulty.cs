@@ -8,7 +8,6 @@ public class Difficulty : MonoBehaviour
     //This script only stores what difficulty has been chosen 
     public bool easy;
     public bool normal = true;
-    public bool hard;
 
     public bool audioMuted;
 
