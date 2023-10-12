@@ -76,6 +76,13 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.L))
+        {
+            foreach(GameObject h in chosenAnimals)
+            {
+                Debug.Log(h.name);
+            }
+        }
         timerToChangeFood -= Time.deltaTime;
 
         if (timerToChangeFood <= 0)
@@ -146,10 +153,10 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method chooses the initial animals and their positions
     public void ChooseRandomAnimals()
     {
-        // This determines how many animals are chosen       
+        //This determines how many animals are chosen       
         CheckForDifficulty();
 
-        // Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
+        //Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
         List<int> amountOfAnimals = new List<int>();
 
 
@@ -158,7 +165,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             amountOfAnimals.Add(i);
         }
 
-        // These are the starting and ending points and the animals are set randomly and evenly on that line
+        //These are the starting and ending points and the animals are set randomly and evenly on that line
         Vector3 startPosition = lineStart.position;
         Vector3 endPosition = lineEnd.position;
 
@@ -184,6 +191,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             bowls.RemoveAt(randomBowl);
         }
 
+       // chosenAnimals.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x));
         // Set all the selected animals as active in the scene
         foreach (GameObject animal in chosenAnimals)
         {
@@ -535,16 +543,16 @@ public class RandomAnimalAndFood : MonoBehaviour
     void CheckForCurrentLevel()
     {
         //These change how many foods spawn during runtime 
-        if (Score.scoreScript.score <= 7) //7
+        if (Score.scoreScript.score <= 1) //7
         {
             numberOfFoodsToChoose = 1;
         }
-        else if (Score.scoreScript.score <= 10) //20
+        else if (Score.scoreScript.score <= 2) //20
         {
 
             numberOfFoodsToChoose = 2;
         }
-        else if (Score.scoreScript.score <= 15) //30
+        else if (Score.scoreScript.score <= 3) //30
         {
 
             numberOfFoodsToChoose = 3;

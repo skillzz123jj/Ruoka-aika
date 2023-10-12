@@ -163,6 +163,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ActiveFood : MonoBehaviour
 {
@@ -177,9 +178,10 @@ public class ActiveFood : MonoBehaviour
     public GameObject wrongFoodSprite;
     public GameObject highLight;
     GameObject previousActiveFood;
-    GameObject actuallyActiveAnimal;
+    GameObject activeAnimal;
     GameObject food;
     GameObject actuallyActive;
+    GameObject chosenAnimal;
 
     public float moveSpeed = 3.0f;
     public float speed = 5.0f;
@@ -237,52 +239,80 @@ public class ActiveFood : MonoBehaviour
             isHovering = false;
         }
 
-        //if (Input.GetKeyDown(KeyCode.DownArrow))
-        //{
-        //    wasChosen = false;
-        //    highLight.SetActive(false);
-        //    SwitchToNextFood();
-        //}
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            wasChosen = false;
+            highLight.SetActive(false);
+            SwitchToNextFood();
+        }
 
-        //if (!wasChosen)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        SwitchToNextFood();
-        //    }
-        //    if (Input.GetKeyDown(KeyCode.Return))
-        //    {
-        //        wasChosen = true;
-        //        ChooseFood(currentActiveFood);
-        //        highLight.SetActive(true);
-        //        highLight.transform.position = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0].transform.position;
-        //    }
+        if (!wasChosen)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SwitchToNextFood();
+            }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                if (currentActiveFood == null)
+                {
+                    wasChosen = false;
+                }
+                else
+                {
+                    wasChosen = true;
+                    ChooseFood(currentActiveFood);
+                    highLight.SetActive(true);
+                    highLight.transform.position = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0].transform.position;
+                }
+              
+            }
 
-        //}
-        //else
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        ChooseAnAnimal();
-        //    }
+        }
+        else if (currentActiveFood)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (!isMoving)
+                {
+                    ChooseAnAnimal();
+                }
+             
+            }
 
-        //    if (Input.GetKeyDown(KeyCode.Return) && !isMoving)
-        //    {
-        //        animator.SetTrigger("Valinta");
-        //        StartCoroutine(MoveToPosition());
-        //    }
-        //}
-
+            if (Input.GetKeyDown(KeyCode.Return) && !isMoving)
+            {
+                
+                animator.SetTrigger("Valinta");
+                if (activeAnimal == null)
+                {
+                    activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
+                }
+                chosenAnimal = activeAnimal;
+                StartCoroutine(MoveToPosition(actuallyActive, activeAnimal));
+                activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
+            }
+        }
+   
         //This makes sure that the food can be fed 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
-            foodWasFed = true;
-            Invoke("ResetBool", 0.1f);
+            if (!isMoving)
+            {
+                foodWasFed = true;
+                Invoke("ResetBool", 0.1f);
+            }
+           
         }
 
         //Check if a new food is clicked by the player
         if (Input.GetMouseButtonDown(0))
         {
+            if (currentActiveFood)
+            {
+                wasChosen = false;
+                highLight.SetActive(false);
+            }
             GameObject newActiveFood = GetClickedFood();
 
             if (newActiveFood != null && newActiveFood != currentActiveFood)
@@ -375,7 +405,7 @@ public class ActiveFood : MonoBehaviour
             ChangeBackground(currentActiveFood);
         }
     }
-    void ResetBackground(GameObject food)
+    public void ResetBackground(GameObject food)
     {
         foodCollider = food.GetComponent<Collider2D>();
         foodCollider.isTrigger = false;
@@ -426,9 +456,9 @@ public class ActiveFood : MonoBehaviour
 
             currentAnimalIndex = (currentAnimalIndex + 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count;
 
-            actuallyActiveAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[currentAnimalIndex];
+            activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[currentAnimalIndex];
 
-            position = actuallyActiveAnimal.transform.position;
+            position = activeAnimal.transform.position;
 
             highLight.transform.position = position;
 
@@ -436,11 +466,10 @@ public class ActiveFood : MonoBehaviour
     }
 
 
-    private IEnumerator MoveToPosition()
+    private IEnumerator MoveToPosition(GameObject actuallyActive, GameObject activeAnimal)
     {
         isMoving = true;
-        actuallyActive = currentActiveFood;
-        Vector3 targetPosition = actuallyActiveAnimal.transform.position;
+        Vector3 targetPosition = activeAnimal.transform.position;
         Vector3 initialPosition = actuallyActive.transform.position;
         float journeyLength = Vector3.Distance(initialPosition, targetPosition);
         float journeyDuration = journeyLength / moveSpeed;
@@ -464,6 +493,7 @@ public class ActiveFood : MonoBehaviour
         isMoving = false;
         foodWasFed = true;
         Invoke("ResetBool", 0.1f);
+        currentActiveFood = null;
 
     }
 }

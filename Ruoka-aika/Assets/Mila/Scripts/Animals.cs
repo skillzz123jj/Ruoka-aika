@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Animals : MonoBehaviour
 {
     [SerializeField] Animator animExpression;
@@ -78,14 +79,16 @@ public class Animals : MonoBehaviour
                 {
                     chewingSound.Play();
                 }
-               // ActiveFood.activeFood.ResetBackground(foodThatCollided);
+                ActiveFood.activeFood.wasChosen = false;
+                ActiveFood.activeFood.ResetBackground(foodThatCollided);
                 GoodFood();
                 good = false;
 
             }
             else if (bad)
             {
-                //ActiveFood.activeFood.ResetBackground(foodThatCollided);
+                ActiveFood.activeFood.wasChosen = false;
+                ActiveFood.activeFood.ResetBackground(foodThatCollided);
                 errorSound.Play();
                 BadFood();
                 bad = false;
@@ -219,7 +222,7 @@ public class Animals : MonoBehaviour
             else
             {
                 Invoke("NewFoods", 3F);
-              //  ActiveFood.activeFood.SwitchToNextFood();
+                ActiveFood.activeFood.SwitchToNextFood();
             }
         }
     }
