@@ -1,103 +1,143 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class DragAndDrop : MonoBehaviour
 {
-    private Vector3 offset;
+    public GameObject currentActiveFood;
+    public GameObject wrongFoodSprite;
+    public bool foodWasFed;
 
-    private bool isDragging;
-    public bool move = true;
+    public float speed = 5.0f;
 
-    public Vector2 initialPosition;
-    public float moveSpeed = 3.0f;
+    private int currentFoodIndex = 0;
+    private bool isSelectingFood = true; // Indicates whether you are selecting food or animals.
 
-    public static DragAndDrop dragAndDrop;
-    public void OnMouseDown()
+    void ResetBool()
     {
-        isDragging = true;
-        move = true;
-
-        if (Input.touchCount > 0)
-        {
-            offset = transform.position - Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-        }
-
+        foodWasFed = false;
     }
 
-    public void OnMouseUp()
-    {
-        isDragging = false;
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        HandleKeyboardInput();
+        HandleMouseInput();
 
-        if (isDragging)
+        if (currentActiveFood != null)
         {
+            HandleMovement();
+        }
+    }
 
-            if (Input.touchCount > 0)
+    void HandleKeyboardInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            isSelectingFood = !isSelectingFood;
+            SwitchToNextFood();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (foodWasFed)
             {
-                //Gives the food an offset when player is using a mobile device
-                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) + offset;
-
-
-                transform.position = new Vector3(touchPosition.x - 1.5f, touchPosition.y + 0.5f, touchPosition.z);
-
+                // Perform actions when confirming the selection (e.g., feeding).
+                FeedSelectedFood();
             }
             else
             {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                transform.position = mousePosition;
+                foodWasFed = true;
+                Invoke("ResetBool", 0.1f);
             }
-
-
-
-            // Check if this GameObject is in the dictionary
-            //if (!RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary.ContainsKey(gameObject))
-            //{
-            //    RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary.Add(gameObject, mousePosition);
-            //}
-
-            //if (!move)
-            //{
-            //    // Update the position in the dictionary
-            //    RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject] = mousePosition;
-
-            //}
-            //else
-            //{
-            //    gameObject.transform.position = intialPosition;
-            //}
         }
-        else
+    }
+
+    void HandleMouseInput()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
-            if (move && gameObject != ActiveFood.activeFood.currentActiveFood)
+            GameObject clickedFood = GetClickedFood();
+
+            if (clickedFood != null && clickedFood != currentActiveFood)
             {
-                initialPosition = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
+                ChangeBackground(clickedFood);
 
+                if (currentActiveFood != null)
+                {
+                    ResetBackground(currentActiveFood);
+                }
 
-                float t = Time.deltaTime * moveSpeed;
-
-                transform.position = Vector3.Lerp(transform.position, initialPosition, t);
-
+                currentActiveFood = clickedFood;
             }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void HandleMovement()
     {
-        move = false;
+        // Handle movement using arrow keys or WASD
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
+        Vector2 movement = new Vector2(horizontalInput, verticalInput) * speed * Time.deltaTime;
+
+        // Move the active food
+        currentActiveFood.transform.Translate(movement);
     }
-    private void OnTriggerExit2D(Collider2D collision)
+
+    public void SwitchToNextFood()
     {
-        move = true;
+        if (RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count == 0)
+        {
+            return;
+        }
+
+        if (currentActiveFood != null)
+        {
+            ResetBackground(currentActiveFood);
+        }
+
+        // Increment the currentFoodIndex to switch to the next food
+        currentFoodIndex = (currentFoodIndex + 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count;
+
+        currentActiveFood = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods[currentFoodIndex];
+
+        if (currentActiveFood != null)
+        {
+            ChangeBackground(currentActiveFood);
+        }
+    }
+
+    private void ResetBackground(GameObject food)
+    {
+        // Implement background reset logic here
+    }
+
+    private void ChangeBackground(GameObject food)
+    {
+        // Implement background change logic here
+    }
+
+    private void FeedSelectedFood()
+    {
+        // Implement feeding logic here
+    }
+
+    private GameObject GetClickedFood()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+        if (hit.collider != null)
+        {
+            GameObject clickedFood = hit.collider.gameObject;
+            return clickedFood;
+        }
+
+        return null;
     }
 }
+
+
 
 
 //---------------------------------------------------------------------------------------------------------------------
