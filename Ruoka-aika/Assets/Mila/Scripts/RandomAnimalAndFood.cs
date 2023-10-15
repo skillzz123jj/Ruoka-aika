@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor;
 
 
 public class RandomAnimalAndFood : MonoBehaviour
@@ -76,13 +77,6 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.L))
-        {
-            foreach(GameObject h in chosenAnimals)
-            {
-                Debug.Log(h.name);
-            }
-        }
         timerToChangeFood -= Time.deltaTime;
 
         if (timerToChangeFood <= 0)
@@ -97,21 +91,23 @@ public class RandomAnimalAndFood : MonoBehaviour
                 nowIsAGoodTime = false;
                 CanChangeAnimal();
             }
-            else
-            {
-                ActiveFood.activeFood.wasChosen = false;
-                ActiveFood.activeFood.currentActiveFood = null;
-                RandomFood(numberOfFoodsToChoose);
-                RandomCorrectAnimal();
-                timerToChangeFood = 10;
+            //else
+            //{
+            //    ActiveFood.activeFood.wasChosen = false;
+            //    ActiveFood.activeFood.currentActiveFood = null;
+            //    RandomFood(numberOfFoodsToChoose);
+            //    RandomCorrectAnimal();
+            //    timerToChangeFood = 10;
 
-            }
+            //}
             ActiveFood.activeFood.wasChosen = false;
             ActiveFood.activeFood.currentActiveFood = null;
             RandomFood(numberOfFoodsToChoose);
             RandomCorrectAnimal();
             timerToChangeFood = 10;
-
+            ActiveFood.activeFood.wasChosen = false;
+            ActiveFood.activeFood.highLight.SetActive(false);
+            ActiveFood.activeFood.currentActiveFood = null;
 
             if (Difficulty.difficulty.easy)
             {
@@ -258,32 +254,35 @@ public class RandomAnimalAndFood : MonoBehaviour
                 //If there are no possible animals, choose a random one from chosenAnimals list
                 int randomAnimalIndex = Random.Range(0, chosenAnimals.Count);
                 correctRandomAnimal = chosenAnimals[randomAnimalIndex];
+            
             }
+            string animalName = correctRandomAnimal.name;
+
             if (correctRandomAnimal.name == "Alpakka")
             {
-                correctRandomAnimal.name = "alpaka";
+                animalName = "alpaka";
             }
-            else if (correctRandomAnimal.name == "Hevonen")
+            else if (animalName == "Hevonen")
             {
-                correctRandomAnimal.name = "hevose";
+                animalName = "hevose";
             }
-            else if (correctRandomAnimal.name == "Lammas")
+            else if (animalName == "Lammas")
             {
-                correctRandomAnimal.name = "lampaa";
+                animalName = "lampaa";
             }
 
             if (numberOfFoodsToChoose == 1)
             {
 
-                instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle".ToLower();
+                instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
             }
             else if (index == chosenFoods.Count - 1)
             {
-                instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle".ToLower();
+                instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
             }
             else
             {
-                instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle ja ".ToLower();
+                instructionTEXT.text += $"{obj.name} {animalName}lle ja ".ToLower();
             }
 
             Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
@@ -543,16 +542,16 @@ public class RandomAnimalAndFood : MonoBehaviour
     void CheckForCurrentLevel()
     {
         //These change how many foods spawn during runtime 
-        if (Score.scoreScript.score <= 1) //7
+        if (Score.scoreScript.score <= 7) //7
         {
             numberOfFoodsToChoose = 1;
         }
-        else if (Score.scoreScript.score <= 2) //20
+        else if (Score.scoreScript.score <= 20) //20
         {
 
             numberOfFoodsToChoose = 2;
         }
-        else if (Score.scoreScript.score <= 3) //30
+        else if (Score.scoreScript.score <= 30) //30
         {
 
             numberOfFoodsToChoose = 3;
