@@ -91,15 +91,6 @@ public class RandomAnimalAndFood : MonoBehaviour
                 nowIsAGoodTime = false;
                 CanChangeAnimal();
             }
-            //else
-            //{
-            //    ActiveFood.activeFood.wasChosen = false;
-            //    ActiveFood.activeFood.currentActiveFood = null;
-            //    RandomFood(numberOfFoodsToChoose);
-            //    RandomCorrectAnimal();
-            //    timerToChangeFood = 10;
-
-            //}
             ActiveFood.activeFood.wasChosen = false;
             ActiveFood.activeFood.currentActiveFood = null;
             RandomFood(numberOfFoodsToChoose);
@@ -149,6 +140,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method chooses the initial animals and their positions
     public void ChooseRandomAnimals()
     {
+        Difficulty.difficulty.gameRunning = true;
         //This determines how many animals are chosen       
         CheckForDifficulty();
 
@@ -187,7 +179,6 @@ public class RandomAnimalAndFood : MonoBehaviour
             bowls.RemoveAt(randomBowl);
         }
 
-       // chosenAnimals.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x));
         // Set all the selected animals as active in the scene
         foreach (GameObject animal in chosenAnimals)
         {

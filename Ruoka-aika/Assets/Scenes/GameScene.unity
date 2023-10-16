@@ -912,7 +912,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607844, g: 0.9607844, b: 0.9607844, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -5127,6 +5127,7 @@ MonoBehaviour:
   currentActiveFood: {fileID: 0}
   wrongFoodSprite: {fileID: 1229945828}
   highLight: {fileID: 465730797}
+  food: {fileID: 0}
   moveSpeed: 3
   speed: 5
   foodWasFed: 0
@@ -5179,11 +5180,13 @@ MonoBehaviour:
   scoreTEXT: {fileID: 532877874}
   gameOverScreen: {fileID: 1023525021}
   randomAnimalAndFood: {fileID: 1488261226}
+  activeFood: {fileID: 600050448}
   error1: {fileID: 1452800661}
   error2: {fileID: 293366738}
   error3: {fileID: 1568394710}
   score: 0
   errors: 0
+  gameEnded: 0
 --- !u!4 &612099131
 Transform:
   m_ObjectHideFlags: 0
@@ -5743,7 +5746,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6898,7 +6901,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 712360126}
   m_OnClick:
     m_PersistentCalls:
@@ -7439,7 +7442,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -9973,6 +9976,14 @@ MonoBehaviour:
   displayScoreTEXT: {fileID: 557802768}
   disableFoods: {fileID: 1314074845}
   subtitles: {fileID: 1681795542}
+  buttons:
+  - {fileID: 872557957}
+  - {fileID: 710449584}
+  - {fileID: 748882383}
+  - {fileID: 712360124}
+  - {fileID: 666311323}
+  - {fileID: 105766840}
+  - {fileID: 1316790158}
 --- !u!114 &1023525024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11626,7 +11637,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
