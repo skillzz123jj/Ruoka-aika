@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor;
 
 
 public class RandomAnimalAndFood : MonoBehaviour
@@ -90,21 +91,23 @@ public class RandomAnimalAndFood : MonoBehaviour
                 nowIsAGoodTime = false;
                 CanChangeAnimal();
             }
-            else
-            {
-                ActiveFood.activeFood.wasChosen = false;
-                ActiveFood.activeFood.currentActiveFood = null;
-                RandomFood(numberOfFoodsToChoose);
-                RandomCorrectAnimal();
-                timerToChangeFood = 10;
+            //else
+            //{
+            //    ActiveFood.activeFood.wasChosen = false;
+            //    ActiveFood.activeFood.currentActiveFood = null;
+            //    RandomFood(numberOfFoodsToChoose);
+            //    RandomCorrectAnimal();
+            //    timerToChangeFood = 10;
 
-            }
+            //}
             ActiveFood.activeFood.wasChosen = false;
             ActiveFood.activeFood.currentActiveFood = null;
             RandomFood(numberOfFoodsToChoose);
             RandomCorrectAnimal();
             timerToChangeFood = 10;
-
+            ActiveFood.activeFood.wasChosen = false;
+            ActiveFood.activeFood.highLight.SetActive(false);
+            ActiveFood.activeFood.currentActiveFood = null;
 
             if (Difficulty.difficulty.easy)
             {
@@ -146,10 +149,10 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method chooses the initial animals and their positions
     public void ChooseRandomAnimals()
     {
-        // This determines how many animals are chosen       
+        //This determines how many animals are chosen       
         CheckForDifficulty();
 
-        // Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
+        //Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
         List<int> amountOfAnimals = new List<int>();
 
 
@@ -158,7 +161,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             amountOfAnimals.Add(i);
         }
 
-        // These are the starting and ending points and the animals are set randomly and evenly on that line
+        //These are the starting and ending points and the animals are set randomly and evenly on that line
         Vector3 startPosition = lineStart.position;
         Vector3 endPosition = lineEnd.position;
 
@@ -184,6 +187,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             bowls.RemoveAt(randomBowl);
         }
 
+       // chosenAnimals.Sort((a, b) => a.transform.position.x.CompareTo(b.transform.position.x));
         // Set all the selected animals as active in the scene
         foreach (GameObject animal in chosenAnimals)
         {
@@ -250,32 +254,35 @@ public class RandomAnimalAndFood : MonoBehaviour
                 //If there are no possible animals, choose a random one from chosenAnimals list
                 int randomAnimalIndex = Random.Range(0, chosenAnimals.Count);
                 correctRandomAnimal = chosenAnimals[randomAnimalIndex];
+            
             }
+            string animalName = correctRandomAnimal.name;
+
             if (correctRandomAnimal.name == "Alpakka")
             {
-                correctRandomAnimal.name = "alpaka";
+                animalName = "alpaka";
             }
-            else if (correctRandomAnimal.name == "Hevonen")
+            else if (animalName == "Hevonen")
             {
-                correctRandomAnimal.name = "hevose";
+                animalName = "hevose";
             }
-            else if (correctRandomAnimal.name == "Lammas")
+            else if (animalName == "Lammas")
             {
-                correctRandomAnimal.name = "lampaa";
+                animalName = "lampaa";
             }
 
             if (numberOfFoodsToChoose == 1)
             {
 
-                instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle".ToLower();
+                instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
             }
             else if (index == chosenFoods.Count - 1)
             {
-                instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle".ToLower();
+                instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
             }
             else
             {
-                instructionTEXT.text += $"{obj.name} {correctRandomAnimal.name}lle ja ".ToLower();
+                instructionTEXT.text += $"{obj.name} {animalName}lle ja ".ToLower();
             }
 
             Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
@@ -539,12 +546,12 @@ public class RandomAnimalAndFood : MonoBehaviour
         {
             numberOfFoodsToChoose = 1;
         }
-        else if (Score.scoreScript.score <= 10) //20
+        else if (Score.scoreScript.score <= 20) //20
         {
 
             numberOfFoodsToChoose = 2;
         }
-        else if (Score.scoreScript.score <= 15) //30
+        else if (Score.scoreScript.score <= 30) //30
         {
 
             numberOfFoodsToChoose = 3;
