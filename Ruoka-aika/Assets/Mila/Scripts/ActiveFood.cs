@@ -13,9 +13,9 @@ public class ActiveFood : MonoBehaviour
     public GameObject currentActiveFood;
     public GameObject wrongFoodSprite;
     public GameObject highLight;
+    public GameObject food;
     GameObject previousActiveFood;
     GameObject activeAnimal;
-    public GameObject food;
     GameObject actuallyActive;
 
     public float moveSpeed = 3.0f;
@@ -26,7 +26,7 @@ public class ActiveFood : MonoBehaviour
 
     public bool foodWasFed;
     public bool wasChosen;
-    bool isMoving = false;
+    public bool isMoving = false;
     bool isHovering;
 
     Collider2D foodCollider;
@@ -74,6 +74,7 @@ public class ActiveFood : MonoBehaviour
             isHovering = false;
         }
 
+        //Cancel animal selection 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             wasChosen = false;
@@ -81,6 +82,8 @@ public class ActiveFood : MonoBehaviour
             SwitchToNextFood();
         }
 
+        //Choose a food using space then select using enter
+        //After that choose an animal using space then feed the chosen food using enter
         if (!wasChosen)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -166,6 +169,7 @@ public class ActiveFood : MonoBehaviour
         }
     }
 
+    //Changes foods background sprite if hovered on 
     void HoverOnFood()
     {
         food = hit.collider.gameObject;
@@ -176,6 +180,7 @@ public class ActiveFood : MonoBehaviour
             backgroundSpriteRenderer.sprite = activeFoodBackground;
         }
     }
+    //Changes it back to normal
     void OnHoverExit()
     {
         if (food != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
@@ -218,6 +223,7 @@ public class ActiveFood : MonoBehaviour
         return null;
     }
 
+    //Allows the user to choose foods using space button
     public void SwitchToNextFood()
     {
         if (RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count == 0)
@@ -239,6 +245,7 @@ public class ActiveFood : MonoBehaviour
             ChangeBackground(currentActiveFood);
         }
     }
+    //Resets the food's background sprite when new food was chosen 
     public void ResetBackground(GameObject food)
     {
         foodCollider = food.GetComponent<Collider2D>();
@@ -250,7 +257,7 @@ public class ActiveFood : MonoBehaviour
         backgroundSpriteRenderer.sortingOrder = 25;
         backgroundSpriteRenderer.sprite = defaultBackground;
     }
-
+    //Changes the food's background sprite if chosen via space bar 
     void ChangeBackground(GameObject food)
     {
         foodCollider = food.GetComponent<Collider2D>();
@@ -263,7 +270,7 @@ public class ActiveFood : MonoBehaviour
         backgroundSpriteRenderer.sprite = activeFoodBackground;
     }
 
-
+    //Changes the food's background sprite to an active/chosen one if food is clicked or chosen with Enter button
     private void ChooseFood(GameObject food)
     {
         wasChosen = true;
@@ -279,6 +286,7 @@ public class ActiveFood : MonoBehaviour
 
     }
 
+    //Allows the user to choose animals using space button
     void ChooseAnAnimal()
     {
         if (actuallyActive != null)
@@ -299,7 +307,7 @@ public class ActiveFood : MonoBehaviour
         }
     }
 
-
+    //This moves the food to the chosen animal and feeds itself
     private IEnumerator MoveToPosition(GameObject activeFood, GameObject activeAnimal)
     {
         isMoving = true;

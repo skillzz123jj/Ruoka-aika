@@ -18,7 +18,9 @@ public class Animals : MonoBehaviour
     float shrinkSpeed = 0.7f;
     public bool good;
     public bool bad;
-    bool isShrinking;
+    public bool isShrinking;
+
+    public static Animals animals; 
 
     Queue<GameObject> foodQueue = new Queue<GameObject>();
 
@@ -100,7 +102,7 @@ public class Animals : MonoBehaviour
     //Spawns new foods when the old ones have been fed  
     public void NewFoods()
     {    
-            RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
+            RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose, RandomAnimalAndFood.randomAnimalAndFood.numberOfAllowedBadFoods);
             RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
             RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
             RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;      

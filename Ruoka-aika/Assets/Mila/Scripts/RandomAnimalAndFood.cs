@@ -46,6 +46,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public int foodsLeft = 1;
     public int numberOfFoodsToChoose;
+    public int numberOfAllowedBadFoods;
     int numAnimalsToChoose = 4;
 
     [SerializeField] TMP_Text instructionTEXT;
@@ -93,7 +94,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
             ActiveFood.activeFood.wasChosen = false;
             ActiveFood.activeFood.currentActiveFood = null;
-            RandomFood(numberOfFoodsToChoose);
+            RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
             RandomCorrectAnimal();
             timerToChangeFood = 10;
             ActiveFood.activeFood.wasChosen = false;
@@ -196,7 +197,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
 
         AddFoods();
-        RandomFood(numberOfFoodsToChoose);
+        RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
         RandomCorrectAnimal();
     }
     
@@ -451,7 +452,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         justChangedAnimals = false;
 
     }
-    public void RandomFood(int numberOfFoodsToChoose)
+    public void RandomFood(int numberOfFoodsToChoose, int numberOfAllowedBadFoods)
     {
         //Clear the list of chosen foods so it can be filled again
         chosenFoods.Clear();
@@ -467,24 +468,45 @@ public class RandomAnimalAndFood : MonoBehaviour
             notChosen.SetActive(false);
         }
 
+        int badFoods = 0;
         //Copy of the foods list to preserve that one
         List<GameObject> availableFoods = new List<GameObject>(foods);
 
         //Chooses foods based on the given amount
         for (int i = 0; i < numberOfFoodsToChoose; i++)
         {
-            //Chooses a food from availableFoods and makes sure it doesnt get chosen again 
-            int chosenFoodIndex = Random.Range(0, availableFoods.Count);
-            GameObject chosenFood = availableFoods[chosenFoodIndex];
-            chosenFoods.Add(chosenFood);
-            availableFoods.RemoveAt(chosenFoodIndex);
-
+            //Chooses foods randomly until it exceeds the allowed bad foods for that round
+            if (badFoods < numberOfAllowedBadFoods)
+            {
+                //Chooses a food from availableFoods and makes sure it doesnt get chosen again 
+                int chosenFoodIndex = Random.Range(0, availableFoods.Count);
+                GameObject chosenFood = availableFoods[chosenFoodIndex];
+                if (chosenFood.CompareTag("EiSyötävä"))
+                {
+                    badFoods++;
+                }
+                chosenFoods.Add(chosenFood);
+                availableFoods.RemoveAt(chosenFoodIndex);
+            }
+            else
+            {
+                //Chooses a food from availableFoods and makes sure it doesnt get chosen again 
+                int chosenFoodIndex = Random.Range(0, availableFoods.Count);
+                GameObject chosenFood = availableFoods[chosenFoodIndex];
+                while (chosenFood.CompareTag("EiSyötävä"))
+                {
+                    chosenFoodIndex = Random.Range(0, availableFoods.Count);
+                    chosenFood = availableFoods[chosenFoodIndex];
+                }
+                chosenFoods.Add(chosenFood);
+                availableFoods.RemoveAt(chosenFoodIndex);
+            }
+      
         }
         PositionFoodsRandomly(chosenFoods);
     }
 
-
- 
+  
     //This method gives the foods their positions
     public void PositionFoodsRandomly(List<GameObject> foods)
     {
@@ -529,44 +551,51 @@ public class RandomAnimalAndFood : MonoBehaviour
         else { numAnimalsToChoose = 4; }
     }
 
+
     //This method changes the amount of foods that are going to spawn
     void CheckForCurrentLevel()
     {
-        //These change how many foods spawn during runtime 
         if (Score.scoreScript.score <= 7) //7
         {
+
             numberOfFoodsToChoose = 1;
+            numberOfAllowedBadFoods = 0;
         }
         else if (Score.scoreScript.score <= 20) //20
         {
 
             numberOfFoodsToChoose = 2;
+            numberOfAllowedBadFoods = 0;
         }
         else if (Score.scoreScript.score <= 30) //30
         {
 
             numberOfFoodsToChoose = 3;
+            numberOfAllowedBadFoods = 1;
         }
-        else if (Score.scoreScript.score <= 20) //50
+        else if (Score.scoreScript.score <= 50) //50
         {
 
             numberOfFoodsToChoose = 4;
+            numberOfAllowedBadFoods = 1;
         }
-        else if (Score.scoreScript.score <= 25) //65
+        else if (Score.scoreScript.score <= 65) //65
         {
 
             numberOfFoodsToChoose = 5;
+            numberOfAllowedBadFoods = 2;
         }
-        else if (Score.scoreScript.score <= 30) //75
+        else if (Score.scoreScript.score <= 75) //75
         {
 
             numberOfFoodsToChoose = 6;
-
+            numberOfAllowedBadFoods = 2;
         }
-        else if (Score.scoreScript.score <= 35) //100
+        else if (Score.scoreScript.score <= 100) //100
         {
 
             numberOfFoodsToChoose = 7;
+            numberOfAllowedBadFoods = 3;
         }
     }
 }
