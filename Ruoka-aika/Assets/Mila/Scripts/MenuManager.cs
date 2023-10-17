@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class MenuManager : MonoBehaviour
 {
@@ -19,20 +18,62 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject instructions;
 
     //All of these handle the UI buttons on the top right corner
+   
     public void DisplayInstructions()
     {
+
+        if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+        {
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
+   
         instructions.SetActive(!instructions.activeSelf);
     }
     public void reloadGame(int scene)
     {
+        if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+        {
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
+
         SceneManager.LoadScene(scene);
     }
     public void QuitGame()
     {
+        if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+        {
+            return;
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
+
         Application.Quit();
     }
     public void MuteAudio()
     {
+        if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+        {
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
+        muteAudioAsDefault.interactable = true;
+        audioAsDefault.interactable = false;
         Difficulty.difficulty.audioMuted = true;
         audioButton.SetActive(false);
         muteAudioButton.SetActive(true);
@@ -42,7 +83,18 @@ public class MenuManager : MonoBehaviour
     }
     public void Audio()
     {
+        if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+        {
+            return;
+        }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
+        audioAsDefault.interactable = true;
+        muteAudioAsDefault.interactable = false;
         Difficulty.difficulty.audioMuted = false;
+   
         audioButton.SetActive(true);
         muteAudioButton.SetActive(false);
         audioText.SetActive(false);
@@ -51,12 +103,15 @@ public class MenuManager : MonoBehaviour
     }
     private void Update()
     {
+
         if (Difficulty.difficulty.audioMuted)
         {
             AudioListener.volume = 0f;
             audioButton.SetActive(false);
             muteAudioButton.SetActive(true);
             muteAudioText.SetActive(false);
+            muteAudioAsDefault.interactable = true;
+            audioAsDefault.interactable = false;
 
         }
         else
@@ -65,6 +120,8 @@ public class MenuManager : MonoBehaviour
             audioButton.SetActive(true);
             muteAudioButton.SetActive(false);
             audioText.SetActive(false);
+            muteAudioAsDefault.interactable = false;
+            audioAsDefault.interactable = true;
 
         }
     }
@@ -101,11 +158,11 @@ public class MenuManager : MonoBehaviour
         audioText.SetActive(false);
     }
     public void MuteAudioText()
-    {
+    {       
         muteAudioText.SetActive(true);
     }
     public void MuteAudioTextGoAway()
-    {
+    {  
         muteAudioText.SetActive(false);
     }
 }

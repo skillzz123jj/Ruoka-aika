@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,14 +13,40 @@ public class MainMenu : MonoBehaviour
     public Sprite easyDefaultSprite;
     public Sprite normalDefaultSprite;
 
+    public Button[] buttons;
+    private int currentIndex = 0;
+
+    public static MainMenu mainMenu;
+
     //These are for buttons
     public void StartGame(int scene)
     {
+        Difficulty.difficulty.gameRunning = true;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
         SceneManager.LoadScene(scene);
     }
     
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Difficulty.difficulty.gameRunning = false;
+
+            int nextIndex = currentIndex;
+
+            do
+            {
+                nextIndex = (nextIndex + 1) % buttons.Length;
+            }
+            while (!buttons[nextIndex].interactable);
+
+            currentIndex = nextIndex;
+            buttons[currentIndex].Select();
+        }
+
         if (Difficulty.difficulty.easy)
         {
             easyButton.image.sprite = easyHighlightSprite;
@@ -38,6 +61,10 @@ public class MainMenu : MonoBehaviour
 
     public void Easy()
     {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
         Difficulty.difficulty.easy = true;
         Difficulty.difficulty.normal = false;
         normalButton.image.sprite = normalDefaultSprite;
@@ -45,6 +72,10 @@ public class MainMenu : MonoBehaviour
     }
     public void Normal()
     {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
         Difficulty.difficulty.easy = false;
         Difficulty.difficulty.normal = true;
         easyButton.image.sprite = easyDefaultSprite;

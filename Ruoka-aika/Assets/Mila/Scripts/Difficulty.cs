@@ -9,6 +9,8 @@ public class Difficulty : MonoBehaviour
     public bool easy;
     public bool normal = true;
 
+    public bool gameRunning = true;
+
     public bool audioMuted;
 
     public static Difficulty difficulty;

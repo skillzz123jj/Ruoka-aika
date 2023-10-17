@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class ActiveFood : MonoBehaviour
 {
@@ -16,7 +15,7 @@ public class ActiveFood : MonoBehaviour
     public GameObject highLight;
     GameObject previousActiveFood;
     GameObject activeAnimal;
-    GameObject food;
+    public GameObject food;
     GameObject actuallyActive;
 
     public float moveSpeed = 3.0f;
@@ -75,60 +74,60 @@ public class ActiveFood : MonoBehaviour
             isHovering = false;
         }
 
-        //if (Input.GetKeyDown(KeyCode.DownArrow))
-        //{
-        //    wasChosen = false;
-        //    highLight.SetActive(false);
-        //    SwitchToNextFood();
-        //}
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            wasChosen = false;
+            highLight.SetActive(false);
+            SwitchToNextFood();
+        }
 
-        //if (!wasChosen)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        SwitchToNextFood();
-        //    }
-        //    if (Input.GetKeyDown(KeyCode.Return))
-        //    {
-        //        if (currentActiveFood == null)
-        //        {
-        //            wasChosen = false;
-        //        }
-        //        else
-        //        {
-        //            wasChosen = true;
-        //            ChooseFood(currentActiveFood);
-        //            highLight.SetActive(true);
-        //            highLight.transform.position = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0].transform.position;
-        //        }
-              
-        //    }
+        if (!wasChosen)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SwitchToNextFood();
+            }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                if (currentActiveFood == null)
+                {
+                    wasChosen = false;
+                }
+                else
+                {
+                    wasChosen = true;
+                    ChooseFood(currentActiveFood);
+                    highLight.SetActive(true);
+                    highLight.transform.position = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0].transform.position;
+                }
 
-        //}
-        //else if (currentActiveFood)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        if (!isMoving)
-        //        {
-        //            ChooseAnAnimal();
-        //        }
-             
-        //    }
+            }
 
-        //    if (Input.GetKeyDown(KeyCode.Return) && !isMoving)
-        //    {
-                
-        //        animator.SetTrigger("Valinta");
-        //        if (activeAnimal == null)
-        //        {
-        //            activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
-        //        }
-        //        StartCoroutine(MoveToPosition(actuallyActive, activeAnimal));
-        //        activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
-        //    }
-        //}
-   
+        }
+        else if (currentActiveFood)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (!isMoving)
+                {
+                    ChooseAnAnimal();
+                }
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return) && !isMoving)
+            {
+
+                animator.SetTrigger("Valinta");
+                if (activeAnimal == null)
+                {
+                    activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
+                }
+                StartCoroutine(MoveToPosition(actuallyActive, activeAnimal));
+                activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
+            }
+        }
+
         //This makes sure that the food can be fed 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {

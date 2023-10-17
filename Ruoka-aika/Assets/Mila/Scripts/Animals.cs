@@ -99,11 +99,11 @@ public class Animals : MonoBehaviour
 
     //Spawns new foods when the old ones have been fed  
     public void NewFoods()
-    {
-        RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
-        RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
-        RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
-        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
+    {    
+            RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
+            RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
+            RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
+            RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;      
     }
 
     void GoodFood()
