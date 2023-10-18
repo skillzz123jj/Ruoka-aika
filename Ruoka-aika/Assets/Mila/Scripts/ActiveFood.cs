@@ -1,25 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class ActiveFood : MonoBehaviour
 {
-    public GameObject currentActiveFood;
+    [SerializeField] Sprite activeFoodBackground;
+    [SerializeField] Sprite actuallyActiveFoodBackground;
+    [SerializeField] Sprite defaultBackground;
+
     SpriteRenderer backgroundSpriteRenderer;
     SpriteRenderer spriteRenderer;
-    GameObject previousActiveFood;
 
-    Collider2D collider;
-
-    [SerializeField] Sprite activeFoodBackground;
-    [SerializeField] Sprite defaultBackground;
+    public GameObject currentActiveFood;
     public GameObject wrongFoodSprite;
+    public GameObject highLight;
+    public GameObject food;
+    GameObject previousActiveFood;
+    GameObject activeAnimal;
+    GameObject actuallyActive;
 
-    public bool foodWasFed;
-
+    public float moveSpeed = 3.0f;
     public float speed = 5.0f;
 
-    private int currentFoodIndex = 0;
+    int currentFoodIndex = 0;
+    int currentAnimalIndex;
+
+    public bool foodWasFed;
+    public bool wasChosen;
+    public bool isMoving = false;
+    bool isHovering;
+
+    Collider2D foodCollider;
+    Vector2 position;
+    RaycastHit2D hit;
+    [SerializeField] Animator animator;
 
     public static ActiveFood activeFood;
 
@@ -36,43 +49,117 @@ public class ActiveFood : MonoBehaviour
 
     void Update()
     {
+        //Convert the mouse position to world coordinates
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        //Create a raycast hit variable to store information about the hit
+        hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+        //Check if the ray hits a collider
+        if (hit.collider != null)
         {
+            if (!isHovering)
+            {
+                HoverOnFood();
+            }
+
+            isHovering = true;
+        }
+        else
+        {
+            if (isHovering)
+            {
+                OnHoverExit();
+            }
+            isHovering = false;
+        }
+
+        //Cancel animal selection 
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            wasChosen = false;
+            highLight.SetActive(false);
             SwitchToNextFood();
+        }
+
+        //Choose a food using space then select using enter
+        //After that choose an animal using space then feed the chosen food using enter
+        if (!wasChosen)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SwitchToNextFood();
+            }
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                if (currentActiveFood == null)
+                {
+                    wasChosen = false;
+                }
+                else
+                {
+                    wasChosen = true;
+                    ChooseFood(currentActiveFood);
+                    highLight.SetActive(true);
+                    highLight.transform.position = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0].transform.position;
+                }
+
+            }
+
+        }
+        else if (currentActiveFood)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (!isMoving)
+                {
+                    ChooseAnAnimal();
+                }
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return) && !isMoving)
+            {
+
+                animator.SetTrigger("Valinta");
+                if (activeAnimal == null)
+                {
+                    activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
+                }
+                StartCoroutine(MoveToPosition(actuallyActive, activeAnimal));
+                activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
+            }
         }
 
         //This makes sure that the food can be fed 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
-            foodWasFed = true;
-            Invoke("ResetBool", 0.1f);
+            if (!isMoving)
+            {
+                foodWasFed = true;
+                Invoke("ResetBool", 0.1f);
+            }
+           
         }
-
-
-        //// Handle movement using arrow keys or WASD
-        //float horizontalInput = Input.GetAxis("Horizontal");
-        //float verticalInput = Input.GetAxis("Vertical");
-
-        //Vector2 movement = new Vector2(horizontalInput, verticalInput) * speed * Time.deltaTime;
-
-        //// Move the active food
-        //currentActiveFood.transform.Translate(movement);
 
         //Check if a new food is clicked by the player
         if (Input.GetMouseButtonDown(0))
         {
+            if (currentActiveFood)
+            {
+                wasChosen = false;
+                highLight.SetActive(false);
+            }
             GameObject newActiveFood = GetClickedFood();
 
             if (newActiveFood != null && newActiveFood != currentActiveFood)
             {
 
-                ChangeBackground(newActiveFood);
-
+                ChooseFood(previousActiveFood);
 
                 if (previousActiveFood != null)
                 {
-                    ChangeBackground(previousActiveFood);
+                    ChooseFood(previousActiveFood);
                 }
 
                 //Update the active food and the previous active food
@@ -82,6 +169,27 @@ public class ActiveFood : MonoBehaviour
         }
     }
 
+    //Changes foods background sprite if hovered on 
+    void HoverOnFood()
+    {
+        food = hit.collider.gameObject;
+        if (food != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
+        {
+            GameObject oye = food.transform.GetChild(0).gameObject;
+            backgroundSpriteRenderer = oye.GetComponent<SpriteRenderer>();
+            backgroundSpriteRenderer.sprite = activeFoodBackground;
+        }
+    }
+    //Changes it back to normal
+    void OnHoverExit()
+    {
+        if (food != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
+        {
+            GameObject oye = food.transform.GetChild(0).gameObject;
+            backgroundSpriteRenderer = oye.GetComponent<SpriteRenderer>();
+            backgroundSpriteRenderer.sprite = defaultBackground;
+        }
+    }
     private GameObject GetClickedFood()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -101,11 +209,12 @@ public class ActiveFood : MonoBehaviour
 
                 if (currentActiveFood != null)
                 {
+
                     ResetBackground(currentActiveFood);
                 }
 
                 currentActiveFood = clickedFood;
-                ChangeBackground(currentActiveFood);
+                ChooseFood(currentActiveFood);
             }
 
             return clickedFood;
@@ -114,6 +223,7 @@ public class ActiveFood : MonoBehaviour
         return null;
     }
 
+    //Allows the user to choose foods using space button
     public void SwitchToNextFood()
     {
         if (RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count == 0)
@@ -126,7 +236,6 @@ public class ActiveFood : MonoBehaviour
             ResetBackground(currentActiveFood);
         }
 
-        //Increment the currentFoodIndex to switch to the next food
         currentFoodIndex = (currentFoodIndex + 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count;
 
         currentActiveFood = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods[currentFoodIndex];
@@ -136,10 +245,11 @@ public class ActiveFood : MonoBehaviour
             ChangeBackground(currentActiveFood);
         }
     }
-    private void ResetBackground(GameObject food)
+    //Resets the food's background sprite when new food was chosen 
+    public void ResetBackground(GameObject food)
     {
-        collider = food.GetComponent<Collider2D>();
-        collider.isTrigger = false;
+        foodCollider = food.GetComponent<Collider2D>();
+        foodCollider.isTrigger = false;
         spriteRenderer = food.GetComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = 30;
         GameObject child = food.transform.GetChild(0).gameObject;
@@ -147,11 +257,11 @@ public class ActiveFood : MonoBehaviour
         backgroundSpriteRenderer.sortingOrder = 25;
         backgroundSpriteRenderer.sprite = defaultBackground;
     }
-
-    private void ChangeBackground(GameObject food)
+    //Changes the food's background sprite if chosen via space bar 
+    void ChangeBackground(GameObject food)
     {
-        collider = food.GetComponent<Collider2D>();
-        collider.isTrigger = true;
+        foodCollider = food.GetComponent<Collider2D>();
+        foodCollider.isTrigger = true;
         spriteRenderer = food.GetComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = 32;
         GameObject child = food.transform.GetChild(0).gameObject;
@@ -159,362 +269,73 @@ public class ActiveFood : MonoBehaviour
         backgroundSpriteRenderer.sortingOrder = 31;
         backgroundSpriteRenderer.sprite = activeFoodBackground;
     }
+
+    //Changes the food's background sprite to an active/chosen one if food is clicked or chosen with Enter button
+    private void ChooseFood(GameObject food)
+    {
+        wasChosen = true;
+        foodCollider = food.GetComponent<Collider2D>();
+        foodCollider.isTrigger = true;
+        spriteRenderer = food.GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = 32;
+        GameObject child = food.transform.GetChild(0).gameObject;
+        backgroundSpriteRenderer = child.GetComponent<SpriteRenderer>();
+        backgroundSpriteRenderer.sortingOrder = 31;
+        backgroundSpriteRenderer.sprite = actuallyActiveFoodBackground;
+        actuallyActive = currentActiveFood;
+
+    }
+
+    //Allows the user to choose animals using space button
+    void ChooseAnAnimal()
+    {
+        if (actuallyActive != null)
+        {
+            if (RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count == 0)
+            {
+                return;
+            }
+
+            currentAnimalIndex = (currentAnimalIndex + 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count;
+
+            activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[currentAnimalIndex];
+
+            position = activeAnimal.transform.position;
+
+            highLight.transform.position = position;
+
+        }
+    }
+
+    //This moves the food to the chosen animal and feeds itself
+    private IEnumerator MoveToPosition(GameObject activeFood, GameObject activeAnimal)
+    {
+        isMoving = true;
+        Vector3 targetPosition = activeAnimal.transform.position;
+        Vector3 initialPosition = activeFood.transform.position;
+        float journeyLength = Vector3.Distance(initialPosition, targetPosition);
+        float journeyDuration = journeyLength / moveSpeed;
+
+        float startTime = Time.time;
+
+        while (Time.time < startTime + journeyDuration)
+        {
+            float distanceCovered = (Time.time - startTime) * moveSpeed;
+            float fractionOfJourney = distanceCovered / journeyLength;
+
+            activeFood.transform.position = Vector3.Lerp(initialPosition, targetPosition, fractionOfJourney);
+
+            yield return null;
+        }
+
+        activeFood.transform.position = targetPosition;
+
+        wasChosen = false;
+        highLight.SetActive(false);
+        isMoving = false;
+        foodWasFed = true;
+        Invoke("ResetBool", 0.1f);
+        currentActiveFood = null;
+
+    }
 }
-
-//using UnityEngine;
-
-//using System.Collections;
-//using System.Collections.Generic;
-//using System.Diagnostics;
-//using UnityEngine;
-
-//public class ActiveFood : MonoBehaviour
-//{
-//    public GameObject currentActiveFood;
-//    SpriteRenderer backgroundSpriteRenderer;
-//    SpriteRenderer spriteRenderer;
-//    GameObject previousActiveFood;
-//    public GameObject highLight;
-
-//    Collider2D collider;
-
-//    [SerializeField] Sprite activeFoodBackground;
-//    [SerializeField] Sprite actuallyActiveFoodBackground;
-//    [SerializeField] Sprite defaultBackground;
-//    public GameObject wrongFoodSprite;
-
-//    public float moveSpeed = 3.0f;
-
-//    public bool foodWasFed;
-
-//    public float speed = 5.0f;
-
-//    private int currentFoodIndex = 0;
-
-//    public static ActiveFood activeFood;
-
-//    private bool isMoving = false;
-
-//    void ResetBool()
-//    {
-//        foodWasFed = false;
-//    }
-
-//    void Start()
-//    {
-//        activeFood = this;
-//        previousActiveFood = currentActiveFood;
-//    }
-//    public bool wasChosen;
-//    void Update()
-//    {
-//        // ChooseAnAnimal();
-
-//        if (Input.GetKeyDown(KeyCode.Tab))
-//        {
-//            SwitchToNextFood();
-//        }
-//        if (Input.GetKeyDown(KeyCode.DownArrow))
-//        {
-//            wasChosen = false;
-//            highLight.SetActive(false);
-//            SwitchToNextFood();
-//        }
-
-//        if (wasChosen != true)
-//        {
-//            if (Input.GetKeyDown(KeyCode.LeftArrow))
-//            {
-//                SwitchToLeftFood();
-//            }
-//            if (Input.GetKeyDown(KeyCode.RightArrow))
-//            {
-//                SwitchToRightFood();
-//            }
-
-//        }
-//        else
-//        {
-//            highLight.SetActive(true);
-//            if (Input.GetKeyDown(KeyCode.LeftArrow))
-//            {
-//                ChooseAnAnimalOnTheLeft();
-//            }
-//            if (Input.GetKeyDown(KeyCode.RightArrow))
-//            {
-//                ChooseAnAnimalOnTheRight();
-//            }
-
-//            //if (Input.GetKeyDown(KeyCode.Return))
-//            //{
-//            //    Vector2 animalPosition;
-//            //    animalPosition = actuallyActiveAnimal.transform.position;
-//            //    //actuallyActive.transform.position = animalPosition;
-
-//            //    float t = Time.deltaTime * moveSpeed;
-
-//            //    actuallyActive.transform.position = Vector3.Lerp(actuallyActive.transform.position, animalPosition, t);
-//            //}
-
-//            if (Input.GetKeyDown(KeyCode.Return) && !isMoving)
-//            {
-//                StartCoroutine(MoveToPosition());
-//            }
-//        }
-
-//        //This makes sure that the food can be fed 
-//        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
-//        {
-//            foodWasFed = true;
-//            Invoke("ResetBool", 0.1f);
-//        }
-//        if (Input.GetKeyDown(KeyCode.Return))
-//        {
-//            wasChosen = true;
-//            ActuallyActive();
-//        }
-
-//        //// Handle movement using arrow keys or WASD
-//        //float horizontalInput = Input.GetAxis("Horizontal");
-//        //float verticalInput = Input.GetAxis("Vertical");
-
-//        //Vector2 movement = new Vector2(horizontalInput, verticalInput) * speed * Time.deltaTime;
-
-//        //// Move the active food
-//        //currentActiveFood.transform.Translate(movement);
-
-//        //Check if a new food is clicked by the player
-//        if (Input.GetMouseButtonDown(0))
-//        {
-//            GameObject newActiveFood = GetClickedFood();
-
-//            if (newActiveFood != null && newActiveFood != currentActiveFood)
-//            {
-
-//                ChangeBackground(newActiveFood);
-
-
-//                if (previousActiveFood != null)
-//                {
-//                    ChangeBackground(previousActiveFood);
-//                }
-
-//                //Update the active food and the previous active food
-//                currentActiveFood = newActiveFood;
-//                previousActiveFood = newActiveFood;
-//            }
-//        }
-//    }
-//    private GameObject GetClickedFood()
-//    {
-//        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-//        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-//        if (hit.collider != null)
-//        {
-//            GameObject clickedFood = hit.collider.gameObject;
-
-//            //Find the index of the clicked food in the chosen foods list
-//            int clickedFoodIndex = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.IndexOf(clickedFood);
-
-//            if (clickedFoodIndex != -1)
-//            {
-//                //Update the currentFoodIndex
-//                currentFoodIndex = clickedFoodIndex;
-
-//                if (currentActiveFood != null)
-//                {
-//                    ResetBackground(currentActiveFood);
-//                }
-
-//                currentActiveFood = clickedFood;
-//                ChangeBackground(currentActiveFood);
-//            }
-
-//            return clickedFood;
-//        }
-
-//        return null;
-//    }
-
-//    public void SwitchToNextFood()
-//    {
-//        if (RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count == 0)
-//        {
-//            return;
-//        }
-
-//        if (currentActiveFood != null)
-//        {
-//            ResetBackground(currentActiveFood);
-//        }
-
-//        currentFoodIndex = (currentFoodIndex + 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count;
-
-//        currentActiveFood = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods[currentFoodIndex];
-
-//        if (currentActiveFood != null)
-//        {
-//            ChangeBackground(currentActiveFood);
-//        }
-//    }
-
-//    public void SwitchToRightFood()
-//    {
-//        if (RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count == 0)
-//        {
-//            return;
-//        }
-
-//        if (currentActiveFood != null)
-//        {
-//            ResetBackground(currentActiveFood);
-//        }
-
-//        currentFoodIndex = (currentFoodIndex + 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count;
-
-//        currentActiveFood = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods[currentFoodIndex];
-
-//        if (currentActiveFood != null)
-//        {
-//            ChangeBackground(currentActiveFood);
-//        }
-//    }
-
-//    public void SwitchToLeftFood()
-//    {
-//        if (RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count == 0)
-//        {
-//            return;
-//        }
-
-//        if (currentActiveFood != null)
-//        {
-//            ResetBackground(currentActiveFood);
-//        }
-
-//        currentFoodIndex = (currentFoodIndex - 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count;
-
-//        currentActiveFood = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods[currentFoodIndex];
-
-//        if (currentActiveFood != null)
-//        {
-//            ChangeBackground(currentActiveFood);
-//        }
-//    }
-//    void ResetBackground(GameObject food)
-//    {
-//        collider = food.GetComponent<Collider2D>();
-//        collider.isTrigger = false;
-//        spriteRenderer = food.GetComponent<SpriteRenderer>();
-//        spriteRenderer.sortingOrder = 30;
-//        GameObject child = food.transform.GetChild(0).gameObject;
-//        backgroundSpriteRenderer = child.GetComponent<SpriteRenderer>();
-//        backgroundSpriteRenderer.sortingOrder = 25;
-//        backgroundSpriteRenderer.sprite = defaultBackground;
-//    }
-
-//    void ChangeBackground(GameObject food)
-//    {
-//        collider = food.GetComponent<Collider2D>();
-//        collider.isTrigger = true;
-//        spriteRenderer = food.GetComponent<SpriteRenderer>();
-//        spriteRenderer.sortingOrder = 32;
-//        GameObject child = food.transform.GetChild(0).gameObject;
-//        backgroundSpriteRenderer = child.GetComponent<SpriteRenderer>();
-//        backgroundSpriteRenderer.sortingOrder = 31;
-//        backgroundSpriteRenderer.sprite = activeFoodBackground;
-//    }
-
-//    GameObject actuallyActive;
-//    private void ActuallyActive()
-//    {
-//        actuallyActive = currentActiveFood;
-
-//        collider = actuallyActive.GetComponent<Collider2D>();
-//        collider.isTrigger = true;
-//        spriteRenderer = actuallyActive.GetComponent<SpriteRenderer>();
-//        spriteRenderer.sortingOrder = 32;
-//        GameObject child = actuallyActive.transform.GetChild(0).gameObject;
-//        backgroundSpriteRenderer = child.GetComponent<SpriteRenderer>();
-//        backgroundSpriteRenderer.sortingOrder = 31;
-//        backgroundSpriteRenderer.sprite = actuallyActiveFoodBackground;
-
-//    }
-//    int currentAnimalIndex;
-//    GameObject actuallyActiveAnimal;
-//    Vector2 position;
-//    void ChooseAnAnimalOnTheRight()
-//    {
-//        if (actuallyActive != null)
-//        {
-//            if (RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count == 0)
-//            {
-//                return;
-//            }
-
-//            currentAnimalIndex = (currentAnimalIndex + 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count;
-
-//            actuallyActiveAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[currentAnimalIndex];
-
-//            position = actuallyActiveAnimal.transform.position;
-
-//            highLight.transform.position = position;
-
-//        }
-//    }
-//    void ChooseAnAnimalOnTheLeft()
-//    {
-//        if (actuallyActive != null)
-//        {
-//            if (RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count == 0)
-//            {
-//                return;
-//            }
-//            currentAnimalIndex = (currentAnimalIndex - 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count;
-//            if (currentAnimalIndex < 0)
-//            {
-//                currentAnimalIndex += RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals.Count;
-//            }
-
-
-//            actuallyActiveAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[currentAnimalIndex];
-
-//            position = actuallyActiveAnimal.transform.position;
-
-//            highLight.transform.position = position;
-
-//        }
-//    }
-
-//    private IEnumerator MoveToPosition()
-//    {
-//        isMoving = true;
-
-//        Vector3 targetPosition = actuallyActiveAnimal.transform.position;
-//        Vector3 initialPosition = actuallyActive.transform.position;
-//        float journeyLength = Vector3.Distance(initialPosition, targetPosition);
-//        float journeyDuration = journeyLength / moveSpeed;
-
-//        float startTime = Time.time;
-
-//        while (Time.time < startTime + journeyDuration)
-//        {
-//            float distanceCovered = (Time.time - startTime) * moveSpeed;
-//            float fractionOfJourney = distanceCovered / journeyLength;
-
-//            actuallyActive.transform.position = Vector3.Lerp(initialPosition, targetPosition, fractionOfJourney);
-
-//            yield return null;
-//        }
-
-//        actuallyActive.transform.position = targetPosition;
-
-//        wasChosen = false;
-//        highLight.SetActive(false);
-//        isMoving = false;
-//        foodWasFed = true;
-//        Invoke("ResetBool", 0.1f);
-
-//    }
-//}

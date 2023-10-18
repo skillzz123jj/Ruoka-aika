@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Animals : MonoBehaviour
 {
     [SerializeField] Animator animExpression;
@@ -17,7 +18,9 @@ public class Animals : MonoBehaviour
     float shrinkSpeed = 0.7f;
     public bool good;
     public bool bad;
-    bool isShrinking;
+    public bool isShrinking;
+
+    public static Animals animals; 
 
     Queue<GameObject> foodQueue = new Queue<GameObject>();
 
@@ -39,12 +42,14 @@ public class Animals : MonoBehaviour
 
                 //This checks if the animal can eat the food and sets the bools accordingly
                 if (allowedFoods.Contains(foodThatCollidedName))
-                {               
+                {
+                  
                     good = true;
                     bad = false;
                 }
                 else
                 {
+                   
                     bad = true;
                     good = false;
                 }
@@ -75,13 +80,17 @@ public class Animals : MonoBehaviour
                 if (chewingSound != null)
                 {
                     chewingSound.Play();
-                }           
+                }
+                ActiveFood.activeFood.wasChosen = false;
+                ActiveFood.activeFood.ResetBackground(foodThatCollided);
                 GoodFood();
                 good = false;
 
             }
             else if (bad)
             {
+                ActiveFood.activeFood.wasChosen = false;
+                ActiveFood.activeFood.ResetBackground(foodThatCollided);
                 errorSound.Play();
                 BadFood();
                 bad = false;
@@ -92,11 +101,11 @@ public class Animals : MonoBehaviour
 
     //Spawns new foods when the old ones have been fed  
     public void NewFoods()
-    {
-        RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
-        RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
-        RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
-        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
+    {    
+            RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose, RandomAnimalAndFood.randomAnimalAndFood.numberOfAllowedBadFoods);
+            RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
+            RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
+            RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;      
     }
 
     void GoodFood()
