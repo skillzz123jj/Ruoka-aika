@@ -121,7 +121,6 @@ public class ActiveFood : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return) && !isMoving)
             {
 
-                animator.SetTrigger("Valinta");
                 if (activeAnimal == null)
                 {
                     activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
@@ -310,8 +309,14 @@ public class ActiveFood : MonoBehaviour
     //This moves the food to the chosen animal and feeds itself
     private IEnumerator MoveToPosition(GameObject activeFood, GameObject activeAnimal)
     {
+
+        animator.SetTrigger("Valinta");
+        currentAnimalIndex = 0;
         isMoving = true;
+        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 15;
         Vector3 targetPosition = activeAnimal.transform.position;
+        float offset = 2.5f;
+        targetPosition.y -= offset;
         Vector3 initialPosition = activeFood.transform.position;
         float journeyLength = Vector3.Distance(initialPosition, targetPosition);
         float journeyDuration = journeyLength / moveSpeed;
@@ -331,11 +336,12 @@ public class ActiveFood : MonoBehaviour
         activeFood.transform.position = targetPosition;
 
         wasChosen = false;
-        highLight.SetActive(false);
-        isMoving = false;
+         
         foodWasFed = true;
+        highLight.SetActive(false);
         Invoke("ResetBool", 0.1f);
         currentActiveFood = null;
-
+        isMoving = false;
+    
     }
 }

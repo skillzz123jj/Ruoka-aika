@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEditor;
 
-
 public class RandomAnimalAndFood : MonoBehaviour
 {
     [SerializeField] List<GameObject> animals = new List<GameObject>();
@@ -80,7 +79,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     {
         timerToChangeFood -= Time.deltaTime;
 
-        if (timerToChangeFood <= 0)
+        if (timerToChangeFood <= 0 && !ActiveFood.activeFood.isMoving)
         {
             if (foodsLeft > 0)
             {
@@ -90,7 +89,9 @@ public class RandomAnimalAndFood : MonoBehaviour
             if (nowIsAGoodTime)
             {
                 nowIsAGoodTime = false;
-                CanChangeAnimal();
+               // Invoke("CanChangeAnimal", 2F);
+                StartCoroutine(CanChangeAnimal(2F));
+                //CanChangeAnimal();
             }
             ActiveFood.activeFood.wasChosen = false;
             ActiveFood.activeFood.currentActiveFood = null;
@@ -122,13 +123,14 @@ public class RandomAnimalAndFood : MonoBehaviour
       
     }
 
-    public void CanChangeAnimal()
+    public IEnumerator CanChangeAnimal(float delay)
     {
-        timerToChangeFood = 7;
+        timerToChangeFood = 5;
         justChangedAnimals = true;
+        yield return new WaitForSeconds(delay);
         ChangeRandomAnimal();
         AddFoods();
-        timerToChangeAnimal = 60;
+        timerToChangeAnimal = 75;
         nowIsAGoodTime = false;
     }
     private void Start()
