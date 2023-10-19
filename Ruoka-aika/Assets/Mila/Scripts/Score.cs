@@ -7,6 +7,7 @@ public class Score : MonoBehaviour
 {
     [SerializeField] TMP_Text scoreTEXT;
     [SerializeField] GameObject gameOverScreen;
+    [SerializeField] GameObject gameWonScreen;
     [SerializeField] GameObject randomAnimalAndFood;
     [SerializeField] GameObject activeFood;
     [SerializeField] GameObject error1;
@@ -31,11 +32,21 @@ public class Score : MonoBehaviour
             randomAnimalAndFood.SetActive(false);
             Invoke("EndTheGame", 1.5f);
         }
+        if (score >= 120)
+        {
+            activeFood.SetActive(false);
+            randomAnimalAndFood.SetActive(false);
+            Invoke("GameWon", 1.5f);
+        }
     }
 
     void EndTheGame()
     {
         gameOverScreen.SetActive(true);
+    }
+    void GameWon()
+    {
+        gameWonScreen.SetActive(true);
     }
     public void ScoreUp()
     {

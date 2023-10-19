@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameOver : MonoBehaviour
+public class GameWon : MonoBehaviour
 {
     [SerializeField] TMP_Text displayScoreTEXT;
     [SerializeField] GameObject disableFoods;
@@ -15,7 +15,7 @@ public class GameOver : MonoBehaviour
     void Update()
     {       
         int score = Score.scoreScript.score;
-        displayScoreTEXT.text = $"Ruokit {score} eläintä";
+        displayScoreTEXT.text = $"Sait ruokittua kaikki {score} eläintä";    
         Invoke("GameEnded", 1f);
         Difficulty.difficulty.gameRunning = false;
 
@@ -50,3 +50,4 @@ public class GameOver : MonoBehaviour
 
     }
 }
+

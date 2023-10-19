@@ -18,7 +18,9 @@ public class Animals : MonoBehaviour
     float shrinkSpeed = 0.7f;
     public bool good;
     public bool bad;
-    bool isShrinking;
+    public bool isShrinking;
+
+    public static Animals animals; 
 
     Queue<GameObject> foodQueue = new Queue<GameObject>();
 
@@ -100,7 +102,7 @@ public class Animals : MonoBehaviour
     //Spawns new foods when the old ones have been fed  
     public void NewFoods()
     {    
-            RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose);
+            RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose, RandomAnimalAndFood.randomAnimalAndFood.numberOfAllowedBadFoods);
             RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
             RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
             RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;      
@@ -109,7 +111,7 @@ public class Animals : MonoBehaviour
     void GoodFood()
     {
         //If the animal is allowed to eat the food and the score goes up
-        Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
+       // Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
         RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Remove(foodThatCollided);
         if (animExpression != null)
         {
@@ -164,12 +166,13 @@ public class Animals : MonoBehaviour
             var nextFood = foodQueue.Dequeue();
             StartCoroutine(ShrinkFood(nextFood));
         }
+    
     }
 
     void BadFood()
     {
         //If the food was fed to the wrong animal player loses a life
-        Debug.Log($"{gameObject.name} ei saa syödä {foodThatCollidedName}");
+     //   Debug.Log($"{gameObject.name} ei saa syödä {foodThatCollidedName}");
         badFood = foodThatCollided;
         RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Remove(badFood);
         var script = badFood.GetComponent<DragAndDrop>();
@@ -188,7 +191,7 @@ public class Animals : MonoBehaviour
         Score.scoreScript.WrongFood();
         WrongFoodSprite();
         HandleChanges();
-        
+   
     }
 
     //This method adds a sprite on the food if it was fed to the incorrect animal
@@ -217,12 +220,12 @@ public class Animals : MonoBehaviour
             if (RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime)
             {
                 RandomAnimalAndFood.randomAnimalAndFood.nowIsAGoodTime = false;
-                RandomAnimalAndFood.randomAnimalAndFood.CanChangeAnimal();
+                StartCoroutine(RandomAnimalAndFood.randomAnimalAndFood.CanChangeAnimal(2f));
             }
             else
             {
                 Invoke("NewFoods", 3F);
-                ActiveFood.activeFood.SwitchToNextFood();
+                //ActiveFood.activeFood.SwitchToNextFood();
             }
         }
     }
