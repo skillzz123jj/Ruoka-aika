@@ -294,34 +294,35 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
             foodIndex++;
             index++;
-            // Retrieve the instruction for the combo and play it
-            Instruction instruction = InstructionManager.instance.GetInstructionForCombo(new FoodAnimalCombo
-            {
-                foodName = obj.name,
-                animalName = correctRandomAnimal.name
-            });
+
+
+            FoodAnimalCombo foodAnimalCombo = new FoodAnimalCombo();
+            foodAnimalCombo.foodName = obj.name;
+            foodAnimalCombo.animalName = correctRandomAnimal.name;
+
+            Instruction instruction = InstructionManager.instance.GetInstructionForCombo(foodAnimalCombo);
 
             if (instruction != null)
             {
-                
-                // Play the audio instruction and text instruction 
+                // Play the audio instruction
                 if (instruction.audioClip != null)
                 {
-                    if(audioSource != null)
+                    if (audioSource != null)
                     {
                         audioSource.clip = instruction.audioClip;
-
                         audioSource.Play();
                     }
                 }
+
+                // Set the text instruction
                 if (!string.IsNullOrEmpty(instruction.textInstruction))
                 {
-                    // Display text instruction using instruction.textInstruction
+                    instructionTEXT.text = instruction.textInstruction;
                 }
             }
             else
             {
-               // Debug.LogError("No instruction found");
+                Debug.LogError("No instruction found");
             }
 
         }

@@ -3337,61 +3337,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f985dfef5281546a32785dacd2fe92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instructionSet:
-  - {fileID: 11400000, guid: 4cc27ff022fcd8f4f9d52167eb2386f8, type: 2}
-  - {fileID: 11400000, guid: 2b70d7a59dac13646b4c024d9a2521ac, type: 2}
-  - {fileID: 11400000, guid: e3e01db256e91634195cc3e499452c11, type: 2}
-  - {fileID: 11400000, guid: 049557a721ccfc34aa6f544d2f72e110, type: 2}
-  - {fileID: 11400000, guid: a02bae8911494a24d84f87cca9089b99, type: 2}
-  - {fileID: 11400000, guid: ecf76293ef3c7f048af95bb228443b3d, type: 2}
-  - {fileID: 11400000, guid: cf392b401c770ac488a1f9da8436aa05, type: 2}
-  - {fileID: 11400000, guid: 417c20a771194ab4b88f23317d95a9e7, type: 2}
-  - {fileID: 11400000, guid: 672a48b655c40354e82605281427c4e2, type: 2}
-  - {fileID: 11400000, guid: b2df01e3734682749b1a6beee7f14030, type: 2}
-  - {fileID: 11400000, guid: 0ee9a28807ae3884d9b331a3c1572843, type: 2}
-  - {fileID: 11400000, guid: 7951c9fa05bfa324e8d494e56bb64ff8, type: 2}
-  - {fileID: 11400000, guid: 3fc2a10eaf81c8b459c82498cbc836c9, type: 2}
-  - {fileID: 11400000, guid: 2e20daca4277ce24ea58c945a7d1bcfe, type: 2}
-  - {fileID: 11400000, guid: c390bc14a573fd844bab316d338e165a, type: 2}
-  - {fileID: 11400000, guid: cbb7a672804e06a47913e629d71e93ff, type: 2}
-  - {fileID: 11400000, guid: 252f6a57f9b3fde4aa05cf292f0b191d, type: 2}
-  - {fileID: 11400000, guid: fce875d51df40df438c38abe0a57fa1e, type: 2}
-  - {fileID: 11400000, guid: 33fcd7d003e7ae34fa98e2f1c0ed3f9f, type: 2}
-  - {fileID: 11400000, guid: d3fbe584e46401845b9952884dacb922, type: 2}
-  - {fileID: 11400000, guid: b34bd8afa756fd741b24c43a53dd5b9a, type: 2}
-  - {fileID: 11400000, guid: 7a5b473266926a6478dbc7b60abc509e, type: 2}
-  - {fileID: 11400000, guid: f81ebaec3db05ba4da0ae061de719f2d, type: 2}
-  foodAnimalCombos:
-  - {fileID: 11400000, guid: e613fef55e2e7d247b6cbe89b292b4cd, type: 2}
-  - {fileID: 11400000, guid: 86c7848b026201b4c9cc2a4a141d9592, type: 2}
-  - {fileID: 11400000, guid: 4d00c174ee0e4e94f9fef8615fcaf7c5, type: 2}
-  - {fileID: 11400000, guid: b08f7318e4aac2d468febdbbf65b5900, type: 2}
-  - {fileID: 11400000, guid: c3fd3191d6aaf93489dc3fa4608d1657, type: 2}
-  - {fileID: 11400000, guid: 21b31613b909c9944b557d7268d93a6e, type: 2}
-  - {fileID: 11400000, guid: 29e9c2ea7592d954f81104f0f6630a9e, type: 2}
-  - {fileID: 11400000, guid: 9b57499f6f94f7e449151a9dcb918aac, type: 2}
-  - {fileID: 11400000, guid: de8155c1b8a264746a16382df5846221, type: 2}
-  - {fileID: 11400000, guid: 6c5cc8743caab4a43892832edc9c1706, type: 2}
-  - {fileID: 11400000, guid: dbb46d99fb1e9a44896810145a24c3c9, type: 2}
-  - {fileID: 11400000, guid: 75e739e4b1a69774b9c521e9ce2491d7, type: 2}
-  - {fileID: 11400000, guid: f2a09be6ee09ae5438134d07d49144a5, type: 2}
-  - {fileID: 11400000, guid: 9df2c130c02eb9c4cbbbbf14d6ba68b0, type: 2}
-  - {fileID: 11400000, guid: f7fc2cd68547394469ee5710754f8cf7, type: 2}
-  - {fileID: 11400000, guid: d5b865af632efc54b867ba848da17864, type: 2}
-  - {fileID: 11400000, guid: 7df16a268e09e464ab052762d711df70, type: 2}
-  - {fileID: 11400000, guid: 26ff762f9db4d0d4ebdb61db554752e0, type: 2}
-  - {fileID: 11400000, guid: 0bbaaeec35843d94caa20f352c9c3d18, type: 2}
-  - {fileID: 11400000, guid: c606147ba9e69984bb539e585f609da0, type: 2}
-  - {fileID: 11400000, guid: eec833f1e91f04042bce85b4c9009006, type: 2}
-  - {fileID: 11400000, guid: 3d75266de78a59148b0ca155059c77a5, type: 2}
-  - {fileID: 11400000, guid: e4bc78f8d94f625438328f2d38e45a8c, type: 2}
-  - {fileID: 11400000, guid: afe89540d54c6ff42a32a0284f428ec5, type: 2}
-  - {fileID: 11400000, guid: 319bea012d8e2e344bedef78983debdb, type: 2}
-  - {fileID: 11400000, guid: 6248c07c1ffdd954ea69806e13c4f9fe, type: 2}
-  - {fileID: 11400000, guid: ed1c2c4ccb2a21f4db2706fe0032299d, type: 2}
-  - {fileID: 11400000, guid: bc0daabfa59851740ba131a4aaf5b949, type: 2}
-  - {fileID: 11400000, guid: 91e6bf0565e141148ab2e142863fc674, type: 2}
-  - {fileID: 11400000, guid: dad5b8264b8d8ef4e83af0df0178924c, type: 2}
+  audioInstructions:
+  - {fileID: 8300000, guid: 97759125325b9dc40b0e3c60221464cb, type: 3}
+  - {fileID: 8300000, guid: 98280b8997462cb4ebb0942e040fadb8, type: 3}
+  - {fileID: 8300000, guid: 9a9ac2907a124ad45b827375eaba3035, type: 3}
+  - {fileID: 8300000, guid: b96a4f507c20cba4db00850ff5f8b941, type: 3}
+  - {fileID: 8300000, guid: 6880cd2063d1b7c40bd8f4b12096fbcf, type: 3}
+  - {fileID: 8300000, guid: d2e626d3eecb8ba4e9cf72547c76ee5a, type: 3}
+  - {fileID: 8300000, guid: 452e29ace63d665418260d2a2e6aecf0, type: 3}
+  - {fileID: 8300000, guid: b1495da9018ee604d9b9bec36969554f, type: 3}
+  - {fileID: 8300000, guid: 4d59fc50f9c137449958eaef3370aac7, type: 3}
+  - {fileID: 8300000, guid: 718a094d740a1984c855220fc21fc2f0, type: 3}
+  - {fileID: 8300000, guid: 91beaf45341d22c43ba296c121626ec4, type: 3}
+  - {fileID: 8300000, guid: 891e5680aa00e92448871bd555cb71b2, type: 3}
+  - {fileID: 8300000, guid: 8335135a4085aff438ee4b752191cb04, type: 3}
+  - {fileID: 8300000, guid: 202ba9cb9d76058468c05a73117af6da, type: 3}
+  - {fileID: 8300000, guid: f696ce919da7fcb4fa4a5b0cdcaf3b6b, type: 3}
+  - {fileID: 8300000, guid: be6a40fe476ef7645bb32315f36958ee, type: 3}
+  - {fileID: 8300000, guid: 775f40d58499595419b108b932b9262a, type: 3}
+  - {fileID: 8300000, guid: b32e0d54709fb8e46b5e86f40f78bdfa, type: 3}
+  - {fileID: 8300000, guid: 32f6726bda07ca742876089d46a9cd06, type: 3}
+  - {fileID: 8300000, guid: 8b14a021e8030ea4994068d5ada461a2, type: 3}
+  - {fileID: 8300000, guid: 979f32fdef3a5cd459d567ffad9ed5dd, type: 3}
+  - {fileID: 8300000, guid: fd0ca2361aabcbb4eb2916dfdf893b3b, type: 3}
+  - {fileID: 8300000, guid: e033c48a76d2c194ca2487e9cf309e6b, type: 3}
+  - {fileID: 8300000, guid: 6a3dea97b0123f94b8d0b336319cebb4, type: 3}
+  - {fileID: 8300000, guid: 1f0c9bb4ec84f3544a26a4c64028a8df, type: 3}
+  - {fileID: 8300000, guid: c7e2f402614bbd14ba1cb4a2bacb9cff, type: 3}
+  - {fileID: 8300000, guid: b386f58654d38604ead7c875f3ece2d2, type: 3}
+  - {fileID: 8300000, guid: 8bb135c35d3164540b9d9d223f1c9516, type: 3}
+  - {fileID: 8300000, guid: e5c1cc2aa4b85a24494af5aee34831a7, type: 3}
+  - {fileID: 8300000, guid: 7e2d91ceba2ab464a9401cabb8280f79, type: 3}
+  - {fileID: 8300000, guid: 6b0d2a74533ea4344ac6424c3a43ce9f, type: 3}
+  - {fileID: 8300000, guid: 7febbbcdf263de1478b4c9fb7bdc453d, type: 3}
+  - {fileID: 8300000, guid: 7531fb5590fabc342a7bf153b2ec8591, type: 3}
+  - {fileID: 8300000, guid: eda2843caef7b1a438603a1afa80ce63, type: 3}
+  - {fileID: 8300000, guid: 7bd490a07a0c54044accf61e43a0e23f, type: 3}
+  - {fileID: 8300000, guid: 7ec0feb04c349504f9f4c5757f18d804, type: 3}
+  - {fileID: 8300000, guid: baba3e77890128a4f9e6b45cc2baad05, type: 3}
+  - {fileID: 8300000, guid: a6ef7374c70e61945b19d76e37f823ae, type: 3}
+  - {fileID: 8300000, guid: f68049797602c3a40869813552abacfa, type: 3}
+  - {fileID: 8300000, guid: 0a46bb234c2c97e4583c8fd9c0cba07d, type: 3}
+  - {fileID: 8300000, guid: d7741139dfb1ab94a82d2e031e19a530, type: 3}
+  - {fileID: 8300000, guid: 9d9c2e1891d0e214b9a3a6e4f38dba9e, type: 3}
+  - {fileID: 8300000, guid: 8c7009e5d45f3fe4cb2f89a0b98d2afd, type: 3}
+  - {fileID: 8300000, guid: 596588f97213afe4484ffa1187debdad, type: 3}
+  - {fileID: 8300000, guid: 56fa24bb0263a59479007903bb4f3aff, type: 3}
+  - {fileID: 8300000, guid: 75e6188b87d019a43bc577dee82a6b7e, type: 3}
+  - {fileID: 8300000, guid: 30af09dae40c247459b2fbf234dd909c, type: 3}
+  - {fileID: 8300000, guid: ffc9612b4c031b74bb6483fedccac3a7, type: 3}
+  - {fileID: 8300000, guid: e3b1c4d88b7ec10428d222f275f92bf4, type: 3}
+  - {fileID: 8300000, guid: bbdd8c8f112c571468623a9e05639c6a, type: 3}
+  - {fileID: 8300000, guid: 925bf8b8da8059e4eb041f9d5fe06ec9, type: 3}
+  - {fileID: 8300000, guid: ddff3dd932504254b86776fc287c6a6a, type: 3}
+  - {fileID: 8300000, guid: b1c6c0a9d6c6a6446a946dc396a917df, type: 3}
+  - {fileID: 8300000, guid: e369794bf75eed94db7813ae1a33833b, type: 3}
+  textInstructions:
+  - "Sy\xF6t\xE4 appelsiini pesukarhulle"
+  - "Sy\xF6t\xE4 broileri koiralle"
+  - "Sy\xF6t\xE4 broileri pesukarhulle"
+  - "Sy\xF6t\xE4 etana pesukarhulle"
+  - "Sy\xF6t\xE4 etana strutsille"
+  - "Sy\xF6t\xE4 jyv\xE4t kanalle"
+  - "Sy\xF6t\xE4 jyv\xE4t pesukarhulle"
+  - "Sy\xF6t\xE4 kaali pesukarhulle"
+  - "Sy\xF6t\xE4 kaali pupulle"
+  - "Sy\xF6t\xE4 kala kissalle"
+  - "Sy\xF6t\xE4 kala pesukarhulle"
+  - "Sy\xF6t\xE4 kinkku kissalle"
+  - "Sy\xF6t\xE4 kinkku pesukarhulle"
+  - "Sy\xF6t\xE4 kissanruoka kissalle"
+  - "Sy\xF6t\xE4 koiranruoka koiralle"
+  - "Sy\xF6t\xE4 kurkku lehm\xE4lle"
+  - "Sy\xF6t\xE4 kurkku pesukarhulle"
+  - "Sy\xF6t\xE4 kurkku possulle"
+  - "Sy\xF6t\xE4 kurkku strutsille"
+  - "Sy\xF6t\xE4 lehdet alpakalle"
+  - "Sy\xF6t\xE4 lehdet lampaalle"
+  - "Sy\xF6t\xE4 lehdet lehm\xE4lle"
+  - "Sy\xF6t\xE4 lehdet pesukarhulle"
+  - "Sy\xF6t\xE4 lehdet pupulle"
+  - "Sy\xF6t\xE4 leip\xE4 kanalle"
+  - "Sy\xF6t\xE4 leip\xE4 pesukarhulle"
+  - "Sy\xF6t\xE4 luu koiralle"
+  - "Sy\xF6t\xE4 luu pesukarhulle"
+  - "Sy\xF6t\xE4 mato pesukarhulle"
+  - "Sy\xF6t\xE4 mato strutsille"
+  - "Sy\xF6t\xE4 nakki pesukarhulle"
+  - "Sy\xF6t\xE4 oliivi kanalle"
+  - "Sy\xF6t\xE4 oliivi pesukarhulle"
+  - "Sy\xF6t\xE4 paisti koiralle"
+  - "Sy\xF6t\xE4 paisti pesukarhulle"
+  - "Sy\xF6t\xE4 pihvi kissalle"
+  - "Sy\xF6t\xE4 pihvi koiralle"
+  - "Sy\xF6t\xE4 pihvi pesukarhulle"
+  - "Sy\xF6t\xE4 porkkana pesukarhulle"
+  - "Sy\xF6t\xE4 porkkana possulle"
+  - "Sy\xF6t\xE4 porkkana pupulle"
+  - "Sy\xF6t\xE4 p\xE4hkin\xE4t pesukarhulle"
+  - "Sy\xF6t\xE4 p\xE4hkin\xE4t strutsille"
+  - "Sy\xF6t\xE4 retiisi hevoselle"
+  - "Sy\xF6t\xE4 retiisi lampaalle"
+  - "Sy\xF6t\xE4 retiisi pesukarhulle"
+  - "Sy\xF6t\xE4 retiisi possulle"
+  - "Sy\xF6t\xE4 sienet pesukarhulle"
+  - "Sy\xF6t\xE4 sienet possulle"
+  - "Sy\xF6t\xE4 vehn\xE4 alpakalle"
+  - "Sy\xF6t\xE4 vehn\xE4 hevoselle"
+  - "Sy\xF6t\xE4 vehn\xE4 lampaalle"
+  - "Sy\xF6t\xE4 vehn\xE4 lehm\xE4lle"
+  - "Sy\xF6t\xE4 vehn\xE4 pesukarhulle"
 --- !u!1 &417636126
 GameObject:
   m_ObjectHideFlags: 0

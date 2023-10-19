@@ -1,39 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InstructionManager : MonoBehaviour
 {
     public static InstructionManager instance;
 
-    public Instruction[] instructionSet; // Store instructions here
-    public FoodAnimalCombo[] foodAnimalCombos; // Store food-animal combos here
+    public List<AudioClip> audioInstructions;
+    public List<string> textInstructions;
 
-    private int currentInstructionIndex = 0;
-
-    private void Awake()
+    void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
     public Instruction GetInstructionForCombo(FoodAnimalCombo combo)
     {
-        // Find the instruction associated with the given combo
-        foreach (Instruction instruction in instructionSet)
+        // Search for the corresponding audio and text instructions based on the combo
+        for (int i = 0; i < audioInstructions.Count; i++)
         {
-            if(instruction.combo == combo)
+            if (audioInstructions[i] != null && textInstructions.Count > i)
             {
-                return instruction;
+                string audioClipName = audioInstructions[i].name;
+                string expectedAudioClipName = $"{combo.foodName}{combo.animalName}Audio";
+                if (audioClipName == expectedAudioClipName)
+                {
+                    // Return the found audio and text instruction
+                    return new Instruction(audioInstructions[i], textInstructions[i]);
+                }
             }
         }
-        // Handle the case when no instruction is found
+        // If no instruction is found, return null.
         return null;
+    }
+}
+
+[System.Serializable]
+public class FoodAnimalCombo
+{
+    public string foodName;
+    public string animalName;
+}
+
+[System.Serializable]
+public class Instruction
+{
+    public AudioClip audioClip;
+    public string textInstruction;
+
+    public Instruction(AudioClip audio, string text)
+    {
+        audioClip = audio;
+        textInstruction = text;
     }
 }
