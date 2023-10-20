@@ -77,6 +77,14 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKey(KeyCode.L))
+        {
+            foreach (GameObject hmm in chosenFoods)
+            {
+                Debug.Log(hmm);
+            }
+        }
+       
         timerToChangeFood -= Time.deltaTime;
 
         if (timerToChangeFood <= 0 && !ActiveFood.activeFood.isMoving)
@@ -88,19 +96,25 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
             if (nowIsAGoodTime)
             {
-                nowIsAGoodTime = false;
-               // Invoke("CanChangeAnimal", 2F);
+              
                 StartCoroutine(CanChangeAnimal(2F));
-                //CanChangeAnimal();
+          
+            }else
+            {
+                ActiveFood.activeFood.wasChosen = false;
+                ActiveFood.activeFood.currentActiveFood = null;
+                RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
+                RandomCorrectAnimal();
+                //  timerToChangeFood = 10;
+                ActiveFood.activeFood.wasChosen = false;
+                ActiveFood.activeFood.highLight.SetActive(false);
+                ActiveFood.activeFood.currentActiveFood = null;
+
+
             }
-            ActiveFood.activeFood.wasChosen = false;
-            ActiveFood.activeFood.currentActiveFood = null;
-            RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
-            RandomCorrectAnimal();
-            timerToChangeFood = 10;
-            ActiveFood.activeFood.wasChosen = false;
-            ActiveFood.activeFood.highLight.SetActive(false);
-            ActiveFood.activeFood.currentActiveFood = null;
+
+
+
 
             if (Difficulty.difficulty.easy)
             {
@@ -125,11 +139,14 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public IEnumerator CanChangeAnimal(float delay)
     {
-        timerToChangeFood = 5;
+        timerToChangeFood = 12;
         justChangedAnimals = true;
         yield return new WaitForSeconds(delay);
         ChangeRandomAnimal();
         AddFoods();
+        yield return new WaitForSeconds(1f);
+        RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
+        RandomCorrectAnimal();
         timerToChangeAnimal = 75;
         nowIsAGoodTime = false;
     }
@@ -211,7 +228,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         //Clears the dictionary that checks what animals are allowed to eat the foods
         TempDictionary.Clear();
 
-        instructionTEXT.text = "Anna ";
+        //instructionTEXT.text = "Anna ";
         //For each food it checks if the animal can eat it and adds it to possible animals
         foreach (GameObject obj in chosenFoods)
         {
@@ -250,34 +267,34 @@ public class RandomAnimalAndFood : MonoBehaviour
                 correctRandomAnimal = chosenAnimals[randomAnimalIndex];
             
             }
-            string animalName = correctRandomAnimal.name;
+            //string animalName = correctRandomAnimal.name;
 
-            if (correctRandomAnimal.name == "Alpakka")
-            {
-                animalName = "alpaka";
-            }
-            else if (animalName == "Hevonen")
-            {
-                animalName = "hevose";
-            }
-            else if (animalName == "Lammas")
-            {
-                animalName = "lampaa";
-            }
+            //if (correctRandomAnimal.name == "Alpakka")
+            //{
+            //    animalName = "alpaka";
+            //}
+            //else if (animalName == "Hevonen")
+            //{
+            //    animalName = "hevose";
+            //}
+            //else if (animalName == "Lammas")
+            //{
+            //    animalName = "lampaa";
+            //}
 
-            if (numberOfFoodsToChoose == 1)
-            {
+            //if (numberOfFoodsToChoose == 1)
+            //{
 
-                instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
-            }
-            else if (index == chosenFoods.Count - 1)
-            {
-                instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
-            }
-            else
-            {
-                instructionTEXT.text += $"{obj.name} {animalName}lle ja ".ToLower();
-            }
+            //    instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
+            //}
+            //else if (index == chosenFoods.Count - 1)
+            //{
+            //    instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
+            //}
+            //else
+            //{
+            //    instructionTEXT.text += $"{obj.name} {animalName}lle ja ".ToLower();
+            //}
 
             Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
 
@@ -504,9 +521,12 @@ public class RandomAnimalAndFood : MonoBehaviour
                 chosenFoods.Add(chosenFood);
                 availableFoods.RemoveAt(chosenFoodIndex);
             }
-      
+
         }
         PositionFoodsRandomly(chosenFoods);
+        chosenFoods.Sort((a, b) => {
+            return a.transform.position.x.CompareTo(b.transform.position.x);
+        });
     }
 
   
@@ -558,19 +578,19 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method changes the amount of foods that are going to spawn
     void CheckForCurrentLevel()
     {
-        if (Score.scoreScript.score <= 7) //7
+        if (Score.scoreScript.score <= 1) //7
         {
 
             numberOfFoodsToChoose = 1;
             numberOfAllowedBadFoods = 0;
         }
-        else if (Score.scoreScript.score <= 20) //20
+        else if (Score.scoreScript.score <= 2) //20
         {
 
             numberOfFoodsToChoose = 2;
             numberOfAllowedBadFoods = 0;
         }
-        else if (Score.scoreScript.score <= 30) //30
+        else if (Score.scoreScript.score <= 3) //30
         {
 
             numberOfFoodsToChoose = 3;

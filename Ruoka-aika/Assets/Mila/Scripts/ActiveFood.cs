@@ -151,7 +151,7 @@ public class ActiveFood : MonoBehaviour
             }
             GameObject newActiveFood = GetClickedFood();
 
-            if (newActiveFood != null && newActiveFood != currentActiveFood)
+            if (newActiveFood != null && newActiveFood != currentActiveFood && (newActiveFood.CompareTag("Food") || newActiveFood.CompareTag("EiSyötävä")))
             {
 
                 ChooseFood(previousActiveFood);
@@ -174,8 +174,8 @@ public class ActiveFood : MonoBehaviour
         food = hit.collider.gameObject;
         if (food != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
         {
-            GameObject oye = food.transform.GetChild(0).gameObject;
-            backgroundSpriteRenderer = oye.GetComponent<SpriteRenderer>();
+            GameObject background = food.transform.GetChild(0).gameObject;
+            backgroundSpriteRenderer = background.GetComponent<SpriteRenderer>();
             backgroundSpriteRenderer.sprite = activeFoodBackground;
         }
     }
@@ -184,8 +184,8 @@ public class ActiveFood : MonoBehaviour
     {
         if (food != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
         {
-            GameObject oye = food.transform.GetChild(0).gameObject;
-            backgroundSpriteRenderer = oye.GetComponent<SpriteRenderer>();
+            GameObject background = food.transform.GetChild(0).gameObject;
+            backgroundSpriteRenderer = background.GetComponent<SpriteRenderer>();
             backgroundSpriteRenderer.sprite = defaultBackground;
         }
     }
@@ -312,6 +312,7 @@ public class ActiveFood : MonoBehaviour
 
         animator.SetTrigger("Valinta");
         currentAnimalIndex = 0;
+        currentFoodIndex = -1;
         isMoving = true;
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 15;
         Vector3 targetPosition = activeAnimal.transform.position;

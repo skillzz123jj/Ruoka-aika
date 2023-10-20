@@ -43,6 +43,7 @@ public class Score : MonoBehaviour
     void EndTheGame()
     {
         gameOverScreen.SetActive(true);
+        
     }
     void GameWon()
     {
