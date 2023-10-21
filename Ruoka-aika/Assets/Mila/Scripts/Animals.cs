@@ -218,6 +218,7 @@ public class Animals : MonoBehaviour
     //If there are no more foods this one handles that
     void HandleChanges()
     {
+       
         if (RandomAnimalAndFood.randomAnimalAndFood.foodsLeft == 0 && !RandomAnimalAndFood.randomAnimalAndFood.changedFoodsRecently)
         {
             RandomAnimalAndFood.randomAnimalAndFood.changedFoodsRecently = true;

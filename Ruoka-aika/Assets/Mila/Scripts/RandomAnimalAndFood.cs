@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor;
 
 public class RandomAnimalAndFood : MonoBehaviour
 {
@@ -20,7 +19,6 @@ public class RandomAnimalAndFood : MonoBehaviour
     public List<Vector2> copyOfFoodPositions = new List<Vector2>();
 
     public Vector2 startPosition;
-    public Vector2 spaceBetweenFoods;
 
     List<string> foodsWithoutAssociations = new List<string>
     {
