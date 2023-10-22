@@ -107,7 +107,7 @@ public class Animals : MonoBehaviour
             RandomAnimalAndFood.randomAnimalAndFood.RandomFood(RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose, RandomAnimalAndFood.randomAnimalAndFood.numberOfAllowedBadFoods);
             RandomAnimalAndFood.randomAnimalAndFood.RandomCorrectAnimal();
             RandomAnimalAndFood.randomAnimalAndFood.foodsLeft = RandomAnimalAndFood.randomAnimalAndFood.numberOfFoodsToChoose;
-            RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 10;
+            RandomAnimalAndFood.randomAnimalAndFood.TimerManager();
 
         }
            

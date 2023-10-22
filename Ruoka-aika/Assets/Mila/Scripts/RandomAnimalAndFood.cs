@@ -32,10 +32,10 @@ public class RandomAnimalAndFood : MonoBehaviour
     public float timerToChangeAnimal = 20;
 
     GameObject correctRandomAnimal;
+    public GameObject smoke;
 
     [SerializeField] Animator smokeAnim;
-
-    public GameObject smoke;
+  
     public bool canChangeAnimal;
     bool justChangedAnimals;
     public bool changedFoodsRecently;
@@ -75,13 +75,6 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.L))
-        {
-            foreach (GameObject hmm in chosenFoods)
-            {
-                Debug.Log(hmm);
-            }
-        }
        
         timerToChangeFood -= Time.deltaTime;
 
@@ -94,34 +87,20 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
             if (nowIsAGoodTime)
             {
-              
+               foreach(GameObject food in chosenFoods)
+                {
+                    food.SetActive(false);
+                }
                 StartCoroutine(CanChangeAnimal(2F));
           
             }else
             {
-                ActiveFood.activeFood.wasChosen = false;
-                ActiveFood.activeFood.currentActiveFood = null;
+                ResetFoodSelection();
                 RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
                 RandomCorrectAnimal();
-                //  timerToChangeFood = 10;
-                ActiveFood.activeFood.wasChosen = false;
-                ActiveFood.activeFood.highLight.SetActive(false);
-                ActiveFood.activeFood.currentActiveFood = null;
-
-
             }
 
-
-
-
-            if (Difficulty.difficulty.easy)
-            {
-                timerToChangeFood = 100;
-            }
-            else if (Difficulty.difficulty.normal)
-            {
-                timerToChangeFood = 10;
-            }
+            TimerManager();
         }
 
         timerToChangeAnimal -= Time.deltaTime;
@@ -137,15 +116,16 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public IEnumerator CanChangeAnimal(float delay)
     {
-        timerToChangeFood = 12;
+        timerToChangeAnimal = 75;
+        ResetFoodSelection();
         justChangedAnimals = true;
         yield return new WaitForSeconds(delay);
         ChangeRandomAnimal();
         AddFoods();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
         RandomCorrectAnimal();
-        timerToChangeAnimal = 75;
+        TimerManager();   
         nowIsAGoodTime = false;
     }
     private void Start()
@@ -155,6 +135,27 @@ public class RandomAnimalAndFood : MonoBehaviour
         ChooseRandomAnimals();
     }
 
+    private void ResetFoodSelection()
+    {
+        ActiveFood.activeFood.wasChosen = false;
+        ActiveFood.activeFood.currentActiveFood = null;
+        ActiveFood.activeFood.wasChosen = false;
+        ActiveFood.activeFood.highLight.SetActive(false);
+        ActiveFood.activeFood.currentActiveFood = null;
+
+    }
+
+    public void TimerManager()
+    {
+        if (Difficulty.difficulty.easy)
+        {
+            timerToChangeFood = 50;
+        }
+        else if (Difficulty.difficulty.normal)
+        {
+            timerToChangeFood = 15;
+        }
+    }
     //This method chooses the initial animals and their positions
     public void ChooseRandomAnimals()
     {
@@ -576,43 +577,43 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method changes the amount of foods that are going to spawn
     void CheckForCurrentLevel()
     {
-        if (Score.scoreScript.score <= 1) //7
+        if (Score.scoreScript.score <= 7) //7
         {
 
             numberOfFoodsToChoose = 1;
             numberOfAllowedBadFoods = 0;
         }
-        else if (Score.scoreScript.score <= 2) //20
+        else if (Score.scoreScript.score <= 15) //20
         {
 
             numberOfFoodsToChoose = 2;
             numberOfAllowedBadFoods = 0;
         }
-        else if (Score.scoreScript.score <= 3) //30
+        else if (Score.scoreScript.score <= 25) //30
         {
 
             numberOfFoodsToChoose = 3;
             numberOfAllowedBadFoods = 1;
         }
-        else if (Score.scoreScript.score <= 50) //50
+        else if (Score.scoreScript.score <= 40) //50
         {
 
             numberOfFoodsToChoose = 4;
             numberOfAllowedBadFoods = 1;
         }
-        else if (Score.scoreScript.score <= 65) //65
+        else if (Score.scoreScript.score <= 55) //65
         {
 
             numberOfFoodsToChoose = 5;
             numberOfAllowedBadFoods = 2;
         }
-        else if (Score.scoreScript.score <= 75) //75
+        else if (Score.scoreScript.score <= 70) //75
         {
 
             numberOfFoodsToChoose = 6;
             numberOfAllowedBadFoods = 2;
         }
-        else if (Score.scoreScript.score <= 100) //100
+        else if (Score.scoreScript.score <= 85) //100
         {
 
             numberOfFoodsToChoose = 7;

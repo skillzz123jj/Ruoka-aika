@@ -131,7 +131,7 @@ public class ActiveFood : MonoBehaviour
         }
 
         //This makes sure that the food can be fed 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             if (!isMoving)
             {
@@ -144,6 +144,7 @@ public class ActiveFood : MonoBehaviour
         //Check if a new food is clicked by the player
         if (Input.GetMouseButtonDown(0))
         {
+           
             if (currentActiveFood)
             {
                 wasChosen = false;
@@ -153,7 +154,7 @@ public class ActiveFood : MonoBehaviour
 
             if (newActiveFood != null && newActiveFood != currentActiveFood && (newActiveFood.CompareTag("Food") || newActiveFood.CompareTag("EiSyötävä")))
             {
-
+             
                 ChooseFood(previousActiveFood);
 
                 if (previousActiveFood != null)
@@ -194,7 +195,7 @@ public class ActiveFood : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-        if (hit.collider != null)
+        if (hit.collider != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
         {
             GameObject clickedFood = hit.collider.gameObject;
 
@@ -215,7 +216,7 @@ public class ActiveFood : MonoBehaviour
                 currentActiveFood = clickedFood;
                 ChooseFood(currentActiveFood);
             }
-
+            RandomAnimalAndFood.randomAnimalAndFood.TimerManager();
             return clickedFood;
         }
 
