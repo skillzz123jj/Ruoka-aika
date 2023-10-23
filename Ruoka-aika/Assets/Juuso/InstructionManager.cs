@@ -30,6 +30,10 @@ public class InstructionManager : MonoBehaviour
 
     public Instruction GetInstructionForCombo(FoodAnimalCombo combo)
     {
+
+        bool audioInstructionsEnabled = PlayerPrefs.GetInt("AudioInstructionsEnabled", 1) == 1;
+        bool textInstructionsEnabled = PlayerPrefs.GetInt("TextInstructionsEnabled", 1) == 1;
+
         // Search for the corresponding audio and text instructions based on the combo
         foreach (FoodAnimalInstruction instruction in instructions)
         {
@@ -40,7 +44,10 @@ public class InstructionManager : MonoBehaviour
                 //if (audioClipName == expectedAudioClipName)
                 // Return the found audio and text instruction
                 //return new Instruction(audioInstructions[i], textInstructions[i]);
-                return new Instruction(instruction.audioClip, instruction.textInstruction);
+                AudioClip audioClip = (audioInstructionsEnabled) ? instruction.audioClip : null;
+                string textInstruction = (textInstructionsEnabled) ? instruction.textInstruction : null;
+
+                return new Instruction(audioClip, textInstruction);
                 
             }
         }
