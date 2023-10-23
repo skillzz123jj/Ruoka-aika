@@ -222,10 +222,15 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method assigns the foods for each animal
     public void RandomCorrectAnimal()
     {
+        //Create a list to accumulate audio instructions
+        List<AudioClip> audioInstructions = new List<AudioClip>();
+
         int index = 0;
         int foodIndex = 0;
         //Clears the dictionary that checks what animals are allowed to eat the foods
         TempDictionary.Clear();
+
+        string accumulatedTextInstructions = string.Empty;
 
         //instructionTEXT.text = "Anna ";
         //For each food it checks if the animal can eat it and adds it to possible animals
@@ -320,20 +325,16 @@ public class RandomAnimalAndFood : MonoBehaviour
 
             if (instruction != null)
             {
-                // Play the audio instruction
+                // Accumulate audio instructions in the list
                 if (instruction.audioClip != null)
                 {
-                    if (audioSource != null)
-                    {
-                        audioSource.clip = instruction.audioClip;
-                        audioSource.Play();
-                    }
+                    audioInstructions.Add(instruction.audioClip);
                 }
 
                 // Set the text instruction
                 if (!string.IsNullOrEmpty(instruction.textInstruction))
                 {
-                    instructionTEXT.text = instruction.textInstruction;
+                    accumulatedTextInstructions += instruction.textInstruction + ", ";
                 }
             }
             else
@@ -341,6 +342,25 @@ public class RandomAnimalAndFood : MonoBehaviour
                 Debug.LogError("No instruction found");
             }
 
+        }
+        instructionTEXT.text = accumulatedTextInstructions.TrimEnd(',', ' ');
+        StartCoroutine(PlayAudioInstructionsSequentially(audioInstructions));
+    }
+
+    private IEnumerator PlayAudioInstructionsSequentially(List<AudioClip> audioInstructions)
+    {
+        foreach(var audioClip in audioInstructions)
+        {
+            if(audioClip != null)
+            {
+                if(audioSource != null)
+                {
+                    audioSource.clip = audioClip;
+                    audioSource.Play();
+                }
+                //Wait for the audio clip to finish
+                yield return new WaitForSeconds(audioClip.length);
+            }
         }
     }
 
