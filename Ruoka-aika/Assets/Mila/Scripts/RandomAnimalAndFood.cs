@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor;
 
 public class RandomAnimalAndFood : MonoBehaviour
 {
@@ -20,7 +19,6 @@ public class RandomAnimalAndFood : MonoBehaviour
     public List<Vector2> copyOfFoodPositions = new List<Vector2>();
 
     public Vector2 startPosition;
-    public Vector2 spaceBetweenFoods;
 
     List<string> foodsWithoutAssociations = new List<string>
     {
@@ -34,10 +32,10 @@ public class RandomAnimalAndFood : MonoBehaviour
     public float timerToChangeAnimal = 20;
 
     GameObject correctRandomAnimal;
+    public GameObject smoke;
 
     [SerializeField] Animator smokeAnim;
-
-    public GameObject smoke;
+  
     public bool canChangeAnimal;
     bool justChangedAnimals;
     public bool changedFoodsRecently;
@@ -77,6 +75,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     private void Update()
     {
+       
         timerToChangeFood -= Time.deltaTime;
 
         if (timerToChangeFood <= 0 && !ActiveFood.activeFood.isMoving)
@@ -88,28 +87,20 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
             if (nowIsAGoodTime)
             {
-                nowIsAGoodTime = false;
-               // Invoke("CanChangeAnimal", 2F);
+               foreach(GameObject food in chosenFoods)
+                {
+                    food.SetActive(false);
+                }
                 StartCoroutine(CanChangeAnimal(2F));
-                //CanChangeAnimal();
+          
+            }else
+            {
+                ResetFoodSelection();
+                RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
+                RandomCorrectAnimal();
             }
-            ActiveFood.activeFood.wasChosen = false;
-            ActiveFood.activeFood.currentActiveFood = null;
-            RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
-            RandomCorrectAnimal();
-            timerToChangeFood = 10;
-            ActiveFood.activeFood.wasChosen = false;
-            ActiveFood.activeFood.highLight.SetActive(false);
-            ActiveFood.activeFood.currentActiveFood = null;
 
-            if (Difficulty.difficulty.easy)
-            {
-                timerToChangeFood = 100;
-            }
-            else if (Difficulty.difficulty.normal)
-            {
-                timerToChangeFood = 10;
-            }
+            TimerManager();
         }
 
         timerToChangeAnimal -= Time.deltaTime;
@@ -125,12 +116,16 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public IEnumerator CanChangeAnimal(float delay)
     {
-        timerToChangeFood = 5;
+        timerToChangeAnimal = 75;
+        ResetFoodSelection();
         justChangedAnimals = true;
         yield return new WaitForSeconds(delay);
         ChangeRandomAnimal();
         AddFoods();
-        timerToChangeAnimal = 75;
+        yield return new WaitForSeconds(1.5f);
+        RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
+        RandomCorrectAnimal();
+        TimerManager();   
         nowIsAGoodTime = false;
     }
     private void Start()
@@ -140,6 +135,27 @@ public class RandomAnimalAndFood : MonoBehaviour
         ChooseRandomAnimals();
     }
 
+    private void ResetFoodSelection()
+    {
+        ActiveFood.activeFood.wasChosen = false;
+        ActiveFood.activeFood.currentActiveFood = null;
+        ActiveFood.activeFood.wasChosen = false;
+        ActiveFood.activeFood.highLight.SetActive(false);
+        ActiveFood.activeFood.currentActiveFood = null;
+
+    }
+
+    public void TimerManager()
+    {
+        if (Difficulty.difficulty.easy)
+        {
+            timerToChangeFood = 50;
+        }
+        else if (Difficulty.difficulty.normal)
+        {
+            timerToChangeFood = 15;
+        }
+    }
     //This method chooses the initial animals and their positions
     public void ChooseRandomAnimals()
     {
@@ -206,12 +222,17 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method assigns the foods for each animal
     public void RandomCorrectAnimal()
     {
+        //Create a list to accumulate audio instructions
+        List<AudioClip> audioInstructions = new List<AudioClip>();
+
         int index = 0;
         int foodIndex = 0;
         //Clears the dictionary that checks what animals are allowed to eat the foods
         TempDictionary.Clear();
 
-        instructionTEXT.text = "Anna ";
+        string accumulatedTextInstructions = string.Empty;
+
+        //instructionTEXT.text = "Anna ";
         //For each food it checks if the animal can eat it and adds it to possible animals
         foreach (GameObject obj in chosenFoods)
         {
@@ -250,34 +271,34 @@ public class RandomAnimalAndFood : MonoBehaviour
                 correctRandomAnimal = chosenAnimals[randomAnimalIndex];
             
             }
-            string animalName = correctRandomAnimal.name;
+            //string animalName = correctRandomAnimal.name;
 
-            if (correctRandomAnimal.name == "Alpakka")
-            {
-                animalName = "alpaka";
-            }
-            else if (animalName == "Hevonen")
-            {
-                animalName = "hevose";
-            }
-            else if (animalName == "Lammas")
-            {
-                animalName = "lampaa";
-            }
+            //if (correctRandomAnimal.name == "Alpakka")
+            //{
+            //    animalName = "alpaka";
+            //}
+            //else if (animalName == "Hevonen")
+            //{
+            //    animalName = "hevose";
+            //}
+            //else if (animalName == "Lammas")
+            //{
+            //    animalName = "lampaa";
+            //}
 
-            if (numberOfFoodsToChoose == 1)
-            {
+            //if (numberOfFoodsToChoose == 1)
+            //{
 
-                instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
-            }
-            else if (index == chosenFoods.Count - 1)
-            {
-                instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
-            }
-            else
-            {
-                instructionTEXT.text += $"{obj.name} {animalName}lle ja ".ToLower();
-            }
+            //    instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
+            //}
+            //else if (index == chosenFoods.Count - 1)
+            //{
+            //    instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
+            //}
+            //else
+            //{
+            //    instructionTEXT.text += $"{obj.name} {animalName}lle ja ".ToLower();
+            //}
 
             Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
 
@@ -294,36 +315,52 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
             foodIndex++;
             index++;
-            // Retrieve the instruction for the combo and play it
-            Instruction instruction = InstructionManager.instance.GetInstructionForCombo(new FoodAnimalCombo
-            {
-                foodName = obj.name,
-                animalName = correctRandomAnimal.name
-            });
+
+
+            FoodAnimalCombo foodAnimalCombo = new FoodAnimalCombo();
+            foodAnimalCombo.foodName = obj.name;
+            foodAnimalCombo.animalName = correctRandomAnimal.name;
+
+            Instruction instruction = InstructionManager.instance.GetInstructionForCombo(foodAnimalCombo);
 
             if (instruction != null)
             {
-                
-                // Play the audio instruction and text instruction 
+                // Accumulate audio instructions in the list
                 if (instruction.audioClip != null)
                 {
-                    if(audioSource != null)
-                    {
-                        audioSource.clip = instruction.audioClip;
-
-                        audioSource.Play();
-                    }
+                    audioInstructions.Add(instruction.audioClip);
                 }
+
+                // Set the text instruction
                 if (!string.IsNullOrEmpty(instruction.textInstruction))
                 {
-                    // Display text instruction using instruction.textInstruction
+                    accumulatedTextInstructions += instruction.textInstruction + ", ";
                 }
             }
             else
             {
-               // Debug.LogError("No instruction found");
+                Debug.LogError("No instruction found");
             }
 
+        }
+        instructionTEXT.text = accumulatedTextInstructions.TrimEnd(',', ' ');
+        StartCoroutine(PlayAudioInstructionsSequentially(audioInstructions));
+    }
+
+    private IEnumerator PlayAudioInstructionsSequentially(List<AudioClip> audioInstructions)
+    {
+        foreach(var audioClip in audioInstructions)
+        {
+            if(audioClip != null)
+            {
+                if(audioSource != null)
+                {
+                    audioSource.clip = audioClip;
+                    audioSource.Play();
+                }
+                //Wait for the audio clip to finish
+                yield return new WaitForSeconds(audioClip.length);
+            }
         }
     }
 
@@ -503,9 +540,12 @@ public class RandomAnimalAndFood : MonoBehaviour
                 chosenFoods.Add(chosenFood);
                 availableFoods.RemoveAt(chosenFoodIndex);
             }
-      
+
         }
         PositionFoodsRandomly(chosenFoods);
+        chosenFoods.Sort((a, b) => {
+            return a.transform.position.x.CompareTo(b.transform.position.x);
+        });
     }
 
   
@@ -563,37 +603,37 @@ public class RandomAnimalAndFood : MonoBehaviour
             numberOfFoodsToChoose = 1;
             numberOfAllowedBadFoods = 0;
         }
-        else if (Score.scoreScript.score <= 20) //20
+        else if (Score.scoreScript.score <= 15) //20
         {
 
             numberOfFoodsToChoose = 2;
             numberOfAllowedBadFoods = 0;
         }
-        else if (Score.scoreScript.score <= 30) //30
+        else if (Score.scoreScript.score <= 25) //30
         {
 
             numberOfFoodsToChoose = 3;
             numberOfAllowedBadFoods = 1;
         }
-        else if (Score.scoreScript.score <= 50) //50
+        else if (Score.scoreScript.score <= 40) //50
         {
 
             numberOfFoodsToChoose = 4;
             numberOfAllowedBadFoods = 1;
         }
-        else if (Score.scoreScript.score <= 65) //65
+        else if (Score.scoreScript.score <= 55) //65
         {
 
             numberOfFoodsToChoose = 5;
             numberOfAllowedBadFoods = 2;
         }
-        else if (Score.scoreScript.score <= 75) //75
+        else if (Score.scoreScript.score <= 70) //75
         {
 
             numberOfFoodsToChoose = 6;
             numberOfAllowedBadFoods = 2;
         }
-        else if (Score.scoreScript.score <= 100) //100
+        else if (Score.scoreScript.score <= 85) //100
         {
 
             numberOfFoodsToChoose = 7;

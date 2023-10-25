@@ -120,7 +120,7 @@ public class ActiveFood : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return) && !isMoving)
             {
-
+                animator.SetTrigger("Valinta");
                 if (activeAnimal == null)
                 {
                     activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
@@ -131,7 +131,7 @@ public class ActiveFood : MonoBehaviour
         }
 
         //This makes sure that the food can be fed 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             if (!isMoving)
             {
@@ -144,6 +144,7 @@ public class ActiveFood : MonoBehaviour
         //Check if a new food is clicked by the player
         if (Input.GetMouseButtonDown(0))
         {
+           
             if (currentActiveFood)
             {
                 wasChosen = false;
@@ -151,9 +152,9 @@ public class ActiveFood : MonoBehaviour
             }
             GameObject newActiveFood = GetClickedFood();
 
-            if (newActiveFood != null && newActiveFood != currentActiveFood)
+            if (newActiveFood != null && newActiveFood != currentActiveFood && (newActiveFood.CompareTag("Food") || newActiveFood.CompareTag("EiSyötävä")))
             {
-
+             
                 ChooseFood(previousActiveFood);
 
                 if (previousActiveFood != null)
@@ -174,8 +175,8 @@ public class ActiveFood : MonoBehaviour
         food = hit.collider.gameObject;
         if (food != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
         {
-            GameObject oye = food.transform.GetChild(0).gameObject;
-            backgroundSpriteRenderer = oye.GetComponent<SpriteRenderer>();
+            GameObject background = food.transform.GetChild(0).gameObject;
+            backgroundSpriteRenderer = background.GetComponent<SpriteRenderer>();
             backgroundSpriteRenderer.sprite = activeFoodBackground;
         }
     }
@@ -184,8 +185,8 @@ public class ActiveFood : MonoBehaviour
     {
         if (food != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
         {
-            GameObject oye = food.transform.GetChild(0).gameObject;
-            backgroundSpriteRenderer = oye.GetComponent<SpriteRenderer>();
+            GameObject background = food.transform.GetChild(0).gameObject;
+            backgroundSpriteRenderer = background.GetComponent<SpriteRenderer>();
             backgroundSpriteRenderer.sprite = defaultBackground;
         }
     }
@@ -194,7 +195,7 @@ public class ActiveFood : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-        if (hit.collider != null)
+        if (hit.collider != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
         {
             GameObject clickedFood = hit.collider.gameObject;
 
@@ -215,7 +216,7 @@ public class ActiveFood : MonoBehaviour
                 currentActiveFood = clickedFood;
                 ChooseFood(currentActiveFood);
             }
-
+            RandomAnimalAndFood.randomAnimalAndFood.TimerManager();
             return clickedFood;
         }
 
@@ -307,14 +308,13 @@ public class ActiveFood : MonoBehaviour
     }
 
     //This moves the food to the chosen animal and feeds itself
-    private IEnumerator MoveToPosition(GameObject activeFood, GameObject activeAnimal)
-    {
-
-        animator.SetTrigger("Valinta");
+    private IEnumerator MoveToPosition(GameObject activeFood, GameObject chosenAnimal)
+    {   
         currentAnimalIndex = 0;
+        currentFoodIndex = -1;
         isMoving = true;
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 15;
-        Vector3 targetPosition = activeAnimal.transform.position;
+        Vector3 targetPosition = chosenAnimal.transform.position;
         float offset = 2.5f;
         targetPosition.y -= offset;
         Vector3 initialPosition = activeFood.transform.position;
@@ -335,8 +335,8 @@ public class ActiveFood : MonoBehaviour
 
         activeFood.transform.position = targetPosition;
 
+        activeAnimal = null;
         wasChosen = false;
-         
         foodWasFed = true;
         highLight.SetActive(false);
         Invoke("ResetBool", 0.1f);

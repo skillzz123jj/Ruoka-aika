@@ -1,39 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class InstructionManager : MonoBehaviour
 {
     public static InstructionManager instance;
 
-    public Instruction[] instructionSet; // Store instructions here
-    public FoodAnimalCombo[] foodAnimalCombos; // Store food-animal combos here
-
-    private int currentInstructionIndex = 0;
-
-    private void Awake()
+    [System.Serializable]
+    public class FoodAnimalInstruction
     {
-        if(instance == null)
+        public FoodAnimalCombo combo;
+        public AudioClip audioClip;
+        public string textInstruction;
+
+    }
+
+    public List<FoodAnimalInstruction> instructions;
+    //public List<AudioClip> audioInstructions;
+    //public List<string> textInstructions;
+
+    void Awake()
+    {
+        if (instance == null)
         {
             instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
     public Instruction GetInstructionForCombo(FoodAnimalCombo combo)
     {
-        // Find the instruction associated with the given combo
-        foreach (Instruction instruction in instructionSet)
+
+        bool audioInstructionsEnabled = PlayerPrefs.GetInt("AudioInstructionsEnabled", 1) == 1;
+        bool textInstructionsEnabled = PlayerPrefs.GetInt("TextInstructionsEnabled", 1) == 1;
+
+        // Search for the corresponding audio and text instructions based on the combo
+        foreach (FoodAnimalInstruction instruction in instructions)
         {
-            if(instruction.combo == combo)
+            if (instruction.combo.foodName == combo.foodName && instruction.combo.animalName == combo.animalName)
             {
-                return instruction;
+                //string audioClipName = audioInstructions[i].name;
+                //string expectedAudioClipName = $"{combo.foodName}{combo.animalName}Audio";
+                //if (audioClipName == expectedAudioClipName)
+                // Return the found audio and text instruction
+                //return new Instruction(audioInstructions[i], textInstructions[i]);
+                AudioClip audioClip = (audioInstructionsEnabled) ? instruction.audioClip : null;
+                string textInstruction = (textInstructionsEnabled) ? instruction.textInstruction : null;
+
+                return new Instruction(audioClip, textInstruction);
+                
             }
         }
-        // Handle the case when no instruction is found
+        // If no instruction is found, return null.
         return null;
+    }
+}
+
+[System.Serializable]
+public class FoodAnimalCombo
+{
+    public string foodName;
+    public string animalName;
+}
+
+[System.Serializable]
+public class Instruction
+{
+    public AudioClip audioClip;
+    public string textInstruction;
+
+    public Instruction(AudioClip audio, string text)
+    {
+        audioClip = audio;
+        textInstruction = text;
     }
 }

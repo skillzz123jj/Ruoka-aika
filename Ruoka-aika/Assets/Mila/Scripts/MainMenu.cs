@@ -13,10 +13,24 @@ public class MainMenu : MonoBehaviour
     public Sprite easyDefaultSprite;
     public Sprite normalDefaultSprite;
 
+    public Toggle audioInstructionsToggle;
+    public Toggle textInstructionsToggle;
+
     public Button[] buttons;
     private int currentIndex = 0;
 
     public static MainMenu mainMenu;
+
+    private void Start()
+    {
+        //Initialize the toggles based on player preferences
+        audioInstructionsToggle.isOn = PlayerPrefs.GetInt("AudioInstructionsEnabled", 1) == 1;
+        textInstructionsToggle.isOn = PlayerPrefs.GetInt("TextInstructionsEnabled", 1) == 1;
+
+        //Add listeners to handle toggle changes
+        audioInstructionsToggle.onValueChanged.AddListener(OnAudioInstructionsToggleChanged);
+        textInstructionsToggle.onValueChanged.AddListener(OnTextInstructionsToggleChanged);
+    }
 
     //These are for buttons
     public void StartGame(int scene)
@@ -80,6 +94,18 @@ public class MainMenu : MonoBehaviour
         Difficulty.difficulty.normal = true;
         easyButton.image.sprite = easyDefaultSprite;
 
+    }
+
+    private void OnAudioInstructionsToggleChanged(bool isOn)
+    {
+        //Save the preference to PlayerPrefs
+        PlayerPrefs.SetInt("AudioInstructionsEnabled", isOn ? 1 : 0);
+    }
+
+    private void OnTextInstructionsToggleChanged(bool isOn)
+    {
+        //Save the preference to PlayerPrefs
+        PlayerPrefs.SetInt("TextInstructionsEnabled", isOn ? 1 : 0);
     }
 }
 

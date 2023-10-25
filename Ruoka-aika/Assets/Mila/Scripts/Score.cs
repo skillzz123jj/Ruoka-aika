@@ -32,7 +32,7 @@ public class Score : MonoBehaviour
             randomAnimalAndFood.SetActive(false);
             Invoke("EndTheGame", 1.5f);
         }
-        if (score >= 120)
+        if (score >= 100)
         {
             activeFood.SetActive(false);
             randomAnimalAndFood.SetActive(false);
@@ -43,6 +43,7 @@ public class Score : MonoBehaviour
     void EndTheGame()
     {
         gameOverScreen.SetActive(true);
+        
     }
     void GameWon()
     {
