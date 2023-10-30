@@ -330,6 +330,8 @@ MonoBehaviour:
   restartText: {fileID: 0}
   instructionText: {fileID: 371045369}
   instructions: {fileID: 70021551}
+  skip: 0
+  mainMenu: {fileID: 2055496869}
 --- !u!1 &70021551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3948,6 +3950,7 @@ MonoBehaviour:
   - {fileID: 323338669}
   - {fileID: 2123606475}
   - {fileID: 2038276616}
+  menuManager: {fileID: 15850406}
 --- !u!4 &2055496870
 Transform:
   m_ObjectHideFlags: 0

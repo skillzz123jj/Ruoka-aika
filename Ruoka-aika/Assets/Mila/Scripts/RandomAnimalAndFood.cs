@@ -47,6 +47,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     int numAnimalsToChoose = 4;
 
     [SerializeField] TMP_Text instructionTEXT;
+    [SerializeField] ActiveFood activeFood;
 
     //Allows other scripts to access this one
     public static RandomAnimalAndFood randomAnimalAndFood;
@@ -78,7 +79,7 @@ public class RandomAnimalAndFood : MonoBehaviour
        
         timerToChangeFood -= Time.deltaTime;
 
-        if (timerToChangeFood <= 0 && !ActiveFood.activeFood.isMoving)
+        if (timerToChangeFood <= 0 && !activeFood.isMoving)
         {
             if (foodsLeft > 0)
             {
@@ -137,11 +138,11 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     private void ResetFoodSelection()
     {
-        ActiveFood.activeFood.wasChosen = false;
-        ActiveFood.activeFood.currentActiveFood = null;
-        ActiveFood.activeFood.wasChosen = false;
-        ActiveFood.activeFood.highLight.SetActive(false);
-        ActiveFood.activeFood.currentActiveFood = null;
+        activeFood.wasChosen = false;
+        activeFood.currentActiveFood = null;
+        activeFood.wasChosen = false;
+        activeFood.highLight.SetActive(false);
+        activeFood.currentActiveFood = null;
 
     }
 
@@ -271,34 +272,6 @@ public class RandomAnimalAndFood : MonoBehaviour
                 correctRandomAnimal = chosenAnimals[randomAnimalIndex];
             
             }
-            //string animalName = correctRandomAnimal.name;
-
-            //if (correctRandomAnimal.name == "Alpakka")
-            //{
-            //    animalName = "alpaka";
-            //}
-            //else if (animalName == "Hevonen")
-            //{
-            //    animalName = "hevose";
-            //}
-            //else if (animalName == "Lammas")
-            //{
-            //    animalName = "lampaa";
-            //}
-
-            //if (numberOfFoodsToChoose == 1)
-            //{
-
-            //    instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
-            //}
-            //else if (index == chosenFoods.Count - 1)
-            //{
-            //    instructionTEXT.text += $"{obj.name} {animalName}lle".ToLower();
-            //}
-            //else
-            //{
-            //    instructionTEXT.text += $"{obj.name} {animalName}lle ja ".ToLower();
-            //}
 
             Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
 
@@ -546,6 +519,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         chosenFoods.Sort((a, b) => {
             return a.transform.position.x.CompareTo(b.transform.position.x);
         });
+     
     }
 
   
@@ -575,6 +549,8 @@ public class RandomAnimalAndFood : MonoBehaviour
                 FoodPositionDictionary.Add(food, foodPosition);
             }
         }
+        activeFood.currentFoodIndex = -1;
+        activeFood.SwitchToNextFood();
         copyOfFoodPositions.Clear();
         changedFoodsRecently = false;
     }

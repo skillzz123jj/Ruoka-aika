@@ -17,6 +17,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject instructionText;
     [SerializeField] GameObject instructions;
 
+    public bool skip;
+
+    [SerializeField] MainMenu mainMenu;
+ 
+
     //All of these handle the UI buttons on the top right corner
    
     public void DisplayInstructions()
@@ -75,12 +80,15 @@ public class MenuManager : MonoBehaviour
         muteAudioAsDefault.interactable = true;
         audioAsDefault.interactable = false;
         Difficulty.difficulty.audioMuted = true;
+      
         audioButton.SetActive(false);
         muteAudioButton.SetActive(true);
         muteAudioText.SetActive(false);
         EventSystem.current.SetSelectedGameObject(muteAudioAsDefault.gameObject);
 
+
     }
+
     public void Audio()
     {
         if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
@@ -94,11 +102,12 @@ public class MenuManager : MonoBehaviour
         audioAsDefault.interactable = true;
         muteAudioAsDefault.interactable = false;
         Difficulty.difficulty.audioMuted = false;
-   
+        skip = true;
         audioButton.SetActive(true);
         muteAudioButton.SetActive(false);
         audioText.SetActive(false);
         EventSystem.current.SetSelectedGameObject(audioAsDefault.gameObject);
+       
 
     }
     private void Update()

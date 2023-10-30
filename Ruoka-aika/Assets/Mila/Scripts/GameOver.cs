@@ -12,6 +12,8 @@ public class GameOver : MonoBehaviour
     public Button[] buttons;
     private int currentIndex = 0;
 
+    [SerializeField] MenuManager menuManager;
+
     void Update()
     {       
         int score = Score.scoreScript.score;
@@ -21,7 +23,24 @@ public class GameOver : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            currentIndex = (currentIndex + 1) % buttons.Length;
+            //currentIndex = (currentIndex + 1) % buttons.Length;
+            //buttons[currentIndex].Select();
+            int nextIndex = currentIndex;
+
+            do
+            {
+                nextIndex = (nextIndex + 1) % buttons.Length;
+                if (menuManager.skip)
+                {
+                    // Skip the button, increment the index again
+                    nextIndex = (nextIndex + 1) % buttons.Length;
+                    menuManager.skip = false;
+                }
+
+            }
+            while (!buttons[nextIndex].interactable);
+
+            currentIndex = nextIndex;
             buttons[currentIndex].Select();
         }
     }

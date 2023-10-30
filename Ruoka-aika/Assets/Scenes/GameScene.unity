@@ -1169,6 +1169,7 @@ MonoBehaviour:
   - {fileID: 666311323}
   - {fileID: 105766840}
   - {fileID: 1316790158}
+  menuManager: {fileID: 1526203356}
 --- !u!114 &107778757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1289,6 +1290,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &121922008
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2934,7 +2938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -164.5, y: -150.9}
+  m_AnchoredPosition: {x: -168.2994, y: -150.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &293366740
@@ -4560,6 +4564,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &497446272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5694,6 +5701,7 @@ MonoBehaviour:
   food: {fileID: 0}
   moveSpeed: 3
   speed: 5
+  currentFoodIndex: 0
   foodWasFed: 0
   wasChosen: 0
   isMoving: 0
@@ -7033,6 +7041,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &696161929
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7238,9 +7249,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -8311,6 +8322,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &756984151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8537,6 +8551,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &769570746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9013,6 +9030,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &785056111
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9886,9 +9906,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -10553,6 +10573,7 @@ MonoBehaviour:
   - {fileID: 666311323}
   - {fileID: 105766840}
   - {fileID: 1316790158}
+  menuManager: {fileID: 1526203356}
 --- !u!114 &1023525024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12329,6 +12350,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &1310583676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13629,6 +13653,7 @@ MonoBehaviour:
   numberOfFoodsToChoose: 0
   numberOfAllowedBadFoods: 0
   instructionTEXT: {fileID: 319201981}
+  activeFood: {fileID: 600050449}
 --- !u!4 &1488261228
 Transform:
   m_ObjectHideFlags: 0
@@ -14060,6 +14085,8 @@ MonoBehaviour:
   restartText: {fileID: 1729986143}
   instructionText: {fileID: 101279359}
   instructions: {fileID: 1425483234}
+  skip: 0
+  mainMenu: {fileID: 0}
 --- !u!114 &1526203357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14561,6 +14588,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &1598555234
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15902,6 +15932,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &1823923899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16766,6 +16799,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &1959898044
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17164,6 +17200,9 @@ MonoBehaviour:
   good: 0
   bad: 0
   isShrinking: 0
+  randomAnimalAndFood: {fileID: 1488261227}
+  activeFood: {fileID: 600050449}
+  score: {fileID: 612099130}
 --- !u!61 &2005010706
 BoxCollider2D:
   m_ObjectHideFlags: 0
