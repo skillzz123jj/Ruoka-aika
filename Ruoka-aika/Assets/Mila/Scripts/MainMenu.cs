@@ -16,10 +16,12 @@ public class MainMenu : MonoBehaviour
     public Toggle audioInstructionsToggle;
     public Toggle textInstructionsToggle;
 
-    public Button[] buttons;
-    private int currentIndex = 0;
+    public Selectable[] buttons;
+  //  public bool skip;
+    int currentIndex = 0;
 
-    public static MainMenu mainMenu;
+    [SerializeField] MenuManager menuManager;
+
 
     private void Start()
     {
@@ -54,6 +56,13 @@ public class MainMenu : MonoBehaviour
             do
             {
                 nextIndex = (nextIndex + 1) % buttons.Length;
+                if (menuManager.skip)
+                {
+                    // Skip the button, increment the index again
+                    nextIndex = (nextIndex + 1) % buttons.Length;
+                    menuManager.skip = false;
+                }
+
             }
             while (!buttons[nextIndex].interactable);
 

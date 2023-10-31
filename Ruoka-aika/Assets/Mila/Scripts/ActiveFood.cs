@@ -21,7 +21,7 @@ public class ActiveFood : MonoBehaviour
     public float moveSpeed = 3.0f;
     public float speed = 5.0f;
 
-    int currentFoodIndex = 0;
+    public int currentFoodIndex = 0;
     int currentAnimalIndex;
 
     public bool foodWasFed;
@@ -342,6 +342,7 @@ public class ActiveFood : MonoBehaviour
         Invoke("ResetBool", 0.1f);
         currentActiveFood = null;
         isMoving = false;
+  
     
     }
 }
