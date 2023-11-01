@@ -3,7 +3,18 @@ guid: 962e61b32ee66fd4da161782949e3982
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - currentActiveFood: {instanceID: 0}
+  - wrongFoodSprite: {instanceID: 0}
+  - activeFoodBackground: {fileID: 21300000, guid: 9ebdf8d193313e14d870114dd128e4af, type: 3}
+  - actuallyActiveFoodBackground: {fileID: 21300000, guid: ffafb114b94d8274ab784345d9e14b43, type: 3}
+  - defaultBackground: {fileID: 21300000, guid: 9ebdf8d193313e14d870114dd128e4af, type: 3}
+  - previousActiveFood: {instanceID: 0}
+  - activeAnimal: {instanceID: 0}
+  - actuallyActive: {instanceID: 0}
+  - food: {instanceID: 0}
+  - highLight: {instanceID: 0}
+  - animator: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

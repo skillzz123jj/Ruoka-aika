@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 19811820}
   - component: {fileID: 19811822}
   - component: {fileID: 19811821}
-  - component: {fileID: 19811823}
   m_Layer: 6
   m_Name: Etana
   m_TagString: Food
@@ -236,21 +235,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &19811823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19811819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &24092737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1464,6 @@ GameObject:
   - component: {fileID: 135644136}
   - component: {fileID: 135644138}
   - component: {fileID: 135644137}
-  - component: {fileID: 135644139}
   m_Layer: 6
   m_Name: Sitruuna
   m_TagString: "EiSy\xF6t\xE4v\xE4"
@@ -1582,21 +1565,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &135644139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135644135}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &145897543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,7 +1927,6 @@ GameObject:
   - component: {fileID: 184676909}
   - component: {fileID: 184676911}
   - component: {fileID: 184676910}
-  - component: {fileID: 184676912}
   m_Layer: 6
   m_Name: Oliivi
   m_TagString: Food
@@ -2061,21 +2028,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &184676912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184676908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &187458781
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,9 +2075,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
+  currentActiveFood: {fileID: 0}
+  wrongFoodSprite: {fileID: 0}
+  foodWasFed: 0
+  speed: 5
 --- !u!61 &187458785
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2567,7 +2520,6 @@ GameObject:
   - component: {fileID: 252024790}
   - component: {fileID: 252024792}
   - component: {fileID: 252024791}
-  - component: {fileID: 252024793}
   m_Layer: 6
   m_Name: "Leip\xE4"
   m_TagString: Food
@@ -2669,21 +2621,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &252024793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252024789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &262317977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4753,7 +4690,6 @@ GameObject:
   - component: {fileID: 508751055}
   - component: {fileID: 508751057}
   - component: {fileID: 508751056}
-  - component: {fileID: 508751058}
   m_Layer: 6
   m_Name: Pizza
   m_TagString: "EiSy\xF6t\xE4v\xE4"
@@ -4855,21 +4791,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &508751058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 508751054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &514882542
 GameObject:
   m_ObjectHideFlags: 0
@@ -6138,7 +6059,6 @@ GameObject:
   - component: {fileID: 659768721}
   - component: {fileID: 659768723}
   - component: {fileID: 659768722}
-  - component: {fileID: 659768724}
   m_Layer: 6
   m_Name: Kurkku
   m_TagString: Food
@@ -6240,21 +6160,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &659768724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659768720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &660287043
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,7 +6807,6 @@ GameObject:
   - component: {fileID: 685726590}
   - component: {fileID: 685726592}
   - component: {fileID: 685726591}
-  - component: {fileID: 685726593}
   m_Layer: 6
   m_Name: Porkkana
   m_TagString: Food
@@ -7004,21 +6908,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &685726593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685726589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &696161925
 GameObject:
   m_ObjectHideFlags: 0
@@ -7754,7 +7643,6 @@ GameObject:
   - component: {fileID: 712699484}
   - component: {fileID: 712699486}
   - component: {fileID: 712699485}
-  - component: {fileID: 712699487}
   m_Layer: 6
   m_Name: Kala
   m_TagString: Food
@@ -7856,21 +7744,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &712699487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712699483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &721205675
 GameObject:
   m_ObjectHideFlags: 0
@@ -8860,7 +8733,6 @@ GameObject:
   - component: {fileID: 779020585}
   - component: {fileID: 779020587}
   - component: {fileID: 779020586}
-  - component: {fileID: 779020588}
   m_Layer: 6
   m_Name: Nakki
   m_TagString: Food
@@ -8962,21 +8834,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &779020588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779020584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &782363108
 GameObject:
   m_ObjectHideFlags: 0
@@ -9715,9 +9572,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
+  currentActiveFood: {fileID: 0}
+  wrongFoodSprite: {fileID: 0}
+  foodWasFed: 0
+  speed: 5
 --- !u!1 &819557839
 GameObject:
   m_ObjectHideFlags: 0
@@ -9897,7 +9755,6 @@ GameObject:
   - component: {fileID: 851917921}
   - component: {fileID: 851917923}
   - component: {fileID: 851917922}
-  - component: {fileID: 851917924}
   m_Layer: 6
   m_Name: Lehdet
   m_TagString: Food
@@ -9999,21 +9856,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &851917924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851917920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &872557955
 GameObject:
   m_ObjectHideFlags: 0
@@ -10272,9 +10114,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
+  currentActiveFood: {fileID: 0}
+  wrongFoodSprite: {fileID: 0}
+  foodWasFed: 0
+  speed: 5
 --- !u!61 &931263060
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10564,7 +10407,6 @@ GameObject:
   - component: {fileID: 1007338159}
   - component: {fileID: 1007338161}
   - component: {fileID: 1007338160}
-  - component: {fileID: 1007338162}
   m_Layer: 6
   m_Name: "Jyv\xE4t"
   m_TagString: Food
@@ -10666,21 +10508,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1007338162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007338158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &1023525021
 GameObject:
   m_ObjectHideFlags: 0
@@ -11444,7 +11271,6 @@ GameObject:
   - component: {fileID: 1182638216}
   - component: {fileID: 1182638218}
   - component: {fileID: 1182638217}
-  - component: {fileID: 1182638219}
   m_Layer: 6
   m_Name: Karkki
   m_TagString: "EiSy\xF6t\xE4v\xE4"
@@ -11546,21 +11372,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1182638219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182638215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &1182782445
 GameObject:
   m_ObjectHideFlags: 0
@@ -11804,9 +11615,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
+  currentActiveFood: {fileID: 0}
+  wrongFoodSprite: {fileID: 0}
+  foodWasFed: 0
+  speed: 5
 --- !u!1 &1227722487
 GameObject:
   m_ObjectHideFlags: 0
@@ -11818,7 +11630,6 @@ GameObject:
   - component: {fileID: 1227722488}
   - component: {fileID: 1227722490}
   - component: {fileID: 1227722489}
-  - component: {fileID: 1227722491}
   m_Layer: 6
   m_Name: "Vehn\xE4"
   m_TagString: Food
@@ -11920,21 +11731,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1227722491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1227722487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &1229945828 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2732077578768267932, guid: 0ff0888e7153a59418a9a532350929d9, type: 3}
@@ -11992,9 +11788,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
+  currentActiveFood: {fileID: 0}
+  wrongFoodSprite: {fileID: 0}
+  foodWasFed: 0
+  speed: 5
 --- !u!61 &1260361977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12120,9 +11917,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
+  currentActiveFood: {fileID: 0}
+  wrongFoodSprite: {fileID: 0}
+  foodWasFed: 0
+  speed: 5
 --- !u!61 &1272442535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12243,7 +12041,6 @@ GameObject:
   - component: {fileID: 1283740305}
   - component: {fileID: 1283740307}
   - component: {fileID: 1283740306}
-  - component: {fileID: 1283740308}
   m_Layer: 6
   m_Name: Kaali
   m_TagString: Food
@@ -12345,21 +12142,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1283740308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283740304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &1306704397
 GameObject:
   m_ObjectHideFlags: 0
@@ -13349,9 +13131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
+  currentActiveFood: {fileID: 0}
+  wrongFoodSprite: {fileID: 0}
+  foodWasFed: 0
+  speed: 5
 --- !u!61 &1438685633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13517,7 +13300,6 @@ GameObject:
   - component: {fileID: 1470379371}
   - component: {fileID: 1470379373}
   - component: {fileID: 1470379372}
-  - component: {fileID: 1470379374}
   m_Layer: 6
   m_Name: Mato
   m_TagString: Food
@@ -13619,21 +13401,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1470379374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470379370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &1479067470
 GameObject:
   m_ObjectHideFlags: 0
@@ -14301,9 +14068,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
+  currentActiveFood: {fileID: 0}
+  wrongFoodSprite: {fileID: 0}
+  foodWasFed: 0
+  speed: 5
 --- !u!61 &1525443706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16005,7 +15773,6 @@ GameObject:
   - component: {fileID: 1782428163}
   - component: {fileID: 1782428165}
   - component: {fileID: 1782428164}
-  - component: {fileID: 1782428166}
   m_Layer: 6
   m_Name: Pihvi
   m_TagString: Food
@@ -16107,21 +15874,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1782428166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782428162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &1783208578
 GameObject:
   m_ObjectHideFlags: 0
@@ -16959,9 +16711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
+  currentActiveFood: {fileID: 0}
+  wrongFoodSprite: {fileID: 0}
+  foodWasFed: 0
+  speed: 5
 --- !u!61 &1905808431
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17316,7 +17069,6 @@ GameObject:
   - component: {fileID: 1967661552}
   - component: {fileID: 1967661554}
   - component: {fileID: 1967661553}
-  - component: {fileID: 1967661555}
   m_Layer: 6
   m_Name: Paisti
   m_TagString: Food
@@ -17418,21 +17170,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1967661555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1967661551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &1999268001
 GameObject:
   m_ObjectHideFlags: 0
@@ -17803,7 +17540,6 @@ GameObject:
   - component: {fileID: 2015040028}
   - component: {fileID: 2015040030}
   - component: {fileID: 2015040029}
-  - component: {fileID: 2015040031}
   m_Layer: 6
   m_Name: "J\xE4\xE4tel\xF6"
   m_TagString: "EiSy\xF6t\xE4v\xE4"
@@ -17905,21 +17641,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2015040031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015040027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &2028513791
 GameObject:
   m_ObjectHideFlags: 0
@@ -18142,7 +17863,6 @@ GameObject:
   - component: {fileID: 2029470521}
   - component: {fileID: 2029470523}
   - component: {fileID: 2029470522}
-  - component: {fileID: 2029470524}
   m_Layer: 6
   m_Name: "P\xE4hkin\xE4t"
   m_TagString: Food
@@ -18244,21 +17964,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2029470524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029470520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1 &2074675429
 GameObject:
   m_ObjectHideFlags: 0
@@ -18594,7 +18299,6 @@ GameObject:
   - component: {fileID: 2145211236}
   - component: {fileID: 2145211238}
   - component: {fileID: 2145211237}
-  - component: {fileID: 2145211240}
   m_Layer: 6
   m_Name: Appelsiini
   m_TagString: Food
@@ -18696,21 +18400,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2145211240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145211235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962e61b32ee66fd4da161782949e3982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 1
-  initialPosition: {x: 0, y: 0}
-  moveSpeed: 3
 --- !u!1001 &2732077579686494584
 PrefabInstance:
   m_ObjectHideFlags: 0
