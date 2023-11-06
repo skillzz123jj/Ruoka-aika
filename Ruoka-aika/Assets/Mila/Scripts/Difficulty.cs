@@ -10,8 +10,12 @@ public class Difficulty : MonoBehaviour
     public bool normal = true;
 
     public bool gameRunning = true;
-
+    public bool textInstructions = true;
     public bool audioMuted;
+
+    public bool textOn = true;
+    public bool audioOn = true;
+    public bool audioAndTextOn = true;
 
     public static Difficulty difficulty;
 

@@ -43,9 +43,8 @@ public class DragAndDrop : MonoBehaviour
             {
                 //Gives the food an offset when player is using a mobile device
                 Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) + offset;
-
-            
-                transform.position = new Vector3(touchPosition.x - 1.5f, touchPosition.y + 0.5f, touchPosition.z);
+           
+                transform.position = new Vector3(touchPosition.x - 1f, touchPosition.y + 0.8f, touchPosition.z);
 
             }
             else

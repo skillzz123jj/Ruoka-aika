@@ -29,6 +29,7 @@ public class ActiveFood : MonoBehaviour
     public bool isMoving = false;
     bool isHovering;
 
+    Touch touch;
     Collider2D foodCollider;
     Vector2 position;
     RaycastHit2D hit;
@@ -129,9 +130,13 @@ public class ActiveFood : MonoBehaviour
                 activeAnimal = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0];
             }
         }
-
+        if (Input.touchCount > 0)
+        {
+            touch = Input.GetTouch(0); 
+          
+        }
         //This makes sure that the food can be fed 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || touch.phase == TouchPhase.Ended)
         {
             if (!isMoving)
             {

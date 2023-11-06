@@ -28,10 +28,6 @@ public class MainMenu : MonoBehaviour
     public Toggle audioInstructionsToggle;
     public Toggle textInstructionsToggle;
 
-    bool textOn;
-    bool audioOn;
-    bool audioAndTextOn = true;
-
     public Selectable[] buttons;
     int currentIndex = 0;
 
@@ -100,17 +96,17 @@ public class MainMenu : MonoBehaviour
 
     void HandleSprites()
     {
-        if (audioOn)
+        if (Difficulty.difficulty.audioOn)
         {
             audioInsButton.image.sprite = audioHighlightSprite;
       
         }
-        if (textOn) 
+        if (Difficulty.difficulty.textOn) 
         {
             textInsButton.image.sprite = textHighlightSprite;
          
         }
-        if (audioAndTextOn)
+        if (Difficulty.difficulty.audioAndTextOn)
         {
             textAndAudioInsButton.image.sprite = textAndAudioHighlightSprite;
        
@@ -145,23 +141,20 @@ public class MainMenu : MonoBehaviour
             return;
         }
 
-        audioOn = true;
-        textOn = false;
-        audioAndTextOn = false;
+        Difficulty.difficulty.audioOn = true;
+        Difficulty.difficulty.textOn = false;
+        Difficulty.difficulty.audioAndTextOn = false;
+        Difficulty.difficulty.textInstructions = false;
 
-        // Set the audioInstructionsToggle to true
+        //Changes the settings in playerPrefs
         audioInstructionsToggle.isOn = true;
-
-        // Additionally, you can reset other toggles if needed
         textInstructionsToggle.isOn = false;
 
+        //Changes sprites
         textInsButton.image.sprite = textDefaultSprite;
         textInsButton.image.sprite = textDefaultSprite;
         textAndAudioInsButton.image.sprite = textAndAudioDefaultSprite;
 
-
-
-        //easyButton.image.sprite = easyDefaultSprite;
     }
     public void TextInstruction()
     {
@@ -169,21 +162,18 @@ public class MainMenu : MonoBehaviour
         {
             return;
         }
+     
+         Difficulty.difficulty.audioOn = false;
+         Difficulty.difficulty.textOn = true;
+         Difficulty.difficulty.audioAndTextOn = false;
+         Difficulty.difficulty.textInstructions = true;
 
-        audioOn = false;
-        textOn = true;
-        audioAndTextOn = false;
+         audioInstructionsToggle.isOn = false;
+         textInstructionsToggle.isOn = true;
 
-        audioInstructionsToggle.isOn = false;
-
-        // Additionally, you can reset other toggles if needed
-        textInstructionsToggle.isOn = true;
-  
-        audioInsButton.image.sprite = audioDefaultSprite;
-        audioInsButton.image.sprite = audioDefaultSprite;
-        textAndAudioInsButton.image.sprite = textAndAudioDefaultSprite;
-
-
+         audioInsButton.image.sprite = audioDefaultSprite;
+         textAndAudioInsButton.image.sprite = textAndAudioDefaultSprite;
+              
     }
 
     public void AudioAndTextInstruction()
@@ -192,17 +182,16 @@ public class MainMenu : MonoBehaviour
         {
             return;
         }
-        audioOn = false;
-        textOn = false;
-        audioAndTextOn = true;
+        Difficulty.difficulty.audioOn = false;
+        Difficulty.difficulty.textOn = false;
+        Difficulty.difficulty.audioAndTextOn = true;
+        Difficulty.difficulty.textInstructions = true;
 
         audioInstructionsToggle.isOn = true;
         textInstructionsToggle.isOn = true;
 
         audioInsButton.image.sprite = audioDefaultSprite;
         textInsButton.image.sprite = textDefaultSprite;
-
-
 
     }
     public void OnAudioInstructionsToggleChanged(bool isOn)

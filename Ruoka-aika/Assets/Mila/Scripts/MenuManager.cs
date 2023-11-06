@@ -16,14 +16,30 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject restartText;
     [SerializeField] GameObject instructionText;
     [SerializeField] GameObject instructions;
+    [SerializeField] GameObject subtitlesBox;
 
     public bool skip;
 
     [SerializeField] MainMenu mainMenu;
- 
+
 
     //All of these handle the UI buttons on the top right corner
-   
+    private void Start()
+    {
+        if (subtitlesBox != null)
+        {
+            if (Difficulty.difficulty.textInstructions)
+            {
+                subtitlesBox.SetActive(true);
+            }
+            else
+            {
+                subtitlesBox.SetActive(false);
+
+            }
+        }
+
+    }
     public void DisplayInstructions()
     {
 

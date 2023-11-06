@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GameWon : MonoBehaviour
 {
-    [SerializeField] TMP_Text displayScoreTEXT;
     [SerializeField] GameObject disableFoods;
     [SerializeField] GameObject subtitles;
 
@@ -16,8 +15,7 @@ public class GameWon : MonoBehaviour
 
     void Update()
     {       
-        int score = Score.scoreScript.score;
-        displayScoreTEXT.text = $"Sait ruokittua kaikki {score} eläintä";    
+      
         Invoke("GameEnded", 1f);
         Difficulty.difficulty.gameRunning = false;
 
