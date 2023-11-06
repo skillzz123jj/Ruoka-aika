@@ -28,6 +28,10 @@ public class MainMenu : MonoBehaviour
     public Toggle audioInstructionsToggle;
     public Toggle textInstructionsToggle;
 
+    bool textOn;
+    bool audioOn;
+    bool audioAndTextOn = true;
+
     public Selectable[] buttons;
     int currentIndex = 0;
 
@@ -69,7 +73,7 @@ public class MainMenu : MonoBehaviour
                 nextIndex = (nextIndex + 1) % buttons.Length;
                 if (menuManager.skip)
                 {
-                    // Skip the button, increment the index again
+                  
                     nextIndex = (nextIndex + 1) % buttons.Length;
                     menuManager.skip = false;
                 }
@@ -91,8 +95,27 @@ public class MainMenu : MonoBehaviour
             normalButton.image.sprite = normalHighlightSprite;
            
         }
+        HandleSprites();
     }
 
+    void HandleSprites()
+    {
+        if (audioOn)
+        {
+            audioInsButton.image.sprite = audioHighlightSprite;
+      
+        }
+        if (textOn) 
+        {
+            textInsButton.image.sprite = textHighlightSprite;
+         
+        }
+        if (audioAndTextOn)
+        {
+            textAndAudioInsButton.image.sprite = textAndAudioHighlightSprite;
+       
+        }
+    }
     public void Easy()
     {
         if (Input.GetKey(KeyCode.Space))
@@ -122,6 +145,10 @@ public class MainMenu : MonoBehaviour
             return;
         }
 
+        audioOn = true;
+        textOn = false;
+        audioAndTextOn = false;
+
         // Set the audioInstructionsToggle to true
         audioInstructionsToggle.isOn = true;
 
@@ -129,7 +156,9 @@ public class MainMenu : MonoBehaviour
         textInstructionsToggle.isOn = false;
 
         textInsButton.image.sprite = textDefaultSprite;
-        audioInsButton.image.sprite = audioHighlightSprite;
+        textInsButton.image.sprite = textDefaultSprite;
+        textAndAudioInsButton.image.sprite = textAndAudioDefaultSprite;
+
 
 
         //easyButton.image.sprite = easyDefaultSprite;
@@ -141,13 +170,18 @@ public class MainMenu : MonoBehaviour
             return;
         }
 
+        audioOn = false;
+        textOn = true;
+        audioAndTextOn = false;
 
         audioInstructionsToggle.isOn = false;
 
         // Additionally, you can reset other toggles if needed
         textInstructionsToggle.isOn = true;
-        textInsButton.image.sprite = textHighlightSprite;
+  
         audioInsButton.image.sprite = audioDefaultSprite;
+        audioInsButton.image.sprite = audioDefaultSprite;
+        textAndAudioInsButton.image.sprite = textAndAudioDefaultSprite;
 
 
     }
@@ -158,11 +192,17 @@ public class MainMenu : MonoBehaviour
         {
             return;
         }
-        OnAudioInstructionsToggleChanged(true);
-        Difficulty.difficulty.easy = false;
-        Difficulty.difficulty.normal = true;
+        audioOn = false;
+        textOn = false;
+        audioAndTextOn = true;
+
+        audioInstructionsToggle.isOn = true;
+        textInstructionsToggle.isOn = true;
+
         audioInsButton.image.sprite = audioDefaultSprite;
         textInsButton.image.sprite = textDefaultSprite;
+
+
 
     }
     public void OnAudioInstructionsToggleChanged(bool isOn)
