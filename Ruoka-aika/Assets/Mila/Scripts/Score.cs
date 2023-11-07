@@ -6,11 +6,15 @@ using TMPro;
 public class Score : MonoBehaviour
 {
     [SerializeField] TMP_Text scoreTEXT;
-    [SerializeField] TMP_Text livesTEXT;
     [SerializeField] GameObject gameOverScreen;
+    [SerializeField] GameObject gameWonScreen;
     [SerializeField] GameObject randomAnimalAndFood;
+    [SerializeField] GameObject activeFood;
+    [SerializeField] GameObject error1;
+    [SerializeField] GameObject error2;
+    [SerializeField] GameObject error3;
     public int score;
-    public int lives = 3;
+    public int errors = 0;
 
     public static Score scoreScript;
 
@@ -22,14 +26,29 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        if (lives == 0)
+        if (errors == 3)
         {
+            activeFood.SetActive(false);
             randomAnimalAndFood.SetActive(false);
-            gameOverScreen.SetActive(true);
-
+            Invoke("EndTheGame", 1.5f);
+        }
+        if (score >= 100)
+        {
+            activeFood.SetActive(false);
+            randomAnimalAndFood.SetActive(false);
+            Invoke("GameWon", 1.5f);
         }
     }
 
+    void EndTheGame()
+    {
+        gameOverScreen.SetActive(true);
+        
+    }
+    void GameWon()
+    {
+        gameWonScreen.SetActive(true);
+    }
     public void ScoreUp()
     {
         score++;
@@ -66,8 +85,19 @@ public class Score : MonoBehaviour
     }
     public void WrongFood()
     {
-        lives--;
-        livesTEXT.text = lives.ToString();
-
+        errors++;
+        if (errors >= 1)
+        {
+            error1.SetActive(true);
+        }
+        if (errors >= 2)
+        {
+            error2.SetActive(true);
+        }
+        if (errors >= 3)
+        {
+            error3.SetActive(true);
+        
+        }
     }
 }

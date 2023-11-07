@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb690157ac3a2514aa30bc3d43b30be1, type: 3}
+  m_Name: "Jyv\xE4tHevoselle"
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 16e8f1c1a698b864caf7913640479390, type: 3}
+  textInstruction: "Sy\xF6t\xE4 jyv\xE4t hevoselle."
+  combo: {fileID: 11400000, guid: b08f7318e4aac2d468febdbbf65b5900, type: 2}

@@ -1,128 +1,170 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class RandomAnimalAndFood : MonoBehaviour
 {
     [SerializeField] List<GameObject> animals = new List<GameObject>();
-    [SerializeField] List<GameObject> chosenAnimals = new List<GameObject>();
+    [SerializeField] public List<GameObject> chosenAnimals = new List<GameObject>();
     [SerializeField] List<GameObject> animalsThatWerentChosen = new List<GameObject>();
     [SerializeField] List<GameObject> foods = new List<GameObject>();
-    [SerializeField] List<GameObject> allFoods = new List<GameObject>();
+    [SerializeField] public List<GameObject> allFoods = new List<GameObject>();
     [SerializeField] public List<GameObject> chosenFoods = new List<GameObject>();
     [SerializeField] List<GameObject> bowls = new List<GameObject>();
+
+    public AudioSource audioSource;
+
+    public List<Vector2> foodPositions = new List<Vector2>();
+    public List<Vector2> copyOfFoodPositions = new List<Vector2>();
+
+    public Vector2 startPosition;
+
     List<string> foodsWithoutAssociations = new List<string>
     {
-        "Rengas", "Jäätelö", "Sitruuna", "Karkki"
+        "Rengas", "Jäätelö", "Sitruuna", "Karkki", "Chili", "Pizza"
     };
 
     [SerializeField] Transform lineStart;
     [SerializeField] Transform lineEnd;
-    [SerializeField] Transform lineStartFood;
-    [SerializeField] Transform lineEndFood;
 
     public float timerToChangeFood = 10;
     public float timerToChangeAnimal = 20;
 
-    GameObject randomFood;
     GameObject correctRandomAnimal;
-    GameObject animalThatGetsSwapped;
+    public GameObject smoke;
 
-    private bool timeForAChangeOfAnimal;
+    [SerializeField] Animator smokeAnim;
+  
+    public bool canChangeAnimal;
+    bool justChangedAnimals;
+    public bool changedFoodsRecently;
+    public bool nowIsAGoodTime;
 
-    //Bools to determine how many foods will be chosen
-    bool foodsToChoose1 = true;
-    bool foodsToChoose2;
-    bool foodsToChoose3;
-    bool foodsToChoose4;
-    bool foodsToChoose5;
-    bool foodsToChoose6;
-    bool foodsToChoose7;
-
-    public int foodsLeft;
+    public int foodsLeft = 1;
     public int numberOfFoodsToChoose;
+    public int numberOfAllowedBadFoods;
     int numAnimalsToChoose = 4;
+
+    [SerializeField] TMP_Text instructionTEXT;
+    [SerializeField] ActiveFood activeFood;
 
     //Allows other scripts to access this one
     public static RandomAnimalAndFood randomAnimalAndFood;
 
     //This dictionary stores the temporary animals and their foods 
-    public Dictionary<string, string> foodsForAnimalsMap = new Dictionary<string, string>();
+    public Dictionary<string, List<string>> TempDictionary = new Dictionary<string, List<string>>();
 
+    public Dictionary<GameObject, Vector2> FoodPositionDictionary = new Dictionary<GameObject, Vector2>();
 
     //Dictionary to map animal names to their corresponding food items
-    public Dictionary<string, List<string>> animalToFoodMap = new Dictionary<string, List<string>>()
+    public Dictionary<string, List<string>> AnimalsFoodsDictionary = new Dictionary<string, List<string>>()
     {
-        { "Koira", new List<string> { "Pihvi", "Paisti", "Nakki" } },
-        { "Pupu", new List<string> { "Porkkana", "Kaali" } },
-        { "Lehmä", new List<string> { "Vehnä/Kaura", "Leipä" } },
-        { "Lammas", new List<string> { "Vehnä/Kaura", "Pizza" } },
-        { "Possu", new List<string> { "Porkkana", "Pähkinät" } },
-        { "Strutsi", new List<string> { "Pähkinät", "Kurkku" } },
-        { "Kissa", new List<string> { "Kala", "Pihvi" } },
-        { "Kana", new List<string> { "Lehdet/Nurtsi", "Oliivi" } },
-        { "Alpakka", new List<string> { "Kurkku", "Oliivi" } },
-        { "Pesukarhu", new List<string> { "Nakki", "Appelsiini" } },
-         { "Hevonen", new List<string> { "Jyvät", "Retiisi" } }
+        { "Koira", new List<string> { "Pihvi", "Paisti", "Luu", "Koiranruoka", "Broileri" } },
+        { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet" } },
+        { "Lehmä", new List<string> { "Kurkku", "Lehdet", "Vehnä" } },
+        { "Lammas", new List<string> { "Retiisi", "Lehdet", "Vehnä" } },
+        { "Possu", new List<string> { "Porkkana", "Kurkku", "Sienet", "Retiisi" } },
+        { "Strutsi", new List<string> { "Pähkinät", "Kurkku", "Mato", "Etana" } },
+        { "Kissa", new List<string> { "Kala", "Pihvi", "Kissanruoka", "Kinkku" } },
+        { "Kana", new List<string> { "Jyvät", "Oliivi", "Leipä" } },
+        { "Alpakka", new List<string> { "Vehnä", "Lehdet" } },
+        { "Pesukarhu", new List<string> { "Nakki", "Appelsiini", "Lehdet", "Leipä", "Kala", "Kurkku", "Vehnä", "Oliivi", "Kaali",
+           "Pähkinät", "Porkkana", "Paisti", "Pihvi", "Etana", "Jyvät", "Mato", "Retiisi", "Luu", "Broileri", "Kinkku","Sienet"} },
+         { "Hevonen", new List<string> { "Vehnä", "Retiisi" } }
     };
 
     private void Update()
     {
+       
         timerToChangeFood -= Time.deltaTime;
 
-        if (timerToChangeFood <= 0)
+        if (timerToChangeFood <= 0 && !activeFood.isMoving)
         {
             if (foodsLeft > 0)
             {
                 Score.scoreScript.ScoreDown();
 
             }
-            RandomFood(numberOfFoodsToChoose);
+            if (nowIsAGoodTime)
+            {
+               foreach(GameObject food in chosenFoods)
+                {
+                    food.SetActive(false);
+                }
+                StartCoroutine(CanChangeAnimal(2F));
+          
+            }else
+            {
+                ResetFoodSelection();
+                RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
+                RandomCorrectAnimal();
+            }
 
-            RandomCorrectAnimal();
-            if (Difficulty.difficulty.easy)
-            {
-                timerToChangeFood = 100;
-            }
-            else if (Difficulty.difficulty.normal)
-            {
-                timerToChangeFood = 10;
-            }
-            else if (Difficulty.difficulty.hard)
-            {
-                timerToChangeFood = 5;
-            }
+            TimerManager();
         }
 
         timerToChangeAnimal -= Time.deltaTime;
 
         if (timerToChangeAnimal <= 0)
         {
-            timeForAChangeOfAnimal = true;
-            AnimalToGetSwapped();
-            AddFoods();
-            timerToChangeAnimal = 60;
+            nowIsAGoodTime = true;
         }
 
-        //AmountOfFoods();
-        AmountOfScore();
         CheckForCurrentLevel();
+      
     }
 
+    public IEnumerator CanChangeAnimal(float delay)
+    {
+        timerToChangeAnimal = 75;
+        ResetFoodSelection();
+        justChangedAnimals = true;
+        yield return new WaitForSeconds(delay);
+        ChangeRandomAnimal();
+        AddFoods();
+        yield return new WaitForSeconds(1.5f);
+        RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
+        RandomCorrectAnimal();
+        TimerManager();   
+        nowIsAGoodTime = false;
+    }
     private void Start()
     {
         randomAnimalAndFood = this;
+        CheckForCurrentLevel();
         ChooseRandomAnimals();
     }
 
-    //This method chooses the initial animals and their positions
+    private void ResetFoodSelection()
+    {
+        activeFood.wasChosen = false;
+        activeFood.currentActiveFood = null;
+        activeFood.wasChosen = false;
+        activeFood.highLight.SetActive(false);
+        activeFood.currentActiveFood = null;
 
+    }
+
+    public void TimerManager()
+    {
+        if (Difficulty.difficulty.easy)
+        {
+            timerToChangeFood = 50;
+        }
+        else if (Difficulty.difficulty.normal)
+        {
+            timerToChangeFood = 15;
+        }
+    }
+    //This method chooses the initial animals and their positions
     public void ChooseRandomAnimals()
     {
-        // This determines how many animals are chosen       
+        Difficulty.difficulty.gameRunning = true;
+        //This determines how many animals are chosen       
         CheckForDifficulty();
 
-        // Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
+        //Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
         List<int> amountOfAnimals = new List<int>();
 
 
@@ -131,7 +173,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             amountOfAnimals.Add(i);
         }
 
-        // These are the starting and ending points and the animals are set randomly and evenly on that line
+        //These are the starting and ending points and the animals are set randomly and evenly on that line
         Vector3 startPosition = lineStart.position;
         Vector3 endPosition = lineEnd.position;
 
@@ -151,7 +193,6 @@ public class RandomAnimalAndFood : MonoBehaviour
 
             // Set the position of the chosen bowl to match the animal's position
             bowls[randomBowl].transform.position = newPosition;
-
 
             // Remove the randomly generated randomAnimal to prevent it from being chosen again
             amountOfAnimals.RemoveAt(randomAnimal);
@@ -175,16 +216,24 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
 
         AddFoods();
-        RandomFood(1);
+        RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
         RandomCorrectAnimal();
     }
-
+    
+    //This method assigns the foods for each animal
     public void RandomCorrectAnimal()
     {
-        int foodIndex = 0;
-        //Clears the dictioanry that checks what animals are allowed to eat the foods
-        foodsForAnimalsMap.Clear();
+        //Create a list to accumulate audio instructions
+        List<AudioClip> audioInstructions = new List<AudioClip>();
 
+        int index = 0;
+        int foodIndex = 0;
+        //Clears the dictionary that checks what animals are allowed to eat the foods
+        TempDictionary.Clear();
+
+        string accumulatedTextInstructions = string.Empty;
+
+        //instructionTEXT.text = "Anna ";
         //For each food it checks if the animal can eat it and adds it to possible animals
         foreach (GameObject obj in chosenFoods)
         {
@@ -198,7 +247,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
             List<GameObject> possibleAnimals = new List<GameObject>();
 
-            foreach (var entry in animalToFoodMap)
+            foreach (var entry in AnimalsFoodsDictionary)
             {
                 if (entry.Value.Contains(randomFoodName))
                 {
@@ -221,38 +270,98 @@ public class RandomAnimalAndFood : MonoBehaviour
                 //If there are no possible animals, choose a random one from chosenAnimals list
                 int randomAnimalIndex = Random.Range(0, chosenAnimals.Count);
                 correctRandomAnimal = chosenAnimals[randomAnimalIndex];
+            
             }
 
             Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
 
-            //Adds it to the temporary dictionary
-            foodsForAnimalsMap.Add(correctRandomAnimal.name, obj.name);
-            foodIndex++;
-        }
-    }
-
-    //This method chooses the animal that gets changed
-    void AnimalToGetSwapped()
-    {
-        if (timeForAChangeOfAnimal)
-        {
-            do
+            if (TempDictionary.ContainsKey(correctRandomAnimal.name))
             {
-                //Chooses a random animal from chosen animals to get rid of
-                int randomAnimalIndex = Random.Range(0, chosenAnimals.Count);
-                animalThatGetsSwapped = chosenAnimals[randomAnimalIndex];
+                //If the animal is in the dictionary this adds it another food as a value
+                TempDictionary[correctRandomAnimal.name].Add(obj.name);
+            }
+            else
+            {
+                //If the animal wasnt in the temporary dictionary it adds it alongside a new list for numerous foods
+                List<string> newList = new List<string> { obj.name };
+                TempDictionary[correctRandomAnimal.name] = newList;
+            }
+            foodIndex++;
+            index++;
 
-                //Keeps running this loop till the animal that is about to get swapped is no longer the one that is the current animal to be fed
-            } while (animalThatGetsSwapped == correctRandomAnimal);
+
+            FoodAnimalCombo foodAnimalCombo = new FoodAnimalCombo();
+            foodAnimalCombo.foodName = obj.name;
+            foodAnimalCombo.animalName = correctRandomAnimal.name;
+
+            Instruction instruction = InstructionManager.instance.GetInstructionForCombo(foodAnimalCombo);
+
+            if (instruction != null)
+            {
+                // Accumulate audio instructions in the list
+                if (instruction.audioClip != null)
+                {
+                    audioInstructions.Add(instruction.audioClip);
+                }
+
+                // Set the text instruction
+                if (!string.IsNullOrEmpty(instruction.textInstruction))
+                {
+                    accumulatedTextInstructions += instruction.textInstruction + ", ";
+                }
+            }
+            else
+            {
+                Debug.LogError("No instruction found");
+            }
+
         }
-        ActuallyChangeTheAnimal();
-
-       // Debug.Log($"Eläin joka vaihdetaan {animalThatGetsSwapped}");
-
+        instructionTEXT.text = accumulatedTextInstructions.TrimEnd(',', ' ');
+        StartCoroutine(PlayAudioInstructionsSequentially(audioInstructions));
     }
-    //This method chooses a random animal from the ones that havent been chosen 
-    void ActuallyChangeTheAnimal()
+
+    private IEnumerator PlayAudioInstructionsSequentially(List<AudioClip> audioInstructions)
     {
+        foreach(var audioClip in audioInstructions)
+        {
+            if(audioClip != null)
+            {
+                if(audioSource != null)
+                {
+                    audioSource.clip = audioClip;
+                    audioSource.Play();
+                }
+                //Wait for the audio clip to finish
+                yield return new WaitForSeconds(audioClip.length);
+            }
+        }
+    }
+
+   
+    //This method chooses a random animal from the ones that havent been chosen 
+    void ChangeRandomAnimal()
+    {
+        string raccoon = "Pesukarhu";
+
+        GameObject raccoonObject = chosenAnimals.Find(obj => obj.name == raccoon);
+
+        GameObject animalThatGetsSwapped;
+
+        if (chosenAnimals.Contains(raccoonObject))
+        {
+            animalThatGetsSwapped = raccoonObject;
+        }
+        else
+        {
+            //Chooses the animal that gets swapped out
+            int randomSwappedAnimalIndex = Random.Range(0, chosenAnimals.Count);
+            animalThatGetsSwapped = chosenAnimals[randomSwappedAnimalIndex];
+        }
+
+        smoke.transform.position = animalThatGetsSwapped.transform.position;
+        smoke.SetActive(true);
+        smokeAnim.SetTrigger("Savu");
+
         //Chooses a random animal from the ones that arent currently in the scene
         int randomAnimalIndex = Random.Range(0, animalsThatWerentChosen.Count);
         GameObject animalThatGetsPutIn = animalsThatWerentChosen[randomAnimalIndex];
@@ -280,9 +389,9 @@ public class RandomAnimalAndFood : MonoBehaviour
         {
             //We set them all active so that they can be put in the foods list
             food.SetActive(true);
-        }
+        }      
+     
     }
-
 
     public void AddFoods()
     {
@@ -293,10 +402,10 @@ public class RandomAnimalAndFood : MonoBehaviour
         foreach (GameObject animal in chosenAnimals)
         {
             // Check if the animal name exists in the dictionary
-            if (animalToFoodMap.ContainsKey(animal.name))
+            if (AnimalsFoodsDictionary.ContainsKey(animal.name))
             {
                 // Fetches the foods from the dictionary for each animal
-                List<string> foodItems = animalToFoodMap[animal.name];
+                List<string> foodItems = AnimalsFoodsDictionary[animal.name];
                 foreach (string foodName in foodItems)
                 {
                     // Only add the food if it hasn't been added before
@@ -332,15 +441,34 @@ public class RandomAnimalAndFood : MonoBehaviour
         {
             food.SetActive(false);
         }
+        if (justChangedAnimals)
+        {
+            Invoke("Delay", 2f);
+        }
+        else
+        {
+            foreach (GameObject food in chosenFoods)
+            {
+                food.SetActive(true);
+            }
+        }    
+    }
+
+    //This gives the foods with a slight delay when an animal was just swapped to make it more smooth
+    void Delay()
+    {
         foreach (GameObject food in chosenFoods)
         {
             food.SetActive(true);
         }
+        justChangedAnimals = false;
+
     }
-    public void RandomFood(int numberOfFoodsToChoose)
+    public void RandomFood(int numberOfFoodsToChoose, int numberOfAllowedBadFoods)
     {
         //Clear the list of chosen foods so it can be filled again
         chosenFoods.Clear();
+        FoodPositionDictionary.Clear();
 
         foodsLeft = numberOfFoodsToChoose;
         //This is just makes sure the amount isnt less than 1 or more then 7
@@ -352,53 +480,79 @@ public class RandomAnimalAndFood : MonoBehaviour
             notChosen.SetActive(false);
         }
 
+        int badFoods = 0;
         //Copy of the foods list to preserve that one
         List<GameObject> availableFoods = new List<GameObject>(foods);
 
         //Chooses foods based on the given amount
         for (int i = 0; i < numberOfFoodsToChoose; i++)
         {
-            //Chooses a food from availableFoods and makes sure it doesnt get chosen again (It still sometimes does needs to be looked at)
-            int chosenFoodIndex = Random.Range(0, availableFoods.Count);
-            GameObject chosenFood = availableFoods[chosenFoodIndex];
-            chosenFoods.Add(chosenFood);
-            availableFoods.RemoveAt(chosenFoodIndex);
-
-            //Goes over all the chosen foods once more and gives them positions
-            for (int t = 0; t < chosenFoods.Count; t++)
+            //Chooses foods randomly until it exceeds the allowed bad foods for that round
+            if (badFoods < numberOfAllowedBadFoods)
             {
-                FoodPosition(chosenFoods[t]);
-                chosenFoods[t].SetActive(true);
-            }
-        }
-    }
-
-    //This method calculates the foods position on a given line so that its always random
-    public void FoodPosition(GameObject food)
-    {
-        //Makes sure there actually are foods in that list
-        if (chosenFoods.Count > 0)
-        {
-            //Finds the position for that food from chosenFoodsList
-            int foodIndex = chosenFoods.IndexOf(food);
-
-            if (chosenFoods.Count > 1)
-            {
-                //Calculates the position on a given line with this calculation
-                float t = (float)foodIndex / (chosenFoods.Count - 1);
-                Vector3 startPosition = lineStartFood.position;
-                Vector3 endPosition = lineEndFood.position;
-                Vector3 newPosition = Vector3.Lerp(startPosition, endPosition, t);
-
-                //Sets the food in its position
-                food.transform.position = newPosition;
+                //Chooses a food from availableFoods and makes sure it doesnt get chosen again 
+                int chosenFoodIndex = Random.Range(0, availableFoods.Count);
+                GameObject chosenFood = availableFoods[chosenFoodIndex];
+                if (chosenFood.CompareTag("EiSyötävä"))
+                {
+                    badFoods++;
+                }
+                chosenFoods.Add(chosenFood);
+                availableFoods.RemoveAt(chosenFoodIndex);
             }
             else
             {
-                //If there is only 1 food it gets set to the start of the line
-                food.transform.position = lineStartFood.position;
+                //Chooses a food from availableFoods and makes sure it doesnt get chosen again 
+                int chosenFoodIndex = Random.Range(0, availableFoods.Count);
+                GameObject chosenFood = availableFoods[chosenFoodIndex];
+                while (chosenFood.CompareTag("EiSyötävä"))
+                {
+                    chosenFoodIndex = Random.Range(0, availableFoods.Count);
+                    chosenFood = availableFoods[chosenFoodIndex];
+                }
+                chosenFoods.Add(chosenFood);
+                availableFoods.RemoveAt(chosenFoodIndex);
+            }
+
+        }
+        PositionFoodsRandomly(chosenFoods);
+        chosenFoods.Sort((a, b) => {
+            return a.transform.position.x.CompareTo(b.transform.position.x);
+        });
+     
+    }
+
+  
+    //This method gives the foods their positions
+    public void PositionFoodsRandomly(List<GameObject> foods)
+    {
+
+        foreach (GameObject food in foods)
+        {
+            int index = Random.Range(0, foodPositions.Count);
+            Vector2 newPosition = foodPositions[index];
+
+            //Keeps finding a position till it finds one that isnt taken
+            while (copyOfFoodPositions.Contains(newPosition))
+            {
+                index = Random.Range(0, foodPositions.Count);
+                newPosition = foodPositions[index];
+            }
+
+            copyOfFoodPositions.Add(newPosition);
+            food.transform.position = newPosition;
+            food.SetActive(true);
+
+            if (!FoodPositionDictionary.ContainsKey(food))
+            {
+                Vector2 foodPosition = food.transform.position;
+                FoodPositionDictionary.Add(food, foodPosition);
             }
         }
+        activeFood.currentFoodIndex = -1;
+        activeFood.SwitchToNextFood();
+        copyOfFoodPositions.Clear();
+        changedFoodsRecently = false;
     }
 
     //This method changes the amount of animals that are present based on difficulty
@@ -412,195 +566,54 @@ public class RandomAnimalAndFood : MonoBehaviour
         {
             numAnimalsToChoose = 4;
         }
-        else if (Difficulty.difficulty.hard)
-        {
-            numAnimalsToChoose = 5;
-        }
         else { numAnimalsToChoose = 4; }
     }
+
 
     //This method changes the amount of foods that are going to spawn
     void CheckForCurrentLevel()
     {
-        if (foodsToChoose1)
+        if (Score.scoreScript.score <= 7) //7
         {
+
             numberOfFoodsToChoose = 1;
+            numberOfAllowedBadFoods = 0;
         }
-        if (foodsToChoose2)
+        else if (Score.scoreScript.score <= 15) //20
         {
+
             numberOfFoodsToChoose = 2;
+            numberOfAllowedBadFoods = 0;
         }
-        else if (foodsToChoose3)
+        else if (Score.scoreScript.score <= 25) //30
         {
+
             numberOfFoodsToChoose = 3;
+            numberOfAllowedBadFoods = 1;
         }
-        else if (foodsToChoose4)
+        else if (Score.scoreScript.score <= 40) //50
         {
+
             numberOfFoodsToChoose = 4;
+            numberOfAllowedBadFoods = 1;
         }
-        else if (foodsToChoose5)
+        else if (Score.scoreScript.score <= 55) //65
         {
+
             numberOfFoodsToChoose = 5;
+            numberOfAllowedBadFoods = 2;
         }
-        else if (foodsToChoose6)
+        else if (Score.scoreScript.score <= 70) //75
         {
+
             numberOfFoodsToChoose = 6;
+            numberOfAllowedBadFoods = 2;
         }
-        else if (foodsToChoose7)
+        else if (Score.scoreScript.score <= 85) //100
         {
+
             numberOfFoodsToChoose = 7;
+            numberOfAllowedBadFoods = 3;
         }
-    }
-    void AmountOfFoods()
-    {
-        //These change how many foods spawn during runtime (Will be replaced later to check for points instead)
-        if (Input.GetKey(KeyCode.Q))
-        {
-            foodsToChoose1 = true;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = true;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        if (Input.GetKey(KeyCode.E))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = true;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        if (Input.GetKey(KeyCode.R))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = true;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        if (Input.GetKey(KeyCode.T))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = true;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        if (Input.GetKey(KeyCode.Y))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = true;
-            foodsToChoose7 = false;
-
-        }
-        if (Input.GetKey(KeyCode.U))
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = true;
-        }
-
-    }
-    void AmountOfScore()
-    {
-        //These change how many foods spawn during runtime 
-        if (Score.scoreScript.score <= 7)
-        {
-            foodsToChoose1 = true;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        else if (Score.scoreScript.score <= 20)
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = true;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        else if (Score.scoreScript.score <= 30)
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = true;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        else if (Score.scoreScript.score <= 50)
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = true;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        else if (Score.scoreScript.score <= 65)
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = true;
-            foodsToChoose6 = false;
-            foodsToChoose7 = false;
-        }
-        else if (Score.scoreScript.score <= 75)
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = true;
-            foodsToChoose7 = false;
-
-        }
-        else if (Score.scoreScript.score <= 100)
-        {
-            foodsToChoose1 = false;
-            foodsToChoose2 = false;
-            foodsToChoose3 = false;
-            foodsToChoose4 = false;
-            foodsToChoose5 = false;
-            foodsToChoose6 = false;
-            foodsToChoose7 = true;
-        }
-
     }
 }
