@@ -7,6 +7,18 @@ public class MainMenu : MonoBehaviour
     public Button easyButton;
     public Button normalButton;
 
+    public Button textInsButton;
+    public Button audioInsButton;
+    public Button textAndAudioInsButton;
+
+    public Sprite audioHighlightSprite;
+    public Sprite textHighlightSprite;
+    public Sprite textAndAudioHighlightSprite;
+
+    public Sprite audioDefaultSprite;
+    public Sprite textDefaultSprite;
+    public Sprite textAndAudioDefaultSprite;
+
     public Sprite easyHighlightSprite;
     public Sprite normalHighlightSprite;
 
@@ -17,7 +29,6 @@ public class MainMenu : MonoBehaviour
     public Toggle textInstructionsToggle;
 
     public Selectable[] buttons;
-  //  public bool skip;
     int currentIndex = 0;
 
     [SerializeField] MenuManager menuManager;
@@ -58,7 +69,7 @@ public class MainMenu : MonoBehaviour
                 nextIndex = (nextIndex + 1) % buttons.Length;
                 if (menuManager.skip)
                 {
-                    // Skip the button, increment the index again
+                  
                     nextIndex = (nextIndex + 1) % buttons.Length;
                     menuManager.skip = false;
                 }
@@ -80,8 +91,27 @@ public class MainMenu : MonoBehaviour
             normalButton.image.sprite = normalHighlightSprite;
            
         }
+        HandleSprites();
     }
 
+    void HandleSprites()
+    {
+        if (Difficulty.difficulty.audioOn)
+        {
+            audioInsButton.image.sprite = audioHighlightSprite;
+      
+        }
+        if (Difficulty.difficulty.textOn) 
+        {
+            textInsButton.image.sprite = textHighlightSprite;
+         
+        }
+        if (Difficulty.difficulty.audioAndTextOn)
+        {
+            textAndAudioInsButton.image.sprite = textAndAudioHighlightSprite;
+       
+        }
+    }
     public void Easy()
     {
         if (Input.GetKey(KeyCode.Space))
@@ -104,14 +134,73 @@ public class MainMenu : MonoBehaviour
         easyButton.image.sprite = easyDefaultSprite;
 
     }
+    public void AudioInstruction()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
 
-    private void OnAudioInstructionsToggleChanged(bool isOn)
+        Difficulty.difficulty.audioOn = true;
+        Difficulty.difficulty.textOn = false;
+        Difficulty.difficulty.audioAndTextOn = false;
+        Difficulty.difficulty.textInstructions = false;
+
+        //Changes the settings in playerPrefs
+        audioInstructionsToggle.isOn = true;
+        textInstructionsToggle.isOn = false;
+
+        //Changes sprites
+        textInsButton.image.sprite = textDefaultSprite;
+        textInsButton.image.sprite = textDefaultSprite;
+        textAndAudioInsButton.image.sprite = textAndAudioDefaultSprite;
+
+    }
+    public void TextInstruction()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
+     
+         Difficulty.difficulty.audioOn = false;
+         Difficulty.difficulty.textOn = true;
+         Difficulty.difficulty.audioAndTextOn = false;
+         Difficulty.difficulty.textInstructions = true;
+
+         audioInstructionsToggle.isOn = false;
+         textInstructionsToggle.isOn = true;
+
+         audioInsButton.image.sprite = audioDefaultSprite;
+         textAndAudioInsButton.image.sprite = textAndAudioDefaultSprite;
+              
+    }
+
+    public void AudioAndTextInstruction()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            return;
+        }
+        Difficulty.difficulty.audioOn = false;
+        Difficulty.difficulty.textOn = false;
+        Difficulty.difficulty.audioAndTextOn = true;
+        Difficulty.difficulty.textInstructions = true;
+
+        audioInstructionsToggle.isOn = true;
+        textInstructionsToggle.isOn = true;
+
+        audioInsButton.image.sprite = audioDefaultSprite;
+        textInsButton.image.sprite = textDefaultSprite;
+
+    }
+    public void OnAudioInstructionsToggleChanged(bool isOn)
     {
         //Save the preference to PlayerPrefs
         PlayerPrefs.SetInt("AudioInstructionsEnabled", isOn ? 1 : 0);
     }
 
-    private void OnTextInstructionsToggleChanged(bool isOn)
+    public void OnTextInstructionsToggleChanged(bool isOn)
     {
         //Save the preference to PlayerPrefs
         PlayerPrefs.SetInt("TextInstructionsEnabled", isOn ? 1 : 0);

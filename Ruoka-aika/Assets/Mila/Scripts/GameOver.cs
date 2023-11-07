@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] TMP_Text displayScoreTEXT;
     [SerializeField] GameObject disableFoods;
     [SerializeField] GameObject subtitles;
 
@@ -15,16 +14,12 @@ public class GameOver : MonoBehaviour
     [SerializeField] MenuManager menuManager;
 
     void Update()
-    {       
-        int score = Score.scoreScript.score;
-        displayScoreTEXT.text = $"Ruokit {score} eläintä";
+    {         
         Invoke("GameEnded", 1f);
         Difficulty.difficulty.gameRunning = false;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            //currentIndex = (currentIndex + 1) % buttons.Length;
-            //buttons[currentIndex].Select();
             int nextIndex = currentIndex;
 
             do
@@ -60,12 +55,10 @@ public class GameOver : MonoBehaviour
     }
     public void BackToMenu(int scene)
     {
-
         if (Input.GetKey(KeyCode.Space))
         {
             return;
         }
         SceneManager.LoadScene(scene);
-
     }
 }
