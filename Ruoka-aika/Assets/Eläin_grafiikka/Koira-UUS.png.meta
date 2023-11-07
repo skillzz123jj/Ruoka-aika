@@ -2640,19 +2640,19 @@ TextureImporter:
         boneIndex[1]: 0
         boneIndex[2]: 0
         boneIndex[3]: 0
-      - weight[0]: 0
+      - weight[0]: 1
         weight[1]: 0
         weight[2]: 0
         weight[3]: 0
-        boneIndex[0]: 0
+        boneIndex[0]: 2
         boneIndex[1]: 0
         boneIndex[2]: 0
         boneIndex[3]: 0
-      - weight[0]: 0
+      - weight[0]: 1
         weight[1]: 0
         weight[2]: 0
         weight[3]: 0
-        boneIndex[0]: 0
+        boneIndex[0]: 2
         boneIndex[1]: 0
         boneIndex[2]: 0
         boneIndex[3]: 0
@@ -4081,24 +4081,24 @@ TextureImporter:
         guid: f8454d389d1998d49bd84e22bdefd5b7
         position: {x: 46.276638, y: -0.000003233316, z: 0}
         rotation: {x: 0, y: 0, z: 0.10596041, w: 0.99437034}
-        length: 49.30074
+        length: 49.300755
         parentId: 2
         color:
           serializedVersion: 2
           rgba: 4294967040
       - name: Koira-Tail-4
         guid: e7b355dda1893dc459cfc14a83e4f4f0
-        position: {x: 49.30075, y: -0.0000014180077, z: 0}
-        rotation: {x: 0, y: 0, z: -0.20066719, w: 0.9796595}
-        length: 43.749462
+        position: {x: 49.300766, y: -0.0000044104972, z: 0}
+        rotation: {x: 0, y: 0, z: -0.20066711, w: 0.9796595}
+        length: 43.74947
         parentId: 3
         color:
           serializedVersion: 2
           rgba: 4294901760
       - name: Koira-Tail-5
         guid: 90d001c7c83fd094d8f8a5162f69bc79
-        position: {x: 43.74949, y: -0.000002795647, z: 0}
-        rotation: {x: 0, y: 0, z: -0.23776835, w: 0.97132194}
+        position: {x: 43.7495, y: -0.0000035884477, z: 0}
+        rotation: {x: 0, y: 0, z: -0.2377684, w: 0.97132194}
         length: 44.655884
         parentId: 4
         color:
