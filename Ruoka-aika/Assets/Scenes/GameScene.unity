@@ -6796,6 +6796,7 @@ GameObject:
   - component: {fileID: 696161928}
   - component: {fileID: 696161930}
   - component: {fileID: 696161931}
+  - component: {fileID: 696161933}
   m_Layer: 0
   m_Name: Koira
   m_TagString: Untagged
@@ -6859,7 +6860,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 951998885, guid: 6b0ff493a6786ca4ba14d54c9da8a61b, type: 3}
+  m_Sprite: {fileID: -243986580, guid: 62a9f661cd3d39445adbe62230957fdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6908,8 +6909,8 @@ BoxCollider2D:
   m_Offset: {x: 0.62044203, y: -1.5814605}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.46669465, y: 0.48325756}
-    oldSize: {x: 1.86, y: 1.85}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.83, y: 1.69}
     newSize: {x: 3.33, y: 3.29}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7035,6 +7036,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &696161933
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696161925}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f2e92da16854aa949a00f85233d12b7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &710449582
 GameObject:
   m_ObjectHideFlags: 0
@@ -12594,7 +12616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327675290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.91999996, y: -1.37, z: 0}
+  m_LocalPosition: {x: 1.16, y: -1.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12642,7 +12664,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -919649286, guid: 6b0ff493a6786ca4ba14d54c9da8a61b, type: 3}
+  m_Sprite: {fileID: 1910347329, guid: 62a9f661cd3d39445adbe62230957fdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
