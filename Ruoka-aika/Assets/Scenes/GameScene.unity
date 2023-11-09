@@ -6910,7 +6910,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.83, y: 1.69}
+    oldSize: {x: 1.82, y: 1.69}
     newSize: {x: 3.33, y: 3.29}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -13536,13 +13536,13 @@ MonoBehaviour:
   - {fileID: 1502830300}
   audioSource: {fileID: 1488261229}
   foodPositions:
-  - {x: -6.31, y: -3.5}
-  - {x: -4.31, y: -3.5}
-  - {x: -2.31, y: -3.5}
-  - {x: 0.31, y: -3.5}
-  - {x: 2.31, y: -3.5}
-  - {x: 4.31, y: -3.5}
-  - {x: 6.31, y: -3.5}
+  - {x: -6.31, y: -3.35}
+  - {x: -4.31, y: -3.35}
+  - {x: -2.31, y: -3.35}
+  - {x: 0.31, y: -3.35}
+  - {x: 2.31, y: -3.35}
+  - {x: 4.31, y: -3.35}
+  - {x: 6.31, y: -3.35}
   copyOfFoodPositions: []
   startPosition: {x: -5.31, y: -3}
   lineStart: {fileID: 1924773394}
