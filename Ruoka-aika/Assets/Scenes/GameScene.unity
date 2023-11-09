@@ -1479,7 +1479,7 @@ GameObject:
   - component: {fileID: 123644136}
   m_Layer: 0
   m_Name: "Lehm\xE4"
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1724,7 +1724,7 @@ GameObject:
   - component: {fileID: 145897544}
   m_Layer: 0
   m_Name: Kana
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2009,7 +2009,7 @@ GameObject:
   - component: {fileID: 180310411}
   m_Layer: 0
   m_Name: Strutsi
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2042,7 +2042,7 @@ GameObject:
   - component: {fileID: 181400763}
   m_Layer: 0
   m_Name: Alpakka
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3740,7 +3740,7 @@ GameObject:
   - component: {fileID: 417636127}
   m_Layer: 0
   m_Name: Kissa
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5013,7 +5013,7 @@ GameObject:
   - component: {fileID: 532816652}
   m_Layer: 0
   m_Name: Lammas
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5545,7 +5545,7 @@ MonoBehaviour:
   defaultBackground: {fileID: 21300000, guid: a7814e9b2a27b9b42a839dead28001f5, type: 3}
   currentActiveFood: {fileID: 0}
   wrongFoodSprite: {fileID: 1229945828}
-  highLight: {fileID: 465730797}
+  highlight: {fileID: 465730797}
   food: {fileID: 0}
   moveSpeed: 3
   speed: 5
@@ -11305,7 +11305,7 @@ GameObject:
   - component: {fileID: 1211044125}
   m_Layer: 0
   m_Name: Hevonen
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13536,13 +13536,13 @@ MonoBehaviour:
   - {fileID: 1502830300}
   audioSource: {fileID: 1488261229}
   foodPositions:
-  - {x: -6.31, y: -3.35}
-  - {x: -4.31, y: -3.35}
-  - {x: -2.31, y: -3.35}
-  - {x: 0.31, y: -3.35}
-  - {x: 2.31, y: -3.35}
-  - {x: 4.31, y: -3.35}
-  - {x: 6.31, y: -3.35}
+  - {x: -6.31, y: -3.34}
+  - {x: -4.31, y: -3.34}
+  - {x: -2.31, y: -3.34}
+  - {x: -0.31, y: -3.34}
+  - {x: 1.62, y: -3.34}
+  - {x: 3.62, y: -3.34}
+  - {x: 5.62, y: -3.34}
   copyOfFoodPositions: []
   startPosition: {x: -5.31, y: -3}
   lineStart: {fileID: 1924773394}
@@ -13797,7 +13797,7 @@ GameObject:
   - component: {fileID: 1516834377}
   m_Layer: 0
   m_Name: Pesukarhu
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14101,7 +14101,7 @@ GameObject:
   - component: {fileID: 1531769825}
   m_Layer: 0
   m_Name: Koira
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14991,7 +14991,7 @@ GameObject:
   - component: {fileID: 1716085233}
   m_Layer: 0
   m_Name: Pupu
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18039,7 +18039,7 @@ GameObject:
   - component: {fileID: 2141199940}
   m_Layer: 0
   m_Name: Possu
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

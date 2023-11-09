@@ -12,7 +12,7 @@ public class ActiveFood : MonoBehaviour
 
     public GameObject currentActiveFood;
     public GameObject wrongFoodSprite;
-    public GameObject highLight;
+    public GameObject highlight;
     public GameObject food;
     GameObject previousActiveFood;
     GameObject activeAnimal;
@@ -33,7 +33,7 @@ public class ActiveFood : MonoBehaviour
     Collider2D foodCollider;
     Vector2 position;
     RaycastHit2D hit;
-    [SerializeField] Animator animator;
+    [SerializeField] public Animator animator;
 
     public static ActiveFood activeFood;
 
@@ -79,7 +79,7 @@ public class ActiveFood : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             wasChosen = false;
-            highLight.SetActive(false);
+            highlight.SetActive(false);
             SwitchToNextFood();
         }
 
@@ -101,8 +101,8 @@ public class ActiveFood : MonoBehaviour
                 {
                     wasChosen = true;
                     ChooseFood(currentActiveFood);
-                    highLight.SetActive(true);
-                    highLight.transform.position = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0].transform.position;
+                    highlight.SetActive(true);
+                    highlight.transform.position = RandomAnimalAndFood.randomAnimalAndFood.chosenAnimals[0].transform.position;
                 }
 
             }
@@ -153,7 +153,7 @@ public class ActiveFood : MonoBehaviour
             if (currentActiveFood)
             {
                 wasChosen = false;
-                highLight.SetActive(false);
+                highlight.SetActive(false);
             }
             GameObject newActiveFood = GetClickedFood();
 
@@ -307,7 +307,7 @@ public class ActiveFood : MonoBehaviour
 
             position = activeAnimal.transform.position;
 
-            highLight.transform.position = position;
+            highlight.transform.position = position;
 
         }
     }
@@ -343,7 +343,7 @@ public class ActiveFood : MonoBehaviour
         activeAnimal = null;
         wasChosen = false;
         foodWasFed = true;
-        highLight.SetActive(false);
+        highlight.SetActive(false);
         Invoke("ResetBool", 0.1f);
         currentActiveFood = null;
         isMoving = false;

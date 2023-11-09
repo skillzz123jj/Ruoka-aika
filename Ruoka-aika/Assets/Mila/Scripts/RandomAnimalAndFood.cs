@@ -141,7 +141,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         activeFood.wasChosen = false;
         activeFood.currentActiveFood = null;
         activeFood.wasChosen = false;
-        activeFood.highLight.SetActive(false);
+        activeFood.highlight.SetActive(false);
         activeFood.currentActiveFood = null;
 
     }
