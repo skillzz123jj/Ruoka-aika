@@ -3027,8 +3027,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.0011415482, y: -24.5}
-  m_SizeDelta: {x: 638.3956, y: 50}
+  m_AnchoredPosition: {x: 0.000037551, y: -27.336}
+  m_SizeDelta: {x: 620.9787, y: 38.1055}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &319201981
 MonoBehaviour:
@@ -3060,7 +3060,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3328,272 +3328,272 @@ MonoBehaviour:
       foodName: Appelsiini
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 97759125325b9dc40b0e3c60221464cb, type: 3}
-    textInstruction: "Sy\xF6t\xE4 appelsiini pesukarhulle"
+    textInstruction: Anna appelsiini pesukarhulle
   - combo:
       foodName: Broileri
       animalName: Koira
     audioClip: {fileID: 8300000, guid: 98280b8997462cb4ebb0942e040fadb8, type: 3}
-    textInstruction: "Sy\xF6t\xE4 broileri koiralle"
+    textInstruction: Anna broileri koiralle
   - combo:
       foodName: Broileri
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 9a9ac2907a124ad45b827375eaba3035, type: 3}
-    textInstruction: "Sy\xF6t\xE4 broileri pesukarhulle"
+    textInstruction: Anna broileri pesukarhulle
   - combo:
       foodName: Etana
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: b96a4f507c20cba4db00850ff5f8b941, type: 3}
-    textInstruction: "Sy\xF6t\xE4 etana pesukarhulle"
+    textInstruction: Anna etana pesukarhulle
   - combo:
       foodName: Etana
       animalName: Strutsi
     audioClip: {fileID: 8300000, guid: 6880cd2063d1b7c40bd8f4b12096fbcf, type: 3}
-    textInstruction: "Sy\xF6t\xE4 etana strutsille"
+    textInstruction: Anna etana strutsille
   - combo:
       foodName: "Jyv\xE4t"
       animalName: Kana
     audioClip: {fileID: 8300000, guid: d2e626d3eecb8ba4e9cf72547c76ee5a, type: 3}
-    textInstruction: "Sy\xF6t\xE4 jyv\xE4t kanalle"
+    textInstruction: "Anna jyv\xE4t kanalle"
   - combo:
       foodName: "Jyv\xE4t"
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 452e29ace63d665418260d2a2e6aecf0, type: 3}
-    textInstruction: "Sy\xF6t\xE4 jyv\xE4t pesukarhulle"
+    textInstruction: "Anna jyv\xE4t pesukarhulle"
   - combo:
       foodName: Kaali
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: b1495da9018ee604d9b9bec36969554f, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kaali pesukarhulle"
+    textInstruction: Anna kaali pesukarhulle
   - combo:
       foodName: Kaali
       animalName: Pupu
     audioClip: {fileID: 8300000, guid: 4d59fc50f9c137449958eaef3370aac7, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kaali pupulle"
+    textInstruction: Anna kaali pupulle
   - combo:
       foodName: Kala
       animalName: Kissa
     audioClip: {fileID: 8300000, guid: 718a094d740a1984c855220fc21fc2f0, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kala kissalle"
+    textInstruction: Anna kala kissalle
   - combo:
       foodName: Kala
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 91beaf45341d22c43ba296c121626ec4, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kala pesukarhulle"
+    textInstruction: Anna kala pesukarhulle
   - combo:
       foodName: Kinkku
       animalName: Kissa
     audioClip: {fileID: 8300000, guid: 891e5680aa00e92448871bd555cb71b2, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kinkku kissalle"
+    textInstruction: Anna kinkku kissalle
   - combo:
       foodName: Kinkku
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 8335135a4085aff438ee4b752191cb04, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kinkku pesukarhulle"
+    textInstruction: Anna kinkku pesukarhulle
   - combo:
       foodName: Kissanruoka
       animalName: Kissa
     audioClip: {fileID: 8300000, guid: 202ba9cb9d76058468c05a73117af6da, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kissanruoka kissalle"
+    textInstruction: Anna kissanruoka kissalle
   - combo:
       foodName: Koiranruoka
       animalName: Koira
     audioClip: {fileID: 8300000, guid: f696ce919da7fcb4fa4a5b0cdcaf3b6b, type: 3}
-    textInstruction: "Sy\xF6t\xE4 koiranruoka koiralle"
+    textInstruction: Anna koiranruoka koiralle
   - combo:
       foodName: Kurkku
       animalName: "Lehm\xE4"
     audioClip: {fileID: 8300000, guid: be6a40fe476ef7645bb32315f36958ee, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kurkku lehm\xE4lle"
+    textInstruction: "Anna kurkku lehm\xE4lle"
   - combo:
       foodName: Kurkku
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 775f40d58499595419b108b932b9262a, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kurkku pesukarhulle"
+    textInstruction: Anna kurkku pesukarhulle
   - combo:
       foodName: Kurkku
       animalName: Possu
     audioClip: {fileID: 8300000, guid: b32e0d54709fb8e46b5e86f40f78bdfa, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kurkku possulle"
+    textInstruction: Anna kurkku possulle
   - combo:
       foodName: Kurkku
       animalName: Strutsi
     audioClip: {fileID: 8300000, guid: 32f6726bda07ca742876089d46a9cd06, type: 3}
-    textInstruction: "Sy\xF6t\xE4 kurkku strutsille"
+    textInstruction: Anna kurkku strutsille
   - combo:
       foodName: Lehdet
       animalName: Alpakka
     audioClip: {fileID: 8300000, guid: 8b14a021e8030ea4994068d5ada461a2, type: 3}
-    textInstruction: "Sy\xF6t\xE4 lehdet alpakalle"
+    textInstruction: Anna lehdet alpakalle
   - combo:
       foodName: Lehdet
       animalName: Lammas
     audioClip: {fileID: 8300000, guid: 979f32fdef3a5cd459d567ffad9ed5dd, type: 3}
-    textInstruction: "Sy\xF6t\xE4 lehdet lampaalle"
+    textInstruction: Anna lehdet lampaalle
   - combo:
       foodName: Lehdet
       animalName: "Lehm\xE4"
     audioClip: {fileID: 8300000, guid: fd0ca2361aabcbb4eb2916dfdf893b3b, type: 3}
-    textInstruction: "Sy\xF6t\xE4 lehdet lehm\xE4lle"
+    textInstruction: "Anna lehdet lehm\xE4lle"
   - combo:
       foodName: Lehdet
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: e033c48a76d2c194ca2487e9cf309e6b, type: 3}
-    textInstruction: "Sy\xF6t\xE4 lehdet pesukarhulle"
+    textInstruction: Anna lehdet pesukarhulle
   - combo:
       foodName: Lehdet
       animalName: Pupu
     audioClip: {fileID: 8300000, guid: 6a3dea97b0123f94b8d0b336319cebb4, type: 3}
-    textInstruction: "Sy\xF6t\xE4 lehdet pupulle"
+    textInstruction: Anna lehdet pupulle
   - combo:
       foodName: "Leip\xE4"
       animalName: Kana
     audioClip: {fileID: 8300000, guid: 1f0c9bb4ec84f3544a26a4c64028a8df, type: 3}
-    textInstruction: "Sy\xF6t\xE4 leip\xE4 kanalle"
+    textInstruction: "Anna leip\xE4 kanalle"
   - combo:
       foodName: "Leip\xE4"
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: c7e2f402614bbd14ba1cb4a2bacb9cff, type: 3}
-    textInstruction: "Sy\xF6t\xE4 leip\xE4 pesukarhulle"
+    textInstruction: "Anna leip\xE4 pesukarhulle"
   - combo:
       foodName: Luu
       animalName: Koira
     audioClip: {fileID: 8300000, guid: b386f58654d38604ead7c875f3ece2d2, type: 3}
-    textInstruction: "Sy\xF6t\xE4 luu koiralle"
+    textInstruction: Anna luu koiralle
   - combo:
       foodName: Luu
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 8bb135c35d3164540b9d9d223f1c9516, type: 3}
-    textInstruction: "Sy\xF6t\xE4 luu pesukarhulle"
+    textInstruction: Anna luu pesukarhulle
   - combo:
       foodName: Mato
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: e5c1cc2aa4b85a24494af5aee34831a7, type: 3}
-    textInstruction: "Sy\xF6t\xE4 mato pesukarhulle"
+    textInstruction: Anna mato pesukarhulle
   - combo:
       foodName: Mato
       animalName: Strutsi
     audioClip: {fileID: 8300000, guid: 7e2d91ceba2ab464a9401cabb8280f79, type: 3}
-    textInstruction: "Sy\xF6t\xE4 mato strutsille"
+    textInstruction: Anna mato strutsille
   - combo:
       foodName: Nakki
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 6b0d2a74533ea4344ac6424c3a43ce9f, type: 3}
-    textInstruction: "Sy\xF6t\xE4 nakki pesukarhulle"
+    textInstruction: Anna nakki pesukarhulle
   - combo:
       foodName: Oliivi
       animalName: Kana
     audioClip: {fileID: 8300000, guid: 7febbbcdf263de1478b4c9fb7bdc453d, type: 3}
-    textInstruction: "Sy\xF6t\xE4 oliivi kanalle"
+    textInstruction: Anna oliivi kanalle
   - combo:
       foodName: Oliivi
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 7531fb5590fabc342a7bf153b2ec8591, type: 3}
-    textInstruction: "Sy\xF6t\xE4 oliivi pesukarhulle"
+    textInstruction: Anna oliivi pesukarhulle
   - combo:
       foodName: Paisti
       animalName: Koira
     audioClip: {fileID: 8300000, guid: eda2843caef7b1a438603a1afa80ce63, type: 3}
-    textInstruction: "Sy\xF6t\xE4 paisti koiralle"
+    textInstruction: Anna paisti koiralle
   - combo:
       foodName: Paisti
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 7bd490a07a0c54044accf61e43a0e23f, type: 3}
-    textInstruction: "Sy\xF6t\xE4 paisti pesukarhulle"
+    textInstruction: Anna paisti pesukarhulle
   - combo:
       foodName: Pihvi
       animalName: Kissa
     audioClip: {fileID: 8300000, guid: 7ec0feb04c349504f9f4c5757f18d804, type: 3}
-    textInstruction: "Sy\xF6t\xE4 pihvi kissalle"
+    textInstruction: Anna pihvi kissalle
   - combo:
       foodName: Pihvi
       animalName: Koira
     audioClip: {fileID: 8300000, guid: baba3e77890128a4f9e6b45cc2baad05, type: 3}
-    textInstruction: "Sy\xF6t\xE4 pihvi koiralle"
+    textInstruction: Anna pihvi koiralle
   - combo:
       foodName: Pihvi
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: a6ef7374c70e61945b19d76e37f823ae, type: 3}
-    textInstruction: "Sy\xF6t\xE4 pihvi pesukarhulle"
+    textInstruction: Anna pihvi pesukarhulle
   - combo:
       foodName: Porkkana
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: f68049797602c3a40869813552abacfa, type: 3}
-    textInstruction: "Sy\xF6t\xE4 porkkana pesukarhulle"
+    textInstruction: Anna porkkana pesukarhulle
   - combo:
       foodName: Porkkana
       animalName: Possu
     audioClip: {fileID: 8300000, guid: 0a46bb234c2c97e4583c8fd9c0cba07d, type: 3}
-    textInstruction: "Sy\xF6t\xE4 porkkana possulle"
+    textInstruction: Anna porkkana possulle
   - combo:
       foodName: Porkkana
       animalName: Pupu
     audioClip: {fileID: 8300000, guid: d7741139dfb1ab94a82d2e031e19a530, type: 3}
-    textInstruction: "Sy\xF6t\xE4 porkkana pupulle"
+    textInstruction: Anna porkkana pupulle
   - combo:
       foodName: "P\xE4hkin\xE4t"
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 9d9c2e1891d0e214b9a3a6e4f38dba9e, type: 3}
-    textInstruction: "Sy\xF6t\xE4 p\xE4hkin\xE4t pesukarhulle"
+    textInstruction: "Anna p\xE4hkin\xE4t pesukarhulle"
   - combo:
       foodName: "P\xE4hkin\xE4t"
       animalName: Strutsi
     audioClip: {fileID: 8300000, guid: 8c7009e5d45f3fe4cb2f89a0b98d2afd, type: 3}
-    textInstruction: "Sy\xF6t\xE4 p\xE4hkin\xE4t strutsille"
+    textInstruction: "Anna p\xE4hkin\xE4t strutsille"
   - combo:
       foodName: Retiisi
       animalName: Hevonen
     audioClip: {fileID: 8300000, guid: 596588f97213afe4484ffa1187debdad, type: 3}
-    textInstruction: "Sy\xF6t\xE4 retiisi hevoselle"
+    textInstruction: Anna retiisi hevoselle
   - combo:
       foodName: Retiisi
       animalName: Lammas
     audioClip: {fileID: 8300000, guid: 56fa24bb0263a59479007903bb4f3aff, type: 3}
-    textInstruction: "Sy\xF6t\xE4 retiisi lampaalle"
+    textInstruction: Anna retiisi lampaalle
   - combo:
       foodName: Retiisi
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: 75e6188b87d019a43bc577dee82a6b7e, type: 3}
-    textInstruction: "Sy\xF6t\xE4 retiisi pesukarhulle"
+    textInstruction: Anna retiisi pesukarhulle
   - combo:
       foodName: Retiisi
       animalName: Possu
     audioClip: {fileID: 8300000, guid: 30af09dae40c247459b2fbf234dd909c, type: 3}
-    textInstruction: "Sy\xF6t\xE4 retiisi possulle"
+    textInstruction: Anna retiisi possulle
   - combo:
       foodName: Sienet
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: ffc9612b4c031b74bb6483fedccac3a7, type: 3}
-    textInstruction: "Sy\xF6t\xE4 sienet pesukarhulle"
+    textInstruction: Anna sienet pesukarhulle
   - combo:
       foodName: Sienet
       animalName: Possu
     audioClip: {fileID: 8300000, guid: e3b1c4d88b7ec10428d222f275f92bf4, type: 3}
-    textInstruction: "Sy\xF6t\xE4 sienet possulle"
+    textInstruction: Anna sienet possulle
   - combo:
       foodName: "Vehn\xE4"
       animalName: Alpakka
     audioClip: {fileID: 8300000, guid: bbdd8c8f112c571468623a9e05639c6a, type: 3}
-    textInstruction: "Sy\xF6t\xE4 vehn\xE4 alpakalle"
+    textInstruction: "Anna vehn\xE4 alpakalle"
   - combo:
       foodName: "Vehn\xE4"
       animalName: Hevonen
     audioClip: {fileID: 8300000, guid: 925bf8b8da8059e4eb041f9d5fe06ec9, type: 3}
-    textInstruction: "Sy\xF6t\xE4 vehn\xE4 hevoselle"
+    textInstruction: "Anna vehn\xE4 hevoselle"
   - combo:
       foodName: "Vehn\xE4"
       animalName: Lammas
     audioClip: {fileID: 8300000, guid: ddff3dd932504254b86776fc287c6a6a, type: 3}
-    textInstruction: "Sy\xF6t\xE4 vehn\xE4 lampaalle"
+    textInstruction: "Anna vehn\xE4 lampaalle"
   - combo:
       foodName: "Vehn\xE4"
       animalName: "Lehm\xE4"
     audioClip: {fileID: 8300000, guid: b1c6c0a9d6c6a6446a946dc396a917df, type: 3}
-    textInstruction: "Sy\xF6t\xE4 vehn\xE4 lehm\xE4lle"
+    textInstruction: "Anna vehn\xE4 lehm\xE4lle"
   - combo:
       foodName: "Vehn\xE4"
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: e369794bf75eed94db7813ae1a33833b, type: 3}
-    textInstruction: "Sy\xF6t\xE4 vehn\xE4 pesukarhulle"
+    textInstruction: "Anna vehn\xE4 pesukarhulle"
 --- !u!1 &365366064
 GameObject:
   m_ObjectHideFlags: 0
@@ -14939,8 +14939,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2.082489, y: -103.94}
-  m_SizeDelta: {x: 638.4, y: 50}
+  m_AnchoredPosition: {x: 2.082489, y: -107.12604}
+  m_SizeDelta: {x: 651.1439, y: 54.6728}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681795544
 MonoBehaviour:
@@ -14955,14 +14955,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13207549, g: 0.115462214, b: 0.115462214, a: 0.4862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 757c511db2d69a542878125f446d0c6a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
