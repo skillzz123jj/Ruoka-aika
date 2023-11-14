@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
-  animTail: {fileID: 0}
+  animTail: {fileID: 2139432759}
   chewingSound: {fileID: 121922010}
   errorSound: {fileID: 809951168}
   good: 0
@@ -4481,7 +4481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
-  animTail: {fileID: 0}
+  animTail: {fileID: 1646208866}
   chewingSound: {fileID: 497446274}
   errorSound: {fileID: 809951168}
   good: 0
@@ -6116,8 +6116,8 @@ MonoBehaviour:
   - {fileID: 730061748}
   - {fileID: 106136265}
   m_Bounds:
-    m_Center: {x: 0.28412274, y: 0.105769455, z: 0}
-    m_Extent: {x: 0.65781057, y: 1.058075, z: 0}
+    m_Center: {x: 0, y: 0.009999871, z: 0}
+    m_Extent: {x: 0.53500015, y: 1.1650002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -6903,7 +6903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
-  animTail: {fileID: 0}
+  animTail: {fileID: 1327675293}
   chewingSound: {fileID: 696161931}
   errorSound: {fileID: 809951168}
   good: 0
@@ -8976,7 +8976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
-  animTail: {fileID: 0}
+  animTail: {fileID: 2105099033}
   chewingSound: {fileID: 785056113}
   errorSound: {fileID: 809951168}
   good: 0
@@ -14714,7 +14714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
-  animTail: {fileID: 0}
+  animTail: {fileID: 1901634019}
   chewingSound: {fileID: 1598555236}
   errorSound: {fileID: 809951168}
   good: 0
@@ -15302,6 +15302,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2571334521071350901, guid: a86cac0b2ffbba14fab930b3f4b8a654, type: 3}
   m_PrefabInstance: {fileID: 1646208864}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1646208866 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2571334521071350902, guid: a86cac0b2ffbba14fab930b3f4b8a654, type: 3}
+  m_PrefabInstance: {fileID: 1646208864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1664109494
 GameObject:
   m_ObjectHideFlags: 0
@@ -15496,7 +15501,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 757c511db2d69a542878125f446d0c6a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb92044df011dc043ad3a59a2c80eb48, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16671,8 +16676,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springSprite: {fileID: 21300000, guid: d42c44892a438fb4496c3997197f5e38, type: 3}
   summerSprite: {fileID: 21300000, guid: d42c44892a438fb4496c3997197f5e38, type: 3}
-  fallSprite: {fileID: 21300000, guid: d42c44892a438fb4496c3997197f5e38, type: 3}
-  winterSprite: {fileID: 21300000, guid: d42c44892a438fb4496c3997197f5e38, type: 3}
+  fallSprite: {fileID: 21300000, guid: b47aca62d4f99664397903bf89f87870, type: 3}
+  winterSprite: {fileID: 21300000, guid: 6897c719ef76e914e83b0f8fa3bc3ba5, type: 3}
   spriteRenderer: {fileID: 1853107110}
 --- !u!114 &1853107110
 MonoBehaviour:
@@ -17340,7 +17345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animExpression: {fileID: 0}
-  animTail: {fileID: 0}
+  animTail: {fileID: 660287046}
   chewingSound: {fileID: 0}
   errorSound: {fileID: 809951168}
   good: 0
@@ -18583,6 +18588,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8085827170591160437, guid: 9e63217551d365e4baac841f5fb3deb6, type: 3}
   m_PrefabInstance: {fileID: 2105099031}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2105099033 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8085827170591160394, guid: 9e63217551d365e4baac841f5fb3deb6, type: 3}
+  m_PrefabInstance: {fileID: 2105099031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2114649931
 GameObject:
   m_ObjectHideFlags: 0
@@ -19006,6 +19016,11 @@ PrefabInstance:
 --- !u!4 &2139432758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4286767196120911009, guid: 4bef508cd0bf6de449431009b886d2c1, type: 3}
+  m_PrefabInstance: {fileID: 2139432757}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2139432759 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4286767196120911014, guid: 4bef508cd0bf6de449431009b886d2c1, type: 3}
   m_PrefabInstance: {fileID: 2139432757}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2141199939

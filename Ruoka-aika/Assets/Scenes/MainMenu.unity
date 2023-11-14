@@ -4295,8 +4295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springSprite: {fileID: 21300000, guid: d42c44892a438fb4496c3997197f5e38, type: 3}
   summerSprite: {fileID: 21300000, guid: d42c44892a438fb4496c3997197f5e38, type: 3}
-  fallSprite: {fileID: 21300000, guid: d42c44892a438fb4496c3997197f5e38, type: 3}
-  winterSprite: {fileID: 21300000, guid: d42c44892a438fb4496c3997197f5e38, type: 3}
+  fallSprite: {fileID: 21300000, guid: b47aca62d4f99664397903bf89f87870, type: 3}
+  winterSprite: {fileID: 21300000, guid: 6897c719ef76e914e83b0f8fa3bc3ba5, type: 3}
   spriteRenderer: {fileID: 1880589253}
 --- !u!1 &2030854382
 GameObject:

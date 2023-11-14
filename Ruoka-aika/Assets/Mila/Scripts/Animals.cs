@@ -124,6 +124,7 @@ public class Animals : MonoBehaviour
         //If the animal is allowed to eat the food and the score goes up
        // Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
         randomAnimalAndFood.chosenFoods.Remove(foodThatCollided);
+        animTail.SetTrigger("Häntä");
         if (animExpression != null)
         {
             animExpression.SetTrigger("Iloinen");
@@ -139,7 +140,7 @@ public class Animals : MonoBehaviour
         {   
             StartCoroutine(ShrinkFood(foodThatCollided));
         }
-
+    
         score.ScoreUp();
     }
   
