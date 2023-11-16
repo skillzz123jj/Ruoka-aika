@@ -1444,16 +1444,16 @@ TextureImporter:
       - name: koira_kaula
         guid: 91f211e2c78ce7b479bbb672ade76055
         position: {x: 63.19983, y: 305.71805, z: 0}
-        rotation: {x: 0, y: 0, z: -0.469906, w: 0.8827165}
-        length: 85.74296
+        rotation: {x: 0, y: 0, z: -0.46990594, w: 0.8827165}
+        length: 85.742966
         parentId: -1
         color:
           serializedVersion: 2
           rgba: 4278190335
       - name: koira_torso
         guid: 54672a8612572eb48861d0ec7a20f6fe
-        position: {x: 85.742966, y: 0.00002406905, z: 0}
-        rotation: {x: 0, y: 0, z: 0.04663384, w: 0.9989121}
+        position: {x: 85.74297, y: 0.0000135717455, z: 0}
+        rotation: {x: 0, y: 0, z: 0.046633787, w: 0.9989121}
         length: 165.25392
         parentId: 0
         color:
@@ -1481,14 +1481,14 @@ TextureImporter:
         guid: 5b8f234b72a59e44ba37efa1f941154e
         position: {x: 38.57747, y: 167.55923, z: 0}
         rotation: {x: 0, y: 0, z: -0.71813333, w: 0.6959056}
-        length: 108.802536
+        length: 108.80254
         parentId: -1
         color:
           serializedVersion: 2
           rgba: 4294901760
       - name: koira_o_tassu
         guid: 5a6f80e136d46e84b8bf4b9ea90de6ed
-        position: {x: 108.802536, y: 0.000026641233, z: 0}
+        position: {x: 108.80254, y: 0.000026881033, z: 0}
         rotation: {x: 0, y: 0, z: -0.50015324, w: 0.86593693}
         length: 21.725666
         parentId: 4
@@ -1525,7 +1525,7 @@ TextureImporter:
       - name: "koira_h\xE4nt\xE4_3"
         guid: 3e9e82f59c3911841bac4ba69250ca15
         position: {x: 79.08183, y: -0.0000031046632, z: 0}
-        rotation: {x: 0, y: 0, z: -0.14764172, w: 0.9890409}
+        rotation: {x: 0, y: 0, z: -0.14764181, w: 0.9890409}
         length: 53.654446
         parentId: 8
         color:
@@ -1533,8 +1533,8 @@ TextureImporter:
           rgba: 4294934528
       - name: "koira_h\xE4nt\xE4_4"
         guid: c18dfecb1cc0e7f4cb33e12a1df67857
-        position: {x: 53.654438, y: 0.00000261285, z: 0}
-        rotation: {x: 0, y: 0, z: -0.2866759, w: 0.95802766}
+        position: {x: 53.65444, y: 0.000011686432, z: 0}
+        rotation: {x: 0, y: 0, z: -0.2866758, w: 0.95802766}
         length: 42.07853
         parentId: 9
         color:

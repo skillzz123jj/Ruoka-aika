@@ -36,6 +36,8 @@ public class Animals : MonoBehaviour
             foodThatCollided = collision.gameObject;
             foodThatCollidedName = foodThatCollided.name;
 
+            activeFood.highlight.SetActive(true);
+            activeFood.highlight.transform.position = gameObject.transform.position;
             /*So here it first checks if the animal is even in that dictionary if not well wrong food anyway,
             if however the animal is in that dictionary it adds the animals foods in a list and then checks if 
             if the animal can eat the collided food or not*/
@@ -70,6 +72,7 @@ public class Animals : MonoBehaviour
         foodThatCollidedName = null;
         good = false;
         bad = false;
+     
     }
 
     private void Update()
@@ -86,6 +89,7 @@ public class Animals : MonoBehaviour
                 activeFood.ResetBackground(foodThatCollided);
                 GoodFood();
                 good = false;
+                activeFood.animator.SetTrigger("Valinta");
 
             }
             else if (bad)
@@ -95,6 +99,7 @@ public class Animals : MonoBehaviour
                 errorSound.Play();
                 BadFood();
                 bad = false;
+                activeFood.animator.SetTrigger("Valinta");
 
             }
         }
@@ -119,6 +124,7 @@ public class Animals : MonoBehaviour
         //If the animal is allowed to eat the food and the score goes up
        // Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
         randomAnimalAndFood.chosenFoods.Remove(foodThatCollided);
+        animTail.SetTrigger("Häntä");
         if (animExpression != null)
         {
             animExpression.SetTrigger("Iloinen");
@@ -134,7 +140,7 @@ public class Animals : MonoBehaviour
         {   
             StartCoroutine(ShrinkFood(foodThatCollided));
         }
-
+    
         score.ScoreUp();
     }
   
@@ -218,7 +224,19 @@ public class Animals : MonoBehaviour
     //If there are no more foods this one handles that
     void HandleChanges()
     {
-       
+        activeFood.highlight.SetActive(false);
+        foreach (GameObject food in randomAnimalAndFood.chosenFoods)
+        {
+            if (food.CompareTag("Food"))
+            {
+                break;
+            }
+            else
+            {
+                randomAnimalAndFood.timerToChangeFood = 1.5f;
+            }
+        }
+
         if (randomAnimalAndFood.foodsLeft == 0 && !randomAnimalAndFood.changedFoodsRecently)
         {
             randomAnimalAndFood.changedFoodsRecently = true;

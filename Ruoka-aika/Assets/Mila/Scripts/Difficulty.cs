@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Difficulty : MonoBehaviour
 {
     //This script only stores what difficulty has been chosen 
-    public bool easy;
-    public bool normal = true;
+    public bool easy = true;
+    public bool normal;
 
     public bool gameRunning = true;
     public bool textInstructions = true;

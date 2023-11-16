@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class InstructionManager : MonoBehaviour
 {
@@ -17,8 +16,7 @@ public class InstructionManager : MonoBehaviour
     }
 
     public List<FoodAnimalInstruction> instructions;
-    //public List<AudioClip> audioInstructions;
-    //public List<string> textInstructions;
+    
 
     void Awake()
     {
@@ -39,11 +37,7 @@ public class InstructionManager : MonoBehaviour
         {
             if (instruction.combo.foodName == combo.foodName && instruction.combo.animalName == combo.animalName)
             {
-                //string audioClipName = audioInstructions[i].name;
-                //string expectedAudioClipName = $"{combo.foodName}{combo.animalName}Audio";
-                //if (audioClipName == expectedAudioClipName)
-                // Return the found audio and text instruction
-                //return new Instruction(audioInstructions[i], textInstructions[i]);
+                
                 AudioClip audioClip = (audioInstructionsEnabled) ? instruction.audioClip : null;
                 string textInstruction = (textInstructionsEnabled) ? instruction.textInstruction : null;
 

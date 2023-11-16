@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using TMPro;
 
@@ -123,7 +124,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         yield return new WaitForSeconds(delay);
         ChangeRandomAnimal();
         AddFoods();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
         RandomCorrectAnimal();
         TimerManager();   
@@ -141,7 +142,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         activeFood.wasChosen = false;
         activeFood.currentActiveFood = null;
         activeFood.wasChosen = false;
-        activeFood.highLight.SetActive(false);
+        activeFood.highlight.SetActive(false);
         activeFood.currentActiveFood = null;
 
     }
@@ -231,7 +232,11 @@ public class RandomAnimalAndFood : MonoBehaviour
         //Clears the dictionary that checks what animals are allowed to eat the foods
         TempDictionary.Clear();
 
-        string accumulatedTextInstructions = string.Empty;
+        // Clear existing text instructions
+        instructionTEXT.text = string.Empty;
+
+        // Create a StringBuilder to accumulate all text instructions
+        StringBuilder textInstructionsBuilder = new StringBuilder();
 
         //instructionTEXT.text = "Anna ";
         //For each food it checks if the animal can eat it and adds it to possible animals
@@ -304,10 +309,11 @@ public class RandomAnimalAndFood : MonoBehaviour
                     audioInstructions.Add(instruction.audioClip);
                 }
 
-                // Set the text instruction
+                // Accumulate text instructions in the StringBuilder
                 if (!string.IsNullOrEmpty(instruction.textInstruction))
                 {
-                    accumulatedTextInstructions += instruction.textInstruction + ", ";
+                    textInstructionsBuilder.Append(instruction.textInstruction.Trim());
+                    textInstructionsBuilder.Append(',');
                 }
             }
             else
@@ -316,28 +322,47 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
 
         }
-        instructionTEXT.text = accumulatedTextInstructions.TrimEnd(',', ' ');
+        
+        // Display the accumulated text instructions sequentially
+        StartCoroutine(DisplayTextInstructionsSequentially(textInstructionsBuilder.ToString(), audioInstructions));
         StartCoroutine(PlayAudioInstructionsSequentially(audioInstructions));
+    }
+
+    private IEnumerator DisplayTextInstructionsSequentially(string textInstruction, List<AudioClip> audioInstructions)
+    {
+        string[] sentences = textInstruction.Split(','); // Split the text into sentences
+
+        for (int i = 0; i < sentences.Length; i++)
+        {
+            instructionTEXT.text = sentences[i].Trim();
+
+            // Wait for the corresponding audio clip length
+            float audioClipLength = audioInstructions[i].length + 1; // Adjust the waiting time as needed
+            yield return new WaitForSeconds(audioClipLength);
+
+            // Clear the text after waiting for the full audio clip length
+            instructionTEXT.text = string.Empty;
+        }
     }
 
     private IEnumerator PlayAudioInstructionsSequentially(List<AudioClip> audioInstructions)
     {
-        foreach(var audioClip in audioInstructions)
+        foreach (var audioClip in audioInstructions)
         {
-            if(audioClip != null)
+            if (audioClip != null)
             {
-                if(audioSource != null)
+                if (audioSource != null)
                 {
                     audioSource.clip = audioClip;
                     audioSource.Play();
                 }
-                //Wait for the audio clip to finish
-                yield return new WaitForSeconds(audioClip.length);
+                // Wait for the audio clip to finish
+                yield return new WaitForSeconds(audioClip.length + 1);
             }
         }
     }
 
-   
+
     //This method chooses a random animal from the ones that havent been chosen 
     void ChangeRandomAnimal()
     {
