@@ -36,8 +36,14 @@ public class Animals : MonoBehaviour
             foodThatCollided = collision.gameObject;
             foodThatCollidedName = foodThatCollided.name;
 
-            activeFood.highlight.SetActive(true);
-            activeFood.highlight.transform.position = gameObject.transform.position;
+            if (!activeFood.isMoving)
+            {
+                activeFood.highlight.SetActive(true);
+                activeFood.highlight.transform.position = gameObject.transform.position;
+
+            }
+
+           
             /*So here it first checks if the animal is even in that dictionary if not well wrong food anyway,
             if however the animal is in that dictionary it adds the animals foods in a list and then checks if 
             if the animal can eat the collided food or not*/
