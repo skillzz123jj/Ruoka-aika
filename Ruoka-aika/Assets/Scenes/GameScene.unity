@@ -1306,6 +1306,7 @@ GameObject:
   - component: {fileID: 121922007}
   - component: {fileID: 121922009}
   - component: {fileID: 121922010}
+  - component: {fileID: 121922011}
   m_Layer: 0
   m_Name: "Lehm\xE4"
   m_TagString: Untagged
@@ -1392,7 +1393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da59f27ec8bab90448999bbba4a83d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animExpression: {fileID: 0}
+  animExpression: {fileID: 121922011}
   animTail: {fileID: 2139432759}
   chewingSound: {fileID: 121922010}
   errorSound: {fileID: 809951168}
@@ -1545,6 +1546,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &121922011
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121922004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 52837f27293b13346bbec317d2c3e6c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &123644135
 GameObject:
   m_ObjectHideFlags: 0
@@ -4425,6 +4447,7 @@ GameObject:
   - component: {fileID: 497446271}
   - component: {fileID: 497446270}
   - component: {fileID: 497446274}
+  - component: {fileID: 497446275}
   m_Layer: 0
   m_Name: Kissa
   m_TagString: Untagged
@@ -4480,7 +4503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da59f27ec8bab90448999bbba4a83d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animExpression: {fileID: 0}
+  animExpression: {fileID: 497446275}
   animTail: {fileID: 1646208866}
   chewingSound: {fileID: 497446274}
   errorSound: {fileID: 809951168}
@@ -4664,6 +4687,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &497446275
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497446268}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0c80b2d4b638ce4d9156367b20413bd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &508751054
 GameObject:
   m_ObjectHideFlags: 0
@@ -6902,7 +6946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da59f27ec8bab90448999bbba4a83d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animExpression: {fileID: 0}
+  animExpression: {fileID: 696161933}
   animTail: {fileID: 1327675293}
   chewingSound: {fileID: 696161931}
   errorSound: {fileID: 809951168}
@@ -8975,7 +9019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da59f27ec8bab90448999bbba4a83d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animExpression: {fileID: 0}
+  animExpression: {fileID: 785056114}
   animTail: {fileID: 2105099033}
   chewingSound: {fileID: 785056113}
   errorSound: {fileID: 809951168}
@@ -14627,6 +14671,7 @@ GameObject:
   - component: {fileID: 1598555233}
   - component: {fileID: 1598555235}
   - component: {fileID: 1598555236}
+  - component: {fileID: 1598555237}
   m_Layer: 0
   m_Name: Pupu
   m_TagString: Untagged
@@ -14713,7 +14758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da59f27ec8bab90448999bbba4a83d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animExpression: {fileID: 0}
+  animExpression: {fileID: 1598555237}
   animTail: {fileID: 1901634019}
   chewingSound: {fileID: 1598555236}
   errorSound: {fileID: 809951168}
@@ -14866,6 +14911,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1598555237
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598555230}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 61d049553b6b4964097472588d322387, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1622072304
 GameObject:
   m_ObjectHideFlags: 0
@@ -17289,6 +17355,7 @@ GameObject:
   - component: {fileID: 1959898044}
   - component: {fileID: 1959898043}
   - component: {fileID: 1959898042}
+  - component: {fileID: 1959898046}
   m_Layer: 0
   m_Name: Hevonen
   m_TagString: Untagged
@@ -17344,7 +17411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da59f27ec8bab90448999bbba4a83d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animExpression: {fileID: 0}
+  animExpression: {fileID: 1959898046}
   animTail: {fileID: 660287046}
   chewingSound: {fileID: 0}
   errorSound: {fileID: 809951168}
@@ -17432,6 +17499,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1959898046
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959898039}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dce2c48592c5d464fb3280262882fee4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1967661551
 GameObject:
   m_ObjectHideFlags: 0
