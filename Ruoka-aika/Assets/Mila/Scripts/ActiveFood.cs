@@ -47,7 +47,7 @@ public class ActiveFood : MonoBehaviour
         activeFood = this;
         previousActiveFood = currentActiveFood;
     }
-
+  
     void Update()
     {
         //Convert the mouse position to world coordinates
@@ -307,6 +307,8 @@ public class ActiveFood : MonoBehaviour
 
             position = activeAnimal.transform.position;
 
+            highlight.SetActive(true);
+
             highlight.transform.position = position;
 
         }
@@ -320,7 +322,7 @@ public class ActiveFood : MonoBehaviour
         isMoving = true;
         RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 15;
         Vector3 targetPosition = chosenAnimal.transform.position;
-        float offset = 2.5f;
+        float offset = 2.2f;
         targetPosition.y -= offset;
         Vector3 initialPosition = activeFood.transform.position;
         float journeyLength = Vector3.Distance(initialPosition, targetPosition);
@@ -343,7 +345,10 @@ public class ActiveFood : MonoBehaviour
         activeAnimal = null;
         wasChosen = false;
         foodWasFed = true;
-        highlight.SetActive(false);
+        //if (!newRound)
+        //{
+        //    highlight.SetActive(false);
+        //}
         Invoke("ResetBool", 0.1f);
         currentActiveFood = null;
         isMoving = false;

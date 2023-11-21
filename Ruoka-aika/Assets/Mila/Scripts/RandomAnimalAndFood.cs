@@ -574,7 +574,7 @@ public class RandomAnimalAndFood : MonoBehaviour
                 FoodPositionDictionary.Add(food, foodPosition);
             }
         }
-        activeFood.currentFoodIndex = -1;
+     //   activeFood.currentFoodIndex = 0;
         activeFood.SwitchToNextFood();
         copyOfFoodPositions.Clear();
         changedFoodsRecently = false;
@@ -601,7 +601,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         if (Score.scoreScript.score <= 7) //7
         {
 
-            numberOfFoodsToChoose = 1;
+            numberOfFoodsToChoose = 3;
             numberOfAllowedBadFoods = 0;
         }
         else if (Score.scoreScript.score <= 15) //20
