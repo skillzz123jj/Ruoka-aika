@@ -30,7 +30,7 @@ public class ActiveFood : MonoBehaviour
     bool isHovering;
 
     Touch touch;
-    Collider2D foodCollider;
+    Collider2D foodCollided;
     Vector2 position;
     RaycastHit2D hit;
     [SerializeField] public Animator animator;
@@ -47,7 +47,7 @@ public class ActiveFood : MonoBehaviour
         activeFood = this;
         previousActiveFood = currentActiveFood;
     }
-  
+ 
     void Update()
     {
         //Convert the mouse position to world coordinates
@@ -89,6 +89,7 @@ public class ActiveFood : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+            
                 SwitchToNextFood();
             }
             if (Input.GetKeyDown(KeyCode.Return))
@@ -241,9 +242,11 @@ public class ActiveFood : MonoBehaviour
             ResetBackground(currentActiveFood);
         }
 
+
         currentFoodIndex = (currentFoodIndex + 1) % RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count;
 
         currentActiveFood = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods[currentFoodIndex];
+  
 
         if (currentActiveFood != null)
         {
@@ -253,8 +256,8 @@ public class ActiveFood : MonoBehaviour
     //Resets the food's background sprite when new food was chosen 
     public void ResetBackground(GameObject food)
     {
-        foodCollider = food.GetComponent<Collider2D>();
-        foodCollider.isTrigger = false;
+        foodCollided = food.GetComponent<Collider2D>();
+        foodCollided.isTrigger = false;
         spriteRenderer = food.GetComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = 30;
         GameObject child = food.transform.GetChild(0).gameObject;
@@ -265,8 +268,8 @@ public class ActiveFood : MonoBehaviour
     //Changes the food's background sprite if chosen via space bar 
     void ChangeBackground(GameObject food)
     {
-        foodCollider = food.GetComponent<Collider2D>();
-        foodCollider.isTrigger = true;
+        foodCollided = food.GetComponent<Collider2D>();
+        foodCollided.isTrigger = true;
         spriteRenderer = food.GetComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = 32;
         GameObject child = food.transform.GetChild(0).gameObject;
@@ -279,8 +282,8 @@ public class ActiveFood : MonoBehaviour
     private void ChooseFood(GameObject food)
     {
         wasChosen = true;
-        foodCollider = food.GetComponent<Collider2D>();
-        foodCollider.isTrigger = true;
+        foodCollided = food.GetComponent<Collider2D>();
+        foodCollided.isTrigger = true;
         spriteRenderer = food.GetComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = 32;
         GameObject child = food.transform.GetChild(0).gameObject;
@@ -345,14 +348,9 @@ public class ActiveFood : MonoBehaviour
         activeAnimal = null;
         wasChosen = false;
         foodWasFed = true;
-        //if (!newRound)
-        //{
-        //    highlight.SetActive(false);
-        //}
         Invoke("ResetBool", 0.1f);
         currentActiveFood = null;
         isMoving = false;
-  
-    
+
     }
 }

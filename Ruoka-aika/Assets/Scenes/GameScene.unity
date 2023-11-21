@@ -16822,7 +16822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springSprite: {fileID: 21300000, guid: 81b40e7e92c583243b0ab1a3c406c302, type: 3}
   summerSprite: {fileID: 21300000, guid: 81b40e7e92c583243b0ab1a3c406c302, type: 3}
-  fallSprite: {fileID: 21300000, guid: 19eb595c0e50d444ebcda4eb0c23e6bc, type: 3}
+  fallSprite: {fileID: 21300000, guid: 37db857b00d0ba248bbfebcd2e8d2dd6, type: 3}
   winterSprite: {fileID: 21300000, guid: fac0009ae6c968244bcfc9d25af8c272, type: 3}
   spriteRenderer: {fileID: 1853107110}
 --- !u!114 &1853107110

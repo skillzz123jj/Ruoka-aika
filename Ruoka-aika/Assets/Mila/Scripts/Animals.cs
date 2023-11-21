@@ -42,8 +42,7 @@ public class Animals : MonoBehaviour
                 activeFood.highlight.transform.position = gameObject.transform.position;
 
             }
-
-           
+         
             /*So here it first checks if the animal is even in that dictionary if not well wrong food anyway,
             if however the animal is in that dictionary it adds the animals foods in a list and then checks if 
             if the animal can eat the collided food or not*/
@@ -96,6 +95,8 @@ public class Animals : MonoBehaviour
                 GoodFood();
                 good = false;
                 activeFood.animator.SetTrigger("Valinta");
+                activeFood.currentFoodIndex = -1;
+                activeFood.SwitchToNextFood();
 
             }
             else if (bad)
@@ -106,6 +107,8 @@ public class Animals : MonoBehaviour
                 BadFood();
                 bad = false;
                 activeFood.animator.SetTrigger("Valinta");
+                activeFood.currentFoodIndex = -1;
+                activeFood.SwitchToNextFood();
 
             }
         }
@@ -157,7 +160,7 @@ public class Animals : MonoBehaviour
         script.enabled = false; 
         
         Vector3 initialScale = goodFood.transform.localScale;
-        randomAnimalAndFood.timerToChangeFood = 10;
+        randomAnimalAndFood.timerToChangeFood += 5;
         randomAnimalAndFood.foodsLeft--;
 
         //Pauses the code while the food shrinks
@@ -204,7 +207,7 @@ public class Animals : MonoBehaviour
         }
 
         randomAnimalAndFood.foodsLeft--;
-        randomAnimalAndFood.timerToChangeFood = 10;  
+        randomAnimalAndFood.TimerManager(); 
         score.WrongFood();
         WrongFoodSprite();
         HandleChanges();
@@ -216,6 +219,7 @@ public class Animals : MonoBehaviour
     {
         error = Instantiate(activeFood.wrongFoodSprite, foodThatCollided.transform.position, Quaternion.identity);
         Invoke("DestroySprite", 1.5f);
+      
     }
 
     //This one gets rid of the sprite and the food after a slight delay
@@ -239,7 +243,7 @@ public class Animals : MonoBehaviour
             }
             else
             {
-                randomAnimalAndFood.timerToChangeFood = 1.5f;
+                randomAnimalAndFood.timerToChangeFood = 1f;
             }
         }
 
@@ -250,6 +254,7 @@ public class Animals : MonoBehaviour
             if (randomAnimalAndFood.nowIsAGoodTime)
             {
                 randomAnimalAndFood.nowIsAGoodTime = false;
+                //randomAnimalAndFood.timerToChangeFood = 2;
                 StartCoroutine(randomAnimalAndFood.CanChangeAnimal(2f));
             }
             else
