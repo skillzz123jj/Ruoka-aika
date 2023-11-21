@@ -601,7 +601,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         if (Score.scoreScript.score <= 7) //7
         {
 
-            numberOfFoodsToChoose = 3;
+            numberOfFoodsToChoose = 1;
             numberOfAllowedBadFoods = 0;
         }
         else if (Score.scoreScript.score <= 15) //20
