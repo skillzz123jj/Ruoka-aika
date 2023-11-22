@@ -37,11 +37,12 @@ public class SeasonalChanges : MonoBehaviour
         {
             return "Spring";
         }
-        else if ((month == 6 && day >= 1) || (month > 6 && month < 9) || (month == 9 && day <= 21))
+        else if ((month == 6 && day >= 1) || (month > 6 && month < 9) || (month == 11 && day <= 25))
         {
             return "Summer";
         }
-        else if ((month == 9 && day >= 22) || (month > 9 && month < 12) || (month == 11 && day <= 30))
+        //9 -22
+        else if ((month == 11 && day >= 25) || (month > 9 && month < 12) || (month == 11 && day <= 30))
         {
             return "Fall";
         }

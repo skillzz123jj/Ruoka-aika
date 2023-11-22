@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using TMPro;
 
@@ -60,7 +61,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     //Dictionary to map animal names to their corresponding food items
     public Dictionary<string, List<string>> AnimalsFoodsDictionary = new Dictionary<string, List<string>>()
     {
-        { "Koira", new List<string> { "Pihvi", "Paisti", "Luu", "Koiranruoka", "Broileri" } },
+        { "Koira", new List<string> { "Pihvi", "Luu", "Koiranruoka", "Broileri" } },
         { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet" } },
         { "Lehmä", new List<string> { "Kurkku", "Lehdet", "Vehnä" } },
         { "Lammas", new List<string> { "Retiisi", "Lehdet", "Vehnä" } },
@@ -70,7 +71,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         { "Kana", new List<string> { "Jyvät", "Oliivi", "Leipä" } },
         { "Alpakka", new List<string> { "Vehnä", "Lehdet" } },
         { "Pesukarhu", new List<string> { "Nakki", "Appelsiini", "Lehdet", "Leipä", "Kala", "Kurkku", "Vehnä", "Oliivi", "Kaali",
-           "Pähkinät", "Porkkana", "Paisti", "Pihvi", "Etana", "Jyvät", "Mato", "Retiisi", "Luu", "Broileri", "Kinkku","Sienet"} },
+           "Pähkinät", "Porkkana", "Pihvi", "Etana", "Jyvät", "Mato", "Retiisi", "Luu", "Broileri", "Kinkku","Sienet"} },
          { "Hevonen", new List<string> { "Vehnä", "Retiisi" } }
     };
 
@@ -123,7 +124,8 @@ public class RandomAnimalAndFood : MonoBehaviour
         yield return new WaitForSeconds(delay);
         ChangeRandomAnimal();
         AddFoods();
-        yield return new WaitForSeconds(1.5f);
+        timerToChangeFood = 3;
+        yield return new WaitForSeconds(1f);
         RandomFood(numberOfFoodsToChoose, numberOfAllowedBadFoods);
         RandomCorrectAnimal();
         TimerManager();   
@@ -141,20 +143,22 @@ public class RandomAnimalAndFood : MonoBehaviour
         activeFood.wasChosen = false;
         activeFood.currentActiveFood = null;
         activeFood.wasChosen = false;
-        activeFood.highLight.SetActive(false);
+        activeFood.highlight.SetActive(false);
         activeFood.currentActiveFood = null;
 
     }
 
+    float easyTimer;
+    float hardTimer;
     public void TimerManager()
     {
         if (Difficulty.difficulty.easy)
         {
-            timerToChangeFood = 50;
+            timerToChangeFood = easyTimer;  //70;
         }
         else if (Difficulty.difficulty.normal)
         {
-            timerToChangeFood = 15;
+            timerToChangeFood = hardTimer; //60;
         }
     }
     //This method chooses the initial animals and their positions
@@ -231,7 +235,11 @@ public class RandomAnimalAndFood : MonoBehaviour
         //Clears the dictionary that checks what animals are allowed to eat the foods
         TempDictionary.Clear();
 
-        string accumulatedTextInstructions = string.Empty;
+        // Clear existing text instructions
+        instructionTEXT.text = string.Empty;
+
+        // Create a StringBuilder to accumulate all text instructions
+        StringBuilder textInstructionsBuilder = new StringBuilder();
 
         //instructionTEXT.text = "Anna ";
         //For each food it checks if the animal can eat it and adds it to possible animals
@@ -304,10 +312,11 @@ public class RandomAnimalAndFood : MonoBehaviour
                     audioInstructions.Add(instruction.audioClip);
                 }
 
-                // Set the text instruction
+                // Accumulate text instructions in the StringBuilder
                 if (!string.IsNullOrEmpty(instruction.textInstruction))
                 {
-                    accumulatedTextInstructions += instruction.textInstruction + ", ";
+                    textInstructionsBuilder.Append(instruction.textInstruction.Trim());
+                    textInstructionsBuilder.Append(',');
                 }
             }
             else
@@ -316,28 +325,47 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
 
         }
-        instructionTEXT.text = accumulatedTextInstructions.TrimEnd(',', ' ');
+        
+        // Display the accumulated text instructions sequentially
+        StartCoroutine(DisplayTextInstructionsSequentially(textInstructionsBuilder.ToString(), audioInstructions));
         StartCoroutine(PlayAudioInstructionsSequentially(audioInstructions));
+    }
+
+    private IEnumerator DisplayTextInstructionsSequentially(string textInstruction, List<AudioClip> audioInstructions)
+    {
+        string[] sentences = textInstruction.Split(','); // Split the text into sentences
+
+        for (int i = 0; i < sentences.Length; i++)
+        {
+            instructionTEXT.text = sentences[i].Trim();
+
+            // Wait for the corresponding audio clip length
+            float audioClipLength = audioInstructions[i].length + 1; // Adjust the waiting time as needed
+            yield return new WaitForSeconds(audioClipLength);
+
+            // Clear the text after waiting for the full audio clip length
+            instructionTEXT.text = string.Empty;
+        }
     }
 
     private IEnumerator PlayAudioInstructionsSequentially(List<AudioClip> audioInstructions)
     {
-        foreach(var audioClip in audioInstructions)
+        foreach (var audioClip in audioInstructions)
         {
-            if(audioClip != null)
+            if (audioClip != null)
             {
-                if(audioSource != null)
+                if (audioSource != null)
                 {
                     audioSource.clip = audioClip;
                     audioSource.Play();
                 }
-                //Wait for the audio clip to finish
-                yield return new WaitForSeconds(audioClip.length);
+                // Wait for the audio clip to finish
+                yield return new WaitForSeconds(audioClip.length + 1);
             }
         }
     }
 
-   
+
     //This method chooses a random animal from the ones that havent been chosen 
     void ChangeRandomAnimal()
     {
@@ -515,11 +543,14 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
 
         }
+       
         PositionFoodsRandomly(chosenFoods);
         chosenFoods.Sort((a, b) => {
             return a.transform.position.x.CompareTo(b.transform.position.x);
         });
-     
+        activeFood.currentFoodIndex = -1;
+        activeFood.SwitchToNextFood();
+
     }
 
   
@@ -549,8 +580,8 @@ public class RandomAnimalAndFood : MonoBehaviour
                 FoodPositionDictionary.Add(food, foodPosition);
             }
         }
-        activeFood.currentFoodIndex = -1;
-        activeFood.SwitchToNextFood();
+        //activeFood.currentFoodIndex = 0;
+        //activeFood.SwitchToNextFood();
         copyOfFoodPositions.Clear();
         changedFoodsRecently = false;
     }
@@ -573,47 +604,73 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method changes the amount of foods that are going to spawn
     void CheckForCurrentLevel()
     {
-        if (Score.scoreScript.score <= 7) //7
+        if (Difficulty.difficulty.easy) 
         {
 
-            numberOfFoodsToChoose = 1;
-            numberOfAllowedBadFoods = 0;
+            if (Score.scoreScript.score <= 9) 
+            {
+                easyTimer = 20;   
+                numberOfFoodsToChoose = 1;
+                numberOfAllowedBadFoods = 0;
+            }
+            else if (Score.scoreScript.score <= 19) 
+            {
+                easyTimer = 30;
+                numberOfFoodsToChoose = 2;
+                numberOfAllowedBadFoods = 0;
+            }
+            else if (Score.scoreScript.score <= 24) 
+            {
+                easyTimer = 35;
+                numberOfFoodsToChoose = 3;
+                numberOfAllowedBadFoods = 0;
+            }
         }
-        else if (Score.scoreScript.score <= 15) //20
+        else 
         {
+            if (Score.scoreScript.score <= 7) 
+            {
+                hardTimer = 15;
+                numberOfFoodsToChoose = 1;
+                numberOfAllowedBadFoods = 0;
+            }
+            else if (Score.scoreScript.score <= 15) 
+            {
+                hardTimer = 15;
+                numberOfFoodsToChoose = 2;
+                numberOfAllowedBadFoods = 0;
+            }
+            else if (Score.scoreScript.score <= 25) 
+            {
+                hardTimer = 20;
+                numberOfFoodsToChoose = 3;
+                numberOfAllowedBadFoods = 1;
+            }
+            else if (Score.scoreScript.score <= 40) 
+            {
+                hardTimer = 20;
+                numberOfFoodsToChoose = 4;
+                numberOfAllowedBadFoods = 1;
+            }
+            else if (Score.scoreScript.score <= 55) 
+            {
+                hardTimer = 25;
+                numberOfFoodsToChoose = 5;
+                numberOfAllowedBadFoods = 2;
+            }
+            else if (Score.scoreScript.score <= 70) 
+            {
+                hardTimer = 30;
+                numberOfFoodsToChoose = 6;
+                numberOfAllowedBadFoods = 2;
+            }
+            else if (Score.scoreScript.score <= 85) 
+            {
+                hardTimer = 35;
+                numberOfFoodsToChoose = 7;
+                numberOfAllowedBadFoods = 3;
+            }
+        }     
 
-            numberOfFoodsToChoose = 2;
-            numberOfAllowedBadFoods = 0;
-        }
-        else if (Score.scoreScript.score <= 25) //30
-        {
-
-            numberOfFoodsToChoose = 3;
-            numberOfAllowedBadFoods = 1;
-        }
-        else if (Score.scoreScript.score <= 40) //50
-        {
-
-            numberOfFoodsToChoose = 4;
-            numberOfAllowedBadFoods = 1;
-        }
-        else if (Score.scoreScript.score <= 55) //65
-        {
-
-            numberOfFoodsToChoose = 5;
-            numberOfAllowedBadFoods = 2;
-        }
-        else if (Score.scoreScript.score <= 70) //75
-        {
-
-            numberOfFoodsToChoose = 6;
-            numberOfAllowedBadFoods = 2;
-        }
-        else if (Score.scoreScript.score <= 85) //100
-        {
-
-            numberOfFoodsToChoose = 7;
-            numberOfAllowedBadFoods = 3;
-        }
     }
 }

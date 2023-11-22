@@ -108,10 +108,10 @@ TextureImporter:
       name: pupu_korjattu_0
       rect:
         serializedVersion: 2
-        x: 49
-        y: 261
-        width: 218
-        height: 182
+        x: 65
+        y: 263
+        width: 196
+        height: 156
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,10 +136,10 @@ TextureImporter:
         x: 15
         y: 4
         width: 244
-        height: 267
+        height: 259
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 2, w: 0}
       outline:
       - - {x: -118, y: -129.5}
         - {x: -118, y: 129.5}
@@ -158,10 +158,10 @@ TextureImporter:
       name: pupu_korjattu_2
       rect:
         serializedVersion: 2
-        x: 284
-        y: 245
-        width: 227
-        height: 201
+        x: 314
+        y: 242
+        width: 197
+        height: 156
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

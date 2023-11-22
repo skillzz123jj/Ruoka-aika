@@ -36,6 +36,13 @@ public class Animals : MonoBehaviour
             foodThatCollided = collision.gameObject;
             foodThatCollidedName = foodThatCollided.name;
 
+            if (!activeFood.isMoving)
+            {
+                activeFood.highlight.SetActive(true);
+                activeFood.highlight.transform.position = gameObject.transform.position;
+
+            }
+         
             /*So here it first checks if the animal is even in that dictionary if not well wrong food anyway,
             if however the animal is in that dictionary it adds the animals foods in a list and then checks if 
             if the animal can eat the collided food or not*/
@@ -70,6 +77,7 @@ public class Animals : MonoBehaviour
         foodThatCollidedName = null;
         good = false;
         bad = false;
+     
     }
 
     private void Update()
@@ -86,6 +94,9 @@ public class Animals : MonoBehaviour
                 activeFood.ResetBackground(foodThatCollided);
                 GoodFood();
                 good = false;
+                activeFood.animator.SetTrigger("Valinta");
+                activeFood.currentFoodIndex = -1;
+                activeFood.SwitchToNextFood();
 
             }
             else if (bad)
@@ -95,6 +106,9 @@ public class Animals : MonoBehaviour
                 errorSound.Play();
                 BadFood();
                 bad = false;
+                activeFood.animator.SetTrigger("Valinta");
+                activeFood.currentFoodIndex = -1;
+                activeFood.SwitchToNextFood();
 
             }
         }
@@ -119,6 +133,7 @@ public class Animals : MonoBehaviour
         //If the animal is allowed to eat the food and the score goes up
        // Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
         randomAnimalAndFood.chosenFoods.Remove(foodThatCollided);
+        animTail.SetTrigger("Häntä");
         if (animExpression != null)
         {
             animExpression.SetTrigger("Iloinen");
@@ -134,7 +149,7 @@ public class Animals : MonoBehaviour
         {   
             StartCoroutine(ShrinkFood(foodThatCollided));
         }
-
+    
         score.ScoreUp();
     }
   
@@ -145,7 +160,7 @@ public class Animals : MonoBehaviour
         script.enabled = false; 
         
         Vector3 initialScale = goodFood.transform.localScale;
-        randomAnimalAndFood.timerToChangeFood = 10;
+        randomAnimalAndFood.timerToChangeFood += 5;
         randomAnimalAndFood.foodsLeft--;
 
         //Pauses the code while the food shrinks
@@ -192,7 +207,7 @@ public class Animals : MonoBehaviour
         }
 
         randomAnimalAndFood.foodsLeft--;
-        randomAnimalAndFood.timerToChangeFood = 10;  
+        randomAnimalAndFood.TimerManager(); 
         score.WrongFood();
         WrongFoodSprite();
         HandleChanges();
@@ -204,6 +219,7 @@ public class Animals : MonoBehaviour
     {
         error = Instantiate(activeFood.wrongFoodSprite, foodThatCollided.transform.position, Quaternion.identity);
         Invoke("DestroySprite", 1.5f);
+      
     }
 
     //This one gets rid of the sprite and the food after a slight delay
@@ -218,7 +234,19 @@ public class Animals : MonoBehaviour
     //If there are no more foods this one handles that
     void HandleChanges()
     {
-       
+        activeFood.highlight.SetActive(false);
+        foreach (GameObject food in randomAnimalAndFood.chosenFoods)
+        {
+            if (food.CompareTag("Food"))
+            {
+                break;
+            }
+            else
+            {
+                randomAnimalAndFood.timerToChangeFood = 1f;
+            }
+        }
+
         if (randomAnimalAndFood.foodsLeft == 0 && !randomAnimalAndFood.changedFoodsRecently)
         {
             randomAnimalAndFood.changedFoodsRecently = true;
@@ -226,6 +254,7 @@ public class Animals : MonoBehaviour
             if (randomAnimalAndFood.nowIsAGoodTime)
             {
                 randomAnimalAndFood.nowIsAGoodTime = false;
+                //randomAnimalAndFood.timerToChangeFood = 2;
                 StartCoroutine(randomAnimalAndFood.CanChangeAnimal(2f));
             }
             else
