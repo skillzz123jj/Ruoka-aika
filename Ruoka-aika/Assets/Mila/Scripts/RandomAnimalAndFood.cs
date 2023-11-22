@@ -560,6 +560,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         foreach (GameObject food in foods)
         {
+            activeFood.ResetBackground(food);
             int index = Random.Range(0, foodPositions.Count);
             Vector2 newPosition = foodPositions[index];
 
@@ -580,8 +581,6 @@ public class RandomAnimalAndFood : MonoBehaviour
                 FoodPositionDictionary.Add(food, foodPosition);
             }
         }
-        //activeFood.currentFoodIndex = 0;
-        //activeFood.SwitchToNextFood();
         copyOfFoodPositions.Clear();
         changedFoodsRecently = false;
     }
@@ -609,19 +608,19 @@ public class RandomAnimalAndFood : MonoBehaviour
 
             if (Score.scoreScript.score <= 9) 
             {
-                easyTimer = 20;   
+                easyTimer = 35;   
                 numberOfFoodsToChoose = 1;
                 numberOfAllowedBadFoods = 0;
             }
             else if (Score.scoreScript.score <= 19) 
             {
-                easyTimer = 30;
+                easyTimer = 45;
                 numberOfFoodsToChoose = 2;
                 numberOfAllowedBadFoods = 0;
             }
             else if (Score.scoreScript.score <= 24) 
             {
-                easyTimer = 35;
+                easyTimer = 45;
                 numberOfFoodsToChoose = 3;
                 numberOfAllowedBadFoods = 0;
             }
@@ -636,41 +635,40 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
             else if (Score.scoreScript.score <= 15) 
             {
-                hardTimer = 15;
+                hardTimer = 20;
                 numberOfFoodsToChoose = 2;
                 numberOfAllowedBadFoods = 0;
             }
             else if (Score.scoreScript.score <= 25) 
             {
-                hardTimer = 20;
+                hardTimer = 25;
                 numberOfFoodsToChoose = 3;
                 numberOfAllowedBadFoods = 1;
             }
             else if (Score.scoreScript.score <= 40) 
             {
-                hardTimer = 20;
+                hardTimer = 30;
                 numberOfFoodsToChoose = 4;
                 numberOfAllowedBadFoods = 1;
             }
             else if (Score.scoreScript.score <= 55) 
             {
-                hardTimer = 25;
+                hardTimer = 35;
                 numberOfFoodsToChoose = 5;
                 numberOfAllowedBadFoods = 2;
             }
             else if (Score.scoreScript.score <= 70) 
             {
-                hardTimer = 30;
+                hardTimer = 40;
                 numberOfFoodsToChoose = 6;
                 numberOfAllowedBadFoods = 2;
             }
             else if (Score.scoreScript.score <= 85) 
             {
-                hardTimer = 35;
+                hardTimer = 45;
                 numberOfFoodsToChoose = 7;
                 numberOfAllowedBadFoods = 3;
             }
         }     
-
     }
 }

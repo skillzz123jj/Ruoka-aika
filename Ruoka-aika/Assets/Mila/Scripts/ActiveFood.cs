@@ -79,6 +79,7 @@ public class ActiveFood : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             wasChosen = false;
+            currentAnimalIndex = 0;
             highlight.SetActive(false);
             SwitchToNextFood();
         }
@@ -323,7 +324,6 @@ public class ActiveFood : MonoBehaviour
         currentAnimalIndex = 0;
         currentFoodIndex = -1;
         isMoving = true;
-        RandomAnimalAndFood.randomAnimalAndFood.timerToChangeFood = 15;
         Vector3 targetPosition = chosenAnimal.transform.position;
         float offset = 2.2f;
         targetPosition.y -= offset;

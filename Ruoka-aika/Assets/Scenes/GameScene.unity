@@ -410,8 +410,8 @@ MonoBehaviour:
   - {fileID: 948894084}
   - {fileID: 1850198200}
   m_Bounds:
-    m_Center: {x: 0.07898986, y: 0.016575217, z: 0}
-    m_Extent: {x: 1.5668404, y: 1.1915755, z: 0}
+    m_Center: {x: 0.078989744, y: 0.016575098, z: 0}
+    m_Extent: {x: 1.5668402, y: 1.1915753, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -824,8 +824,8 @@ MonoBehaviour:
   - {fileID: 826033669}
   - {fileID: 547960676}
   m_Bounds:
-    m_Center: {x: -0.009264827, y: 0.0023798943, z: 0}
-    m_Extent: {x: 1.6362752, y: 1.7574701, z: 0}
+    m_Center: {x: -0.009264827, y: 0.002379775, z: 0}
+    m_Extent: {x: 1.636275, y: 1.75747, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1505,7 +1505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 123644136}
   m_Layer: 0
-  m_Name: "Lehm\xE41"
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1519,8 +1519,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123644135}
   m_LocalRotation: {x: -0, y: -0, z: -0.0004882635, w: 0.9999999}
-  m_LocalPosition: {x: -1.15, y: -0.2237095, z: 0}
-  m_LocalScale: {x: 1.4999999, y: 1.4999999, z: 1.5}
+  m_LocalPosition: {x: -1.15, y: -0.17000006, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 121922005}
@@ -1750,7 +1750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145897544}
   m_Layer: 0
-  m_Name: Kana1
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1764,8 +1764,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145897543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.596, y: -0.099999964, z: 0.024227694}
-  m_LocalScale: {x: 0.61538476, y: 0.61538476, z: 0.61538476}
+  m_LocalPosition: {x: -0.596, y: 0.26999995, z: 0.024227694}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 769570748}
@@ -2035,7 +2035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 180310411}
   m_Layer: 0
-  m_Name: Strutsi1
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2049,8 +2049,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180310410}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.56, y: 0.04, z: 0.024227694}
-  m_LocalScale: {x: 0.7692309, y: 0.7692309, z: 0.7692309}
+  m_LocalPosition: {x: -0.56, y: 0.21999994, z: 0.024227694}
+  m_LocalScale: {x: 1, y: 1, z: 0.7692309}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 756984149}
@@ -2068,7 +2068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181400763}
   m_Layer: 0
-  m_Name: Alpakka1
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2082,8 +2082,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181400762}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47, y: 0.061538506, z: 0.024227694}
-  m_LocalScale: {x: 0.7692309, y: 0.7692309, z: 0.7692309}
+  m_LocalPosition: {x: -0.66, y: 0.12999994, z: 0.024227694}
+  m_LocalScale: {x: 1, y: 1, z: 0.7692309}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1823923896}
@@ -3629,7 +3629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 417636127}
   m_Layer: 0
-  m_Name: Kissa1
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3643,8 +3643,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417636126}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.78, y: -0.11538457, z: 0.024227694}
-  m_LocalScale: {x: 0.61538476, y: 0.61538476, z: 0.61538476}
+  m_LocalPosition: {x: -0.93, y: 0.20999995, z: 0.024227694}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.61538476}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 497446269}
@@ -4188,7 +4188,7 @@ Transform:
   m_GameObject: {fileID: 471320499}
   m_LocalRotation: {x: -0, y: -0, z: -0.0004882635, w: 0.9999999}
   m_LocalPosition: {x: 6.76, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 532816652}
@@ -4956,7 +4956,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532816652}
   m_Layer: 0
-  m_Name: Lammas1
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4970,8 +4970,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532816651}
   m_LocalRotation: {x: -0, y: -0, z: 0.0004882635, w: 0.9999999}
-  m_LocalPosition: {x: -0.66, y: 0.02, z: 0}
-  m_LocalScale: {x: 1.0083333, y: 1.0083333, z: 1.0083333}
+  m_LocalPosition: {x: -0.66, y: 0.17, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.0083333}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2005010703}
@@ -6224,8 +6224,8 @@ MonoBehaviour:
   - {fileID: 730061748}
   - {fileID: 106136265}
   m_Bounds:
-    m_Center: {x: 0, y: 0.009999871, z: -0.0000000037252903}
-    m_Extent: {x: 0.5350001, y: 1.1650001, z: 1.110223e-16}
+    m_Center: {x: 0.0000038146973, y: 0.009999871, z: -0.0000000037252903}
+    m_Extent: {x: 0.53500015, y: 1.1650002, z: 1.110223e-16}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -6619,7 +6619,7 @@ MonoBehaviour:
   - {fileID: 1054491435}
   - {fileID: 598225851}
   m_Bounds:
-    m_Center: {x: 0.15985012, y: -0.089095, z: 0.0000000037252903}
+    m_Center: {x: 0.15985012, y: -0.089095, z: 0}
     m_Extent: {x: 1.4472702, y: 1.325905, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -8538,7 +8538,7 @@ Transform:
   m_GameObject: {fileID: 777728930}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 24.92, y: 0, z: -0.031495996}
-  m_LocalScale: {x: 1.2999998, y: 1.2999998, z: 1.2999998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 417636127}
@@ -10549,7 +10549,7 @@ Transform:
   m_GameObject: {fileID: 1029561344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 28.81, y: 0, z: -0.031495996}
-  m_LocalScale: {x: 1.2999998, y: 1.2999998, z: 1.2999998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 145897544}
@@ -11025,8 +11025,8 @@ MonoBehaviour:
   - {fileID: 782363109}
   - {fileID: 1282815540}
   m_Bounds:
-    m_Center: {x: 0.14419806, y: -0.064465046, z: 0}
-    m_Extent: {x: 1.1501801, y: 1.8644652, z: 0}
+    m_Center: {x: 0.14419901, y: -0.064465046, z: -0.0000000037252903}
+    m_Extent: {x: 1.1501791, y: 1.8644652, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -11505,7 +11505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1211044125}
   m_Layer: 0
-  m_Name: Hevonen1
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11519,8 +11519,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211044124}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.12, y: -0.06, z: 0.031495996}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 1.1}
+  m_LocalPosition: {x: -0.2, y: 0.029999942, z: 0.031495996}
+  m_LocalScale: {x: 1, y: 1, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1959898040}
@@ -12829,8 +12829,8 @@ MonoBehaviour:
   - {fileID: 1234088350}
   - {fileID: 1835780231}
   m_Bounds:
-    m_Center: {x: -0.009999394, y: 0.0006701946, z: 0}
-    m_Extent: {x: 1.5450003, y: 1.6161504, z: 0}
+    m_Center: {x: -0.01000011, y: 0.00067031384, z: 0}
+    m_Extent: {x: 1.545, y: 1.6161501, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -12946,7 +12946,7 @@ Transform:
   m_GameObject: {fileID: 1360820006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 37.23, y: 0, z: -0.031495996}
-  m_LocalScale: {x: 1.2999998, y: 1.2999998, z: 1.2999998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1516834377}
@@ -13831,13 +13831,13 @@ MonoBehaviour:
   - {fileID: 1502830300}
   audioSource: {fileID: 1488261229}
   foodPositions:
-  - {x: -6.31, y: -3.34}
-  - {x: -4.31, y: -3.34}
-  - {x: -2.31, y: -3.34}
-  - {x: -0.31, y: -3.34}
-  - {x: 1.62, y: -3.34}
-  - {x: 3.62, y: -3.34}
-  - {x: 5.62, y: -3.34}
+  - {x: -6, y: -3.5}
+  - {x: -4, y: -3.5}
+  - {x: -2, y: -3.5}
+  - {x: 0, y: -3.5}
+  - {x: 2, y: -3.5}
+  - {x: 4, y: -3.5}
+  - {x: 6, y: -3.5}
   copyOfFoodPositions: []
   startPosition: {x: -5.31, y: -3}
   lineStart: {fileID: 1924773394}
@@ -14091,7 +14091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1516834377}
   m_Layer: 0
-  m_Name: Pesukarhu1
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14105,8 +14105,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516834376}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.29, y: 0.0076923477, z: 0.024227694}
-  m_LocalScale: {x: 0.7692309, y: 0.7692309, z: 0.7692309}
+  m_LocalPosition: {x: -0.29, y: 0.23999995, z: 0.024227694}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1310583673}
@@ -14395,7 +14395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1531769825}
   m_Layer: 0
-  m_Name: Koira1
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14409,8 +14409,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531769824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.79, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: -0.79, y: -0.07000006, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1327675291}
@@ -14709,7 +14709,7 @@ Transform:
   m_GameObject: {fileID: 1592778218}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 21.15, y: 0, z: -0.031495996}
-  m_LocalScale: {x: 1.2999998, y: 1.2999998, z: 1.2999998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 180310411}
@@ -15136,8 +15136,8 @@ MonoBehaviour:
   - {fileID: 514882543}
   - {fileID: 1363006124}
   m_Bounds:
-    m_Center: {x: 0.013335943, y: -0.21393013, z: 0}
-    m_Extent: {x: 1.291666, y: 1.7910702, z: 0}
+    m_Center: {x: 0.013335943, y: -0.21393013, z: -0.0000000037252903}
+    m_Extent: {x: 1.2916659, y: 1.79107, z: 1.110223e-16}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -15747,7 +15747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1716085233}
   m_Layer: 0
-  m_Name: Pupu1
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15761,7 +15761,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716085232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.06999993, z: 0}
+  m_LocalPosition: {x: 0, y: 0.21, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17343,7 +17343,7 @@ Transform:
   m_GameObject: {fileID: 1906826173}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 32.94, y: 0, z: -0.031495996}
-  m_LocalScale: {x: 1.2999998, y: 1.2999998, z: 1.2999998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 181400763}
@@ -17522,8 +17522,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921164411}
   m_LocalRotation: {x: -0, y: -0, z: -0.0004882635, w: 0.9999999}
-  m_LocalPosition: {x: 17.12, y: -0.01, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: 17.12, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2141199940}
@@ -18875,6 +18875,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8085827170591160436, guid: 9e63217551d365e4baac841f5fb3deb6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8085827170591160437, guid: 9e63217551d365e4baac841f5fb3deb6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -19007,7 +19011,7 @@ Transform:
   m_GameObject: {fileID: 2112434956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12.1, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 123644136}
@@ -19136,8 +19140,8 @@ MonoBehaviour:
   - {fileID: 549117083}
   - {fileID: 1746365375}
   m_Bounds:
-    m_Center: {x: 0.14497912, y: -0.0031847954, z: 0.0000000037252903}
-    m_Extent: {x: 1.7123096, y: 1.2718146, z: 0}
+    m_Center: {x: 0.14497948, y: -0.0031849146, z: 4.656613e-10}
+    m_Extent: {x: 1.7123095, y: 1.2718146, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -19202,7 +19206,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1521794996, guid: 7543e0d9a190b474fac923100d80fb20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19523,7 +19527,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141199940}
   m_Layer: 0
-  m_Name: Possu1
+  m_Name: Scale
   m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19537,8 +19541,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141199939}
   m_LocalRotation: {x: -0, y: -0, z: 0.0004882635, w: 0.9999999}
-  m_LocalPosition: {x: -0.4, y: -0.07, z: 0}
-  m_LocalScale: {x: 1.0833331, y: 1.0833331, z: 1.0833331}
+  m_LocalPosition: {x: -0.61, y: 0, z: 0}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.0833331}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 785056108}

@@ -15,6 +15,9 @@ public class Animals : MonoBehaviour
     string foodThatCollidedName;
 
     float shrinkSpeed = 0.7f;
+    int amountOfGoodFoods;
+    int amountOfBadFoods;
+
     public bool good;
     public bool bad;
     public bool isShrinking;
@@ -131,7 +134,6 @@ public class Animals : MonoBehaviour
     void GoodFood()
     {
         //If the animal is allowed to eat the food and the score goes up
-       // Debug.Log($"{gameObject.name} saa syödä {foodThatCollidedName}");
         randomAnimalAndFood.chosenFoods.Remove(foodThatCollided);
         animTail.SetTrigger("Häntä");
         if (animExpression != null)
@@ -231,21 +233,34 @@ public class Animals : MonoBehaviour
         script.enabled = true;
     }
 
+  
     //If there are no more foods this one handles that
     void HandleChanges()
     {
         activeFood.highlight.SetActive(false);
+
+        //Checks if there are only bad foods in the scene and lowers the timer to swap foods
         foreach (GameObject food in randomAnimalAndFood.chosenFoods)
-        {
-            if (food.CompareTag("Food"))
             {
-                break;
+                if (food.CompareTag("Food"))
+                {
+               
+                    amountOfGoodFoods++;
+                }
+                else
+                {
+                    amountOfBadFoods++;
+                   
+                }
             }
-            else
+            if (amountOfGoodFoods <= 0 && amountOfBadFoods > 0)
             {
-                randomAnimalAndFood.timerToChangeFood = 1f;
+                randomAnimalAndFood.timerToChangeFood = 2f;
             }
-        }
+
+            amountOfBadFoods = 0;
+            amountOfGoodFoods = 0;
+        
 
         if (randomAnimalAndFood.foodsLeft == 0 && !randomAnimalAndFood.changedFoodsRecently)
         {
