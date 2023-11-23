@@ -1367,7 +1367,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 1885208216, guid: 7a3b1a60eb4fd9a4a904e53216ce38ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fde7bf9d25113b948b14ba9b23d9ee3a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4540,7 +4540,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -1151688076, guid: 8f3a29cf69cea104fae621eb09493e2a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d13ca9eec7abcf4f84720aa350d7b4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6984,7 +6984,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -243986580, guid: 62a9f661cd3d39445adbe62230957fdf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7dc028952f530f14ca8f2c957fde1ae1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -17630,6 +17630,11 @@ Transform:
   m_Father: {fileID: 620221735}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1951058645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8085827170591160439, guid: 9e63217551d365e4baac841f5fb3deb6, type: 3}
+  m_PrefabInstance: {fileID: 2105099031}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1959898039
 GameObject:
   m_ObjectHideFlags: 0
@@ -18983,6 +18988,21 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8085827170591160394, guid: 9e63217551d365e4baac841f5fb3deb6, type: 3}
   m_PrefabInstance: {fileID: 2105099031}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2105099034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951058645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: 1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2112434956
 GameObject:
   m_ObjectHideFlags: 0
