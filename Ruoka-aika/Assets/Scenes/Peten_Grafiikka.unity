@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3498261949210019269, guid: 0726ab0accfaffb4f9ce37c388c2f424, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3498261949210019270, guid: 0726ab0accfaffb4f9ce37c388c2f424, type: 3}
       propertyPath: m_Name
       value: "Lehm\xE4_neutral"
