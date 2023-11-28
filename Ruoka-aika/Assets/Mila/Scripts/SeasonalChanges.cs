@@ -32,23 +32,35 @@ public class SeasonalChanges : MonoBehaviour
 
     private string DetermineSeason(int month, int day)
     {
-        //This sets how long each season lasts
-        if ((month == 3 && day >= 20) || (month > 3 && month < 6) || (month == 5 && day <= 31))
+        ////This sets how long each season lasts
+        //if ((month == 3 && day >= 20) || (month > 3 && month < 6) || (month == 5 && day <= 31))
+        //{
+        //    return "Spring";
+        //}
+        //else if ((month == 6 && day >= 1) || (month > 6 && month < 9) || (month == 11 && day <= 25))
+        //{
+        //    return "Summer";
+        //}
+        ////9 -22
+        //else if ((month == 11 && day >= 25) || (month > 9 && month < 12) || (month == 11 && day <= 30))
+        //{
+        //    return "Fall";
+        //}
+        //else
+        //{//Winter is just the time that is left
+        //    return "Winter";
+        //}
+        if (month == 12 && day == 1)
         {
-            return "Spring";
+            return "Winter";
         }
-        else if ((month == 6 && day >= 1) || (month > 6 && month < 9) || (month == 11 && day <= 25))
-        {
-            return "Summer";
-        }
-        //9 -22
-        else if ((month == 11 && day >= 25) || (month > 9 && month < 12) || (month == 11 && day <= 30))
+        else if (month == 11 && day == 26)
         {
             return "Fall";
         }
         else
-        {//Winter is just the time that is left
-            return "Winter";
+        {
+            return "Spring";
         }
     }
 
