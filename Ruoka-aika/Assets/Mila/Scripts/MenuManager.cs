@@ -8,6 +8,8 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] Button muteAudioAsDefault;
     [SerializeField] Button audioAsDefault;
+    [SerializeField] Button instructionButton;
+    [SerializeField] Button closeInstructionsButton;
     [SerializeField] GameObject audioButton;
     [SerializeField] GameObject muteAudioButton;
     [SerializeField] GameObject exitGameText;
@@ -43,18 +45,42 @@ public class MenuManager : MonoBehaviour
     public void DisplayInstructions()
     {
 
-        if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Space))
         {
             return;
         }
+      
+        InstructionTextGoAway();
+        instructions.SetActive(true);
+        closeInstructionsButton.Select();
+
+    }
+    public void CloseInstructions()
+    {
 
         if (Input.GetKey(KeyCode.Space))
         {
             return;
         }
-   
-        instructions.SetActive(!instructions.activeSelf);
+       
+        instructions.SetActive(false);
+        instructionButton.Select();
     }
+    //public void DisplayInstructions()
+    //{
+
+    //    if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+    //    {
+    //        return;
+    //    }
+
+    //    if (Input.GetKey(KeyCode.Space))
+    //    {
+    //        return;
+    //    }
+   
+    //    instructions.SetActive(!instructions.activeSelf);
+    //}
     public void reloadGame(int scene)
     {
         if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
@@ -150,6 +176,7 @@ public class MenuManager : MonoBehaviour
 
         }
     }
+   
     public void ExitGameText()
     {
         exitGameText.SetActive(true);

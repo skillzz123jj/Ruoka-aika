@@ -17,6 +17,10 @@ public class Difficulty : MonoBehaviour
     public bool audioOn = true;
     public bool audioAndTextOn = true;
 
+    public bool spring;
+    public bool winter;
+    public bool fall;
+
     public static Difficulty difficulty;
 
     void Start()
