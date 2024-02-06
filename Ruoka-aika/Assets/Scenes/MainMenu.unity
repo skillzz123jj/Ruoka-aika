@@ -2271,18 +2271,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 15850406}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: DisplayInstructions
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &423201522
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,7 +3216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.16027832, y: 0.16601562}
+  m_AnchoredPosition: {x: 0.16015625, y: 0.16601562}
   m_SizeDelta: {x: 0.3408203, y: 0.3310547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038553552
@@ -3307,7 +3295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -34.5, y: -24.977}
+  m_AnchoredPosition: {x: -34.5, y: -16}
   m_SizeDelta: {x: 1718.9, y: 661.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1114262292
@@ -4309,7 +4297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000083923, y: 0.00012223229}
+  m_AnchoredPosition: {x: 0.000083923, y: 0.000061035156}
   m_SizeDelta: {x: -0.00012207, y: 624.334}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1502358872
@@ -4332,21 +4320,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ohjeet\r\nPeliss\xE4 ruokit maatilan el\xE4imi\xE4 saamiesi ohjeiden perusteella.
-    Pelin aloitussivulla voit valita, haluatko ohjeet \xE4\xE4nen\xE4, tekstin\xE4
-    vai molempina. Aloitussivulla voit valita my\xF6s pelin vaikeustason eli sen,
-    montako el\xE4int\xE4 ruokit kerrallaan. \r\n\nVoit pelata peli\xE4 hiirell\xE4
-    tai v\xE4lily\xF6nti- ja rivinvaihton\xE4pp\xE4imill\xE4 ja niit\xE4 vastaavilla
-    painikkeilla. Jos pelaat hiirell\xE4, raahaa oikea ruoka oikean el\xE4imen kohdalle.
-    Jos pelaat n\xE4pp\xE4imill\xE4, valitse ensin ruoka ja sen j\xE4lkeen el\xE4in.
-    V\xE4lily\xF6ntin\xE4pp\xE4imell\xE4 voit liikkua vaihtoehtojen v\xE4lill\xE4
-    ja rivinvaihton\xE4pp\xE4imell\xE4 voit valita vaihtoehdon. Voit pelata peli\xE4
-    my\xF6s k\xE4nnyk\xE4ll\xE4 ja tabletilla.\r\n\nKun annat oikean ruuan oikealle
-    el\xE4imelle, saat pisteit\xE4. Menet\xE4t pisteit\xE4, jos ruoka katoaa ennen
-    kuin ehdit antaa sen oikealle el\xE4imelle. Peli p\xE4\xE4ttyy, kun olet antanut
-    kolmelle el\xE4imelle v\xE4\xE4r\xE4\xE4 ruokaa.\n\r\nRuokittavat el\xE4imet
-    vaihtuvat pelin aikana. Aluksi ruuat tulevat yksi kerrallaan, mutta my\xF6hemmin
-    ruokia tulee useita samaan aikaan. Joukossa voi olla my\xF6s v\xE4\xE4ri\xE4
+  m_text: "<color=orange><size=50>Ohjeet</color>\r</size>\n\nPeliss\xE4 ruokit maatilan
+    el\xE4imi\xE4 saamiesi ohjeiden perusteella. Pelin aloitussivulla voit valita,
+    haluatko ohjeet \xE4\xE4nen\xE4, tekstin\xE4 vai molempina. Aloitussivulla voit
+    valita my\xF6s pelin vaikeustason eli sen, montako el\xE4int\xE4 ruokit kerrallaan.
+    \r\n\nVoit pelata peli\xE4 hiirell\xE4 tai v\xE4lily\xF6nti- ja rivinvaihton\xE4pp\xE4imill\xE4
+    ja niit\xE4 vastaavilla painikkeilla. Jos pelaat hiirell\xE4, raahaa oikea ruoka
+    oikean el\xE4imen kohdalle. Jos pelaat n\xE4pp\xE4imill\xE4, valitse ensin ruoka
+    ja sen j\xE4lkeen el\xE4in. V\xE4lily\xF6ntin\xE4pp\xE4imell\xE4 voit liikkua
+    vaihtoehtojen v\xE4lill\xE4 ja rivinvaihton\xE4pp\xE4imell\xE4 voit valita vaihtoehdon.
+    Voit pelata peli\xE4 my\xF6s k\xE4nnyk\xE4ll\xE4 ja tabletilla.\r\n\nKun annat
+    oikean ruuan oikealle el\xE4imelle, saat pisteit\xE4. Menet\xE4t pisteit\xE4,
+    jos ruoka katoaa ennen kuin ehdit antaa sen oikealle el\xE4imelle. Peli p\xE4\xE4ttyy,
+    kun olet antanut kolmelle el\xE4imelle v\xE4\xE4r\xE4\xE4 ruokaa.\n\r\nRuokittavat
+    el\xE4imet vaihtuvat pelin aikana. Aluksi ruuat tulevat yksi kerrallaan, mutta
+    my\xF6hemmin ruokia tulee useita samaan aikaan. Joukossa voi olla my\xF6s v\xE4\xE4ri\xE4
     ruokia, joita et saa antaa el\xE4imille!\r\n\nKun peli p\xE4\xE4ttyy, voit pelata
     uuden samanlaisen pelin tai palata takaisin aloitussivulle vaihtamaan valintojasi.\r"
   m_isRightToLeft: 0
@@ -4389,7 +4377,7 @@ MonoBehaviour:
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: -8.54
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
@@ -5433,7 +5421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   springSprite: {fileID: 21300000, guid: 81b40e7e92c583243b0ab1a3c406c302, type: 3}
   summerSprite: {fileID: 21300000, guid: 81b40e7e92c583243b0ab1a3c406c302, type: 3}
-  fallSprite: {fileID: 21300000, guid: 19eb595c0e50d444ebcda4eb0c23e6bc, type: 3}
+  fallSprite: {fileID: 21300000, guid: 30ae6aeec4c6517499908e4336fb9e1d, type: 3}
   winterSprite: {fileID: 21300000, guid: fac0009ae6c968244bcfc9d25af8c272, type: 3}
   spriteRenderer: {fileID: 1880589253}
 --- !u!1 &1898353007
@@ -5637,7 +5625,7 @@ RectTransform:
   m_GameObject: {fileID: 2000882626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.8}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1038553551}
@@ -5645,7 +5633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -195, y: 101}
+  m_AnchoredPosition: {x: -138, y: 63}
   m_SizeDelta: {x: 236.09998, y: 94.399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2000882628
