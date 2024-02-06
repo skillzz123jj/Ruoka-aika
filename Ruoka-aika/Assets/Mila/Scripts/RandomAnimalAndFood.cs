@@ -16,6 +16,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     public AudioSource audioSource;
 
+
     public List<Vector2> foodPositions = new List<Vector2>();
     public List<Vector2> copyOfFoodPositions = new List<Vector2>();
 
@@ -331,6 +332,8 @@ public class RandomAnimalAndFood : MonoBehaviour
         StartCoroutine(PlayAudioInstructionsSequentially(audioInstructions));
     }
 
+    public GameObject subtitleBox;
+
     private IEnumerator DisplayTextInstructionsSequentially(string textInstruction, List<AudioClip> audioInstructions)
     {
         string[] sentences = textInstruction.Split(','); // Split the text into sentences
@@ -339,12 +342,28 @@ public class RandomAnimalAndFood : MonoBehaviour
         {
             instructionTEXT.text = sentences[i].Trim();
 
+            //Toggle subtitle area visibility based on whether there is text to show
+            if(subtitleBox != null)
+            {
+                subtitleBox.SetActive(!string.IsNullOrEmpty(sentences[i]));
+            }
+
+
             // Wait for the corresponding audio clip length
             float audioClipLength = audioInstructions[i].length + 1; // Adjust the waiting time as needed
             yield return new WaitForSeconds(audioClipLength);
 
+            //Delay before clearing text
+            float textDisplayDuration = 2.0f;
+            yield return new WaitForSeconds(textDisplayDuration);
+
             // Clear the text after waiting for the full audio clip length
             instructionTEXT.text = string.Empty;
+        }
+
+        if(subtitleBox != null)
+        {
+            subtitleBox.SetActive(false);
         }
     }
 
