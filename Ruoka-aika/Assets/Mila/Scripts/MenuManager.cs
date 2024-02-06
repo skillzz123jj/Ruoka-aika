@@ -49,10 +49,15 @@ public class MenuManager : MonoBehaviour
         {
             return;
         }
-      
-        InstructionTextGoAway();
         instructions.SetActive(true);
-        closeInstructionsButton.Select();
+        if (Input.GetKey(KeyCode.Return))
+        {
+            closeInstructionsButton.Select();
+        }
+        Time.timeScale = 0;
+        InstructionTextGoAway();
+      
+        
 
     }
     public void CloseInstructions()
@@ -62,9 +67,14 @@ public class MenuManager : MonoBehaviour
         {
             return;
         }
-       
+        if (Input.GetKey(KeyCode.Return))
+        {
+            instructionButton.Select();
+        }
+
+        Time.timeScale = 1;
         instructions.SetActive(false);
-        instructionButton.Select();
+       
     }
     //public void DisplayInstructions()
     //{
@@ -92,8 +102,9 @@ public class MenuManager : MonoBehaviour
         {
             return;
         }
-
+        Time.timeScale = 1;
         SceneManager.LoadScene(scene);
+        
     }
     public void QuitGame()
     {
@@ -217,4 +228,5 @@ public class MenuManager : MonoBehaviour
     {  
         muteAudioText.SetActive(false);
     }
+   
 }
