@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb690157ac3a2514aa30bc3d43b30be1, type: 3}
+  m_Name: PizzaLampaalle
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: d0aa268442aeecf48b2921d9866008d5, type: 3}
+  textInstruction: "Sy\xF6t\xE4 pizza lampaalle."
+  combo: {fileID: 11400000, guid: e4bc78f8d94f625438328f2d38e45a8c, type: 2}
