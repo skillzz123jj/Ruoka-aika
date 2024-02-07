@@ -6518,8 +6518,8 @@ MonoBehaviour:
   - {fileID: 730061748}
   - {fileID: 106136265}
   m_Bounds:
-    m_Center: {x: 0.0000038146973, y: 0.009999871, z: -0.0000000037252903}
-    m_Extent: {x: 0.53500015, y: 1.1650002, z: 1.110223e-16}
+    m_Center: {x: 0.0000038146973, y: 0.009999871, z: 0}
+    m_Extent: {x: 0.53500015, y: 1.1650002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -13172,7 +13172,7 @@ MonoBehaviour:
   - {fileID: 1234088350}
   - {fileID: 1835780231}
   m_Bounds:
-    m_Center: {x: -0.01000011, y: 0.00067031384, z: 0}
+    m_Center: {x: -0.009999752, y: 0.0006701946, z: 0}
     m_Extent: {x: 1.545, y: 1.6161501, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -14176,13 +14176,13 @@ MonoBehaviour:
   - {fileID: 1502830300}
   audioSource: {fileID: 1488261229}
   foodPositions:
-  - {x: -6, y: -2.9}
-  - {x: -4, y: -2.9}
-  - {x: -2, y: -2.9}
-  - {x: 0, y: -2.9}
-  - {x: 2, y: -2.9}
-  - {x: 4, y: -2.9}
-  - {x: 6, y: -2.9}
+  - {x: -6, y: -2.7}
+  - {x: -4, y: -2.7}
+  - {x: -2, y: -2.7}
+  - {x: 0, y: -2.7}
+  - {x: 2, y: -2.7}
+  - {x: 4, y: -2.7}
+  - {x: 6, y: -2.7}
   copyOfFoodPositions: []
   startPosition: {x: -5.31, y: -3}
   lineStart: {fileID: 1924773394}
@@ -16042,10 +16042,10 @@ RectTransform:
   m_Father: {fileID: 1526203360}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 2.082489, y: -980}
-  m_SizeDelta: {x: 675.359, y: 84.5855}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 2, y: 101}
+  m_SizeDelta: {x: 675.359, y: 84.58551}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681795544
 MonoBehaviour:
@@ -20253,8 +20253,8 @@ MonoBehaviour:
   - {fileID: 549117083}
   - {fileID: 1746365375}
   m_Bounds:
-    m_Center: {x: 0.14497948, y: -0.0031849146, z: 4.656613e-10}
-    m_Extent: {x: 1.7123095, y: 1.2718146, z: 0}
+    m_Center: {x: 0.14497936, y: -0.0031847954, z: 4.656613e-10}
+    m_Extent: {x: 1.7123096, y: 1.2718148, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
