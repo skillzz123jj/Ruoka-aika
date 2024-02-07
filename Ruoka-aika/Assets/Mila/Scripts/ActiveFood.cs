@@ -202,30 +202,35 @@ public class ActiveFood : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
-        if (hit.collider != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
+        if (food != null)
         {
-            GameObject clickedFood = hit.collider.gameObject;
-
-            //Find the index of the clicked food in the chosen foods list
-            int clickedFoodIndex = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.IndexOf(clickedFood);
-
-            if (clickedFoodIndex != -1)
+            if (hit.collider != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
             {
-                //Update the currentFoodIndex
-                currentFoodIndex = clickedFoodIndex;
+                GameObject clickedFood = hit.collider.gameObject;
 
-                if (currentActiveFood != null)
+                //Find the index of the clicked food in the chosen foods list
+                int clickedFoodIndex = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.IndexOf(clickedFood);
+
+                if (clickedFoodIndex != -1)
                 {
+                    //Update the currentFoodIndex
+                    currentFoodIndex = clickedFoodIndex;
 
-                    ResetBackground(currentActiveFood);
+                    if (currentActiveFood != null)
+                    {
+
+                        ResetBackground(currentActiveFood);
+                    }
+
+                    currentActiveFood = clickedFood;
+                    ChooseFood(currentActiveFood);
                 }
-
-                currentActiveFood = clickedFood;
-                ChooseFood(currentActiveFood);
+                RandomAnimalAndFood.randomAnimalAndFood.TimerManager();
+                return clickedFood;
             }
-            RandomAnimalAndFood.randomAnimalAndFood.TimerManager();
-            return clickedFood;
+
         }
+     
 
         return null;
     }

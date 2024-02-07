@@ -7,9 +7,17 @@ public class MainMenu : MonoBehaviour
     public Button easyButton;
     public Button normalButton;
 
+    public GameObject easyChosenButton;
+    public GameObject normalChosenButton;
+
     public Button textInsButton;
     public Button audioInsButton;
     public Button textAndAudioInsButton;
+
+
+    public GameObject textInsButtonChosen;
+    public GameObject audioInsButtonChosen;
+    public GameObject textAndAudioInsButtonChosen;
 
     public Sprite audioHighlightSprite;
     public Sprite textHighlightSprite;
@@ -43,9 +51,30 @@ public class MainMenu : MonoBehaviour
         //Add listeners to handle toggle changes
         audioInstructionsToggle.onValueChanged.AddListener(OnAudioInstructionsToggleChanged);
         textInstructionsToggle.onValueChanged.AddListener(OnTextInstructionsToggleChanged);
+
+        if (Difficulty.difficulty.easy)
+        {
+            Easy();
+        }
+        else
+        {
+            Normal();
+        }
+
+        if (Difficulty.difficulty.textOn)
+        {
+            TextInstruction();
+        }
+        else if (Difficulty.difficulty.audioOn)
+        {
+            AudioInstruction();
+        }
+        else
+        {
+            AudioAndTextInstruction();
+        }
     }
 
-    //These are for buttons
     public void StartGame(int scene)
     {
         Difficulty.difficulty.gameRunning = true;
@@ -55,7 +84,7 @@ public class MainMenu : MonoBehaviour
         }
         SceneManager.LoadScene(scene);
     }
-    
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -69,7 +98,7 @@ public class MainMenu : MonoBehaviour
                 nextIndex = (nextIndex + 1) % buttons.Length;
                 if (menuManager.skip)
                 {
-                  
+
                     nextIndex = (nextIndex + 1) % buttons.Length;
                     menuManager.skip = false;
                 }
@@ -80,38 +109,8 @@ public class MainMenu : MonoBehaviour
             currentIndex = nextIndex;
             buttons[currentIndex].Select();
         }
-
-        if (Difficulty.difficulty.easy)
-        {
-            easyButton.image.sprite = easyHighlightSprite;
-            
-        }
-        if (Difficulty.difficulty.normal)
-        {
-            normalButton.image.sprite = normalHighlightSprite;
-           
-        }
-        HandleSprites();
     }
 
-    void HandleSprites()
-    {
-        if (Difficulty.difficulty.audioOn)
-        {
-            audioInsButton.image.sprite = audioHighlightSprite;
-      
-        }
-        if (Difficulty.difficulty.textOn) 
-        {
-            textInsButton.image.sprite = textHighlightSprite;
-         
-        }
-        if (Difficulty.difficulty.audioAndTextOn)
-        {
-            textAndAudioInsButton.image.sprite = textAndAudioHighlightSprite;
-       
-        }
-    }
     public void Easy()
     {
         if (Input.GetKey(KeyCode.Space))
@@ -120,8 +119,20 @@ public class MainMenu : MonoBehaviour
         }
         Difficulty.difficulty.easy = true;
         Difficulty.difficulty.normal = false;
-        normalButton.image.sprite = normalDefaultSprite;
 
+        normalChosenButton.SetActive(false);
+        easyChosenButton.SetActive(true);
+        normalChosenButton.GetComponent<Button>().interactable = false;
+        easyChosenButton.GetComponent<Button>().interactable = true;
+        easyButton.interactable = false;
+        normalButton.interactable = true;
+
+        if (Input.GetKey(KeyCode.Return))
+        {
+            currentIndex++;
+            buttons[currentIndex].Select();
+            easyChosenButton.GetComponent<Button>().Select();
+        }
     }
     public void Normal()
     {
@@ -131,8 +142,20 @@ public class MainMenu : MonoBehaviour
         }
         Difficulty.difficulty.easy = false;
         Difficulty.difficulty.normal = true;
-        easyButton.image.sprite = easyDefaultSprite;
 
+        normalChosenButton.SetActive(true);
+        easyChosenButton.SetActive(false);
+        normalChosenButton.GetComponent<Button>().interactable = true;
+        easyChosenButton.GetComponent<Button>().interactable = false;
+        easyButton.interactable = true;
+        normalButton.interactable = false;
+
+        if (Input.GetKey(KeyCode.Return))
+        {
+            currentIndex++;
+            buttons[currentIndex].Select();
+            normalChosenButton.GetComponent<Button>().Select();
+        }
     }
     public void AudioInstruction()
     {
@@ -140,6 +163,7 @@ public class MainMenu : MonoBehaviour
         {
             return;
         }
+
 
         Difficulty.difficulty.audioOn = true;
         Difficulty.difficulty.textOn = false;
@@ -150,11 +174,24 @@ public class MainMenu : MonoBehaviour
         audioInstructionsToggle.isOn = true;
         textInstructionsToggle.isOn = false;
 
-        //Changes sprites
-        textInsButton.image.sprite = textDefaultSprite;
-        textInsButton.image.sprite = textDefaultSprite;
-        textAndAudioInsButton.image.sprite = textAndAudioDefaultSprite;
 
+        textInsButtonChosen.SetActive(false);
+        audioInsButtonChosen.SetActive(true);
+        textAndAudioInsButtonChosen.SetActive(false);
+        if (Input.GetKey(KeyCode.Return))
+        {
+            currentIndex++;
+            buttons[currentIndex].Select();
+            audioInsButtonChosen.GetComponent<Button>().Select();
+        }
+
+        textInsButtonChosen.GetComponent<Button>().interactable = false;
+        audioInsButtonChosen.GetComponent<Button>().interactable = true;
+        textAndAudioInsButtonChosen.GetComponent<Button>().interactable = false;
+
+        textInsButton.interactable = true;
+        audioInsButton.interactable = false;
+        textAndAudioInsButton.interactable = true;
     }
     public void TextInstruction()
     {
@@ -162,18 +199,34 @@ public class MainMenu : MonoBehaviour
         {
             return;
         }
-     
-         Difficulty.difficulty.audioOn = false;
-         Difficulty.difficulty.textOn = true;
-         Difficulty.difficulty.audioAndTextOn = false;
-         Difficulty.difficulty.textInstructions = true;
 
-         audioInstructionsToggle.isOn = false;
-         textInstructionsToggle.isOn = true;
+        Difficulty.difficulty.audioOn = false;
+        Difficulty.difficulty.textOn = true;
+        Difficulty.difficulty.audioAndTextOn = false;
+        Difficulty.difficulty.textInstructions = true;
 
-         audioInsButton.image.sprite = audioDefaultSprite;
-         textAndAudioInsButton.image.sprite = textAndAudioDefaultSprite;
-              
+        audioInstructionsToggle.isOn = false;
+        textInstructionsToggle.isOn = true;
+
+        textInsButtonChosen.SetActive(true);
+        audioInsButtonChosen.SetActive(false);
+        textAndAudioInsButtonChosen.SetActive(false);
+
+        if (Input.GetKey(KeyCode.Return))
+        {
+            currentIndex++;
+            buttons[currentIndex].Select();
+            textInsButtonChosen.GetComponent<Button>().Select();
+        }
+
+        textInsButtonChosen.GetComponent<Button>().interactable = true;
+        audioInsButtonChosen.GetComponent<Button>().interactable = false;
+        textAndAudioInsButtonChosen.GetComponent<Button>().interactable = false;
+
+        textInsButton.interactable = false;
+        audioInsButton.interactable = true;
+        textAndAudioInsButton.interactable = true;
+
     }
 
     public void AudioAndTextInstruction()
@@ -190,8 +243,24 @@ public class MainMenu : MonoBehaviour
         audioInstructionsToggle.isOn = true;
         textInstructionsToggle.isOn = true;
 
-        audioInsButton.image.sprite = audioDefaultSprite;
-        textInsButton.image.sprite = textDefaultSprite;
+        textInsButtonChosen.SetActive(false);
+        audioInsButtonChosen.SetActive(false);
+        textAndAudioInsButtonChosen.SetActive(true);
+
+        if (Input.GetKey(KeyCode.Return))
+        {
+            currentIndex++;
+            buttons[currentIndex].Select();
+            textAndAudioInsButtonChosen.GetComponent<Button>().Select();
+        }
+
+        textInsButtonChosen.GetComponent<Button>().interactable = false;
+        audioInsButtonChosen.GetComponent<Button>().interactable = false;
+        textAndAudioInsButtonChosen.GetComponent<Button>().interactable = true;
+
+        textInsButton.interactable = true;
+        audioInsButton.interactable = true;
+        textAndAudioInsButton.interactable = false;
 
     }
     public void OnAudioInstructionsToggleChanged(bool isOn)

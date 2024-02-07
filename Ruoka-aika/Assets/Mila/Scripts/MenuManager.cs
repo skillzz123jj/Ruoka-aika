@@ -22,7 +22,8 @@ public class MenuManager : MonoBehaviour
 
     public bool skip;
 
-    [SerializeField] MainMenu mainMenu;
+    [SerializeField] RandomAnimalAndFood randomAnimalAndFood;
+
 
 
     //All of these handle the UI buttons on the top right corner
@@ -54,7 +55,11 @@ public class MenuManager : MonoBehaviour
         {
             closeInstructionsButton.Select();
         }
-        Time.timeScale = 0;
+        if (randomAnimalAndFood != null)
+        {
+            randomAnimalAndFood.enabled = false;
+
+        }
         InstructionTextGoAway();
       
         
@@ -71,8 +76,11 @@ public class MenuManager : MonoBehaviour
         {
             instructionButton.Select();
         }
+        if (randomAnimalAndFood != null)
+        {
+            randomAnimalAndFood.enabled = true;    
 
-        Time.timeScale = 1;
+        }
         instructions.SetActive(false);
        
     }
@@ -102,7 +110,7 @@ public class MenuManager : MonoBehaviour
         {
             return;
         }
-        Time.timeScale = 1;
+
         SceneManager.LoadScene(scene);
         
     }
