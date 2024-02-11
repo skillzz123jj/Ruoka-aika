@@ -2181,18 +2181,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: AudioAndTextInstruction
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 390397236}
           m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_MethodName: set_sprite
@@ -2221,18 +2209,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: AudioAndTextInstruction
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 16
     callback:
       m_PersistentCalls:
@@ -2244,18 +2220,6 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 21300000, guid: fd6446340f9f02b47b672e157897e15f, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: AudioAndTextInstruction
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -3504,8 +3468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.16015625, y: 0.16601562}
-  m_SizeDelta: {x: 0.3408203, y: 0.3310547}
+  m_AnchoredPosition: {x: 0.16015625, y: -48.299755}
+  m_SizeDelta: {x: 0.3408203, y: -96.60049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038553552
 MonoBehaviour:
@@ -4194,18 +4158,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: Normal
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 1273094496}
           m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_MethodName: set_sprite
@@ -4234,18 +4186,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: Normal
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 16
     callback:
       m_PersistentCalls:
@@ -4257,18 +4197,6 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 21300000, guid: e39a98185142b01469df09a16f9c3d4f, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: Normal
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4720,20 +4648,8 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: b06b8c82b2aad2e4bb307b80ba69c999, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: 66ff53dcb1fea3c4bb1805c2605675d4, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: Easy
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4743,24 +4659,12 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: Easy
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 1459609955}
           m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: b06b8c82b2aad2e4bb307b80ba69c999, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: 66ff53dcb1fea3c4bb1805c2605675d4, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -4771,24 +4675,12 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: Easy
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 1459609955}
           m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: acdfa27344def4d45ab129694977f09c, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: b06b8c82b2aad2e4bb307b80ba69c999, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -5174,11 +5066,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<color=orange><size=50>Ohjeet</color>\r</size>\n\nPeliss\xE4 ruokit maatilan
-    el\xE4imi\xE4 saamiesi ohjeiden perusteella. Pelin aloitussivulla voit valita,
-    haluatko ohjeet \xE4\xE4nen\xE4, tekstin\xE4 vai molempina. Aloitussivulla voit
-    valita my\xF6s pelin vaikeustason eli sen, montako el\xE4int\xE4 ruokit kerrallaan.
-    \r\n\nVoit pelata peli\xE4 hiirell\xE4 tai v\xE4lily\xF6nti- ja rivinvaihton\xE4pp\xE4imill\xE4
+  m_text: "<size=40><b>Ohjeet</b>\r</size>\n\nPeliss\xE4 ruokit maatilan el\xE4imi\xE4
+    saamiesi ohjeiden perusteella. Pelin aloitussivulla voit valita, haluatko ohjeet
+    \xE4\xE4nen\xE4, tekstin\xE4 vai molempina. Aloitussivulla voit valita my\xF6s
+    pelin vaikeustason eli sen, montako el\xE4int\xE4 ruokit kerrallaan. \r\n\nVoit
+    pelata peli\xE4 hiirell\xE4 tai v\xE4lily\xF6nti- ja rivinvaihton\xE4pp\xE4imill\xE4
     ja niit\xE4 vastaavilla painikkeilla. Jos pelaat hiirell\xE4, raahaa oikea ruoka
     oikean el\xE4imen kohdalle. Jos pelaat n\xE4pp\xE4imill\xE4, valitse ensin ruoka
     ja sen j\xE4lkeen el\xE4in. V\xE4lily\xF6ntin\xE4pp\xE4imell\xE4 voit liikkua
@@ -5217,13 +5109,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38
-  m_fontSizeBase: 38
+  m_fontSize: 33
+  m_fontSizeBase: 31
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -5791,18 +5683,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: TextInstruction
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 1593796447}
           m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_MethodName: set_sprite
@@ -5831,18 +5711,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: TextInstruction
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 16
     callback:
       m_PersistentCalls:
@@ -5854,18 +5722,6 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 21300000, guid: f24e109b2037598428a8ad0a6a9e8edb, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: TextInstruction
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -6502,34 +6358,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: AudioInstruction
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 15
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: AudioInstruction
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 1736812912}
           m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_MethodName: set_sprite
@@ -6546,18 +6378,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2055496869}
-          m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-          m_MethodName: AudioInstruction
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 1736812912}
           m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_MethodName: set_sprite
@@ -8387,7 +8207,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 8834fe90f65f6e347b385567d9d042ed, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: acdfa27344def4d45ab129694977f09c, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
@@ -8427,7 +8247,7 @@ MonoBehaviour:
           m_MethodName: set_sprite
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 21300000, guid: 8834fe90f65f6e347b385567d9d042ed, type: 3}
+            m_ObjectArgument: {fileID: 21300000, guid: acdfa27344def4d45ab129694977f09c, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
