@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using TMPro;
-using System.Xml;
 using System.Linq;
 
 
@@ -58,26 +57,28 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     //This dictionary stores the temporary animals and their foods 
     public Dictionary<string, List<string>> TempDictionary = new Dictionary<string, List<string>>();
-    public Dictionary<string, int> TrackAnimals = new Dictionary<string, int>();
 
     public Dictionary<GameObject, Vector2> FoodPositionDictionary = new Dictionary<GameObject, Vector2>();
 
     //Dictionary to map animal names to their corresponding food items
     public Dictionary<string, List<string>> AnimalsFoodsDictionary = new Dictionary<string, List<string>>()
     {
-        { "Koira", new List<string> { "Pihvi", "Luu", "Koiranruoka", "Broileri" } },
         { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet" } },
-        { "Lehmä", new List<string> { "Kurkku", "Lehdet", "Vehnä" } },
-        { "Lammas", new List<string> { "Retiisi", "Lehdet", "Vehnä" } },
         { "Possu", new List<string> { "Porkkana", "Sienet", "Retiisi" } },
         { "Strutsi", new List<string> { "Pähkinät", "Mato", "Etana" } },
         { "Kissa", new List<string> { "Kala", "Pihvi", "Kissanruoka", "Kinkku" } },
-        { "Kana", new List<string> { "Jyvät", "Oliivi", "Leipä" } },
-        { "Alpakka", new List<string> { "Vehnä", "Lehdet" } },
+        { "Koira", new List<string> { "Pihvi", "Luu", "Koiranruoka", "Broileri", "Kala", "Nakki", "Kinkku" } },
+        { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet", "Vehnä", "Retiisi", "Kurkku", "Sienet" } },
+        { "Lehmä", new List<string> { "Kurkku", "Lehdet", "Vehnä", "Porkkana", "Appelsiini" } },
+        { "Lammas", new List<string> { "Retiisi", "Lehdet", "Vehnä", "Oliivi" , "Sienet", "Jyvät"} },
+        { "Possu", new List<string> { "Porkkana", "Sienet", "Retiisi", "Leipä", "Appelsiini" } },
         { "Pesukarhu", new List<string> { "Nakki", "Appelsiini", "Lehdet", "Leipä", "Kala", "Kurkku", "Vehnä", "Oliivi", "Kaali",
            "Pähkinät", "Porkkana", "Pihvi", "Etana", "Jyvät", "Mato", "Retiisi", "Luu", "Broileri", "Kinkku","Sienet"} },
-         { "Hevonen", new List<string> { "Vehnä", "Retiisi" } }
+         { "Hevonen", new List<string> { "Vehnä", "Retiisi", "Jyvät", "Porkkana", "Appelsiini" } }
     };
+
+
+
 
     private void Update()
     {
@@ -299,19 +300,6 @@ public class RandomAnimalAndFood : MonoBehaviour
                 List<string> newList = new List<string> { obj.name };
                 TempDictionary[correctRandomAnimal.name] = newList;
             }
-
-
-            if (TrackAnimals.ContainsKey(correctRandomAnimal.name))
-            {
-
-                TrackAnimals[correctRandomAnimal.name]++;
-            }
-            else
-            {
-
-                TrackAnimals[correctRandomAnimal.name] = 1;
-            }
-
 
             foodIndex++;
             index++;

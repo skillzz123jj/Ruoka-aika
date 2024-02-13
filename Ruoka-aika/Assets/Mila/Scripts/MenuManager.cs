@@ -55,11 +55,7 @@ public class MenuManager : MonoBehaviour
         {
             closeInstructionsButton.Select();
         }
-        if (randomAnimalAndFood != null)
-        {
-            randomAnimalAndFood.enabled = false;
-
-        }
+        Time.timeScale = 0;
         InstructionTextGoAway();
       
         
@@ -76,11 +72,7 @@ public class MenuManager : MonoBehaviour
         {
             instructionButton.Select();
         }
-        if (randomAnimalAndFood != null)
-        {
-            randomAnimalAndFood.enabled = true;    
-
-        }
+        Time.timeScale = 1.0f;
         instructions.SetActive(false);
        
     }
@@ -110,7 +102,7 @@ public class MenuManager : MonoBehaviour
         {
             return;
         }
-
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene(scene);
         
     }
