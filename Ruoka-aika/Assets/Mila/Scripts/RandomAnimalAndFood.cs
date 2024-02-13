@@ -62,20 +62,20 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     //Dictionary to map animal names to their corresponding food items
     public Dictionary<string, List<string>> AnimalsFoodsDictionary = new Dictionary<string, List<string>>()
-    {
-        { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet" } },
-        { "Possu", new List<string> { "Porkkana", "Sienet", "Retiisi" } },
-        { "Strutsi", new List<string> { "Pähkinät", "Mato", "Etana" } },
-        { "Kissa", new List<string> { "Kala", "Pihvi", "Kissanruoka", "Kinkku" } },
-        { "Koira", new List<string> { "Pihvi", "Luu", "Koiranruoka", "Broileri", "Kala", "Nakki", "Kinkku" } },
-        { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet", "Vehnä", "Retiisi", "Kurkku", "Sienet" } },
-        { "Lehmä", new List<string> { "Kurkku", "Lehdet", "Vehnä", "Porkkana", "Appelsiini" } },
-        { "Lammas", new List<string> { "Retiisi", "Lehdet", "Vehnä", "Oliivi" , "Sienet", "Jyvät"} },
-        { "Possu", new List<string> { "Porkkana", "Sienet", "Retiisi", "Leipä", "Appelsiini" } },
-        { "Pesukarhu", new List<string> { "Nakki", "Appelsiini", "Lehdet", "Leipä", "Kala", "Kurkku", "Vehnä", "Oliivi", "Kaali",
-           "Pähkinät", "Porkkana", "Pihvi", "Etana", "Jyvät", "Mato", "Retiisi", "Luu", "Broileri", "Kinkku","Sienet"} },
-         { "Hevonen", new List<string> { "Vehnä", "Retiisi", "Jyvät", "Porkkana", "Appelsiini" } }
-    };
+  {
+      { "Koira", new List<string> { "Pihvi", "Luu", "Koiranruoka", "Broileri", "Kala", "Nakki", "Kinkku" } },
+      { "Pupu", new List<string> { "Porkkana", "Kaali", "Lehdet", "Vehnä", "Retiisi", "Kurkku", "Sienet" } },
+      { "Lehmä", new List<string> { "Kurkku", "Lehdet", "Vehnä", "Porkkana", "Appelsiini" } },
+      { "Lammas", new List<string> { "Retiisi", "Lehdet", "Vehnä", "Oliivi" , "Sienet", "Jyvät"} },
+      { "Possu", new List<string> { "Porkkana", "Sienet", "Retiisi", "Leipä", "Appelsiini" } },
+      { "Strutsi", new List<string> { "Pähkinät", "Mato", "Etana", "Kala", "Jyvät", "Appelsiini", "Kaali" } },
+      { "Kissa", new List<string> { "Kala", "Pihvi", "Kissanruoka", "Kinkku", "Broileri", "Nakki" } },
+      { "Kana", new List<string> { "Jyvät", "Oliivi", "Leipä", "Kurkku", "Mato", "Porkkana", "Kala", "Pähkinät" } },
+      { "Alpakka", new List<string> { "Vehnä", "Lehdet", "Porkkana", "Retiisi", "Kaali", "Leipä" } },
+      { "Pesukarhu", new List<string> { "Nakki", "Appelsiini", "Lehdet", "Leipä", "Kala", "Kurkku", "Vehnä", "Oliivi", "Kaali",
+         "Pähkinät", "Porkkana", "Pihvi", "Etana", "Jyvät", "Mato", "Retiisi", "Luu", "Broileri", "Kinkku","Sienet"} },
+       { "Hevonen", new List<string> { "Vehnä", "Retiisi", "Jyvät", "Porkkana", "Appelsiini" } }
+  };
 
 
 
