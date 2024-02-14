@@ -69,10 +69,10 @@ public class MainMenu : MonoBehaviour
         {
             AudioInstruction();
         }
-        else
-        {
-            AudioAndTextInstruction();
-        }
+        //else
+        //{
+        //    AudioAndTextInstruction();
+        //}
     }
 
     public void StartGame(int scene)

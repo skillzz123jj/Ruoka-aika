@@ -80,13 +80,19 @@ public class Animals : MonoBehaviour
         foodThatCollidedName = null;
         good = false;
         bad = false;
+        //if (!activeFood.foodBeingEaten && !activeFood.isMoving)
+        //{
+        //    activeFood.highlight.SetActive(false);
+        //}
      
     }
+    bool beingHandled;
 
     private void Update()
     {
         if (activeFood.foodWasFed)
         {
+          //  activeFood.foodBeingEaten = true;
             if (good)
             { 
                 if (chewingSound != null)
@@ -104,6 +110,7 @@ public class Animals : MonoBehaviour
             }
             else if (bad)
             {
+              //  activeFood.foodBeingEaten = true;
                 activeFood.wasChosen = false;
                 activeFood.ResetBackground(foodThatCollided);
                 errorSound.Play();
@@ -237,7 +244,13 @@ public class Animals : MonoBehaviour
     //If there are no more foods this one handles that
     void HandleChanges()
     {
-        activeFood.highlight.SetActive(false);
+       
+        if (!activeFood.isMoving)
+        {
+            activeFood.highlight.SetActive(false);
+
+        }
+      //  activeFood.foodBeingEaten = false;
 
         //Checks if there are only bad foods in the scene and lowers the timer to swap foods
         foreach (GameObject food in randomAnimalAndFood.chosenFoods)
@@ -260,7 +273,9 @@ public class Animals : MonoBehaviour
 
             amountOfBadFoods = 0;
             amountOfGoodFoods = 0;
-        
+          
+
+
 
         if (randomAnimalAndFood.foodsLeft == 0 && !randomAnimalAndFood.changedFoodsRecently)
         {

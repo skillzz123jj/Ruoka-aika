@@ -347,8 +347,8 @@ public class RandomAnimalAndFood : MonoBehaviour
             instructionTEXT.text = sentences[i].Trim();
 
             // Wait for the corresponding audio clip length
-            float audioClipLength = audioInstructions[i].length + 1; // Adjust the waiting time as needed
-            yield return new WaitForSeconds(audioClipLength);
+            //float audioClipLength = audioInstructions[i].length + 1; // Adjust the waiting time as needed
+            yield return new WaitForSeconds(5f);
 
             // Clear the text after waiting for the full audio clip length
             instructionTEXT.text = string.Empty;

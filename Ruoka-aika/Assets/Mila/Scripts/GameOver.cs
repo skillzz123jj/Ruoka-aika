@@ -50,6 +50,7 @@ public class GameOver : MonoBehaviour
         {
             return;
         }
+        Time.timeScale = 1f;
         SceneManager.LoadScene(scene);
 
     }

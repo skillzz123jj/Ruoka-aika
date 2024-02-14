@@ -10,12 +10,12 @@ public class Difficulty : MonoBehaviour
     public bool normal;
 
     public bool gameRunning = true;
-    public bool textInstructions = true;
+    public bool textInstructions = false;
     public bool audioMuted;
 
-    public bool textOn = true;
+    public bool textOn = false;
     public bool audioOn = true;
-    public bool audioAndTextOn = true;
+    public bool audioAndTextOn;
 
     public bool spring;
     public bool winter;

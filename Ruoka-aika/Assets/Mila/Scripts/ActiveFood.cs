@@ -28,6 +28,7 @@ public class ActiveFood : MonoBehaviour
     public bool wasChosen;
     public bool isMoving = false;
     bool isHovering;
+    public bool foodBeingEaten;
 
     Touch touch;
     Collider2D foodCollided;
@@ -155,7 +156,7 @@ public class ActiveFood : MonoBehaviour
             if (currentActiveFood)
             {
                 wasChosen = false;
-                highlight.SetActive(false);
+               // highlight.SetActive(false);
             }
             GameObject newActiveFood = GetClickedFood();
 
