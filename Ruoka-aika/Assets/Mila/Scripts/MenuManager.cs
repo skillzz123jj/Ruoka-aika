@@ -76,21 +76,6 @@ public class MenuManager : MonoBehaviour
         instructions.SetActive(false);
        
     }
-    //public void DisplayInstructions()
-    //{
-
-    //    if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
-    //    {
-    //        return;
-    //    }
-
-    //    if (Input.GetKey(KeyCode.Space))
-    //    {
-    //        return;
-    //    }
-   
-    //    instructions.SetActive(!instructions.activeSelf);
-    //}
     public void reloadGame(int scene)
     {
         if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))

@@ -18,6 +18,8 @@ public class ActiveFood : MonoBehaviour
     GameObject activeAnimal;
     GameObject actuallyActive;
 
+    public int collisionCount;
+
     public float moveSpeed = 3.0f;
     public float speed = 5.0f;
 
@@ -29,6 +31,7 @@ public class ActiveFood : MonoBehaviour
     public bool isMoving = false;
     bool isHovering;
     public bool foodBeingEaten;
+    bool playingWithMouse;
 
     Touch touch;
     Collider2D foodCollided;
@@ -51,6 +54,17 @@ public class ActiveFood : MonoBehaviour
  
     void Update()
     {
+        if (collisionCount > 0)
+        {
+            highlight.SetActive(true);
+        }
+        else
+        {
+            highlight.SetActive(false);
+
+        }
+     
+
         //Convert the mouse position to world coordinates
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -75,15 +89,15 @@ public class ActiveFood : MonoBehaviour
             }
             isHovering = false;
         }
-
+        
         //Cancel animal selection 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            wasChosen = false;
-            currentAnimalIndex = 0;
-            highlight.SetActive(false);
-            SwitchToNextFood();
-        }
+        //if (Input.GetKeyDown(KeyCode.DownArrow))
+        //{
+        //    wasChosen = false;
+        //    currentAnimalIndex = 0;
+        //    highlight.SetActive(false);
+        //    SwitchToNextFood();
+        //}
 
         //Choose a food using space then select using enter
         //After that choose an animal using space then feed the chosen food using enter
@@ -91,11 +105,13 @@ public class ActiveFood : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-            
+                playingWithMouse = false;
+            //    collisionCount++;
                 SwitchToNextFood();
             }
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                playingWithMouse = false;
                 if (currentActiveFood == null)
                 {
                     wasChosen = false;
@@ -109,14 +125,20 @@ public class ActiveFood : MonoBehaviour
                 }
 
             }
-
+            
         }
         else if (currentActiveFood)
         {
+            if (!playingWithMouse)
+            {
+                collisionCount = 1;
+            }
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                playingWithMouse = false;
                 if (!isMoving)
                 {
+                   
                     ChooseAnAnimal();
                 }
 
@@ -124,6 +146,7 @@ public class ActiveFood : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Return) && !isMoving)
             {
+                playingWithMouse = false;
                 animator.SetTrigger("Valinta");
                 if (activeAnimal == null)
                 {
@@ -135,6 +158,7 @@ public class ActiveFood : MonoBehaviour
         }
         if (Input.touchCount > 0)
         {
+            playingWithMouse = true;
             touch = Input.GetTouch(0); 
           
         }
@@ -152,7 +176,8 @@ public class ActiveFood : MonoBehaviour
         //Check if a new food is clicked by the player
         if (Input.GetMouseButtonDown(0))
         {
-           
+           playingWithMouse = true;
+            collisionCount = 0;
             if (currentActiveFood)
             {
                 wasChosen = false;
@@ -226,7 +251,11 @@ public class ActiveFood : MonoBehaviour
                     currentActiveFood = clickedFood;
                     ChooseFood(currentActiveFood);
                 }
-                RandomAnimalAndFood.randomAnimalAndFood.TimerManager();
+                if (currentActiveFood.CompareTag("Food"))
+                {
+                    RandomAnimalAndFood.randomAnimalAndFood.TimerManager();
+
+                }
                 return clickedFood;
             }
 
@@ -343,6 +372,7 @@ public class ActiveFood : MonoBehaviour
         {
             float distanceCovered = (Time.time - startTime) * moveSpeed;
             float fractionOfJourney = distanceCovered / journeyLength;
+            collisionCount = 1;
 
             activeFood.transform.position = Vector3.Lerp(initialPosition, targetPosition, fractionOfJourney);
 
@@ -357,6 +387,7 @@ public class ActiveFood : MonoBehaviour
         Invoke("ResetBool", 0.1f);
         currentActiveFood = null;
         isMoving = false;
+        collisionCount = 0;
 
     }
 }

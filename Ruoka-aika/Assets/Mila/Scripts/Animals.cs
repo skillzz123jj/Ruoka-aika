@@ -41,7 +41,8 @@ public class Animals : MonoBehaviour
 
             if (!activeFood.isMoving)
             {
-                activeFood.highlight.SetActive(true);
+             //   activeFood.highlight.SetActive(true);
+                activeFood.collisionCount = 1;
                 activeFood.highlight.transform.position = gameObject.transform.position;
 
             }
@@ -80,21 +81,23 @@ public class Animals : MonoBehaviour
         foodThatCollidedName = null;
         good = false;
         bad = false;
-        //if (!activeFood.foodBeingEaten && !activeFood.isMoving)
-        //{
-        //    activeFood.highlight.SetActive(false);
-        //}
-     
-    }
-    bool beingHandled;
+       
+        if (!activeFood.foodBeingEaten && !activeFood.isMoving)
+        {
+            activeFood.collisionCount = 0;
+          
+        }
 
+    }
+ 
     private void Update()
     {
         if (activeFood.foodWasFed)
         {
-          //  activeFood.foodBeingEaten = true;
+            
             if (good)
-            { 
+            {
+                activeFood.foodBeingEaten = true;
                 if (chewingSound != null)
                 {
                     chewingSound.Play();
@@ -110,7 +113,7 @@ public class Animals : MonoBehaviour
             }
             else if (bad)
             {
-              //  activeFood.foodBeingEaten = true;
+                activeFood.foodBeingEaten = true;
                 activeFood.wasChosen = false;
                 activeFood.ResetBackground(foodThatCollided);
                 errorSound.Play();
@@ -245,12 +248,13 @@ public class Animals : MonoBehaviour
     void HandleChanges()
     {
        
-        if (!activeFood.isMoving)
-        {
-            activeFood.highlight.SetActive(false);
+        //if (!activeFood.isMoving)
+        //{
+        //    activeFood.highlight.SetActive(false);
 
-        }
-      //  activeFood.foodBeingEaten = false;
+        //}
+        activeFood.foodBeingEaten = false;
+        activeFood.collisionCount = 0;
 
         //Checks if there are only bad foods in the scene and lowers the timer to swap foods
         foreach (GameObject food in randomAnimalAndFood.chosenFoods)
@@ -284,7 +288,6 @@ public class Animals : MonoBehaviour
             if (randomAnimalAndFood.nowIsAGoodTime)
             {
                 randomAnimalAndFood.nowIsAGoodTime = false;
-                //randomAnimalAndFood.timerToChangeFood = 2;
                 StartCoroutine(randomAnimalAndFood.CanChangeAnimal(2f));
             }
             else

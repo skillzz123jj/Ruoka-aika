@@ -139,6 +139,12 @@ public class RandomAnimalAndFood : MonoBehaviour
     }
     private void Start()
     {
+        if (Application.platform == RuntimePlatform.WebGLPlayer && Application.isMobilePlatform)
+        {
+            lineStart.position = new Vector3(lineStart.position.x - 1, lineStart.position.y, lineStart.position.z);
+            lineEnd.position = new Vector3(lineEnd.position.x + 1, lineEnd.position.y, lineEnd.position.z);
+
+        }
         randomAnimalAndFood = this;
         CheckForCurrentLevel();
         ChooseRandomAnimals();
@@ -160,11 +166,11 @@ public class RandomAnimalAndFood : MonoBehaviour
     {
         if (Difficulty.difficulty.easy)
         {
-            timerToChangeFood = easyTimer;  //70;
+            timerToChangeFood = easyTimer;  
         }
         else if (Difficulty.difficulty.normal)
         {
-            timerToChangeFood = hardTimer; //60;
+            timerToChangeFood = hardTimer; 
         }
     }
     //This method chooses the initial animals and their positions
