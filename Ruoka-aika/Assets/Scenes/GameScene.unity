@@ -3720,6 +3720,166 @@ MonoBehaviour:
       animalName: Pesukarhu
     audioClip: {fileID: 8300000, guid: e369794bf75eed94db7813ae1a33833b, type: 3}
     textInstruction: "Anna vehn\xE4 pesukarhulle"
+  - combo:
+      foodName: Appelsiini
+      animalName: Hevonen
+    audioClip: {fileID: 8300000, guid: c1d9252636c1f4f4ca189544e25b6b2a, type: 3}
+    textInstruction: Anna appelsiini hevoselle.
+  - combo:
+      foodName: Appelsiini
+      animalName: "Lehm\xE4"
+    audioClip: {fileID: 8300000, guid: de3cd6f52cf82d34e840810ad250691a, type: 3}
+    textInstruction: "Anna appelsiini lehm\xE4lle."
+  - combo:
+      foodName: Appelsiini
+      animalName: Possu
+    audioClip: {fileID: 8300000, guid: 81d8bc0587d701443b961ea796d863db, type: 3}
+    textInstruction: Anna appelsiini possulle.
+  - combo:
+      foodName: Appelsiini
+      animalName: Strutsi
+    audioClip: {fileID: 8300000, guid: 9d94ac0d2353c0f4da1252f3ae3b7c3c, type: 3}
+    textInstruction: Anna appelsiini strutsille.
+  - combo:
+      foodName: Broileri
+      animalName: Kissa
+    audioClip: {fileID: 8300000, guid: 712db176ee424434d84e814a19f35285, type: 3}
+    textInstruction: Anna broileri kissalle.
+  - combo:
+      foodName: "Jyv\xE4t"
+      animalName: Hevonen
+    audioClip: {fileID: 8300000, guid: 6309312c5cea2484d8a46a6359506068, type: 3}
+    textInstruction: "Anna jyv\xE4t hevoselle."
+  - combo:
+      foodName: "Jyv\xE4t"
+      animalName: Lammas
+    audioClip: {fileID: 8300000, guid: ace96e1b978a0d847b295315df8dada4, type: 3}
+    textInstruction: "Anna jyv\xE4t lampaalle."
+  - combo:
+      foodName: "Jyv\xE4t"
+      animalName: Strutsi
+    audioClip: {fileID: 8300000, guid: ecee80135405168489492683f8ac4c56, type: 3}
+    textInstruction: "Anna jyv\xE4t strutsille."
+  - combo:
+      foodName: Kaali
+      animalName: Alpakka
+    audioClip: {fileID: 8300000, guid: 8592ecb31082d4a43948af9b626d9ac9, type: 3}
+    textInstruction: Anna kaali alpakalle.
+  - combo:
+      foodName: Kaali
+      animalName: Strutsi
+    audioClip: {fileID: 8300000, guid: 3971a1a925deb494691dba6a1753eea2, type: 3}
+    textInstruction: Anna kaali strutsille.
+  - combo:
+      foodName: Kala
+      animalName: Kana
+    audioClip: {fileID: 8300000, guid: a518e1be8f0bcd24695e2e5b3244ca05, type: 3}
+    textInstruction: Anna kala kanalle.
+  - combo:
+      foodName: Kala
+      animalName: Koira
+    audioClip: {fileID: 8300000, guid: 4a64513b1b97e924aac7672657456d41, type: 3}
+    textInstruction: Anna kala koiralle.
+  - combo:
+      foodName: Kala
+      animalName: Strutsi
+    audioClip: {fileID: 8300000, guid: df7f054407d36034e928c843dbd30688, type: 3}
+    textInstruction: Anna kala strutsille.
+  - combo:
+      foodName: Kinkku
+      animalName: Koira
+    audioClip: {fileID: 8300000, guid: 8f9d272b1938f324c8cac3df1ba532ba, type: 3}
+    textInstruction: Anna kinkku koiralle.
+  - combo:
+      foodName: Kurkku
+      animalName: Kana
+    audioClip: {fileID: 8300000, guid: c0e5f7566bdf43f45ad1c820ff36ef94, type: 3}
+    textInstruction: Anna kurkku kanalle.
+  - combo:
+      foodName: Kurkku
+      animalName: Pupu
+    audioClip: {fileID: 8300000, guid: cd95fbead2343784e945721927354cd3, type: 3}
+    textInstruction: Anna kurkku pupulle.
+  - combo:
+      foodName: "Leip\xE4"
+      animalName: Alpakka
+    audioClip: {fileID: 8300000, guid: 109b53c5f981fe54e97ac5e3d6131132, type: 3}
+    textInstruction: "Anna leip\xE4 alpakalle."
+  - combo:
+      foodName: "Leip\xE4"
+      animalName: Possu
+    audioClip: {fileID: 8300000, guid: 612ee6e0346b36749ba95d6c50a83e74, type: 3}
+    textInstruction: "Anna leip\xE4 possulle"
+  - combo:
+      foodName: Mato
+      animalName: Kana
+    audioClip: {fileID: 8300000, guid: efa536b096f301e4cb6b31c9fc2bad6b, type: 3}
+    textInstruction: Anna mato kanalle.
+  - combo:
+      foodName: Nakki
+      animalName: Kissa
+    audioClip: {fileID: 8300000, guid: e8a6f9838195ff54c82a4cbcfcfdcde9, type: 3}
+    textInstruction: Anna nakki kissalle.
+  - combo:
+      foodName: Nakki
+      animalName: Koira
+    audioClip: {fileID: 8300000, guid: 038afdc88042a5a468fe86dce1efd314, type: 3}
+    textInstruction: Anna nakki koiralle.
+  - combo:
+      foodName: Oliivi
+      animalName: Lammas
+    audioClip: {fileID: 8300000, guid: fc4d7a2426429124ea0a5b5507b4461d, type: 3}
+    textInstruction: Anna oliivi lampaalle.
+  - combo:
+      foodName: Porkkana
+      animalName: Alpakka
+    audioClip: {fileID: 8300000, guid: 8f0bed2bd7d814e41bdc96183270b420, type: 3}
+    textInstruction: Anna porkkana alpakalle.
+  - combo:
+      foodName: Porkkana
+      animalName: Hevonen
+    audioClip: {fileID: 8300000, guid: eadeebcc7d0933f479a60812773be861, type: 3}
+    textInstruction: Anna porkkana hevoselle.
+  - combo:
+      foodName: Porkkana
+      animalName: Kana
+    audioClip: {fileID: 8300000, guid: 654d6e29247626d49971a8d632c22910, type: 3}
+    textInstruction: Anna porkkana kanalle.
+  - combo:
+      foodName: Porkkana
+      animalName: "Lehm\xE4"
+    audioClip: {fileID: 8300000, guid: e180b68861a9cf4438c9935649a6670d, type: 3}
+    textInstruction: "Anna porkkana lehm\xE4lle."
+  - combo:
+      foodName: "P\xE4hkin\xE4t"
+      animalName: Kana
+    audioClip: {fileID: 8300000, guid: 1681045f06d786d4380d2013201540cc, type: 3}
+    textInstruction: "Anna p\xE4hkin\xE4t kanalle."
+  - combo:
+      foodName: Retiisi
+      animalName: Alpakka
+    audioClip: {fileID: 8300000, guid: 0e2170cb365fb1d46b45751a6e403a34, type: 3}
+    textInstruction: Anna retiisi alpakalle.
+  - combo:
+      foodName: Retiisi
+      animalName: Pupu
+    audioClip: {fileID: 8300000, guid: 9bf38194ed0b38a4aae96db8a0b4a996, type: 3}
+    textInstruction: Anna retiisi pupulle.
+  - combo:
+      foodName: Sienet
+      animalName: Lammas
+    audioClip: {fileID: 8300000, guid: dbff03c51f65b644bbad026032256058, type: 3}
+    textInstruction: Anna sienet lampaalle.
+  - combo:
+      foodName: Sienet
+      animalName: Pupu
+    audioClip: {fileID: 8300000, guid: 853008561223e92449844afc765efa36, type: 3}
+    textInstruction: Anna sienet pupulle.
+  - combo:
+      foodName: "Vehn\xE4"
+      animalName: Pupu
+    audioClip: {fileID: 8300000, guid: f43e5b84d82582d4282b3a8b2ff68d2b, type: 3}
+    textInstruction: "Anna vehn\xE4 pupulle."
 --- !u!1 &365366064
 GameObject:
   m_ObjectHideFlags: 0
@@ -6798,8 +6958,8 @@ MonoBehaviour:
   - {fileID: 730061748}
   - {fileID: 106136265}
   m_Bounds:
-    m_Center: {x: 0.0000038146973, y: 0.009999871, z: -0.0000000037252903}
-    m_Extent: {x: 0.53500015, y: 1.1650002, z: 1.110223e-16}
+    m_Center: {x: 0.0000038146973, y: 0.009999871, z: 0}
+    m_Extent: {x: 0.53500015, y: 1.1650002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -13789,7 +13949,7 @@ MonoBehaviour:
   - {fileID: 1234088350}
   - {fileID: 1835780231}
   m_Bounds:
-    m_Center: {x: -0.01000011, y: 0.00067031384, z: 0}
+    m_Center: {x: -0.009999752, y: 0.0006701946, z: 0}
     m_Extent: {x: 1.545, y: 1.6161501, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -20537,8 +20697,8 @@ MonoBehaviour:
   - {fileID: 549117083}
   - {fileID: 1746365375}
   m_Bounds:
-    m_Center: {x: 0.14497948, y: -0.0031849146, z: 4.656613e-10}
-    m_Extent: {x: 1.7123095, y: 1.2718146, z: 0}
+    m_Center: {x: 0.14497936, y: -0.0031847954, z: 4.656613e-10}
+    m_Extent: {x: 1.7123096, y: 1.2718148, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
