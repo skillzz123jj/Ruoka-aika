@@ -21,6 +21,9 @@ public class Difficulty : MonoBehaviour
     public bool winter;
     public bool fall;
 
+    public bool instructions;
+    public int currentIndex;
+
     public static Difficulty difficulty;
 
     void Start()

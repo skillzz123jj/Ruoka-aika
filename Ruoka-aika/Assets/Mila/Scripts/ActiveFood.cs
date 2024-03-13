@@ -216,11 +216,14 @@ public class ActiveFood : MonoBehaviour
     //Changes it back to normal
     void OnHoverExit()
     {
-        if (food != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
+        if (food != null && (food.CompareTag("Food") || food.CompareTag("EiSyötävä")))
         {
             GameObject background = food.transform.GetChild(0).gameObject;
-            backgroundSpriteRenderer = background.GetComponent<SpriteRenderer>();
-            backgroundSpriteRenderer.sprite = defaultBackground;
+            if (background != null)
+            {
+                backgroundSpriteRenderer = background.GetComponent<SpriteRenderer>();
+                backgroundSpriteRenderer.sprite = defaultBackground;
+            }
         }
     }
     private GameObject GetClickedFood()

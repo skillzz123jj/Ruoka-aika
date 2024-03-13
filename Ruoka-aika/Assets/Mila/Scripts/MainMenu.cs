@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -36,8 +38,10 @@ public class MainMenu : MonoBehaviour
     public Toggle audioInstructionsToggle;
     public Toggle textInstructionsToggle;
 
-    public Selectable[] buttons;
-    int currentIndex = 0;
+    [SerializeField] List<Button> buttons = new List<Button>();
+    [SerializeField] List<Button> uiButtons = new List<Button>();
+    [SerializeField] List<Button> instructionButtons = new List<Button>();
+    
 
     [SerializeField] MenuManager menuManager;
 
@@ -88,27 +92,35 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
+        if (Difficulty.difficulty.instructions)
+        {
+            uiButtons = instructionButtons;
+        }
+        else
+        {
+            uiButtons = buttons;
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Difficulty.difficulty.gameRunning = false;
 
-            int nextIndex = currentIndex;
+            int nextIndex = Difficulty.difficulty.currentIndex;
 
             do
             {
-                nextIndex = (nextIndex + 1) % buttons.Length;
+                nextIndex = (nextIndex + 1) % uiButtons.Count;
                 if (menuManager.skip)
                 {
 
-                    nextIndex = (nextIndex + 1) % buttons.Length;
+                    nextIndex = (nextIndex + 1) % uiButtons.Count;
                     menuManager.skip = false;
                 }
 
             }
             while (!buttons[nextIndex].interactable);
 
-            currentIndex = nextIndex;
-            buttons[currentIndex].Select();
+            Difficulty.difficulty.currentIndex = nextIndex;
+            uiButtons[Difficulty.difficulty.currentIndex].Select();
         }
     }
 
@@ -130,8 +142,8 @@ public class MainMenu : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Return))
         {
-            currentIndex++;
-            buttons[currentIndex].Select();
+            Difficulty.difficulty.currentIndex++;
+            buttons[Difficulty.difficulty.currentIndex].Select();
             easyChosenButton.GetComponent<Button>().Select();
         }
     }
@@ -153,8 +165,8 @@ public class MainMenu : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Return))
         {
-            currentIndex++;
-            buttons[currentIndex].Select();
+            Difficulty.difficulty.currentIndex++;
+            buttons[Difficulty.difficulty.currentIndex].Select();
             normalChosenButton.GetComponent<Button>().Select();
         }
     }
@@ -181,8 +193,8 @@ public class MainMenu : MonoBehaviour
         textAndAudioInsButtonChosen.SetActive(false);
         if (Input.GetKey(KeyCode.Return))
         {
-            currentIndex++;
-            buttons[currentIndex].Select();
+            Difficulty.difficulty.currentIndex++;
+            buttons[Difficulty.difficulty.currentIndex].Select();
             audioInsButtonChosen.GetComponent<Button>().Select();
         }
 
@@ -215,8 +227,8 @@ public class MainMenu : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Return))
         {
-            currentIndex++;
-            buttons[currentIndex].Select();
+            Difficulty.difficulty.currentIndex++;
+            buttons[Difficulty.difficulty.currentIndex].Select();
             textInsButtonChosen.GetComponent<Button>().Select();
         }
 
@@ -250,8 +262,8 @@ public class MainMenu : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Return))
         {
-            currentIndex++;
-            buttons[currentIndex].Select();
+            Difficulty.difficulty.currentIndex++;
+            buttons[Difficulty.difficulty.currentIndex].Select();
             textAndAudioInsButtonChosen.GetComponent<Button>().Select();
         }
 

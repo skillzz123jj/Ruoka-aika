@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
+using UnityEngine.Playables;
 
 public class MenuManager : MonoBehaviour
 {
@@ -21,8 +22,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject subtitlesBox;
 
     public bool skip;
+    [SerializeField] GameObject blur;
+    int previousIndex;
 
     [SerializeField] RandomAnimalAndFood randomAnimalAndFood;
+    [SerializeField] MainMenu mainMenu;
 
 
 
@@ -46,35 +50,59 @@ public class MenuManager : MonoBehaviour
     public void DisplayInstructions()
     {
 
+        //if (Input.GetKey(KeyCode.Space))
+        //{
+        //    return;
+        //}
+        //instructions.SetActive(true);
+        //if (Input.GetKey(KeyCode.Return))
+        //{
+        //    closeInstructionsButton.Select();
+        //}
+      
+        //InstructionTextGoAway();
+
+
         if (Input.GetKey(KeyCode.Space))
         {
             return;
         }
+      
+        Time.timeScale = 0;
+        previousIndex = Difficulty.difficulty.currentIndex;
+        Difficulty.difficulty.instructions = true;
+        InstructionTextGoAway();
         instructions.SetActive(true);
         if (Input.GetKey(KeyCode.Return))
         {
+
             closeInstructionsButton.Select();
         }
-        Time.timeScale = 0;
-        InstructionTextGoAway();
-      
-        
+       
+        blur.GetComponent<Image>().enabled = true;
+
+
 
     }
     public void CloseInstructions()
     {
-
         if (Input.GetKey(KeyCode.Space))
         {
             return;
         }
+
+        Time.timeScale = 1.0f;
+        Difficulty.difficulty.instructions = false;
         if (Input.GetKey(KeyCode.Return))
         {
             instructionButton.Select();
+
         }
-        Time.timeScale = 1.0f;
+      
+        Difficulty.difficulty.currentIndex = previousIndex;
+        blur.GetComponent<Image>().enabled = false;
         instructions.SetActive(false);
-       
+
     }
     public void reloadGame(int scene)
     {
@@ -150,6 +178,7 @@ public class MenuManager : MonoBehaviour
     }
     private void Update()
     {
+
 
         if (Difficulty.difficulty.audioMuted)
         {

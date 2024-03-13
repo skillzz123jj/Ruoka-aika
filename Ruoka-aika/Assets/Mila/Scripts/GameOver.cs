@@ -9,14 +9,25 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject subtitles;
 
     public Button[] buttons;
-    private int currentIndex = 0;
+    public Button[] uiButtons;
+    public Button[] instructionButtons;
+    private int currentIndex = -1;
 
     [SerializeField] MenuManager menuManager;
 
     void Update()
-    {         
+    {
         Invoke("GameEnded", 1f);
         Difficulty.difficulty.gameRunning = false;
+
+        if (Difficulty.difficulty.instructions)
+        {
+            uiButtons = instructionButtons;
+        }
+        else
+        {
+            uiButtons = buttons;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -24,25 +35,30 @@ public class GameOver : MonoBehaviour
 
             do
             {
-                nextIndex = (nextIndex + 1) % buttons.Length;
+                nextIndex = (nextIndex + 1) % uiButtons.Length;
                 if (menuManager.skip)
                 {
                     // Skip the button, increment the index again
-                    nextIndex = (nextIndex + 1) % buttons.Length;
+                    nextIndex = (nextIndex + 1) % uiButtons.Length;
                     menuManager.skip = false;
                 }
 
             }
-            while (!buttons[nextIndex].interactable);
+            while (!uiButtons[nextIndex].interactable);
 
             currentIndex = nextIndex;
-            buttons[currentIndex].Select();
+            uiButtons[currentIndex].Select();
         }
     }
     void GameEnded()
     {
         Destroy(disableFoods);
         Destroy(subtitles);
+    }
+    public void CorrectIndex()
+    {
+        currentIndex = 3;
+
     }
     public void RestartGame(int scene)
     {
