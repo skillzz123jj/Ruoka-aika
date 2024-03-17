@@ -114,12 +114,12 @@ public class SeasonalChanges : MonoBehaviour
 
     private void Update()
     {
-        if (Difficulty.difficulty.winter)
+        if (GameData.gameData.winter)
         {
             spriteRenderer.sprite = winterSprite;
 
         }
-        else if (Difficulty.difficulty.fall)
+        else if (GameData.gameData.fall)
         {
             spriteRenderer.sprite = fallSprite;
         }
@@ -175,20 +175,20 @@ public class SeasonalChanges : MonoBehaviour
         switch (currentSeason)
         {
             case "Spring":
-                Difficulty.difficulty.spring = true;
-                Difficulty.difficulty.winter = false;
-                Difficulty.difficulty.fall = false;
+                GameData.gameData.spring = true;
+                GameData.gameData.winter = false;
+                GameData.gameData.fall = false;
 
                 break;         
             case "Fall":
-                Difficulty.difficulty.spring = false;
-                Difficulty.difficulty.winter = false;
-                Difficulty.difficulty.fall = true;
+                GameData.gameData.spring = false;
+                GameData.gameData.winter = false;
+                GameData.gameData.fall = true;
                 break;
             case "Winter":
-                Difficulty.difficulty.spring = false;
-                Difficulty.difficulty.winter = true;
-                Difficulty.difficulty.fall = false;
+                GameData.gameData.spring = false;
+                GameData.gameData.winter = true;
+                GameData.gameData.fall = false;
                 break;
             default:
                 //This sets spring as the default background if the device is unable to check for any dates

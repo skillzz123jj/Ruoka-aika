@@ -48,6 +48,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        GameData.gameData.currentIndex = -1;
         //Initialize the toggles based on player preferences
         audioInstructionsToggle.isOn = PlayerPrefs.GetInt("AudioInstructionsEnabled", 1) == 1;
         textInstructionsToggle.isOn = PlayerPrefs.GetInt("TextInstructionsEnabled", 1) == 1;
@@ -56,7 +57,7 @@ public class MainMenu : MonoBehaviour
         audioInstructionsToggle.onValueChanged.AddListener(OnAudioInstructionsToggleChanged);
         textInstructionsToggle.onValueChanged.AddListener(OnTextInstructionsToggleChanged);
 
-        if (Difficulty.difficulty.easy)
+        if (GameData.gameData.easy)
         {
             Easy();
         }
@@ -65,24 +66,21 @@ public class MainMenu : MonoBehaviour
             Normal();
         }
 
-        if (Difficulty.difficulty.textOn)
+        if (GameData.gameData.textOn)
         {
             TextInstruction();
         }
-        else if (Difficulty.difficulty.audioOn)
+        else if (GameData.gameData.audioOn)
         {
             AudioInstruction();
         }
-        //else
-        //{
-        //    AudioAndTextInstruction();
-        //}
+  
     }
 
     public void StartGame(int scene)
     {
-        Difficulty.difficulty.gameRunning = true;
-        if (Input.GetKey(KeyCode.Space))
+        GameData.gameData.gameRunning = true;
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
             return;
         }
@@ -92,7 +90,7 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Difficulty.difficulty.instructions)
+        if (GameData.gameData.instructions)
         {
             uiButtons = instructionButtons;
         }
@@ -100,11 +98,11 @@ public class MainMenu : MonoBehaviour
         {
             uiButtons = buttons;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
-            Difficulty.difficulty.gameRunning = false;
+            GameData.gameData.gameRunning = false;
 
-            int nextIndex = Difficulty.difficulty.currentIndex;
+            int nextIndex = GameData.gameData.currentIndex;
 
             do
             {
@@ -119,19 +117,19 @@ public class MainMenu : MonoBehaviour
             }
             while (!buttons[nextIndex].interactable);
 
-            Difficulty.difficulty.currentIndex = nextIndex;
-            uiButtons[Difficulty.difficulty.currentIndex].Select();
+            GameData.gameData.currentIndex = nextIndex;
+            uiButtons[GameData.gameData.currentIndex].Select();
         }
     }
 
     public void Easy()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
             return;
         }
-        Difficulty.difficulty.easy = true;
-        Difficulty.difficulty.normal = false;
+        GameData.gameData.easy = true;
+        GameData.gameData.normal = false;
 
         normalChosenButton.SetActive(false);
         easyChosenButton.SetActive(true);
@@ -142,19 +140,19 @@ public class MainMenu : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Return))
         {
-            Difficulty.difficulty.currentIndex++;
-            buttons[Difficulty.difficulty.currentIndex].Select();
+            GameData.gameData.currentIndex++;
+            buttons[GameData.gameData.currentIndex].Select();
             easyChosenButton.GetComponent<Button>().Select();
         }
     }
     public void Normal()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
             return;
         }
-        Difficulty.difficulty.easy = false;
-        Difficulty.difficulty.normal = true;
+        GameData.gameData.easy = false;
+        GameData.gameData.normal = true;
 
         normalChosenButton.SetActive(true);
         easyChosenButton.SetActive(false);
@@ -165,23 +163,23 @@ public class MainMenu : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Return))
         {
-            Difficulty.difficulty.currentIndex++;
-            buttons[Difficulty.difficulty.currentIndex].Select();
+            GameData.gameData.currentIndex++;
+            buttons[GameData.gameData.currentIndex].Select();
             normalChosenButton.GetComponent<Button>().Select();
         }
     }
     public void AudioInstruction()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
             return;
         }
 
 
-        Difficulty.difficulty.audioOn = true;
-        Difficulty.difficulty.textOn = false;
-        Difficulty.difficulty.audioAndTextOn = false;
-        Difficulty.difficulty.textInstructions = false;
+        GameData.gameData.audioOn = true;
+        GameData.gameData.textOn = false;
+        GameData.gameData.audioAndTextOn = false;
+        GameData.gameData.textInstructions = false;
 
         //Changes the settings in playerPrefs
         audioInstructionsToggle.isOn = true;
@@ -193,8 +191,8 @@ public class MainMenu : MonoBehaviour
         textAndAudioInsButtonChosen.SetActive(false);
         if (Input.GetKey(KeyCode.Return))
         {
-            Difficulty.difficulty.currentIndex++;
-            buttons[Difficulty.difficulty.currentIndex].Select();
+            GameData.gameData.currentIndex++;
+            buttons[GameData.gameData.currentIndex].Select();
             audioInsButtonChosen.GetComponent<Button>().Select();
         }
 
@@ -208,15 +206,15 @@ public class MainMenu : MonoBehaviour
     }
     public void TextInstruction()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
             return;
         }
 
-        Difficulty.difficulty.audioOn = false;
-        Difficulty.difficulty.textOn = true;
-        Difficulty.difficulty.audioAndTextOn = false;
-        Difficulty.difficulty.textInstructions = true;
+        GameData.gameData.audioOn = false;
+        GameData.gameData.textOn = true;
+        GameData.gameData.audioAndTextOn = false;
+        GameData.gameData.textInstructions = true;
 
         audioInstructionsToggle.isOn = false;
         textInstructionsToggle.isOn = true;
@@ -227,8 +225,8 @@ public class MainMenu : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Return))
         {
-            Difficulty.difficulty.currentIndex++;
-            buttons[Difficulty.difficulty.currentIndex].Select();
+            GameData.gameData.currentIndex++;
+            buttons[GameData.gameData.currentIndex].Select();
             textInsButtonChosen.GetComponent<Button>().Select();
         }
 
@@ -244,14 +242,14 @@ public class MainMenu : MonoBehaviour
 
     public void AudioAndTextInstruction()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
             return;
         }
-        Difficulty.difficulty.audioOn = false;
-        Difficulty.difficulty.textOn = false;
-        Difficulty.difficulty.audioAndTextOn = true;
-        Difficulty.difficulty.textInstructions = true;
+        GameData.gameData.audioOn = false;
+        GameData.gameData.textOn = false;
+        GameData.gameData.audioAndTextOn = true;
+        GameData.gameData.textInstructions = true;
 
         audioInstructionsToggle.isOn = true;
         textInstructionsToggle.isOn = true;
@@ -262,8 +260,8 @@ public class MainMenu : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Return))
         {
-            Difficulty.difficulty.currentIndex++;
-            buttons[Difficulty.difficulty.currentIndex].Select();
+            GameData.gameData.currentIndex++;
+            buttons[GameData.gameData.currentIndex].Select();
             textAndAudioInsButtonChosen.GetComponent<Button>().Select();
         }
 

@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-using Unity.VisualScripting;
-using UnityEngine.Playables;
 
 public class MenuManager : MonoBehaviour
 {
@@ -35,7 +33,7 @@ public class MenuManager : MonoBehaviour
     {
         if (subtitlesBox != null)
         {
-            if (Difficulty.difficulty.textInstructions)
+            if (GameData.gameData.textInstructions)
             {
                 subtitlesBox.SetActive(true);
             }
@@ -49,28 +47,14 @@ public class MenuManager : MonoBehaviour
     }
     public void DisplayInstructions()
     {
-
-        //if (Input.GetKey(KeyCode.Space))
-        //{
-        //    return;
-        //}
-        //instructions.SetActive(true);
-        //if (Input.GetKey(KeyCode.Return))
-        //{
-        //    closeInstructionsButton.Select();
-        //}
-      
-        //InstructionTextGoAway();
-
-
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
             return;
         }
       
         Time.timeScale = 0;
-        previousIndex = Difficulty.difficulty.currentIndex;
-        Difficulty.difficulty.instructions = true;
+        previousIndex = GameData.gameData.currentIndex;
+        GameData.gameData.instructions = true;
         InstructionTextGoAway();
         instructions.SetActive(true);
         if (Input.GetKey(KeyCode.Return))
@@ -78,7 +62,7 @@ public class MenuManager : MonoBehaviour
 
             closeInstructionsButton.Select();
         }
-       
+        GameData.gameData.currentIndex = 0;
         blur.GetComponent<Image>().enabled = true;
 
 
@@ -86,27 +70,27 @@ public class MenuManager : MonoBehaviour
     }
     public void CloseInstructions()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
             return;
         }
 
         Time.timeScale = 1.0f;
-        Difficulty.difficulty.instructions = false;
+        GameData.gameData.instructions = false;
         if (Input.GetKey(KeyCode.Return))
         {
             instructionButton.Select();
 
         }
       
-        Difficulty.difficulty.currentIndex = previousIndex;
+        GameData.gameData.currentIndex = previousIndex;
         blur.GetComponent<Image>().enabled = false;
         instructions.SetActive(false);
 
     }
     public void reloadGame(int scene)
     {
-        if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+        if (GameData.gameData.gameRunning && Input.GetKey(KeyCode.Return))
         {
             return;
         }
@@ -121,7 +105,7 @@ public class MenuManager : MonoBehaviour
     }
     public void QuitGame()
     {
-        if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+        if (GameData.gameData.gameRunning && Input.GetKey(KeyCode.Return))
         {
             return;
         }
@@ -134,7 +118,7 @@ public class MenuManager : MonoBehaviour
     }
     public void MuteAudio()
     {
-        if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+        if (GameData.gameData.gameRunning && Input.GetKey(KeyCode.Return))
         {
             return;
         }
@@ -145,7 +129,7 @@ public class MenuManager : MonoBehaviour
         }
         muteAudioAsDefault.interactable = true;
         audioAsDefault.interactable = false;
-        Difficulty.difficulty.audioMuted = true;
+        GameData.gameData.audioMuted = true;
       
         audioButton.SetActive(false);
         muteAudioButton.SetActive(true);
@@ -157,7 +141,7 @@ public class MenuManager : MonoBehaviour
 
     public void Audio()
     {
-        if (Difficulty.difficulty.gameRunning && Input.GetKey(KeyCode.Return))
+        if (GameData.gameData.gameRunning && Input.GetKey(KeyCode.Return))
         {
             return;
         }
@@ -167,7 +151,7 @@ public class MenuManager : MonoBehaviour
         }
         audioAsDefault.interactable = true;
         muteAudioAsDefault.interactable = false;
-        Difficulty.difficulty.audioMuted = false;
+        GameData.gameData.audioMuted = false;
         skip = true;
         audioButton.SetActive(true);
         muteAudioButton.SetActive(false);
@@ -180,7 +164,7 @@ public class MenuManager : MonoBehaviour
     {
 
 
-        if (Difficulty.difficulty.audioMuted)
+        if (GameData.gameData.audioMuted)
         {
             AudioListener.volume = 0f;
             audioButton.SetActive(false);

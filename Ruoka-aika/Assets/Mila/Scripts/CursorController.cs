@@ -1,66 +1,61 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
-using UnityEngine.Playables;
 
 public class CursorController : MonoBehaviour
 {
     public Texture2D defaultCursor;
     public Texture2D hoverCursor;
+    bool hovering;
+    [SerializeField] Vector2 hotspotDefault = new Vector2(8, 5);
+    [SerializeField] Vector2 hotspotHover = new Vector2(10, 6);
 
     public static CursorController cursor;
 
-    void Start()
+    public void ChangeCursor(Texture2D cursorType, Vector2 hotspot)
     {
-        // Set the default cursor
-        ChangeCursor(defaultCursor);
-
-        if (cursor == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            cursor = this;
-        }
-        else
-        {
-
-            Destroy(gameObject);
-        }
-    }
-
-    public void ChangeCursor(Texture2D cursorType)
-    {
-        Cursor.SetCursor(cursorType, Vector2.zero, CursorMode.Auto);
-    }
+        Cursor.SetCursor(cursorType, hotspot, CursorMode.Auto);
+    } 
 
     void Update()
     {
-        if (IsPointerOverSpecificUIElement())
+        if (hovering || CheckForClickableObjects())
         {
-            ChangeCursor(hoverCursor);
+            ChangeCursor(hoverCursor, hotspotHover);
         }
         else
         {
-            ChangeCursor(defaultCursor);
-
+            ChangeCursor(defaultCursor, hotspotDefault);
         }
     }
-
-    bool IsPointerOverSpecificUIElement()
+    public void Hovering()
     {
-        PointerEventData eventData = new PointerEventData(EventSystem.current);
-        eventData.position = Input.mousePosition;
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventData, results);
+        hovering = true;
+    }
+    public void ExitHovering()
+    {
+        hovering = false;
+    }
 
-        foreach (RaycastResult result in results)
+    bool CheckForClickableObjects()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+        if (hit)
         {
-            GameObject hitObject = result.gameObject;
-            if (hitObject.CompareTag("Button") || hitObject.transform.parent != null && hitObject.transform.parent.CompareTag("Button"))
+            if (!GameData.gameData.instructions) 
             {
-                return true;
+
+                if (hit.collider.gameObject.CompareTag("Food")) 
+                {
+                    return true;
+                }
             }
         }
 
         return false;
     }
+
 }
+

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Difficulty : MonoBehaviour
+public class GameData : MonoBehaviour
 {
-    //This script only stores what difficulty has been chosen 
+    //Handles game data across scenes
     public bool easy = true;
     public bool normal;
 
@@ -21,18 +21,19 @@ public class Difficulty : MonoBehaviour
     public bool winter;
     public bool fall;
 
+    public bool finnish;
     public bool instructions;
     public int currentIndex;
 
-    public static Difficulty difficulty;
+    public static GameData gameData;
 
     void Start()
     {
         //Doesnt destroy on the next scene if there arent any duplicates
-        if (difficulty == null)
+        if (gameData == null)
         {
             DontDestroyOnLoad(gameObject);
-            difficulty = this;
+            gameData = this;
         }
         else
         {

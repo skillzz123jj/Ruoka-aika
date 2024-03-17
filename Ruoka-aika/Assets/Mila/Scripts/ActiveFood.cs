@@ -90,20 +90,12 @@ public class ActiveFood : MonoBehaviour
             isHovering = false;
         }
         
-        //Cancel animal selection 
-        //if (Input.GetKeyDown(KeyCode.DownArrow))
-        //{
-        //    wasChosen = false;
-        //    currentAnimalIndex = 0;
-        //    highlight.SetActive(false);
-        //    SwitchToNextFood();
-        //}
-
+      
         //Choose a food using space then select using enter
         //After that choose an animal using space then feed the chosen food using enter
         if (!wasChosen)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
             {
                 playingWithMouse = false;
             //    collisionCount++;
@@ -133,7 +125,7 @@ public class ActiveFood : MonoBehaviour
             {
                 collisionCount = 1;
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
             {
                 playingWithMouse = false;
                 if (!isMoving)

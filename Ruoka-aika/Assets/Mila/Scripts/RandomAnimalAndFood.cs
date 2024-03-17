@@ -164,11 +164,11 @@ public class RandomAnimalAndFood : MonoBehaviour
     float hardTimer;
     public void TimerManager()
     {
-        if (Difficulty.difficulty.easy)
+        if (GameData.gameData.easy)
         {
             timerToChangeFood = easyTimer;  
         }
-        else if (Difficulty.difficulty.normal)
+        else if (GameData.gameData.normal)
         {
             timerToChangeFood = hardTimer; 
         }
@@ -176,7 +176,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method chooses the initial animals and their positions
     public void ChooseRandomAnimals()
     {
-        Difficulty.difficulty.gameRunning = true;
+        GameData.gameData.gameRunning = true;
         //This determines how many animals are chosen       
         CheckForDifficulty();
 
@@ -614,11 +614,11 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method changes the amount of animals that are present based on difficulty
     void CheckForDifficulty()
     {
-        if (Difficulty.difficulty.easy)
+        if (GameData.gameData.easy)
         {
             numAnimalsToChoose = 3;
         }
-        else if (Difficulty.difficulty.normal)
+        else if (GameData.gameData.normal)
         {
             numAnimalsToChoose = 4;
         }
@@ -629,7 +629,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method changes the amount of foods that are going to spawn
     void CheckForCurrentLevel()
     {
-        if (Difficulty.difficulty.easy)
+        if (GameData.gameData.easy)
         {
 
             if (Score.scoreScript.score <= 9)
