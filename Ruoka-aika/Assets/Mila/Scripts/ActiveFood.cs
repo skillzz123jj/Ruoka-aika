@@ -18,26 +18,25 @@ public class ActiveFood : MonoBehaviour
     GameObject activeAnimal;
     GameObject actuallyActive;
 
-    public int collisionCount;
-
     public float moveSpeed = 3.0f;
     public float speed = 5.0f;
 
+    public int collisionCount;
     public int currentFoodIndex = 0;
     int currentAnimalIndex;
 
     public bool foodWasFed;
     public bool wasChosen;
     public bool isMoving = false;
-    bool isHovering;
     public bool foodBeingEaten;
+    bool isHovering;
     bool playingWithMouse;
 
     Touch touch;
     Collider2D foodCollided;
     Vector2 position;
     RaycastHit2D hit;
-    [SerializeField] public Animator animator;
+    public Animator animator;
 
     public static ActiveFood activeFood;
 
@@ -54,6 +53,7 @@ public class ActiveFood : MonoBehaviour
  
     void Update()
     {
+        //This checks if a food is hovering over an animal and activates the highlight accordingly
         if (collisionCount > 0)
         {
             highlight.SetActive(true);
@@ -64,7 +64,6 @@ public class ActiveFood : MonoBehaviour
 
         }
      
-
         //Convert the mouse position to world coordinates
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -98,7 +97,6 @@ public class ActiveFood : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
             {
                 playingWithMouse = false;
-            //    collisionCount++;
                 SwitchToNextFood();
             }
             if (Input.GetKeyDown(KeyCode.Return))
@@ -173,7 +171,7 @@ public class ActiveFood : MonoBehaviour
             if (currentActiveFood)
             {
                 wasChosen = false;
-               // highlight.SetActive(false);
+      
             }
             GameObject newActiveFood = GetClickedFood();
 
@@ -253,14 +251,11 @@ public class ActiveFood : MonoBehaviour
                 }
                 return clickedFood;
             }
-
         }
-     
-
         return null;
     }
 
-    //Allows the user to choose foods using space button
+    //Allows the user to choose foods using space/tab button
     public void SwitchToNextFood()
     {
         if (RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.Count == 0)
@@ -284,6 +279,7 @@ public class ActiveFood : MonoBehaviour
             ChangeBackground(currentActiveFood);
         }
     }
+
     //Resets the food's background sprite when new food was chosen 
     public void ResetBackground(GameObject food)
     {
@@ -296,7 +292,7 @@ public class ActiveFood : MonoBehaviour
         backgroundSpriteRenderer.sortingOrder = 25;
         backgroundSpriteRenderer.sprite = defaultBackground;
     }
-    //Changes the food's background sprite if chosen via space bar 
+    //Changes the food's background sprite if chosen via space/tab 
     void ChangeBackground(GameObject food)
     {
         foodCollided = food.GetComponent<Collider2D>();
@@ -325,7 +321,7 @@ public class ActiveFood : MonoBehaviour
 
     }
 
-    //Allows the user to choose animals using space button
+    //Allows the user to choose animals using space/tab button
     void ChooseAnAnimal()
     {
         if (actuallyActive != null)

@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
 public class LanguageSettings : MonoBehaviour
 {
-
     [SerializeField] TMP_Text text;
     bool isFinnish = true;
     [SerializeField] List<GameObject> finnishObjects = new List<GameObject>();
@@ -26,6 +24,7 @@ public class LanguageSettings : MonoBehaviour
             }
 
         }
+        //Changes all objects with text to match the chosen language
         if (GameData.gameData.finnish)
         {
             foreach (GameObject obj in finnishObjects)

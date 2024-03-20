@@ -89,12 +89,12 @@ public class Animals : MonoBehaviour
         }
 
     }
- 
+   
     private void Update()
     {
+        //After a food was successfully fed this handles what happens next
         if (activeFood.foodWasFed)
         {
-            
             if (good)
             {
                 activeFood.foodBeingEaten = true;
@@ -130,15 +130,14 @@ public class Animals : MonoBehaviour
     //Spawns new foods when the old ones have been fed  
     public void NewFoods()
     {    
-        if (randomAnimalAndFood.enabled)
+        if (randomAnimalAndFood.enabled && GameData.gameData.gameRunning)
         {
             randomAnimalAndFood.RandomFood(randomAnimalAndFood.numberOfFoodsToChoose, randomAnimalAndFood.numberOfAllowedBadFoods);
             randomAnimalAndFood.RandomCorrectAnimal();
             randomAnimalAndFood.foodsLeft = randomAnimalAndFood.numberOfFoodsToChoose;
             randomAnimalAndFood.TimerManager();
 
-        }
-           
+        }       
     }
 
     void GoodFood()
@@ -246,13 +245,7 @@ public class Animals : MonoBehaviour
   
     //If there are no more foods this one handles that
     void HandleChanges()
-    {
-       
-        //if (!activeFood.isMoving)
-        //{
-        //    activeFood.highlight.SetActive(false);
-
-        //}
+    {    
         activeFood.foodBeingEaten = false;
         activeFood.collisionCount = 0;
 
@@ -278,8 +271,6 @@ public class Animals : MonoBehaviour
             amountOfBadFoods = 0;
             amountOfGoodFoods = 0;
           
-
-
 
         if (randomAnimalAndFood.foodsLeft == 0 && !randomAnimalAndFood.changedFoodsRecently)
         {

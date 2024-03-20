@@ -5,50 +5,48 @@ using UnityEngine;
 using TMPro;
 using System.Linq;
 
-
 public class RandomAnimalAndFood : MonoBehaviour
 {
     [SerializeField] List<GameObject> animals = new List<GameObject>();
-    [SerializeField] public List<GameObject> chosenAnimals = new List<GameObject>();
-    [SerializeField] List<GameObject> animalsThatWerentChosen = new List<GameObject>();
-    [SerializeField] List<GameObject> foods = new List<GameObject>();
-    [SerializeField] public List<GameObject> allFoods = new List<GameObject>();
-    [SerializeField] public List<GameObject> chosenFoods = new List<GameObject>();
+    [SerializeField] List<GameObject> allFoods = new List<GameObject>();
     [SerializeField] List<GameObject> bowls = new List<GameObject>();
+    [SerializeField] List<Vector2> foodPositions = new List<Vector2>();
 
-    public AudioSource audioSource;
+    public List<GameObject> chosenFoods = new List<GameObject>();
+    public List<GameObject> chosenAnimals = new List<GameObject>();
 
-    public List<Vector2> foodPositions = new List<Vector2>();
-    public List<Vector2> copyOfFoodPositions = new List<Vector2>();
-
-    public Vector2 startPosition;
-
+    List<GameObject> foods = new List<GameObject>();
+    List<GameObject> animalsThatWerentChosen = new List<GameObject>();
+    List<Vector2> copyOfFoodPositions = new List<Vector2>();
     List<string> foodsWithoutAssociations = new List<string>
     {
         "Rengas", "Jäätelö", "Sitruuna", "Karkki", "Chili", "Pizza"
     };
 
-    [SerializeField] Transform lineStart;
     [SerializeField] Transform lineEnd;
+    [SerializeField] Transform lineStart;
+    public AudioSource audioSource;
+    public Vector2 startPosition;
 
     public float timerToChangeFood = 10;
     public float timerToChangeAnimal = 20;
+    float easyTimer;
+    float hardTimer;
 
-    GameObject correctRandomAnimal;
     public GameObject smoke;
-
-    [SerializeField] Animator smokeAnim;
+    GameObject correctRandomAnimal;
 
     public bool canChangeAnimal;
-    bool justChangedAnimals;
     public bool changedFoodsRecently;
     public bool nowIsAGoodTime;
+    bool justChangedAnimals;
 
     public int foodsLeft = 1;
     public int numberOfFoodsToChoose;
     public int numberOfAllowedBadFoods;
     int numAnimalsToChoose = 4;
 
+    [SerializeField] Animator smokeAnim;
     [SerializeField] TMP_Text instructionTEXT;
     [SerializeField] ActiveFood activeFood;
 
@@ -58,6 +56,7 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This dictionary stores the temporary animals and their foods 
     public Dictionary<string, List<string>> TempDictionary = new Dictionary<string, List<string>>();
 
+    //Stores food positions to return them back to their position 
     public Dictionary<GameObject, Vector2> FoodPositionDictionary = new Dictionary<GameObject, Vector2>();
 
     //Dictionary to map animal names to their corresponding food items
@@ -77,12 +76,9 @@ public class RandomAnimalAndFood : MonoBehaviour
        { "Hevonen", new List<string> { "Vehnä", "Retiisi", "Jyvät", "Porkkana", "Appelsiini" } }
   };
 
-
-
-
     private void Update()
     {
-
+        //Timer to change foods and check when is an appropriate to change animals
         timerToChangeFood -= Time.deltaTime;
 
         if (timerToChangeFood <= 0 && !activeFood.isMoving)
@@ -160,8 +156,6 @@ public class RandomAnimalAndFood : MonoBehaviour
 
     }
 
-    float easyTimer;
-    float hardTimer;
     public void TimerManager()
     {
         if (GameData.gameData.easy)
@@ -182,7 +176,6 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         //Adds the amount of animals that are in the animals list (Makes the list dynamic instead of locking it to any number)
         List<int> amountOfAnimals = new List<int>();
-
 
         for (int i = 0; i < animals.Count; i++)
         {
@@ -244,6 +237,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         int index = 0;
         int foodIndex = 0;
+
         //Clears the dictionary that checks what animals are allowed to eat the foods
         TempDictionary.Clear();
 
@@ -253,7 +247,6 @@ public class RandomAnimalAndFood : MonoBehaviour
         // Create a StringBuilder to accumulate all text instructions
         StringBuilder textInstructionsBuilder = new StringBuilder();
 
-        //instructionTEXT.text = "Anna ";
         //For each food it checks if the animal can eat it and adds it to possible animals
         foreach (GameObject obj in chosenFoods)
         {
@@ -293,7 +286,7 @@ public class RandomAnimalAndFood : MonoBehaviour
 
             }
 
-            Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
+           // Debug.Log($"Syötä {obj.name} {correctRandomAnimal.name}");
 
             if (TempDictionary.ContainsKey(correctRandomAnimal.name))
             {
@@ -508,6 +501,8 @@ public class RandomAnimalAndFood : MonoBehaviour
     public List<GameObject> availableFoods;
     public void RandomFood(int numberOfFoodsToChoose, int numberOfAllowedBadFoods)
     {
+        if (GameData.gameData.gameRunning)
+        { 
         //Clear the list of chosen foods so it can be filled again
         chosenFoods.Clear();
         FoodPositionDictionary.Clear();
@@ -520,6 +515,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         foreach (GameObject notChosen in allFoods)
         {
             notChosen.SetActive(false);
+
         }
 
         int badFoods = 0;
@@ -567,7 +563,7 @@ public class RandomAnimalAndFood : MonoBehaviour
             }
 
         }
-
+        //Sorts the foods in the same order they are in the scene
         PositionFoodsRandomly(chosenFoods);
         chosenFoods.Sort((a, b) =>
         {
@@ -576,14 +572,13 @@ public class RandomAnimalAndFood : MonoBehaviour
         activeFood.currentFoodIndex = -1;
         activeFood.SwitchToNextFood();
         previouslyChosenFoods = new List<GameObject>(chosenFoods);
-
+    }
     }
 
 
     //This method gives the foods their positions
     public void PositionFoodsRandomly(List<GameObject> foods)
     {
-
         foreach (GameObject food in foods)
         {
             activeFood.ResetBackground(food);

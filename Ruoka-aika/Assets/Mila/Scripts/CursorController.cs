@@ -1,14 +1,13 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using System.Collections.Generic;
 
 public class CursorController : MonoBehaviour
 {
+    [SerializeField] Vector2 hotspotDefault = new Vector2(8, 5);
+    [SerializeField] Vector2 hotspotHover = new Vector2(10, 6);
+
     public Texture2D defaultCursor;
     public Texture2D hoverCursor;
     bool hovering;
-    [SerializeField] Vector2 hotspotDefault = new Vector2(8, 5);
-    [SerializeField] Vector2 hotspotHover = new Vector2(10, 6);
 
     public static CursorController cursor;
 

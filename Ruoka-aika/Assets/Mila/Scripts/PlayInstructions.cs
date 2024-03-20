@@ -1,7 +1,6 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class PlayInstructions : MonoBehaviour
@@ -43,13 +42,7 @@ public class PlayInstructions : MonoBehaviour
         Button audioOff = stopAudioButton.GetComponent<Button>();
         audioOff.interactable = false;
         Button button = startAudioButton.GetComponent<Button>();
-        //if (GameData.gameData.instructions)
-        //{
-        //    button.Select();
-        //}
         button.interactable = true;
-
-
         audioSource.Stop();
     }
     public IEnumerator PlayAudio()
@@ -63,7 +56,6 @@ public class PlayInstructions : MonoBehaviour
         Button audioOff = stopAudioButton.GetComponent<Button>();
         audioOff.Select();
         audioOff.interactable = true;
-       // GameData.gameData.skip = true;
         Debug.Log(audioSource.clip.length);
         yield return new WaitForSeconds(audioSource.clip.length);
         startAudioButton.SetActive(true);

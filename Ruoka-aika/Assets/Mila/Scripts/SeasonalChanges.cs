@@ -89,9 +89,6 @@
 //    }  
 //}
 
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -105,12 +102,6 @@ public class SeasonalChanges : MonoBehaviour
     [SerializeField] Image spriteRenderer;
 
     public static SeasonalChanges seasonalChanges;
-
-    private void Start()
-    {
-
-      
-    }
 
     private void Update()
     {

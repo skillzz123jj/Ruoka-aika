@@ -3,21 +3,18 @@ using TMPro;
 using UnityEngine.UI;
 using System.Collections;
 
-
 public class Credits : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
-    string credit = "Tekijät";
     [SerializeField] GameObject credits;
     [SerializeField] Button closeCredits;
+    string credit = "Tekijät";
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(enumerator());
     }
 
-    // Update is called once per frame
     void Update()
     {
         credit = GameData.gameData.finnish ? "Tekijät" : "Skapare";
@@ -34,10 +31,7 @@ public class Credits : MonoBehaviour
     }
     public void CloseCredits()
     {
-
         text.text = $"{credit}";
-
-
     }
     public void HoverCredits()
     {
@@ -56,7 +50,6 @@ public class Credits : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         text.text = $"{credit}";
-
     }
 }
 

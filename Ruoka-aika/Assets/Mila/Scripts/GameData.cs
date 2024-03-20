@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameData : MonoBehaviour
 {
@@ -29,7 +26,7 @@ public class GameData : MonoBehaviour
 
     void Start()
     {
-        //Doesnt destroy on the next scene if there arent any duplicates
+        //Gets destroyed if there are numerous in the scene 
         if (gameData == null)
         {
             DontDestroyOnLoad(gameObject);

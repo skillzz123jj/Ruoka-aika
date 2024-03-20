@@ -18,16 +18,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject instructionText;
     [SerializeField] GameObject instructions;
     [SerializeField] GameObject subtitlesBox;
+    [SerializeField] GameObject blur;
 
     public bool skip;
-    [SerializeField] GameObject blur;
     int previousIndex;
 
     [SerializeField] RandomAnimalAndFood randomAnimalAndFood;
-    [SerializeField] MainMenu mainMenu;
-
-
-
+  
     //All of these handle the UI buttons on the top right corner
     private void Start()
     {
@@ -64,8 +61,6 @@ public class MenuManager : MonoBehaviour
         }
         GameData.gameData.currentIndex = 0;
         blur.GetComponent<Image>().enabled = true;
-
-
 
     }
     public void CloseInstructions()
@@ -135,10 +130,7 @@ public class MenuManager : MonoBehaviour
         muteAudioButton.SetActive(true);
         muteAudioText.SetActive(false);
         EventSystem.current.SetSelectedGameObject(muteAudioAsDefault.gameObject);
-
-
     }
-
     public void Audio()
     {
         if (GameData.gameData.gameRunning && Input.GetKey(KeyCode.Return))
@@ -157,13 +149,10 @@ public class MenuManager : MonoBehaviour
         muteAudioButton.SetActive(false);
         audioText.SetActive(false);
         EventSystem.current.SetSelectedGameObject(audioAsDefault.gameObject);
-       
-
+      
     }
     private void Update()
     {
-
-
         if (GameData.gameData.audioMuted)
         {
             AudioListener.volume = 0f;
@@ -185,7 +174,6 @@ public class MenuManager : MonoBehaviour
 
         }
     }
-   
     public void ExitGameText()
     {
         exitGameText.SetActive(true);

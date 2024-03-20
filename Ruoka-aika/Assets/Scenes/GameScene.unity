@@ -12551,6 +12551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disableFoods: {fileID: 1314074845}
   subtitles: {fileID: 1681795542}
+  highlight: {fileID: 465730797}
   buttons:
   - {fileID: 710449584}
   - {fileID: 872557957}

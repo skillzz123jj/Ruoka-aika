@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,7 +14,6 @@ public class MainMenu : MonoBehaviour
     public Button textInsButton;
     public Button audioInsButton;
     public Button textAndAudioInsButton;
-
 
     public GameObject textInsButtonChosen;
     public GameObject audioInsButtonChosen;
@@ -42,9 +40,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] List<Button> uiButtons = new List<Button>();
     [SerializeField] List<Button> instructionButtons = new List<Button>();
     
-
     [SerializeField] MenuManager menuManager;
-
 
     private void Start()
     {

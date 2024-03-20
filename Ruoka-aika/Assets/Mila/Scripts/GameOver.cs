@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,17 +6,19 @@ public class GameOver : MonoBehaviour
 {
     [SerializeField] GameObject disableFoods;
     [SerializeField] GameObject subtitles;
+    [SerializeField] GameObject highlight;
 
     public Button[] buttons;
     public Button[] uiButtons;
     public Button[] instructionButtons;
-   
 
     [SerializeField] MenuManager menuManager;
 
     private void OnEnable()
     {
         GameData.gameData.currentIndex = -1;
+        highlight.SetActive(false);
+
     }
     void Update()
     {
@@ -32,7 +33,7 @@ public class GameOver : MonoBehaviour
         {
             uiButtons = buttons;
         }
-
+        //Allows UI navigation with a keyboard
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
         {
             int nextIndex = GameData.gameData.currentIndex;
@@ -42,7 +43,7 @@ public class GameOver : MonoBehaviour
                 nextIndex = (nextIndex + 1) % uiButtons.Length;
                 if (menuManager.skip)
                 {
-                    // Skip the button, increment the index again
+                    //Skip the button, increment the index again
                     nextIndex = (nextIndex + 1) % uiButtons.Length;
                     menuManager.skip = false;
                 }
