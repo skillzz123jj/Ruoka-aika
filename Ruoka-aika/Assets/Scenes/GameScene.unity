@@ -7182,9 +7182,9 @@ MonoBehaviour:
   wrongFoodSprite: {fileID: 1229945828}
   highlight: {fileID: 465730797}
   food: {fileID: 0}
-  collisionCount: 0
   moveSpeed: 3
   speed: 5
+  collisionCount: 0
   currentFoodIndex: 0
   foodWasFed: 0
   wasChosen: 0
@@ -7886,8 +7886,8 @@ MonoBehaviour:
   - {fileID: 730061748}
   - {fileID: 106136265}
   m_Bounds:
-    m_Center: {x: 0.0000038146973, y: 0.009999871, z: -0.0000000037252903}
-    m_Extent: {x: 0.53500015, y: 1.1650002, z: 1.110223e-16}
+    m_Center: {x: 0.0000038146973, y: 0.009999871, z: 0}
+    m_Extent: {x: 0.53500015, y: 1.1650002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -11897,10 +11897,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c127fb745d6cd246bd8fcde773666d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 2800000, guid: 15e7a1cb1012da441a63da4530d384ed, type: 3}
-  hoverCursor: {fileID: 2800000, guid: 948551be91da55447b00a216ae626e68, type: 3}
   hotspotDefault: {x: 8, y: 5}
   hotspotHover: {x: 10, y: 6}
+  defaultCursor: {fileID: 2800000, guid: 15e7a1cb1012da441a63da4530d384ed, type: 3}
+  hoverCursor: {fileID: 2800000, guid: 948551be91da55447b00a216ae626e68, type: 3}
 --- !u!1 &921891635
 GameObject:
   m_ObjectHideFlags: 0
@@ -15679,7 +15679,7 @@ MonoBehaviour:
   - {fileID: 1234088350}
   - {fileID: 1835780231}
   m_Bounds:
-    m_Center: {x: -0.01000011, y: 0.00067031384, z: 0}
+    m_Center: {x: -0.009999752, y: 0.0006701946, z: 0}
     m_Extent: {x: 1.545, y: 1.6161501, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -16562,9 +16562,6 @@ MonoBehaviour:
   - {fileID: 1906826173}
   - {fileID: 1360820006}
   - {fileID: 1996385880}
-  chosenAnimals: []
-  animalsThatWerentChosen: []
-  foods: []
   allFoods:
   - {fileID: 851917920}
   - {fileID: 252024789}
@@ -16595,14 +16592,12 @@ MonoBehaviour:
   - {fileID: 1525443702}
   - {fileID: 187458781}
   - {fileID: 1272442531}
-  chosenFoods: []
   bowls:
   - {fileID: 801755846}
   - {fileID: 1819214889}
   - {fileID: 1486512108}
   - {fileID: 313192190}
   - {fileID: 1502830300}
-  audioSource: {fileID: 1488261229}
   foodPositions:
   - {x: -6, y: -2.7}
   - {x: -4, y: -2.7}
@@ -16611,20 +16606,22 @@ MonoBehaviour:
   - {x: 2, y: -2.7}
   - {x: 4, y: -2.7}
   - {x: 6, y: -2.7}
-  copyOfFoodPositions: []
-  startPosition: {x: -5.31, y: -3}
-  lineStart: {fileID: 1924773394}
+  chosenFoods: []
+  chosenAnimals: []
   lineEnd: {fileID: 1761411278}
+  lineStart: {fileID: 1924773394}
+  audioSource: {fileID: 1488261229}
+  startPosition: {x: -5.31, y: -3}
   timerToChangeFood: 10
   timerToChangeAnimal: 20
   smoke: {fileID: 246135614}
-  smokeAnim: {fileID: 246135615}
   canChangeAnimal: 0
   changedFoodsRecently: 0
   nowIsAGoodTime: 0
   foodsLeft: 1
   numberOfFoodsToChoose: 0
   numberOfAllowedBadFoods: 0
+  smokeAnim: {fileID: 246135615}
   instructionTEXT: {fileID: 319201981}
   activeFood: {fileID: 600050449}
   availableFoods: []
@@ -17062,10 +17059,9 @@ MonoBehaviour:
   instructionText: {fileID: 101279359}
   instructions: {fileID: 203940877}
   subtitlesBox: {fileID: 1681795542}
-  skip: 0
   blur: {fileID: 18900957}
+  skip: 0
   randomAnimalAndFood: {fileID: 1488261227}
-  mainMenu: {fileID: 0}
 --- !u!114 &1526203357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22087,8 +22083,8 @@ MonoBehaviour:
   - {fileID: 549117083}
   - {fileID: 1746365375}
   m_Bounds:
-    m_Center: {x: 0.14497948, y: -0.0031849146, z: 4.656613e-10}
-    m_Extent: {x: 1.7123095, y: 1.2718146, z: 0}
+    m_Center: {x: 0.14497936, y: -0.0031847954, z: 4.656613e-10}
+    m_Extent: {x: 1.7123096, y: 1.2718148, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0

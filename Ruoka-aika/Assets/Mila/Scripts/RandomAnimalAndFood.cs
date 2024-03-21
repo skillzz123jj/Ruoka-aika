@@ -50,6 +50,8 @@ public class RandomAnimalAndFood : MonoBehaviour
     [SerializeField] TMP_Text instructionTEXT;
     [SerializeField] ActiveFood activeFood;
 
+    Queue<KeyValuePair<GameObject, string>> foodTextQueue = new Queue<KeyValuePair<GameObject, string>>();
+
     //Allows other scripts to access this one
     public static RandomAnimalAndFood randomAnimalAndFood;
 
@@ -115,7 +117,7 @@ public class RandomAnimalAndFood : MonoBehaviour
         }
 
         CheckForCurrentLevel();
-
+        DisplayTextInstructions();
     }
 
     public IEnumerator CanChangeAnimal(float delay)
@@ -232,6 +234,9 @@ public class RandomAnimalAndFood : MonoBehaviour
     //This method assigns the foods for each animal
     public void RandomCorrectAnimal()
     {
+        // Clear the queue before adding new instructions
+        foodTextQueue.Clear();
+
         //Create a list to accumulate audio instructions
         List<AudioClip> audioInstructions = new List<AudioClip>();
 
@@ -319,10 +324,9 @@ public class RandomAnimalAndFood : MonoBehaviour
                 }
 
                 // Accumulate text instructions in the StringBuilder
-                if (!string.IsNullOrEmpty(instruction.textInstruction))
+                if (instruction != null && !string.IsNullOrEmpty(instruction.textInstruction))
                 {
-                    textInstructionsBuilder.Append(instruction.textInstruction.Trim());
-                    textInstructionsBuilder.Append(',');
+                   foodTextQueue.Enqueue(new KeyValuePair<GameObject, string>(obj, instruction.textInstruction.Trim()));
                 }
             }
             else
@@ -332,28 +336,43 @@ public class RandomAnimalAndFood : MonoBehaviour
 
         }
 
-        // Display the accumulated text instructions sequentially
-        StartCoroutine(DisplayTextInstructionsSequentially(textInstructionsBuilder.ToString(), audioInstructions));
+        // Play the accumulated audio instructions sequentially
         StartCoroutine(PlayAudioInstructionsSequentially(audioInstructions));
+        
     }
 
-    private IEnumerator DisplayTextInstructionsSequentially(string textInstruction, List<AudioClip> audioInstructions)
+    void DisplayTextInstructions()
     {
-        string[] sentences = textInstruction.Split(','); // Split the text into sentences
-
-        for (int i = 0; i < sentences.Length; i++)
+        //Check if there are items in the queue
+        if(foodTextQueue.Count > 0)
         {
-            instructionTEXT.text = sentences[i].Trim();
+            var foodTextPair = foodTextQueue.Peek();
+            GameObject food = foodTextPair.Key;
+            string instruction = foodTextPair.Value;
+        
 
-            // Wait for the corresponding audio clip length
-            //float audioClipLength = audioInstructions[i].length + 1; // Adjust the waiting time as needed
-            yield return new WaitForSeconds(10f);
-
-            // Clear the text after waiting for the full audio clip length
-            //instructionTEXT.text = string.Empty;
+            //Check if the food is active 
+            if (food.activeSelf)
+            {
+                instructionTEXT.text = instruction;
+                instructionTEXT.enabled = true;
+            }
+            else
+            {
+                //Remove inactive foods or foods without instructions from the queue
+                foodTextQueue = new Queue<KeyValuePair<GameObject, string>>(
+                foodTextQueue.Where(pair => pair.Key.activeSelf && pair.Key != food));
+            }
+            
+        }
+        //Hide instruction if no valid instruction is found
+        if (instructionTEXT.text == "")
+        {
+            instructionTEXT.enabled = false;
         }
     }
-
+                
+    
     private IEnumerator PlayAudioInstructionsSequentially(List<AudioClip> audioInstructions)
     {
         foreach (var audioClip in audioInstructions)
