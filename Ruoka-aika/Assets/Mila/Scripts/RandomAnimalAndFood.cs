@@ -589,7 +589,10 @@ public class RandomAnimalAndFood : MonoBehaviour
             return a.transform.position.x.CompareTo(b.transform.position.x);
         });
         activeFood.currentFoodIndex = -1;
-        activeFood.SwitchToNextFood();
+        if (!activeFood.playingWithMouse)
+        {
+            activeFood.SwitchToNextFood();
+        }
         previouslyChosenFoods = new List<GameObject>(chosenFoods);
     }
     }

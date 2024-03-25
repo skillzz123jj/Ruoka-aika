@@ -19,20 +19,6 @@ public class MainMenu : MonoBehaviour
     public GameObject audioInsButtonChosen;
     public GameObject textAndAudioInsButtonChosen;
 
-    public Sprite audioHighlightSprite;
-    public Sprite textHighlightSprite;
-    public Sprite textAndAudioHighlightSprite;
-
-    public Sprite audioDefaultSprite;
-    public Sprite textDefaultSprite;
-    public Sprite textAndAudioDefaultSprite;
-
-    public Sprite easyHighlightSprite;
-    public Sprite normalHighlightSprite;
-
-    public Sprite easyDefaultSprite;
-    public Sprite normalDefaultSprite;
-
     public Toggle audioInstructionsToggle;
     public Toggle textInstructionsToggle;
 

@@ -30,7 +30,7 @@ public class ActiveFood : MonoBehaviour
     public bool isMoving = false;
     public bool foodBeingEaten;
     bool isHovering;
-    bool playingWithMouse;
+    public bool playingWithMouse;
 
     Touch touch;
     Collider2D foodCollided;

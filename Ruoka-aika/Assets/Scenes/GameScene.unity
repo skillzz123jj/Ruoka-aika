@@ -1095,8 +1095,8 @@ MonoBehaviour:
   - {fileID: 826033669}
   - {fileID: 547960676}
   m_Bounds:
-    m_Center: {x: -0.009264827, y: 0.002379775, z: 0}
-    m_Extent: {x: 1.636275, y: 1.75747, z: 0}
+    m_Center: {x: -0.009264827, y: 0.0023798943, z: 0}
+    m_Extent: {x: 1.6362752, y: 1.75747, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -5745,7 +5745,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01205194, y: -1.1188706}
+  m_Offset: {x: -0.13766205, y: -1.1188706}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -5756,7 +5756,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.228011, y: 3.0337107}
+  m_Size: {x: 2.4982255, y: 3.0337107}
   m_EdgeRadius: 0
 --- !u!1 &473490527
 GameObject:
@@ -7190,6 +7190,7 @@ MonoBehaviour:
   wasChosen: 0
   isMoving: 0
   foodBeingEaten: 0
+  playingWithMouse: 0
   animator: {fileID: 465730800}
 --- !u!4 &600050450
 Transform:
@@ -7886,8 +7887,8 @@ MonoBehaviour:
   - {fileID: 730061748}
   - {fileID: 106136265}
   m_Bounds:
-    m_Center: {x: 0.0000038146973, y: 0.009999871, z: 0}
-    m_Extent: {x: 0.53500015, y: 1.1650002, z: 0}
+    m_Center: {x: 0, y: 0.009999871, z: -0.0000000037252903}
+    m_Extent: {x: 0.5350001, y: 1.1650001, z: 1.110223e-16}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -12030,7 +12031,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.32855555, y: -0.8750801}
+  m_Offset: {x: -0.36362648, y: -0.8750801}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12041,7 +12042,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8412852, y: 3.482449}
+  m_Size: {x: 1.606791, y: 3.482449}
   m_EdgeRadius: 0
 --- !u!1 &931263056
 GameObject:
@@ -15679,7 +15680,7 @@ MonoBehaviour:
   - {fileID: 1234088350}
   - {fileID: 1835780231}
   m_Bounds:
-    m_Center: {x: -0.009999752, y: 0.0006701946, z: 0}
+    m_Center: {x: -0.01000011, y: 0.00067031384, z: 0}
     m_Extent: {x: 1.545, y: 1.6161501, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -17444,7 +17445,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.042832375, y: -0.6465044}
+  m_Offset: {x: -0.1296711, y: -0.6465044}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -17455,7 +17456,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8781796, y: 4.382963}
+  m_Size: {x: 1.617115, y: 4.382963}
   m_EdgeRadius: 0
 --- !u!114 &1592778222
 MonoBehaviour:
@@ -20420,7 +20421,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07342589, y: -0.17132849}
+  m_Offset: {x: -0.18239272, y: -0.17132854}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -20431,7 +20432,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.174825, y: 3.8881116}
+  m_Size: {x: 1.9568913, y: 3.8881116}
   m_EdgeRadius: 0
 --- !u!114 &1906826177
 MonoBehaviour:
@@ -20601,7 +20602,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.11043239, y: -1.1701392}
+  m_Offset: {x: -0.0133879185, y: -1.1701392}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -20612,7 +20613,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.662086, y: 2.6283839}
+  m_Size: {x: 2.042223, y: 2.6283839}
   m_EdgeRadius: 0
 --- !u!114 &1921164415
 MonoBehaviour:
@@ -21056,7 +21057,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0411129, y: -0.96153104}
+  m_Offset: {x: -0.053679287, y: -0.96153104}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -21067,7 +21068,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.6473885, y: 3.880531}
+  m_Size: {x: 2.3426862, y: 3.880531}
   m_EdgeRadius: 0
 --- !u!114 &1996385883
 MonoBehaviour:
@@ -21100,7 +21101,7 @@ Transform:
   m_GameObject: {fileID: 1996385880}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 45.26, y: 0, z: -0.031495996}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1211044125}
@@ -21995,7 +21996,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.089054585, y: -0.8010932}
+  m_Offset: {x: -0.14269161, y: -0.8010932}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -22006,7 +22007,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.3228693, y: 3.5175278}
+  m_Size: {x: 2.2155952, y: 3.5175278}
   m_EdgeRadius: 0
 --- !u!114 &2112434960
 MonoBehaviour:
@@ -22083,8 +22084,8 @@ MonoBehaviour:
   - {fileID: 549117083}
   - {fileID: 1746365375}
   m_Bounds:
-    m_Center: {x: 0.14497936, y: -0.0031847954, z: 4.656613e-10}
-    m_Extent: {x: 1.7123096, y: 1.2718148, z: 0}
+    m_Center: {x: 0.14497948, y: -0.0031849146, z: 4.656613e-10}
+    m_Extent: {x: 1.7123095, y: 1.2718146, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -22631,6 +22632,10 @@ PrefabInstance:
     - target: {fileID: 2732077578768267932, guid: 0ff0888e7153a59418a9a532350929d9, type: 3}
       propertyPath: m_Name
       value: Virhe
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732077578768267932, guid: 0ff0888e7153a59418a9a532350929d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2732077578768267934, guid: 0ff0888e7153a59418a9a532350929d9, type: 3}
       propertyPath: m_RootOrder

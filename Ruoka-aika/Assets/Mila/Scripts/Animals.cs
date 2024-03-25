@@ -108,7 +108,11 @@ public class Animals : MonoBehaviour
                 good = false;
                 activeFood.animator.SetTrigger("Valinta");
                 activeFood.currentFoodIndex = -1;
-                activeFood.SwitchToNextFood();
+                if (!activeFood.playingWithMouse)
+                {
+                    activeFood.SwitchToNextFood();
+
+                }
 
             }
             else if (bad)
@@ -121,7 +125,11 @@ public class Animals : MonoBehaviour
                 bad = false;
                 activeFood.animator.SetTrigger("Valinta");
                 activeFood.currentFoodIndex = -1;
-                activeFood.SwitchToNextFood();
+                if (!activeFood.playingWithMouse)
+                {
+                    activeFood.SwitchToNextFood();
+
+                }
 
             }
         }
