@@ -4346,7 +4346,7 @@ MonoBehaviour:
   - combo:
       foodName: Kurkku
       animalName: Pupu
-    audioClip: {fileID: 8300000, guid: cd95fbead2343784e945721927354cd3, type: 3}
+    audioClip: {fileID: 8300000, guid: 853008561223e92449844afc765efa36, type: 3}
     textInstruction: Anna kurkku pupulle.
   - combo:
       foodName: "Leip\xE4"
@@ -4401,7 +4401,7 @@ MonoBehaviour:
   - combo:
       foodName: "P\xE4hkin\xE4t"
       animalName: Kana
-    audioClip: {fileID: 8300000, guid: 1681045f06d786d4380d2013201540cc, type: 3}
+    audioClip: {fileID: 8300000, guid: 558a1892289138042a0a0115ba2d6a08, type: 3}
     textInstruction: "Anna p\xE4hkin\xE4t kanalle."
   - combo:
       foodName: Retiisi
@@ -4421,7 +4421,7 @@ MonoBehaviour:
   - combo:
       foodName: Sienet
       animalName: Pupu
-    audioClip: {fileID: 8300000, guid: 853008561223e92449844afc765efa36, type: 3}
+    audioClip: {fileID: 8300000, guid: 9379bd9528ec57e4abd27c141b5b4f86, type: 3}
     textInstruction: Anna sienet pupulle.
   - combo:
       foodName: "Vehn\xE4"
@@ -7887,8 +7887,8 @@ MonoBehaviour:
   - {fileID: 730061748}
   - {fileID: 106136265}
   m_Bounds:
-    m_Center: {x: 0, y: 0.009999871, z: -0.0000000037252903}
-    m_Extent: {x: 0.5350001, y: 1.1650001, z: 1.110223e-16}
+    m_Center: {x: 0, y: 0.009999871, z: 0}
+    m_Extent: {x: 0.5350001, y: 1.1650001, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -15680,7 +15680,7 @@ MonoBehaviour:
   - {fileID: 1234088350}
   - {fileID: 1835780231}
   m_Bounds:
-    m_Center: {x: -0.01000011, y: 0.00067031384, z: 0}
+    m_Center: {x: -0.009999752, y: 0.0006701946, z: 0}
     m_Extent: {x: 1.545, y: 1.6161501, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -22084,8 +22084,8 @@ MonoBehaviour:
   - {fileID: 549117083}
   - {fileID: 1746365375}
   m_Bounds:
-    m_Center: {x: 0.14497948, y: -0.0031849146, z: 4.656613e-10}
-    m_Extent: {x: 1.7123095, y: 1.2718146, z: 0}
+    m_Center: {x: 0.14497936, y: -0.0031847954, z: 4.656613e-10}
+    m_Extent: {x: 1.7123096, y: 1.2718148, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
