@@ -2579,6 +2579,7 @@ GameObject:
   - component: {fileID: 203940880}
   - component: {fileID: 203940879}
   - component: {fileID: 203940878}
+  - component: {fileID: 203940882}
   m_Layer: 5
   m_Name: Ohjeet
   m_TagString: Untagged
@@ -2596,7 +2597,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fe36ec7d22700ce4fb3b24a3bd484c19, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 87665581328036c4590999ac87bef3d2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2743,6 +2744,22 @@ RectTransform:
   m_AnchoredPosition: {x: 25, y: -47}
   m_SizeDelta: {x: 1347.3866, y: 697.8154}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &203940882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203940877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01494f5df57f4ea45811231a43420c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 203940878}
+  startAudioButton: {fileID: 1159403477}
+  stopAudioButton: {fileID: 420054532}
+  menuManager: {fileID: 1526203356}
 --- !u!1 &209421662
 GameObject:
   m_ObjectHideFlags: 0
@@ -3504,9 +3521,33 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1023525023}
-          m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
-          m_MethodName: CorrectIndex
+        - m_Target: {fileID: 600050449}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1488261227}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 203940882}
+          m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
+          m_MethodName: ActivateButtons
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3514,7 +3555,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &303772571
 MonoBehaviour:
@@ -3595,6 +3636,42 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1488261227}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 600050449}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 203940882}
+        m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
+        m_MethodName: ActivateButtons
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &303772572
 MonoBehaviour:
@@ -4903,7 +4980,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 203940882}
           m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
           m_MethodName: StopAudio
           m_Mode: 1
@@ -4959,7 +5036,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 203940882}
         m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
         m_MethodName: StopAudio
         m_Mode: 1
@@ -7887,8 +7964,8 @@ MonoBehaviour:
   - {fileID: 730061748}
   - {fileID: 106136265}
   m_Bounds:
-    m_Center: {x: 0, y: 0.009999871, z: 0}
-    m_Extent: {x: 0.5350001, y: 1.1650001, z: 0}
+    m_Center: {x: 0, y: 0.009999871, z: -0.0000000037252903}
+    m_Extent: {x: 0.5350001, y: 1.1650001, z: 1.110223e-16}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -9813,6 +9890,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: DisplayInstructions
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1488261227}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 600050449}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12730,11 +12831,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<size=40><b>Ohjeet</b>\r</size>\n\nPeliss\xE4 ruokit maatilan el\xE4imi\xE4
-    ohjeiden perusteella. Voit pelata peli\xE4 hiirell\xE4 tai painikkeilla.\r\n\r\nPelin
-    aloitussivulla voit valita, haluatko ohjeet \xE4\xE4nell\xE4 vai tekstill\xE4.
-    Aloitussivulla voit valita my\xF6s pelin vaikeustason.\r\n\r\nRuokittavat el\xE4imet
-    vaihtuvat pelin aikana. Aluksi ruuat tulevat yksi kerrallaan, mutta my\xF6hemmin
-    ruokia tulee useita samaan aikaan. Joukossa voi olla my\xF6s v\xE4\xE4ri\xE4
+    ohjeiden perusteella. Voit pelata peli\xE4 hiirell\xE4, n\xE4pp\xE4imill\xE4
+    tai painikkeilla.\n\r\nPelin aloitussivulla voit valita, haluatko ohjeet \xE4\xE4nell\xE4
+    vai tekstill\xE4. Aloitussivulla voit valita my\xF6s pelin vaikeustason.\r\n\r\nRuokittavat
+    el\xE4imet vaihtuvat pelin aikana. Aluksi ruuat tulevat yksi kerrallaan, mutta
+    my\xF6hemmin ruokia tulee useita samaan aikaan. Joukossa voi olla my\xF6s v\xE4\xE4ri\xE4
     ruokia, joita et saa antaa el\xE4imille!\r\n\r\nKun annat oikean ruuan oikealle
     el\xE4imelle, saat pisteen. Peli p\xE4\xE4ttyy, jos onnistut ker\xE4\xE4m\xE4\xE4n
     sata pistett\xE4. Peli p\xE4\xE4ttyy my\xF6s, jos annat kolmelle el\xE4imelle
@@ -13325,7 +13426,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 203940882}
           m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
           m_MethodName: Play
           m_Mode: 1
@@ -13381,9 +13482,33 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 203940882}
         m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1159403482}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 21300000, guid: 9c81135b89f75b343b24191a7c8e131e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1159403482}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: SetNativeSize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15680,7 +15805,7 @@ MonoBehaviour:
   - {fileID: 1234088350}
   - {fileID: 1835780231}
   m_Bounds:
-    m_Center: {x: -0.009999752, y: 0.0006701946, z: 0}
+    m_Center: {x: -0.01000011, y: 0.00067031384, z: 0}
     m_Extent: {x: 1.545, y: 1.6161501, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -22084,8 +22209,8 @@ MonoBehaviour:
   - {fileID: 549117083}
   - {fileID: 1746365375}
   m_Bounds:
-    m_Center: {x: 0.14497936, y: -0.0031847954, z: 4.656613e-10}
-    m_Extent: {x: 1.7123096, y: 1.2718148, z: 0}
+    m_Center: {x: 0.14497948, y: -0.0031849146, z: 4.656613e-10}
+    m_Extent: {x: 1.7123095, y: 1.2718146, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0

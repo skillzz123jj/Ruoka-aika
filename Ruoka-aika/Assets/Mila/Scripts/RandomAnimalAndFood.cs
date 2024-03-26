@@ -119,6 +119,13 @@ public class RandomAnimalAndFood : MonoBehaviour
         CheckForCurrentLevel();
         DisplayTextInstructions();
     }
+    private void OnEnable()
+    {
+        if (foodsLeft == 0)
+        {
+            timerToChangeFood = 2f;
+        }
+    }
 
     public IEnumerator CanChangeAnimal(float delay)
     {

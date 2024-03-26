@@ -24,6 +24,8 @@ public class MenuManager : MonoBehaviour
     int previousIndex;
 
     [SerializeField] RandomAnimalAndFood randomAnimalAndFood;
+
+    public static MenuManager menuManager;
   
     //All of these handle the UI buttons on the top right corner
     private void Start()
@@ -49,7 +51,6 @@ public class MenuManager : MonoBehaviour
             return;
         }
       
-        Time.timeScale = 0;
         previousIndex = GameData.gameData.currentIndex;
         GameData.gameData.instructions = true;
         InstructionTextGoAway();
@@ -70,7 +71,6 @@ public class MenuManager : MonoBehaviour
             return;
         }
 
-        Time.timeScale = 1.0f;
         GameData.gameData.instructions = false;
         if (Input.GetKey(KeyCode.Return))
         {
@@ -94,7 +94,6 @@ public class MenuManager : MonoBehaviour
         {
             return;
         }
-        Time.timeScale = 1.0f;
         SceneManager.LoadScene(scene);
         
     }

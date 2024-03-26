@@ -51,5 +51,10 @@ public class Credits : MonoBehaviour
 
         text.text = $"{credit}";
     }
+    public void Instructions()
+    {
+        GameData.gameData.instructions = false;
+
+    }
 }
 

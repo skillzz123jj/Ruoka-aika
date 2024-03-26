@@ -66,7 +66,6 @@ public class MainMenu : MonoBehaviour
         {
             return;
         }
-        Time.timeScale = 1.0f;
         SceneManager.LoadScene(scene);
     }
 
@@ -97,7 +96,7 @@ public class MainMenu : MonoBehaviour
                 }
 
             }
-            while (!buttons[nextIndex].interactable);
+            while (!uiButtons[nextIndex].interactable);
 
             GameData.gameData.currentIndex = nextIndex;
             uiButtons[GameData.gameData.currentIndex].Select();

@@ -8901,16 +8901,6 @@ MonoBehaviour:
   textInsButtonChosen: {fileID: 1593796443}
   audioInsButtonChosen: {fileID: 1736812908}
   textAndAudioInsButtonChosen: {fileID: 390397232}
-  audioHighlightSprite: {fileID: 21300000, guid: 3faa6f4ad9c44484aa2d861f10a3e262, type: 3}
-  textHighlightSprite: {fileID: 21300000, guid: c83781f52b3cdf947a5b5ecf7224ca20, type: 3}
-  textAndAudioHighlightSprite: {fileID: 21300000, guid: 7374d07075809f44fa667ae7e713c274, type: 3}
-  audioDefaultSprite: {fileID: 21300000, guid: 6f32cd8fd923d314e8c728d0f4ab32ce, type: 3}
-  textDefaultSprite: {fileID: 21300000, guid: 831539d25799ee44a93fd7481b747c0b, type: 3}
-  textAndAudioDefaultSprite: {fileID: 21300000, guid: 94fa23c77743dcf47a68c667c577c1c3, type: 3}
-  easyHighlightSprite: {fileID: 21300000, guid: 66ff53dcb1fea3c4bb1805c2605675d4, type: 3}
-  normalHighlightSprite: {fileID: 21300000, guid: 651fc4ae75174364abc4c36dc76dc43a, type: 3}
-  easyDefaultSprite: {fileID: 21300000, guid: bd3eb4e93c7329943b3c1bc103cc314d, type: 3}
-  normalDefaultSprite: {fileID: 21300000, guid: e39a98185142b01469df09a16f9c3d4f, type: 3}
   audioInstructionsToggle: {fileID: 1342655704}
   textInstructionsToggle: {fileID: 1128333979}
   buttons:
@@ -9690,7 +9680,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 9068956718745211896}
         m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
         m_MethodName: StopAudio
         m_Mode: 1
@@ -9869,7 +9859,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 101.09, y: 33.12134}
+  m_AnchoredPosition: {x: 92.53, y: 33.121338}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4150890980162723482
@@ -10155,9 +10145,33 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 9068956718745211896}
         m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2215317703155932617}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 21300000, guid: 9c81135b89f75b343b24191a7c8e131e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2215317703155932617}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: SetNativeSize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10485,7 +10499,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 9068956718745211896}
           m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
           m_MethodName: Play
           m_Mode: 1
@@ -10556,7 +10570,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fe36ec7d22700ce4fb3b24a3bd484c19, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 87665581328036c4590999ac87bef3d2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -10819,7 +10833,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 9068956718745211896}
           m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
           m_MethodName: StopAudio
           m_Mode: 1
@@ -11026,6 +11040,18 @@ MonoBehaviour:
       - m_Target: {fileID: 8621179875752146069}
         m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
         m_MethodName: SetNativeSize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4150890980162723484}
+        m_TargetAssemblyTypeName: Credits, Assembly-CSharp
+        m_MethodName: Instructions
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11636,6 +11662,7 @@ GameObject:
   - component: {fileID: 9068956718745211895}
   - component: {fileID: 9068956718745211894}
   - component: {fileID: 6833599255548188812}
+  - component: {fileID: 9068956718745211896}
   m_Layer: 5
   m_Name: Ohjeet
   m_TagString: Untagged
@@ -11704,6 +11731,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9068956718745211880}
   m_CullTransparentMesh: 1
+--- !u!114 &9068956718745211896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9068956718745211880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01494f5df57f4ea45811231a43420c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 6833599255548188812}
+  startAudioButton: {fileID: 4622306271113499488}
+  stopAudioButton: {fileID: 7538892702774533139}
+  menuManager: {fileID: 15850406}
 --- !u!222 &9068956718891612291
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12036,6 +12079,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 9068956718745211896}
+        m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
+        m_MethodName: ActivateButtons
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9068956719724841442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12232,6 +12287,18 @@ MonoBehaviour:
         - m_Target: {fileID: 9068956719724841443}
           m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_MethodName: SetNativeSize
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 9068956718745211896}
+          m_TargetAssemblyTypeName: PlayInstructions, Assembly-CSharp
+          m_MethodName: ActivateButtons
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -12517,11 +12584,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<size=40><b>Ohjeet</b>\r</size>\n\nPeliss\xE4 ruokit maatilan el\xE4imi\xE4
-    ohjeiden perusteella. Voit pelata peli\xE4 hiirell\xE4 tai painikkeilla.\r\n\r\nPelin
-    aloitussivulla voit valita, haluatko ohjeet \xE4\xE4nell\xE4 vai tekstill\xE4.
-    Aloitussivulla voit valita my\xF6s pelin vaikeustason.\r\n\r\nRuokittavat el\xE4imet
-    vaihtuvat pelin aikana. Aluksi ruuat tulevat yksi kerrallaan, mutta my\xF6hemmin
-    ruokia tulee useita samaan aikaan. Joukossa voi olla my\xF6s v\xE4\xE4ri\xE4
+    ohjeiden perusteella. Voit pelata peli\xE4 hiirell\xE4, n\xE4pp\xE4imill\xE4
+    tai painikkeilla.\n\r\nPelin aloitussivulla voit valita, haluatko ohjeet \xE4\xE4nell\xE4
+    vai tekstill\xE4. Aloitussivulla voit valita my\xF6s pelin vaikeustason.\r\n\r\nRuokittavat
+    el\xE4imet vaihtuvat pelin aikana. Aluksi ruuat tulevat yksi kerrallaan, mutta
+    my\xF6hemmin ruokia tulee useita samaan aikaan. Joukossa voi olla my\xF6s v\xE4\xE4ri\xE4
     ruokia, joita et saa antaa el\xE4imille!\r\n\r\nKun annat oikean ruuan oikealle
     el\xE4imelle, saat pisteen. Peli p\xE4\xE4ttyy, jos onnistut ker\xE4\xE4m\xE4\xE4n
     sata pistett\xE4. Peli p\xE4\xE4ttyy my\xF6s, jos annat kolmelle el\xE4imelle

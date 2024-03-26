@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class PlayInstructions : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
-    [SerializeField] TMP_Text buttonText;
     [SerializeField] GameObject startAudioButton;
     [SerializeField] GameObject stopAudioButton;
+
+    [SerializeField] MenuManager menuManager;
 
     public void Play()
     {
@@ -22,6 +23,10 @@ public class PlayInstructions : MonoBehaviour
     }
     public void ActivateButtons()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            return;
+        }
 
         startAudioButton.SetActive(true);
         stopAudioButton.SetActive(false);
@@ -42,6 +47,7 @@ public class PlayInstructions : MonoBehaviour
         Button audioOff = stopAudioButton.GetComponent<Button>();
         audioOff.interactable = false;
         Button button = startAudioButton.GetComponent<Button>();
+        button.Select();
         button.interactable = true;
         audioSource.Stop();
     }
@@ -56,7 +62,7 @@ public class PlayInstructions : MonoBehaviour
         Button audioOff = stopAudioButton.GetComponent<Button>();
         audioOff.Select();
         audioOff.interactable = true;
-        Debug.Log(audioSource.clip.length);
+        menuManager.skip = true;
         yield return new WaitForSeconds(audioSource.clip.length);
         startAudioButton.SetActive(true);
         stopAudioButton.SetActive(false);
