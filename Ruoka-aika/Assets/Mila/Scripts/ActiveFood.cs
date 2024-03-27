@@ -38,11 +38,14 @@ public class ActiveFood : MonoBehaviour
     RaycastHit2D hit;
     public Animator animator;
 
+    [SerializeField] CursorController cursor;
+
     public static ActiveFood activeFood;
 
     void ResetBool()
     {
         foodWasFed = false;
+        cursor.ChangeCursor(cursor.defaultCursor, cursor.hotspotDefault);
     }
 
     void Start()
@@ -149,9 +152,11 @@ public class ActiveFood : MonoBehaviour
         if (Input.touchCount > 0)
         {
             playingWithMouse = true;
-            touch = Input.GetTouch(0); 
-          
+            touch = Input.GetTouch(0);
+           
+
         }
+        
         //This makes sure that the food can be fed 
         if (Input.GetMouseButtonUp(0) || touch.phase == TouchPhase.Ended)
         {
@@ -166,7 +171,8 @@ public class ActiveFood : MonoBehaviour
         //Check if a new food is clicked by the player
         if (Input.GetMouseButtonDown(0))
         {
-           playingWithMouse = true;
+            
+            playingWithMouse = true;
             collisionCount = 0;
             if (currentActiveFood)
             {

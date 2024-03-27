@@ -35,6 +35,7 @@ public class MainMenu : MonoBehaviour
         audioInstructionsToggle.isOn = PlayerPrefs.GetInt("AudioInstructionsEnabled", 1) == 1;
         textInstructionsToggle.isOn = PlayerPrefs.GetInt("TextInstructionsEnabled", 1) == 1;
 
+
         //Add listeners to handle toggle changes
         audioInstructionsToggle.onValueChanged.AddListener(OnAudioInstructionsToggleChanged);
         textInstructionsToggle.onValueChanged.AddListener(OnTextInstructionsToggleChanged);

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CursorController : MonoBehaviour
 {
-    [SerializeField] Vector2 hotspotDefault = new Vector2(8, 5);
-    [SerializeField] Vector2 hotspotHover = new Vector2(10, 6);
+    public Vector2 hotspotDefault = new Vector2(8, 5);
+    public Vector2 hotspotHover = new Vector2(10, 6);
 
     public Texture2D defaultCursor;
     public Texture2D hoverCursor;
@@ -22,10 +22,11 @@ public class CursorController : MonoBehaviour
         {
             ChangeCursor(hoverCursor, hotspotHover);
         }
-        else
+        else 
         {
             ChangeCursor(defaultCursor, hotspotDefault);
         }
+
     }
     public void Hovering()
     {
@@ -46,7 +47,7 @@ public class CursorController : MonoBehaviour
             if (!GameData.gameData.instructions) 
             {
 
-                if (hit.collider.gameObject.CompareTag("Food")) 
+                if (hit.collider.gameObject.CompareTag("Food") || hit.collider.gameObject.CompareTag("EiSyötävä")) 
                 {
                     return true;
                 }
