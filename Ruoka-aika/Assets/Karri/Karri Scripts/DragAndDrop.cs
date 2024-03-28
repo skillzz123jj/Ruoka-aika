@@ -13,7 +13,19 @@ public class DragAndDrop : MonoBehaviour
     public Vector2 initialPosition;
     public float moveSpeed = 3.0f;
 
+    [SerializeField] ActiveFood activeFood;
+
     public static DragAndDrop dragAndDrop;
+
+    private void Start()
+    {
+        if (Application.platform == RuntimePlatform.WebGLPlayer && Application.isMobilePlatform)
+        {
+            gameObject.transform.localScale = new Vector2(1.1f, 1.1f);
+
+        }
+
+    }
     public void OnMouseDown()
     {
         isDragging = true;
@@ -44,11 +56,17 @@ public class DragAndDrop : MonoBehaviour
            
                 transform.position = new Vector3(touchPosition.x - 1f, touchPosition.y + 1f, touchPosition.z);
 
+                GameObject currentActiveFood = activeFood.GetClickedFood(gameObject);
+                activeFood.ValidFood(currentActiveFood);
+
             }
             else
             {
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 transform.position = mousePosition;
+
+                GameObject currentActiveFood = activeFood.GetClickedFood(gameObject);
+                activeFood.ValidFood(currentActiveFood);
             }
         }
         else

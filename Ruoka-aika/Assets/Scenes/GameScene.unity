@@ -496,6 +496,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &24092737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,6 +1444,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 15
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1526203356}
+          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+          m_MethodName: reloadGame
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &105766842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1876,6 +1893,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &136130242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,6 +2457,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &187458781
 GameObject:
   m_ObjectHideFlags: 0
@@ -2489,6 +2508,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!61 &187458785
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3157,6 +3177,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &293366738
 GameObject:
   m_ObjectHideFlags: 0
@@ -6366,6 +6387,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &514882542
 GameObject:
   m_ObjectHideFlags: 0
@@ -7838,6 +7860,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &660287043
 GameObject:
   m_ObjectHideFlags: 0
@@ -8673,6 +8696,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &696161925
 GameObject:
   m_ObjectHideFlags: 0
@@ -9571,6 +9595,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &721205675
 GameObject:
   m_ObjectHideFlags: 0
@@ -10650,6 +10675,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &782363108
 GameObject:
   m_ObjectHideFlags: 0
@@ -11345,6 +11371,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &819557839
 GameObject:
   m_ObjectHideFlags: 0
@@ -11672,6 +11699,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &872557955
 GameObject:
   m_ObjectHideFlags: 0
@@ -11909,6 +11937,22 @@ MonoBehaviour:
           m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
           m_MethodName: SetNativeSize
           m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 15
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1023525023}
+          m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+          m_MethodName: BackToMenu
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12195,6 +12239,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!61 &931263060
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12601,6 +12646,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &1023525021
 GameObject:
   m_ObjectHideFlags: 0
@@ -13852,6 +13898,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &1182782445
 GameObject:
   m_ObjectHideFlags: 0
@@ -14271,6 +14318,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &1227722487
 GameObject:
   m_ObjectHideFlags: 0
@@ -14399,6 +14447,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &1229945828 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2732077578768267932, guid: 0ff0888e7153a59418a9a532350929d9, type: 3}
@@ -14491,6 +14540,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!61 &1260361977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14619,6 +14669,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!61 &1272442535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14887,6 +14938,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &1294144658
 GameObject:
   m_ObjectHideFlags: 0
@@ -16140,6 +16192,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!61 &1438685633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16422,6 +16475,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &1479067470
 GameObject:
   m_ObjectHideFlags: 0
@@ -17006,6 +17060,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!61 &1525443706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18461,7 +18516,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 101}
+  m_AnchoredPosition: {x: 0, y: 80.82}
   m_SizeDelta: {x: 675.359, y: 84.58551}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681795544
@@ -19369,6 +19424,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &1783208578
 GameObject:
   m_ObjectHideFlags: 0
@@ -20344,6 +20400,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!61 &1905808431
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21074,6 +21131,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &1996385880
 GameObject:
   m_ObjectHideFlags: 0
@@ -21643,6 +21701,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &2029470520
 GameObject:
   m_ObjectHideFlags: 0
@@ -21771,6 +21830,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1 &2074675429
 GameObject:
   m_ObjectHideFlags: 0
@@ -22692,6 +22752,7 @@ MonoBehaviour:
   move: 1
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
+  activeFood: {fileID: 600050449}
 --- !u!1001 &2732077579686494584
 PrefabInstance:
   m_ObjectHideFlags: 0

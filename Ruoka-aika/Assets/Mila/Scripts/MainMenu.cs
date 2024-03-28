@@ -13,11 +13,9 @@ public class MainMenu : MonoBehaviour
 
     public Button textInsButton;
     public Button audioInsButton;
-    public Button textAndAudioInsButton;
 
     public GameObject textInsButtonChosen;
     public GameObject audioInsButtonChosen;
-    public GameObject textAndAudioInsButtonChosen;
 
     public Toggle audioInstructionsToggle;
     public Toggle textInstructionsToggle;
@@ -35,27 +33,50 @@ public class MainMenu : MonoBehaviour
         audioInstructionsToggle.isOn = PlayerPrefs.GetInt("AudioInstructionsEnabled", 1) == 1;
         textInstructionsToggle.isOn = PlayerPrefs.GetInt("TextInstructionsEnabled", 1) == 1;
 
-
         //Add listeners to handle toggle changes
         audioInstructionsToggle.onValueChanged.AddListener(OnAudioInstructionsToggleChanged);
         textInstructionsToggle.onValueChanged.AddListener(OnTextInstructionsToggleChanged);
 
         if (GameData.gameData.easy)
         {
-            Easy();
+            normalChosenButton.SetActive(false);
+            easyChosenButton.SetActive(true);
+            normalChosenButton.GetComponent<Button>().interactable = false;
+            easyChosenButton.GetComponent<Button>().interactable = true;
+            easyButton.interactable = false;
+            normalButton.interactable = true;
         }
         else
         {
-            Normal();
+            normalChosenButton.SetActive(true);
+            easyChosenButton.SetActive(false);
+            normalChosenButton.GetComponent<Button>().interactable = true;
+            easyChosenButton.GetComponent<Button>().interactable = false;
+            easyButton.interactable = true;
+            normalButton.interactable = false;
         }
 
         if (GameData.gameData.textOn)
         {
-            TextInstruction();
+            textInsButtonChosen.SetActive(true);
+            audioInsButtonChosen.SetActive(false);
+            textInsButtonChosen.GetComponent<Button>().interactable = true;
+            audioInsButtonChosen.GetComponent<Button>().interactable = false;
+
+            textInsButton.interactable = false;
+            audioInsButton.interactable = true;
         }
         else if (GameData.gameData.audioOn)
         {
-            AudioInstruction();
+          
+            textInsButtonChosen.SetActive(false);
+            audioInsButtonChosen.SetActive(true);
+
+            textInsButtonChosen.GetComponent<Button>().interactable = false;
+            audioInsButtonChosen.GetComponent<Button>().interactable = true;
+
+            textInsButton.interactable = true;
+            audioInsButton.interactable = false;
         }
   
     }
@@ -157,7 +178,6 @@ public class MainMenu : MonoBehaviour
             return;
         }
 
-
         GameData.gameData.audioOn = true;
         GameData.gameData.textOn = false;
         GameData.gameData.audioAndTextOn = false;
@@ -167,10 +187,9 @@ public class MainMenu : MonoBehaviour
         audioInstructionsToggle.isOn = true;
         textInstructionsToggle.isOn = false;
 
-
         textInsButtonChosen.SetActive(false);
         audioInsButtonChosen.SetActive(true);
-        textAndAudioInsButtonChosen.SetActive(false);
+
         if (Input.GetKey(KeyCode.Return))
         {
             GameData.gameData.currentIndex++;
@@ -179,12 +198,11 @@ public class MainMenu : MonoBehaviour
         }
 
         textInsButtonChosen.GetComponent<Button>().interactable = false;
-        audioInsButtonChosen.GetComponent<Button>().interactable = true;
-        textAndAudioInsButtonChosen.GetComponent<Button>().interactable = false;
+        audioInsButtonChosen.GetComponent<Button>().interactable = true; 
 
         textInsButton.interactable = true;
         audioInsButton.interactable = false;
-        textAndAudioInsButton.interactable = true;
+  
     }
     public void TextInstruction()
     {
@@ -203,7 +221,6 @@ public class MainMenu : MonoBehaviour
 
         textInsButtonChosen.SetActive(true);
         audioInsButtonChosen.SetActive(false);
-        textAndAudioInsButtonChosen.SetActive(false);
 
         if (Input.GetKey(KeyCode.Return))
         {
@@ -214,48 +231,12 @@ public class MainMenu : MonoBehaviour
 
         textInsButtonChosen.GetComponent<Button>().interactable = true;
         audioInsButtonChosen.GetComponent<Button>().interactable = false;
-        textAndAudioInsButtonChosen.GetComponent<Button>().interactable = false;
 
         textInsButton.interactable = false;
         audioInsButton.interactable = true;
-        textAndAudioInsButton.interactable = true;
 
     }
 
-    public void AudioAndTextInstruction()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
-        {
-            return;
-        }
-        GameData.gameData.audioOn = false;
-        GameData.gameData.textOn = false;
-        GameData.gameData.audioAndTextOn = true;
-        GameData.gameData.textInstructions = true;
-
-        audioInstructionsToggle.isOn = true;
-        textInstructionsToggle.isOn = true;
-
-        textInsButtonChosen.SetActive(false);
-        audioInsButtonChosen.SetActive(false);
-        textAndAudioInsButtonChosen.SetActive(true);
-
-        if (Input.GetKey(KeyCode.Return))
-        {
-            GameData.gameData.currentIndex++;
-            buttons[GameData.gameData.currentIndex].Select();
-            textAndAudioInsButtonChosen.GetComponent<Button>().Select();
-        }
-
-        textInsButtonChosen.GetComponent<Button>().interactable = false;
-        audioInsButtonChosen.GetComponent<Button>().interactable = false;
-        textAndAudioInsButtonChosen.GetComponent<Button>().interactable = true;
-
-        textInsButton.interactable = true;
-        audioInsButton.interactable = true;
-        textAndAudioInsButton.interactable = false;
-
-    }
     public void OnAudioInstructionsToggleChanged(bool isOn)
     {
         //Save the preference to PlayerPrefs

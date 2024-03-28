@@ -53,7 +53,7 @@ public class ActiveFood : MonoBehaviour
         activeFood = this;
         previousActiveFood = currentActiveFood;
     }
- 
+
     void Update()
     {
         //This checks if a food is hovering over an animal and activates the highlight accordingly
@@ -66,7 +66,7 @@ public class ActiveFood : MonoBehaviour
             highlight.SetActive(false);
 
         }
-     
+
         //Convert the mouse position to world coordinates
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -91,8 +91,8 @@ public class ActiveFood : MonoBehaviour
             }
             isHovering = false;
         }
-        
-      
+
+
         //Choose a food using space then select using enter
         //After that choose an animal using space then feed the chosen food using enter
         if (!wasChosen)
@@ -118,7 +118,7 @@ public class ActiveFood : MonoBehaviour
                 }
 
             }
-            
+
         }
         else if (currentActiveFood)
         {
@@ -131,7 +131,7 @@ public class ActiveFood : MonoBehaviour
                 playingWithMouse = false;
                 if (!isMoving)
                 {
-                   
+
                     ChooseAnAnimal();
                 }
 
@@ -153,10 +153,8 @@ public class ActiveFood : MonoBehaviour
         {
             playingWithMouse = true;
             touch = Input.GetTouch(0);
-           
-
         }
-        
+
         //This makes sure that the food can be fed 
         if (Input.GetMouseButtonUp(0) || touch.phase == TouchPhase.Ended)
         {
@@ -165,36 +163,39 @@ public class ActiveFood : MonoBehaviour
                 foodWasFed = true;
                 Invoke("ResetBool", 0.1f);
             }
-           
+
         }
 
         //Check if a new food is clicked by the player
         if (Input.GetMouseButtonDown(0))
         {
-            
+
             playingWithMouse = true;
             collisionCount = 0;
             if (currentActiveFood)
             {
                 wasChosen = false;
+
+            }
       
-            }
-            GameObject newActiveFood = GetClickedFood();
+        }
+    }
 
-            if (newActiveFood != null && newActiveFood != currentActiveFood && (newActiveFood.CompareTag("Food") || newActiveFood.CompareTag("EiSyötävä")))
+    public void ValidFood(GameObject newActiveFood)
+    {  
+        if (newActiveFood != null && newActiveFood != currentActiveFood && (newActiveFood.CompareTag("Food") || newActiveFood.CompareTag("EiSyötävä")))
+        {
+
+            ChooseFood(previousActiveFood);
+
+            if (previousActiveFood != null)
             {
-             
                 ChooseFood(previousActiveFood);
-
-                if (previousActiveFood != null)
-                {
-                    ChooseFood(previousActiveFood);
-                }
-
-                //Update the active food and the previous active food
-                currentActiveFood = newActiveFood;
-                previousActiveFood = newActiveFood;
             }
+
+            //Update the active food and the previous active food
+            currentActiveFood = newActiveFood;
+            previousActiveFood = newActiveFood;
         }
     }
 
@@ -222,16 +223,15 @@ public class ActiveFood : MonoBehaviour
             }
         }
     }
-    private GameObject GetClickedFood()
+    public GameObject GetClickedFood(GameObject hit)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+        
 
         if (food != null)
         {
-            if (hit.collider != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
+            if (hit != null && food.CompareTag("Food") || food.CompareTag("EiSyötävä"))
             {
-                GameObject clickedFood = hit.collider.gameObject;
+                GameObject clickedFood = hit;
 
                 //Find the index of the clicked food in the chosen foods list
                 int clickedFoodIndex = RandomAnimalAndFood.randomAnimalAndFood.chosenFoods.IndexOf(clickedFood);
