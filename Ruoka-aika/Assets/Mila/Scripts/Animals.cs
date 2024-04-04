@@ -152,10 +152,11 @@ public class Animals : MonoBehaviour
     {
         //If the animal is allowed to eat the food and the score goes up
         randomAnimalAndFood.chosenFoods.Remove(foodThatCollided);
-        animTail.SetTrigger("Häntä");
-        if (animExpression != null)
+    
+           animExpression.SetTrigger("Iloinen");
+        if (animTail != null)
         {
-            animExpression.SetTrigger("Iloinen");
+          
             animTail.SetTrigger("Häntä");
 
         }

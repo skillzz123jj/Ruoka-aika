@@ -312,7 +312,7 @@ public class ActiveFood : MonoBehaviour
     }
 
     //Changes the food's background sprite to an active/chosen one if food is clicked or chosen with Enter button
-    private void ChooseFood(GameObject food)
+    public void ChooseFood(GameObject food)
     {
         wasChosen = true;
         foodCollided = food.GetComponent<Collider2D>();
