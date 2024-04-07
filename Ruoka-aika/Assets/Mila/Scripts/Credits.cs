@@ -8,16 +8,10 @@ public class Credits : MonoBehaviour
     [SerializeField] TMP_Text text;
     [SerializeField] GameObject credits;
     [SerializeField] Button closeCredits;
-    string credit = "Tekijät";
-
-    void Start()
-    {
-        StartCoroutine(enumerator());
-    }
+    string credit = "Skapare";
 
     void Update()
     {
-        credit = GameData.gameData.finnish ? "Tekijät" : "Skapare";
         if (credits.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Tab))
@@ -27,7 +21,6 @@ public class Credits : MonoBehaviour
             }
             text.text = $"<b>{credit}</b>";
         }
-
     }
     public void CloseCredits()
     {
@@ -41,16 +34,10 @@ public class Credits : MonoBehaviour
 
     public void ExitCredits()
     {
-        credit = GameData.gameData.finnish ? "Tekijät" : "Skapare";
         text.text = $"{credit}";
     }
 
-    IEnumerator enumerator()
-    {
-        yield return new WaitForEndOfFrame();
-
-        text.text = $"{credit}";
-    }
+   
     public void Instructions()
     {
         GameData.gameData.instructions = false;
