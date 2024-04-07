@@ -8963,11 +8963,8 @@ MonoBehaviour:
   normalChosenButton: {fileID: 1273094492}
   textInsButton: {fileID: 1541941290}
   audioInsButton: {fileID: 1487900009}
-  textAndAudioInsButton: {fileID: 116792986}
-  test: {fileID: 493686848}
   textInsButtonChosen: {fileID: 1593796443}
   audioInsButtonChosen: {fileID: 1736812908}
-  textAndAudioInsButtonChosen: {fileID: 390397232}
   audioInstructionsToggle: {fileID: 1342655704}
   textInstructionsToggle: {fileID: 1128333979}
   buttons:
@@ -10649,7 +10646,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 87665581328036c4590999ac87bef3d2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b7327a93bf6a1294a97a4341dc769868, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

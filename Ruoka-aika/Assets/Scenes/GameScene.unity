@@ -4099,433 +4099,413 @@ MonoBehaviour:
   - combo:
       foodName: Appelsiini
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 97759125325b9dc40b0e3c60221464cb, type: 3}
-    textInstruction: Anna appelsiini pesukarhulle.
+    audioClip: {fileID: 8300000, guid: 7c7fa73ed23903f48a873436ac7a3140, type: 3}
+    textInstruction: "Ge apelsin till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Broileri
       animalName: Koira
-    audioClip: {fileID: 8300000, guid: 98280b8997462cb4ebb0942e040fadb8, type: 3}
-    textInstruction: Anna broileri koiralle.
+    audioClip: {fileID: 8300000, guid: 1041336911514a343a659c5ae04b8747, type: 3}
+    textInstruction: Ge kyckling till hunden.
   - combo:
       foodName: Broileri
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 9a9ac2907a124ad45b827375eaba3035, type: 3}
-    textInstruction: Anna broileri pesukarhulle.
+    audioClip: {fileID: 8300000, guid: f1db66026817f4a4a9f438f17986d936, type: 3}
+    textInstruction: "Ge kyckling till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Etana
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: b96a4f507c20cba4db00850ff5f8b941, type: 3}
-    textInstruction: Anna etana pesukarhulle.
+    audioClip: {fileID: 8300000, guid: 2d1e8fc979e33d5409a326535572af65, type: 3}
+    textInstruction: "Ge snigel till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Etana
       animalName: Strutsi
-    audioClip: {fileID: 8300000, guid: 6880cd2063d1b7c40bd8f4b12096fbcf, type: 3}
-    textInstruction: Anna etana strutsille.
+    audioClip: {fileID: 8300000, guid: 188a6de2b47f12b43b388b24a784d73a, type: 3}
+    textInstruction: Ge snigel till strutsen.
   - combo:
       foodName: "Jyv\xE4t"
       animalName: Kana
-    audioClip: {fileID: 8300000, guid: d2e626d3eecb8ba4e9cf72547c76ee5a, type: 3}
-    textInstruction: "Anna jyv\xE4t kanalle."
+    audioClip: {fileID: 8300000, guid: e66296516b7c0974fa71700d72a4b089, type: 3}
+    textInstruction: "Ge korn till h\xF6nan."
   - combo:
       foodName: "Jyv\xE4t"
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 452e29ace63d665418260d2a2e6aecf0, type: 3}
-    textInstruction: "Anna jyv\xE4t pesukarhulle."
+    audioClip: {fileID: 8300000, guid: 5840c2ccb4d30e649ae977ec16c5e783, type: 3}
+    textInstruction: "Ge korn till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Kaali
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: b1495da9018ee604d9b9bec36969554f, type: 3}
-    textInstruction: Anna kaali pesukarhulle.
+    audioClip: {fileID: 8300000, guid: 06ade075126eeea40a8d36b4a55e1372, type: 3}
+    textInstruction: "Ge k\xE5l till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Kaali
       animalName: Pupu
-    audioClip: {fileID: 8300000, guid: 4d59fc50f9c137449958eaef3370aac7, type: 3}
-    textInstruction: Anna kaali pupulle.
+    audioClip: {fileID: 8300000, guid: bb1f4555ec2bb1f4d90b7e51f50f3931, type: 3}
+    textInstruction: "Ge k\xE5l till kaninen."
   - combo:
       foodName: Kala
       animalName: Kissa
-    audioClip: {fileID: 8300000, guid: 718a094d740a1984c855220fc21fc2f0, type: 3}
-    textInstruction: Anna kala kissalle.
+    audioClip: {fileID: 8300000, guid: 796ffc000c606e642b26d34feda968e9, type: 3}
+    textInstruction: Ge fisk till katten.
   - combo:
       foodName: Kala
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 91beaf45341d22c43ba296c121626ec4, type: 3}
-    textInstruction: Anna kala pesukarhulle.
+    audioClip: {fileID: 8300000, guid: d60068f9f7282bf4baf7b6696ca945bf, type: 3}
+    textInstruction: "Ge fisk till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Kinkku
       animalName: Kissa
-    audioClip: {fileID: 8300000, guid: 891e5680aa00e92448871bd555cb71b2, type: 3}
-    textInstruction: Anna kinkku kissalle.
+    audioClip: {fileID: 8300000, guid: fcdd9f84852b0954e941d2551b90d4ad, type: 3}
+    textInstruction: Ge skinka till katten.
   - combo:
       foodName: Kinkku
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 8335135a4085aff438ee4b752191cb04, type: 3}
-    textInstruction: Anna kinkku pesukarhulle.
+    audioClip: {fileID: 8300000, guid: 8386a874a35e6c94088edc7d245be6d2, type: 3}
+    textInstruction: "Ge skinka till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Kissanruoka
       animalName: Kissa
-    audioClip: {fileID: 8300000, guid: 202ba9cb9d76058468c05a73117af6da, type: 3}
-    textInstruction: Anna kissanruoka kissalle.
+    audioClip: {fileID: 8300000, guid: f9a55e9ac423dc44fb3e0adc6769032f, type: 3}
+    textInstruction: Ge kattmat till katten.
   - combo:
       foodName: Koiranruoka
       animalName: Koira
-    audioClip: {fileID: 8300000, guid: f696ce919da7fcb4fa4a5b0cdcaf3b6b, type: 3}
-    textInstruction: Anna koiranruoka koiralle.
+    audioClip: {fileID: 8300000, guid: d9bb2751497373a498d1397013e85e5b, type: 3}
+    textInstruction: Ge hundmat till hunden.
   - combo:
       foodName: Kurkku
       animalName: "Lehm\xE4"
-    audioClip: {fileID: 8300000, guid: be6a40fe476ef7645bb32315f36958ee, type: 3}
-    textInstruction: "Anna kurkku lehm\xE4lle."
+    audioClip: {fileID: 8300000, guid: a3b09960de0f1c547bd8df78dc906dd8, type: 3}
+    textInstruction: Ge gurka till kon.
   - combo:
       foodName: Kurkku
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 775f40d58499595419b108b932b9262a, type: 3}
-    textInstruction: Anna kurkku pesukarhulle.
-  - combo:
-      foodName: Kurkku
-      animalName: Possu
-    audioClip: {fileID: 8300000, guid: b32e0d54709fb8e46b5e86f40f78bdfa, type: 3}
-    textInstruction: Anna kurkku possulle.
-  - combo:
-      foodName: Kurkku
-      animalName: Strutsi
-    audioClip: {fileID: 8300000, guid: 32f6726bda07ca742876089d46a9cd06, type: 3}
-    textInstruction: Anna kurkku strutsille.
+    audioClip: {fileID: 8300000, guid: 959e3a373a8bc6446a599443a671daf8, type: 3}
+    textInstruction: "Ge gurka till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Lehdet
       animalName: Alpakka
-    audioClip: {fileID: 8300000, guid: 8b14a021e8030ea4994068d5ada461a2, type: 3}
-    textInstruction: Anna lehdet alpakalle.
+    audioClip: {fileID: 8300000, guid: 570d672bfff47f840896487cfedaa13b, type: 3}
+    textInstruction: Ge blad till alpackan.
   - combo:
       foodName: Lehdet
       animalName: Lammas
-    audioClip: {fileID: 8300000, guid: 979f32fdef3a5cd459d567ffad9ed5dd, type: 3}
-    textInstruction: Anna lehdet lampaalle.
+    audioClip: {fileID: 8300000, guid: 12dd838d66392334aa5ec9ead301331a, type: 3}
+    textInstruction: "Ge blad till f\xE5ret."
   - combo:
       foodName: Lehdet
       animalName: "Lehm\xE4"
-    audioClip: {fileID: 8300000, guid: fd0ca2361aabcbb4eb2916dfdf893b3b, type: 3}
-    textInstruction: "Anna lehdet lehm\xE4lle."
+    audioClip: {fileID: 8300000, guid: f03e09733af35844a890f271aa87273e, type: 3}
+    textInstruction: Ge blad till kon.
   - combo:
       foodName: Lehdet
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: e033c48a76d2c194ca2487e9cf309e6b, type: 3}
-    textInstruction: Anna lehdet pesukarhulle.
+    audioClip: {fileID: 8300000, guid: 2e3eba8d09082cc429b36df2a3ef86bf, type: 3}
+    textInstruction: "Ge blad till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Lehdet
       animalName: Pupu
-    audioClip: {fileID: 8300000, guid: 6a3dea97b0123f94b8d0b336319cebb4, type: 3}
-    textInstruction: Anna lehdet pupulle.
+    audioClip: {fileID: 8300000, guid: f36b55668149958408fc25b471784123, type: 3}
+    textInstruction: Ge blad till kaninen.
   - combo:
       foodName: "Leip\xE4"
       animalName: Kana
-    audioClip: {fileID: 8300000, guid: 1f0c9bb4ec84f3544a26a4c64028a8df, type: 3}
-    textInstruction: "Anna leip\xE4 kanalle."
+    audioClip: {fileID: 8300000, guid: 02e002a9f7573de458ac163db2d083dc, type: 3}
+    textInstruction: "Ge br\xF6d till h\xF6nan."
   - combo:
       foodName: "Leip\xE4"
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: c7e2f402614bbd14ba1cb4a2bacb9cff, type: 3}
-    textInstruction: "Anna leip\xE4 pesukarhulle."
+    audioClip: {fileID: 8300000, guid: f731f1534c04ab747802434df6b7eb13, type: 3}
+    textInstruction: "Ge br\xF6d till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Luu
       animalName: Koira
-    audioClip: {fileID: 8300000, guid: b386f58654d38604ead7c875f3ece2d2, type: 3}
-    textInstruction: Anna luu koiralle.
+    audioClip: {fileID: 8300000, guid: 38f0af3a0b2f05b44ba03ab6da9160f8, type: 3}
+    textInstruction: Ge ben till hunden.
   - combo:
       foodName: Luu
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 8bb135c35d3164540b9d9d223f1c9516, type: 3}
-    textInstruction: Anna luu pesukarhulle.
+    audioClip: {fileID: 8300000, guid: c69afb778c7943449909728f553af51f, type: 3}
+    textInstruction: "Ge ben till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Mato
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: e5c1cc2aa4b85a24494af5aee34831a7, type: 3}
-    textInstruction: Anna mato pesukarhulle.
+    audioClip: {fileID: 8300000, guid: d77508b4fbf4630448f4459b54ed1c83, type: 3}
+    textInstruction: "Ge mask till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Mato
       animalName: Strutsi
-    audioClip: {fileID: 8300000, guid: 7e2d91ceba2ab464a9401cabb8280f79, type: 3}
-    textInstruction: Anna mato strutsille.
+    audioClip: {fileID: 8300000, guid: 383dc8913bbacf443b9de47193ace1ae, type: 3}
+    textInstruction: Ge mask till strutsen.
   - combo:
       foodName: Nakki
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 6b0d2a74533ea4344ac6424c3a43ce9f, type: 3}
-    textInstruction: Anna nakki pesukarhulle.
+    audioClip: {fileID: 8300000, guid: 962a006c29eb85845aea6469d716fb00, type: 3}
+    textInstruction: "Ge knackkorv till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Oliivi
       animalName: Kana
-    audioClip: {fileID: 8300000, guid: 7febbbcdf263de1478b4c9fb7bdc453d, type: 3}
-    textInstruction: Anna oliivi kanalle.
+    audioClip: {fileID: 8300000, guid: f7bb409a7855e9449a6c7a22ca4ccb33, type: 3}
+    textInstruction: "Ge oliv till h\xF6nan."
   - combo:
       foodName: Oliivi
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 7531fb5590fabc342a7bf153b2ec8591, type: 3}
-    textInstruction: Anna oliivi pesukarhulle.
-  - combo:
-      foodName: Paisti
-      animalName: Koira
-    audioClip: {fileID: 8300000, guid: eda2843caef7b1a438603a1afa80ce63, type: 3}
-    textInstruction: Anna paisti koiralle.
-  - combo:
-      foodName: Paisti
-      animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 7bd490a07a0c54044accf61e43a0e23f, type: 3}
-    textInstruction: Anna paisti pesukarhulle.
+    audioClip: {fileID: 8300000, guid: cad138bcd8243ef4694d2e9fc22e331e, type: 3}
+    textInstruction: "Ge oliv till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Pihvi
       animalName: Kissa
-    audioClip: {fileID: 8300000, guid: 7ec0feb04c349504f9f4c5757f18d804, type: 3}
-    textInstruction: Anna pihvi kissalle.
+    audioClip: {fileID: 8300000, guid: 468c3fa98814ac446a08a8686af3c8ee, type: 3}
+    textInstruction: Ge biff till katten.
   - combo:
       foodName: Pihvi
       animalName: Koira
-    audioClip: {fileID: 8300000, guid: baba3e77890128a4f9e6b45cc2baad05, type: 3}
-    textInstruction: Anna pihvi koiralle.
+    audioClip: {fileID: 8300000, guid: 1cab64fd0e924364196e489c875058c2, type: 3}
+    textInstruction: Ge biff till hunden.
   - combo:
       foodName: Pihvi
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: a6ef7374c70e61945b19d76e37f823ae, type: 3}
-    textInstruction: Anna pihvi pesukarhulle.
+    audioClip: {fileID: 8300000, guid: b35e4fa774f64be4ea1ce2b83616a6a0, type: 3}
+    textInstruction: "Ge biff till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Porkkana
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: f68049797602c3a40869813552abacfa, type: 3}
-    textInstruction: Anna porkkana pesukarhulle.
+    audioClip: {fileID: 8300000, guid: aa85c34d473c53d43a76b61988e4dad8, type: 3}
+    textInstruction: "Ge morot till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Porkkana
       animalName: Possu
-    audioClip: {fileID: 8300000, guid: 0a46bb234c2c97e4583c8fd9c0cba07d, type: 3}
-    textInstruction: Anna porkkana possulle.
+    audioClip: {fileID: 8300000, guid: 1c86cea2b990bba41a4db99304af7c30, type: 3}
+    textInstruction: Ge morot till grisen.
   - combo:
       foodName: Porkkana
       animalName: Pupu
-    audioClip: {fileID: 8300000, guid: d7741139dfb1ab94a82d2e031e19a530, type: 3}
-    textInstruction: Anna porkkana pupulle.
+    audioClip: {fileID: 8300000, guid: 6e34e1b0a9c02e44fa24d02e6ad1a91c, type: 3}
+    textInstruction: Ge morot till kaninen.
   - combo:
       foodName: "P\xE4hkin\xE4t"
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 9d9c2e1891d0e214b9a3a6e4f38dba9e, type: 3}
-    textInstruction: "Anna p\xE4hkin\xE4t pesukarhulle."
+    audioClip: {fileID: 8300000, guid: 5431a58f677bce145a7705dc520d5c45, type: 3}
+    textInstruction: "Ge n\xF6tter till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: "P\xE4hkin\xE4t"
       animalName: Strutsi
-    audioClip: {fileID: 8300000, guid: 8c7009e5d45f3fe4cb2f89a0b98d2afd, type: 3}
-    textInstruction: "Anna p\xE4hkin\xE4t strutsille."
+    audioClip: {fileID: 8300000, guid: ce5a4b5d2b82108479c465a701ef6367, type: 3}
+    textInstruction: "Ge n\xF6tter till strutsen."
   - combo:
       foodName: Retiisi
       animalName: Hevonen
-    audioClip: {fileID: 8300000, guid: 596588f97213afe4484ffa1187debdad, type: 3}
-    textInstruction: Anna retiisi hevoselle.
+    audioClip: {fileID: 8300000, guid: 8ff2fe9078c7c1048af46f6e0fc80cfd, type: 3}
+    textInstruction: "Ge r\xE4disa till h\xE4sten."
   - combo:
       foodName: Retiisi
       animalName: Lammas
-    audioClip: {fileID: 8300000, guid: 56fa24bb0263a59479007903bb4f3aff, type: 3}
-    textInstruction: Anna retiisi lampaalle.
+    audioClip: {fileID: 8300000, guid: a0ca609dd3d359b49a680b45d8a0e171, type: 3}
+    textInstruction: "Ge r\xE4disa till f\xE5ret."
   - combo:
       foodName: Retiisi
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: 75e6188b87d019a43bc577dee82a6b7e, type: 3}
-    textInstruction: Anna retiisi pesukarhulle.
+    audioClip: {fileID: 8300000, guid: eefc2ef45cd8c27418c30845a99f6d56, type: 3}
+    textInstruction: "Ge r\xE4disa till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Retiisi
       animalName: Possu
-    audioClip: {fileID: 8300000, guid: 30af09dae40c247459b2fbf234dd909c, type: 3}
-    textInstruction: Anna retiisi possulle.
+    audioClip: {fileID: 8300000, guid: 3772504a42bb2e148849259329b36e5a, type: 3}
+    textInstruction: "Ge r\xE4disa till grisen."
   - combo:
       foodName: Sienet
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: ffc9612b4c031b74bb6483fedccac3a7, type: 3}
-    textInstruction: Anna sienet pesukarhulle.
+    audioClip: {fileID: 8300000, guid: ae38430fb3b0486489629ccd85381fc9, type: 3}
+    textInstruction: "Ge svampar till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Sienet
       animalName: Possu
-    audioClip: {fileID: 8300000, guid: e3b1c4d88b7ec10428d222f275f92bf4, type: 3}
-    textInstruction: Anna sienet possulle.
+    audioClip: {fileID: 8300000, guid: d9dac45c99391324f83ddf1e1598d81b, type: 3}
+    textInstruction: Ge svampar till grisen.
   - combo:
       foodName: "Vehn\xE4"
       animalName: Alpakka
-    audioClip: {fileID: 8300000, guid: bbdd8c8f112c571468623a9e05639c6a, type: 3}
-    textInstruction: "Anna vehn\xE4 alpakalle."
+    audioClip: {fileID: 8300000, guid: 09c562fa6a785cb4bbf9265573a99469, type: 3}
+    textInstruction: Ge vete till alpackan.
   - combo:
       foodName: "Vehn\xE4"
       animalName: Hevonen
-    audioClip: {fileID: 8300000, guid: 925bf8b8da8059e4eb041f9d5fe06ec9, type: 3}
-    textInstruction: "Anna vehn\xE4 hevoselle."
+    audioClip: {fileID: 8300000, guid: d35f17e4e76943241ae75cef589bb3fd, type: 3}
+    textInstruction: "Ge vete till h\xE4sten."
   - combo:
       foodName: "Vehn\xE4"
       animalName: Lammas
-    audioClip: {fileID: 8300000, guid: ddff3dd932504254b86776fc287c6a6a, type: 3}
-    textInstruction: "Anna vehn\xE4 lampaalle."
+    audioClip: {fileID: 8300000, guid: 78f9dd1e737b34942b753aaa5738ed64, type: 3}
+    textInstruction: "Ge vete till f\xE5ret."
   - combo:
       foodName: "Vehn\xE4"
       animalName: "Lehm\xE4"
-    audioClip: {fileID: 8300000, guid: b1c6c0a9d6c6a6446a946dc396a917df, type: 3}
-    textInstruction: "Anna vehn\xE4 lehm\xE4lle."
+    audioClip: {fileID: 8300000, guid: e4af9aa6d65cb934b9c8a7f55ef7a139, type: 3}
+    textInstruction: Ge vete till kon.
   - combo:
       foodName: "Vehn\xE4"
       animalName: Pesukarhu
-    audioClip: {fileID: 8300000, guid: e369794bf75eed94db7813ae1a33833b, type: 3}
-    textInstruction: "Anna vehn\xE4 pesukarhulle."
+    audioClip: {fileID: 8300000, guid: c40d558d30789e9409bae7cb1243b70c, type: 3}
+    textInstruction: "Ge vete till tv\xE4ttbj\xF6rnen."
   - combo:
       foodName: Appelsiini
       animalName: Hevonen
-    audioClip: {fileID: 8300000, guid: c1d9252636c1f4f4ca189544e25b6b2a, type: 3}
-    textInstruction: Anna appelsiini hevoselle.
+    audioClip: {fileID: 8300000, guid: 184593e73ea9bcf47b6d0d9e8ba2d999, type: 3}
+    textInstruction: "Ge apelsin till h\xE4sten."
   - combo:
       foodName: Appelsiini
       animalName: "Lehm\xE4"
-    audioClip: {fileID: 8300000, guid: de3cd6f52cf82d34e840810ad250691a, type: 3}
-    textInstruction: "Anna appelsiini lehm\xE4lle."
+    audioClip: {fileID: 8300000, guid: b527e3e1128c27649bb07ea0b10e5f76, type: 3}
+    textInstruction: Ge apelsin till kon.
   - combo:
       foodName: Appelsiini
       animalName: Possu
-    audioClip: {fileID: 8300000, guid: 81d8bc0587d701443b961ea796d863db, type: 3}
-    textInstruction: Anna appelsiini possulle.
+    audioClip: {fileID: 8300000, guid: 7a6c3958d96cafc458b4b734cfcdcb1b, type: 3}
+    textInstruction: Ge apelsin till grisen.
   - combo:
       foodName: Appelsiini
       animalName: Strutsi
-    audioClip: {fileID: 8300000, guid: 9d94ac0d2353c0f4da1252f3ae3b7c3c, type: 3}
-    textInstruction: Anna appelsiini strutsille.
+    audioClip: {fileID: 8300000, guid: 388fc9db9db92e846ad3c9537bb51516, type: 3}
+    textInstruction: Ge apelsin till strutsen.
   - combo:
       foodName: Broileri
       animalName: Kissa
-    audioClip: {fileID: 8300000, guid: 712db176ee424434d84e814a19f35285, type: 3}
-    textInstruction: Anna broileri kissalle.
+    audioClip: {fileID: 8300000, guid: 0ad345e7c19a48843affa9e0da12c85e, type: 3}
+    textInstruction: Ge kyckling till katten.
   - combo:
       foodName: "Jyv\xE4t"
       animalName: Hevonen
-    audioClip: {fileID: 8300000, guid: 6309312c5cea2484d8a46a6359506068, type: 3}
-    textInstruction: "Anna jyv\xE4t hevoselle."
+    audioClip: {fileID: 8300000, guid: f0babdccbd490474d90fe49fbeaea438, type: 3}
+    textInstruction: "Ge korn till h\xE4sten."
   - combo:
       foodName: "Jyv\xE4t"
       animalName: Lammas
-    audioClip: {fileID: 8300000, guid: ace96e1b978a0d847b295315df8dada4, type: 3}
-    textInstruction: "Anna jyv\xE4t lampaalle."
+    audioClip: {fileID: 8300000, guid: bff38059f53bcca4eb70a9e0deeec5bb, type: 3}
+    textInstruction: "Ge korn till f\xE5ret."
   - combo:
       foodName: "Jyv\xE4t"
       animalName: Strutsi
-    audioClip: {fileID: 8300000, guid: ecee80135405168489492683f8ac4c56, type: 3}
-    textInstruction: "Anna jyv\xE4t strutsille."
+    audioClip: {fileID: 8300000, guid: 77abf4cc778d5554099f82ff96378c3c, type: 3}
+    textInstruction: Ge korn till strutsen.
   - combo:
       foodName: Kaali
       animalName: Alpakka
-    audioClip: {fileID: 8300000, guid: 8592ecb31082d4a43948af9b626d9ac9, type: 3}
-    textInstruction: Anna kaali alpakalle.
+    audioClip: {fileID: 8300000, guid: 12604d7409e1d8a48bd87477aed7b03f, type: 3}
+    textInstruction: "Ge k\xE5l till alpackan."
   - combo:
       foodName: Kaali
       animalName: Strutsi
-    audioClip: {fileID: 8300000, guid: 3971a1a925deb494691dba6a1753eea2, type: 3}
-    textInstruction: Anna kaali strutsille.
+    audioClip: {fileID: 8300000, guid: 96f37c18fa501174caa5d9a7c4d44e50, type: 3}
+    textInstruction: "Ge k\xE5l till strutsen."
   - combo:
       foodName: Kala
       animalName: Kana
-    audioClip: {fileID: 8300000, guid: a518e1be8f0bcd24695e2e5b3244ca05, type: 3}
-    textInstruction: Anna kala kanalle.
+    audioClip: {fileID: 8300000, guid: 159f3bd8642a6db499bf9720d77f2b0b, type: 3}
+    textInstruction: "Ge fisk till h\xF6nan."
   - combo:
       foodName: Kala
       animalName: Koira
-    audioClip: {fileID: 8300000, guid: 4a64513b1b97e924aac7672657456d41, type: 3}
-    textInstruction: Anna kala koiralle.
+    audioClip: {fileID: 8300000, guid: f63c9d5ab5d36f8458b158c997b94549, type: 3}
+    textInstruction: Ge fisk till hunden.
   - combo:
       foodName: Kala
       animalName: Strutsi
-    audioClip: {fileID: 8300000, guid: df7f054407d36034e928c843dbd30688, type: 3}
-    textInstruction: Anna kala strutsille.
+    audioClip: {fileID: 8300000, guid: 4869633a9ed1a724cb6051716bc29f8b, type: 3}
+    textInstruction: Ge fisk till strutsen.
   - combo:
       foodName: Kinkku
       animalName: Koira
-    audioClip: {fileID: 8300000, guid: 8f9d272b1938f324c8cac3df1ba532ba, type: 3}
-    textInstruction: Anna kinkku koiralle.
+    audioClip: {fileID: 8300000, guid: 8823b6edbe7f8cf4daec6c4cd2804cff, type: 3}
+    textInstruction: Ge skinka till hunden.
   - combo:
       foodName: Kurkku
       animalName: Kana
-    audioClip: {fileID: 8300000, guid: c0e5f7566bdf43f45ad1c820ff36ef94, type: 3}
-    textInstruction: Anna kurkku kanalle.
+    audioClip: {fileID: 8300000, guid: 363a6be45ecda8a40b72efd60b67cd22, type: 3}
+    textInstruction: "Ge gurka till h\xF6nan."
   - combo:
       foodName: Kurkku
       animalName: Pupu
-    audioClip: {fileID: 8300000, guid: 853008561223e92449844afc765efa36, type: 3}
-    textInstruction: Anna kurkku pupulle.
+    audioClip: {fileID: 8300000, guid: ba66b99782118c14480f5a5dccb106e7, type: 3}
+    textInstruction: Ge gurka till kaninen.
   - combo:
       foodName: "Leip\xE4"
       animalName: Alpakka
-    audioClip: {fileID: 8300000, guid: 109b53c5f981fe54e97ac5e3d6131132, type: 3}
-    textInstruction: "Anna leip\xE4 alpakalle."
+    audioClip: {fileID: 8300000, guid: 926fc0848e0af9b41986c15b82b1a6ae, type: 3}
+    textInstruction: "Ge br\xF6d till alpackan."
   - combo:
       foodName: "Leip\xE4"
       animalName: Possu
-    audioClip: {fileID: 8300000, guid: 612ee6e0346b36749ba95d6c50a83e74, type: 3}
-    textInstruction: "Anna leip\xE4 possulle."
+    audioClip: {fileID: 8300000, guid: 59b1b7cf8726ee1428fd3178e935511f, type: 3}
+    textInstruction: "Ge br\xF6d till grisen."
   - combo:
       foodName: Mato
       animalName: Kana
-    audioClip: {fileID: 8300000, guid: efa536b096f301e4cb6b31c9fc2bad6b, type: 3}
-    textInstruction: Anna mato kanalle.
+    audioClip: {fileID: 8300000, guid: 824e134e0416a4a45b6ced45e2c216fd, type: 3}
+    textInstruction: "Ge mask till h\xF6nan."
   - combo:
       foodName: Nakki
       animalName: Kissa
-    audioClip: {fileID: 8300000, guid: e8a6f9838195ff54c82a4cbcfcfdcde9, type: 3}
-    textInstruction: Anna nakki kissalle.
+    audioClip: {fileID: 8300000, guid: b39fb349de0f0044a9e81160c8bf5781, type: 3}
+    textInstruction: Ge knackkorv till katten.
   - combo:
       foodName: Nakki
       animalName: Koira
-    audioClip: {fileID: 8300000, guid: 038afdc88042a5a468fe86dce1efd314, type: 3}
-    textInstruction: Anna nakki koiralle.
+    audioClip: {fileID: 8300000, guid: 47ec3c4899e26be4e867847c89f361e3, type: 3}
+    textInstruction: Ge knackkorv till hunden.
   - combo:
       foodName: Oliivi
       animalName: Lammas
-    audioClip: {fileID: 8300000, guid: fc4d7a2426429124ea0a5b5507b4461d, type: 3}
-    textInstruction: Anna oliivi lampaalle.
+    audioClip: {fileID: 8300000, guid: 77f5aa74863baf94fbffb0e3127a5ea1, type: 3}
+    textInstruction: "Ge oliv till f\xE5ret."
   - combo:
       foodName: Porkkana
       animalName: Alpakka
-    audioClip: {fileID: 8300000, guid: 8f0bed2bd7d814e41bdc96183270b420, type: 3}
-    textInstruction: Anna porkkana alpakalle.
+    audioClip: {fileID: 8300000, guid: 425d9fce687dc1b4d9eaac6521f90999, type: 3}
+    textInstruction: Ge morot till alpackan.
   - combo:
       foodName: Porkkana
       animalName: Hevonen
-    audioClip: {fileID: 8300000, guid: eadeebcc7d0933f479a60812773be861, type: 3}
-    textInstruction: Anna porkkana hevoselle.
+    audioClip: {fileID: 8300000, guid: 91aca0a05016ce942a8a88d0336cfc5e, type: 3}
+    textInstruction: "Ge morot till h\xE4sten."
   - combo:
       foodName: Porkkana
       animalName: Kana
-    audioClip: {fileID: 8300000, guid: 654d6e29247626d49971a8d632c22910, type: 3}
-    textInstruction: Anna porkkana kanalle.
+    audioClip: {fileID: 8300000, guid: 2a5b2b6eed109584990fa4f396eebc8f, type: 3}
+    textInstruction: "Ge morot till h\xF6nan."
   - combo:
       foodName: Porkkana
       animalName: "Lehm\xE4"
-    audioClip: {fileID: 8300000, guid: e180b68861a9cf4438c9935649a6670d, type: 3}
-    textInstruction: "Anna porkkana lehm\xE4lle."
+    audioClip: {fileID: 8300000, guid: a88cbd0910ddb684ead9b6aec28dc827, type: 3}
+    textInstruction: Ge morot till kon.
   - combo:
       foodName: "P\xE4hkin\xE4t"
       animalName: Kana
-    audioClip: {fileID: 8300000, guid: 558a1892289138042a0a0115ba2d6a08, type: 3}
-    textInstruction: "Anna p\xE4hkin\xE4t kanalle."
+    audioClip: {fileID: 8300000, guid: e071c924977ebb44eb8f1aa08a39998e, type: 3}
+    textInstruction: "Ge n\xF6tter till h\xF6nan."
   - combo:
       foodName: Retiisi
       animalName: Alpakka
-    audioClip: {fileID: 8300000, guid: 0e2170cb365fb1d46b45751a6e403a34, type: 3}
-    textInstruction: Anna retiisi alpakalle.
+    audioClip: {fileID: 8300000, guid: 6c0fef67a0087e64c860d1f3fcb2b814, type: 3}
+    textInstruction: "Ge r\xE4disa till alpackan."
   - combo:
       foodName: Retiisi
       animalName: Pupu
-    audioClip: {fileID: 8300000, guid: 9bf38194ed0b38a4aae96db8a0b4a996, type: 3}
-    textInstruction: Anna retiisi pupulle.
+    audioClip: {fileID: 8300000, guid: 2849ed0a3c8f5d94da7ab4e41fd97378, type: 3}
+    textInstruction: "Ge r\xE4disa till kaninen."
   - combo:
       foodName: Sienet
       animalName: Lammas
-    audioClip: {fileID: 8300000, guid: dbff03c51f65b644bbad026032256058, type: 3}
-    textInstruction: Anna sienet lampaalle.
+    audioClip: {fileID: 8300000, guid: b25a2bfc37faa274b92cdcc81ab64830, type: 3}
+    textInstruction: "Ge svampar till f\xE5ret."
   - combo:
       foodName: Sienet
       animalName: Pupu
-    audioClip: {fileID: 8300000, guid: 9379bd9528ec57e4abd27c141b5b4f86, type: 3}
-    textInstruction: Anna sienet pupulle.
+    audioClip: {fileID: 8300000, guid: 31e8013150e00d54ab18ba859898aa63, type: 3}
+    textInstruction: Ge svampar till kaninen.
   - combo:
       foodName: "Vehn\xE4"
       animalName: Pupu
-    audioClip: {fileID: 8300000, guid: f43e5b84d82582d4282b3a8b2ff68d2b, type: 3}
-    textInstruction: "Anna vehn\xE4 pupulle."
+    audioClip: {fileID: 8300000, guid: 7b312f12ac08eed4aa3a008a56df65c5, type: 3}
+    textInstruction: Ge vete till kaninen.
 --- !u!1 &365366064
 GameObject:
   m_ObjectHideFlags: 0
@@ -22247,8 +22227,8 @@ MonoBehaviour:
   - {fileID: 549117083}
   - {fileID: 1746365375}
   m_Bounds:
-    m_Center: {x: 0.14497948, y: -0.0031849146, z: 4.656613e-10}
-    m_Extent: {x: 1.7123095, y: 1.2718146, z: 0}
+    m_Center: {x: 0.14497936, y: -0.0031847954, z: 4.656613e-10}
+    m_Extent: {x: 1.7123096, y: 1.2718148, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
