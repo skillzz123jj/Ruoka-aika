@@ -18,6 +18,7 @@ public class GameData : MonoBehaviour
     public bool winter;
     public bool fall;
 
+    public bool finnish;
     public bool instructions;
     public int currentIndex;
 
