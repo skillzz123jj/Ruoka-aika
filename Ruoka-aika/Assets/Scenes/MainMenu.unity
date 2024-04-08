@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234862363}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LanguageSettings, Assembly-CSharp
         m_MethodName: ChangeLanguage
         m_Mode: 1
@@ -4474,61 +4474,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213953165}
   m_CullTransparentMesh: 1
---- !u!1 &1234862362
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1234862364}
-  - component: {fileID: 1234862363}
-  m_Layer: 0
-  m_Name: LanguageSettings
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1234862363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234862362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f48016823210bb4783b70e756ce7567, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1041685423}
-  finnishObjects:
-  - {fileID: 2113128700}
-  - {fileID: 1745442788}
-  - {fileID: 9068956720425365360}
-  - {fileID: 8621179876968305620}
-  swedishObjects:
-  - {fileID: 701030966}
-  - {fileID: 163316285}
-  - {fileID: 443898135}
-  - {fileID: 2030154709}
---- !u!4 &1234862364
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234862362}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 973.33325, y: 565.8752, z: 3.8349614}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1260694910
 GameObject:
   m_ObjectHideFlags: 0
@@ -8963,11 +8908,8 @@ MonoBehaviour:
   normalChosenButton: {fileID: 1273094492}
   textInsButton: {fileID: 1541941290}
   audioInsButton: {fileID: 1487900009}
-  textAndAudioInsButton: {fileID: 116792986}
-  test: {fileID: 493686848}
   textInsButtonChosen: {fileID: 1593796443}
   audioInsButtonChosen: {fileID: 1736812908}
-  textAndAudioInsButtonChosen: {fileID: 390397232}
   audioInstructionsToggle: {fileID: 1342655704}
   textInstructionsToggle: {fileID: 1128333979}
   buttons:
