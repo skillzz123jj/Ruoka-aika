@@ -12,8 +12,9 @@ public class DragAndDrop : MonoBehaviour
 
     public Vector2 initialPosition;
     public float moveSpeed = 3.0f;
+    Vector3 mousePos;
 
-    [SerializeField] ActiveFood activeFood;
+   [SerializeField] ActiveFood activeFood;
 
     public static DragAndDrop dragAndDrop;
 
@@ -45,9 +46,30 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+            if (screenPosition.x > Screen.width + 10)
+        {
+            initialPosition = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
+
+
+            float t = Time.deltaTime * moveSpeed;
+
+            transform.position = Vector3.Lerp(transform.position, initialPosition, t);
+        }
+
 
         if (isDragging)
         {
+            if (Input.mousePosition.x < 0 || Input.mousePosition.x > Screen.width ||
+            Input.mousePosition.y < 0 || Input.mousePosition.y > Screen.height)
+            {
+                isDragging = false;
+          
+            }
+            else
+            {
+                isDragging = true;
+            }
 
             if (Input.touchCount > 0)
             {
@@ -57,9 +79,8 @@ public class DragAndDrop : MonoBehaviour
 
                 transform.position = touchPosition;//new Vector3(touchPosition.x - 1f, touchPosition.y + 1f, touchPosition.z);
 
-                GameObject currentActiveFood = activeFood.GetClickedFood(gameObject);
-                activeFood.ValidFood(currentActiveFood);
-                //activeFood.ChooseFood(currentActiveFood);
+                activeFood.GetClickedFood(gameObject);
+                activeFood.ValidFood(gameObject);
 
             }
             else

@@ -20,6 +20,7 @@ public class GameData : MonoBehaviour
 
     public bool finnish;
     public bool instructions;
+    public bool clicked;
     public int currentIndex;
 
     public static GameData gameData;
