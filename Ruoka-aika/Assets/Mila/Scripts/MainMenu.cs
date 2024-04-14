@@ -26,6 +26,8 @@ public class MainMenu : MonoBehaviour
     
     [SerializeField] MenuManager menuManager;
 
+    bool clicked;
+
     private void Start()
     {
         GameData.gameData.currentIndex = -1;
@@ -36,6 +38,12 @@ public class MainMenu : MonoBehaviour
         //Add listeners to handle toggle changes
         audioInstructionsToggle.onValueChanged.AddListener(OnAudioInstructionsToggleChanged);
         textInstructionsToggle.onValueChanged.AddListener(OnTextInstructionsToggleChanged);
+
+        if (!GameData.gameData.clicked)
+        {
+            AudioInstruction();
+            GameData.gameData.clicked = true;
+        }
 
         if (GameData.gameData.easy)
         {
