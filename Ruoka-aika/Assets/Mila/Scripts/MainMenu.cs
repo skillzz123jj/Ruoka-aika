@@ -37,6 +37,12 @@ public class MainMenu : MonoBehaviour
         audioInstructionsToggle.onValueChanged.AddListener(OnAudioInstructionsToggleChanged);
         textInstructionsToggle.onValueChanged.AddListener(OnTextInstructionsToggleChanged);
 
+        if (!GameData.gameData.clicked)
+        {
+            AudioInstruction();
+            GameData.gameData.clicked = true;
+        }
+
         if (GameData.gameData.easy)
         {
             normalChosenButton.SetActive(false);

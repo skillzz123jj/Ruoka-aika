@@ -19,6 +19,7 @@ public class GameData : MonoBehaviour
     public bool fall;
 
     public bool finnish;
+    public bool clicked;
     public bool instructions;
     public int currentIndex;
 

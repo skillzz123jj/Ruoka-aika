@@ -45,9 +45,29 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+        if (screenPosition.x > Screen.width + 10)
+        {
+            initialPosition = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
+
+
+            float t = Time.deltaTime * moveSpeed;
+
+            transform.position = Vector3.Lerp(transform.position, initialPosition, t);
+        }
 
         if (isDragging)
         {
+            if (Input.mousePosition.x < 0 || Input.mousePosition.x > Screen.width ||
+          Input.mousePosition.y < 0 || Input.mousePosition.y > Screen.height)
+            {
+                isDragging = false;
+
+            }
+            else
+            {
+                isDragging = true;
+            }
 
             if (Input.touchCount > 0)
             {
