@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
@@ -12,11 +10,14 @@ public class DragAndDrop : MonoBehaviour
 
     public Vector2 initialPosition;
     public float moveSpeed = 3.0f;
+    float boundaryOffsetHeight = Screen.height * 0.05f;
+    float boundaryOffsetWidth = Screen.width * 0.025f;
     Vector3 mousePos;
 
    [SerializeField] ActiveFood activeFood;
 
     public static DragAndDrop dragAndDrop;
+    private Vector2 mousePosition;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class DragAndDrop : MonoBehaviour
     {
         isDragging = true;
         move = true;
+        activeFood.isDragging = true;
 
         if (Input.touchCount > 0)
         {
@@ -42,33 +44,37 @@ public class DragAndDrop : MonoBehaviour
     public void OnMouseUp()
     {
         isDragging = false;
+        activeFood.isDragging = false;
     }
 
     void Update()
     {
             Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-            if (screenPosition.x > Screen.width + 10)
-        {
-            initialPosition = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
-
-
-            float t = Time.deltaTime * moveSpeed;
-
-            transform.position = Vector3.Lerp(transform.position, initialPosition, t);
-        }
-
+   
 
         if (isDragging)
         {
-            if (Input.mousePosition.x < 0 || Input.mousePosition.x > Screen.width ||
-            Input.mousePosition.y < 0 || Input.mousePosition.y > Screen.height)
+            if (Input.mousePosition.x <= 0 || Input.mousePosition.x >= Screen.width - boundaryOffsetWidth)
             {
-                isDragging = false;
-          
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.x = transform.position.x;
+                transform.position = mousePosition;
+                
             }
+            else if (Input.mousePosition.y <= 0 || Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.y = transform.position.y;
+                transform.position = mousePosition;
+               
+            }         
             else
             {
-                isDragging = true;
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = mousePosition;
+
+                GameObject currentActiveFood = activeFood.GetClickedFood(gameObject);
+                activeFood.ValidFood(currentActiveFood);
             }
 
             if (Input.touchCount > 0)
@@ -83,14 +89,14 @@ public class DragAndDrop : MonoBehaviour
                 activeFood.ValidFood(gameObject);
 
             }
-            else
-            {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                transform.position = mousePosition;
+            //else
+            //{
+            //    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //    transform.position = mousePosition;
 
-                GameObject currentActiveFood = activeFood.GetClickedFood(gameObject);
-                activeFood.ValidFood(currentActiveFood);
-            }
+            //    GameObject currentActiveFood = activeFood.GetClickedFood(gameObject);
+            //    activeFood.ValidFood(currentActiveFood);
+            //}
         }
         else
         {
