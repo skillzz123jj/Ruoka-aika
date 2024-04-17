@@ -108,7 +108,7 @@ public class MenuManager : MonoBehaviour
             return;
         }
 
-        Application.Quit();
+        Application.ExternalEval("window.close();");
     }
     public void MuteAudio()
     {

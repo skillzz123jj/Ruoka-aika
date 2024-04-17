@@ -29,6 +29,7 @@ public class ActiveFood : MonoBehaviour
     public bool wasChosen;
     public bool isMoving = false;
     public bool foodBeingEaten;
+    public bool isDragging;
     bool isHovering;
     public bool playingWithMouse;
 
@@ -74,7 +75,7 @@ public class ActiveFood : MonoBehaviour
         hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
         //Check if the ray hits a collider
-        if (hit.collider != null)
+        if (hit.collider != null || isDragging)
         {
             if (!isHovering)
             {
