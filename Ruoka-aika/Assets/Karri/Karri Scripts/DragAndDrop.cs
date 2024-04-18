@@ -14,18 +14,36 @@ public class DragAndDrop : MonoBehaviour
     float boundaryOffsetWidth = Screen.width * 0.025f;
     Vector3 mousePos;
 
-   [SerializeField] ActiveFood activeFood;
+    private Vector3 screenBounds;
+    private float objectWidth;
+    private float objectHeight;
+    private SpriteRenderer spriteRenderer;
+
+    float objectX;
+    float objectY;
+
+
+[SerializeField] ActiveFood activeFood;
 
     public static DragAndDrop dragAndDrop;
     private Vector2 mousePosition;
 
     private void Start()
     {
+        spriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+        {
+            objectWidth = spriteRenderer.bounds.size.x / 2;
+            objectHeight = spriteRenderer.bounds.size.y / 2;
+        }
         if (Application.platform == RuntimePlatform.WebGLPlayer && Application.isMobilePlatform)
         {
-            gameObject.transform.localScale = new Vector2(1.1f, 1.1f);
+            gameObject.transform.localScale = new Vector2(1.15f, 1.15f);
 
         }
+
+     
 
     }
     public void OnMouseDown()
@@ -49,25 +67,61 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-   
+         boundaryOffsetHeight = Screen.height * 0.05f;
+         boundaryOffsetWidth = Screen.width * 0.025f;
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+        Vector3 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(screenWidth, screenHeight, 0));
+        objectX = screenBounds.x - objectWidth;
+        objectY = screenBounds.y - objectHeight;
+
+
 
         if (isDragging)
         {
-            if (Input.mousePosition.x <= 0 || Input.mousePosition.x >= Screen.width - boundaryOffsetWidth)
+            if (Input.mousePosition.x <= 0)
             {
-                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePosition.x = transform.position.x;
-                transform.position = mousePosition;
-                
+
+                if (Input.mousePosition.y <= 0 || Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
+                {
+
+                }
+                else
+                {
+                    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mousePosition.x = -objectX;
+                    transform.position = mousePosition;
+
+                }
             }
-            else if (Input.mousePosition.y <= 0 || Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
+            else if (Input.mousePosition.x >= Screen.width - boundaryOffsetWidth)
+            {
+                if (Input.mousePosition.y <= 0 || Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
+                {
+
+                }
+                else
+                {
+                    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mousePosition.x = objectX;
+                    transform.position = mousePosition;
+
+                }
+            }
+            else if (Input.mousePosition.y <= 0)
             {
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePosition.y = transform.position.y;
+                mousePosition.y = -objectY;
                 transform.position = mousePosition;
-               
-            }         
+
+            }
+            else if (Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.y = objectY;
+                transform.position = mousePosition;
+
+            }
             else
             {
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -77,26 +131,38 @@ public class DragAndDrop : MonoBehaviour
                 activeFood.ValidFood(currentActiveFood);
             }
 
+
+
             if (Input.touchCount > 0)
             {
-                //Gives the food an offset when player is using a mobile device
-                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) + offset;
-
-
-                transform.position = touchPosition;//new Vector3(touchPosition.x - 1f, touchPosition.y + 1f, touchPosition.z);
-
+                // Get touch input
+                Touch touch = Input.GetTouch(0);
                 activeFood.GetClickedFood(gameObject);
                 activeFood.ValidFood(gameObject);
 
-            }
-            //else
-            //{
-            //    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //    transform.position = mousePosition;
+                // Check if the touch is within screen boundaries
+                if (touch.position.x <= 0 || touch.position.x >= Screen.width - boundaryOffsetWidth ||
+                    touch.position.y <= 0 || touch.position.y >= Screen.height - boundaryOffsetHeight)
+                {
+                    // Do nothing if touch is beyond screen boundaries
+                }
+                else
+                {
+                    // Move the object based on touch input
+                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position) + offset;
+                    transform.position = touchPosition;
 
-            //    GameObject currentActiveFood = activeFood.GetClickedFood(gameObject);
-            //    activeFood.ValidFood(currentActiveFood);
-            //}
+                    // Optionally, perform other actions here
+                }
+                //else
+                //{
+                //    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                //    transform.position = mousePosition;
+
+                //    GameObject currentActiveFood = activeFood.GetClickedFood(gameObject);
+                //    activeFood.ValidFood(currentActiveFood);
+                //}
+            }
         }
         else
         {
