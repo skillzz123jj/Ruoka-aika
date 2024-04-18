@@ -1,35 +1,47 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
-    private Vector3 offset;
+    Vector3 offset;
+    Vector2 initialPosition;
+    Vector2 screenSize;
 
-    private bool isDragging;
-    public bool move = true;
+    bool isDragging;
+    bool move = true;
 
-    public Vector2 initialPosition;
     public float moveSpeed = 3.0f;
+    float boundaryOffsetHeight;
+    float boundaryOffsetWidth;
+    float objectWidth;
+    float objectHeight;
+    float objectX;
+    float objectY;
 
+    SpriteRenderer spriteRenderer;
     [SerializeField] ActiveFood activeFood;
-
     public static DragAndDrop dragAndDrop;
+
 
     private void Start()
     {
+        spriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+        {
+            objectWidth = spriteRenderer.bounds.size.x / 2;
+            objectHeight = spriteRenderer.bounds.size.y / 2;
+        }
         if (Application.platform == RuntimePlatform.WebGLPlayer && Application.isMobilePlatform)
         {
-            gameObject.transform.localScale = new Vector2(1.1f, 1.1f);
+            gameObject.transform.localScale = new Vector2(1.15f, 1.15f);
 
         }
-
     }
     public void OnMouseDown()
     {
         isDragging = true;
         move = true;
+        activeFood.isDragging = true;
 
         if (Input.touchCount > 0)
         {
@@ -41,45 +53,64 @@ public class DragAndDrop : MonoBehaviour
     public void OnMouseUp()
     {
         isDragging = false;
+        activeFood.isDragging = false;
     }
 
     void Update()
     {
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(transform.position);
-        if (screenPosition.x > Screen.width + 10)
+        if (screenSize.x != Screen.width || screenSize.y != Screen.height)
         {
-            initialPosition = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
+  
+            screenSize.x = Screen.width;
+            screenSize.y = Screen.height;
 
-
-            float t = Time.deltaTime * moveSpeed;
-
-            transform.position = Vector3.Lerp(transform.position, initialPosition, t);
+            UpdateScreenSize();
         }
+   
 
         if (isDragging)
         {
-            if (Input.mousePosition.x < 0 || Input.mousePosition.x > Screen.width ||
-          Input.mousePosition.y < 0 || Input.mousePosition.y > Screen.height)
+            if (Input.mousePosition.x <= 0)
             {
-                isDragging = false;
+
+                if (Input.mousePosition.y <= 0 || Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
+                {
+
+                }
+                else
+                {
+                    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mousePosition.x = -objectX;
+                    transform.position = mousePosition;
+
+                }
+            }
+            else if (Input.mousePosition.x >= Screen.width - boundaryOffsetWidth)
+            {
+                if (Input.mousePosition.y <= 0 || Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
+                {
+
+                }
+                else
+                {
+                    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    mousePosition.x = objectX;
+                    transform.position = mousePosition;
+
+                }
+            }
+            else if (Input.mousePosition.y <= 0)
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.y = -objectY;
+                transform.position = mousePosition;
 
             }
-            else
+            else if (Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
             {
-                isDragging = true;
-            }
-
-            if (Input.touchCount > 0)
-            {
-                //Gives the food an offset when player is using a mobile device
-                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position) + offset;
-
-
-                transform.position = touchPosition;//new Vector3(touchPosition.x - 1f, touchPosition.y + 1f, touchPosition.z);
-
-                GameObject currentActiveFood = activeFood.GetClickedFood(gameObject);
-                activeFood.ValidFood(currentActiveFood);
-                //activeFood.ChooseFood(currentActiveFood);
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.y = objectY;
+                transform.position = mousePosition;
 
             }
             else
@@ -89,6 +120,27 @@ public class DragAndDrop : MonoBehaviour
 
                 GameObject currentActiveFood = activeFood.GetClickedFood(gameObject);
                 activeFood.ValidFood(currentActiveFood);
+            }
+
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                activeFood.GetClickedFood(gameObject);
+                activeFood.ValidFood(gameObject);
+
+                if (touch.position.x <= 0 || touch.position.x >= Screen.width - boundaryOffsetWidth ||
+                    touch.position.y <= 0 || touch.position.y >= Screen.height - boundaryOffsetHeight)
+                {
+                  
+                }
+                else
+                {
+                   
+                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position) + offset;
+                    transform.position = touchPosition;
+          
+                }
+          
             }
         }
         else
@@ -106,6 +158,16 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
+    void UpdateScreenSize()
+    {
+        boundaryOffsetHeight = Screen.height * 0.05f;
+        boundaryOffsetWidth = Screen.width * 0.025f;
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+        Vector3 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(screenWidth, screenHeight, 0));
+        objectX = screenBounds.x - objectWidth;
+        objectY = screenBounds.y - objectHeight;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         move = false;

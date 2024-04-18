@@ -26,7 +26,7 @@ public class CursorController : MonoBehaviour
         {
             ChangeCursor(defaultCursor, hotspotDefault);
         }
-        Cursor.lockState = CursorLockMode.Confined;
+     
     }
     public void Hovering()
     {
