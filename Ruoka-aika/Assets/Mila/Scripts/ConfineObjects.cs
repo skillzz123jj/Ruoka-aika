@@ -3,8 +3,8 @@ using UnityEngine;
 public class ConfineObjects : MonoBehaviour
 {
     private Vector3 screenBounds;
-    private float _objectWidth;
-    private float _objectHeight;
+    private float objectWidth;
+    private float objectHeight;
     private SpriteRenderer spriteRenderer;
 
     [SerializeField] ActiveFood activeFood;
@@ -16,8 +16,8 @@ public class ConfineObjects : MonoBehaviour
 
         if (spriteRenderer != null)
         {
-            _objectWidth = spriteRenderer.bounds.size.x / 2;
-            _objectHeight = spriteRenderer.bounds.size.y / 2;
+            objectWidth = spriteRenderer.bounds.size.x / 2;
+            objectHeight = spriteRenderer.bounds.size.y / 2;
         }
     }
 
@@ -25,10 +25,10 @@ public class ConfineObjects : MonoBehaviour
     {
         //Clamps the food position to make sure it doesnt go off screen
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + _objectWidth, screenBounds.x - _objectWidth);
-        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + _objectHeight, screenBounds.y - _objectHeight);
-        transform.position = viewPos;
+        Vector3 foodPosition = transform.position;
+        foodPosition.x = Mathf.Clamp(foodPosition.x, screenBounds.x * -1 + objectWidth, screenBounds.x - objectWidth);
+        foodPosition.y = Mathf.Clamp(foodPosition.y, screenBounds.y * -1 + objectHeight, screenBounds.y - objectHeight);
+        transform.position = foodPosition;
 
     }
 }
