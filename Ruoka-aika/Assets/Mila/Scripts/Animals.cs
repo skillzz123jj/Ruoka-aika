@@ -41,7 +41,6 @@ public class Animals : MonoBehaviour
 
             if (!activeFood.isMoving)
             {
-             //   activeFood.highlight.SetActive(true);
                 activeFood.collisionCount = 1;
                 activeFood.highlight.transform.position = gameObject.transform.position;
 
