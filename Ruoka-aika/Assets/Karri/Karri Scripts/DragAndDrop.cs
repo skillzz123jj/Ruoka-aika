@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class DragAndDrop : MonoBehaviour
 {
     Vector3 offset;
@@ -7,9 +6,9 @@ public class DragAndDrop : MonoBehaviour
     Vector2 screenSize;
 
     bool isDragging;
-    bool move = true;
+    bool moveFood = true;
 
-    public float moveSpeed = 3.0f;
+    [SerializeField] float moveSpeed;
     float boundaryOffsetHeight;
     float boundaryOffsetWidth;
     float objectWidth;
@@ -24,13 +23,14 @@ public class DragAndDrop : MonoBehaviour
 
     private void Start()
     {
+        //Checks the food has a child object and calculates it's sprite size 
         spriteRenderer = transform.GetComponentInChildren<SpriteRenderer>();
-
         if (spriteRenderer != null)
         {
             objectWidth = spriteRenderer.bounds.size.x / 2;
             objectHeight = spriteRenderer.bounds.size.y / 2;
         }
+        //If game is running on mobile foods are bigger for better visibility
         if (Application.platform == RuntimePlatform.WebGLPlayer && Application.isMobilePlatform)
         {
             gameObject.transform.localScale = new Vector2(1.15f, 1.15f);
@@ -40,13 +40,8 @@ public class DragAndDrop : MonoBehaviour
     public void OnMouseDown()
     {
         isDragging = true;
-        move = true;
+        moveFood = true;
         activeFood.isDragging = true;
-
-        if (Input.touchCount > 0)
-        {
-            offset = transform.position - Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
-        }
 
     }
 
@@ -58,24 +53,24 @@ public class DragAndDrop : MonoBehaviour
 
     void Update()
     {
+        //Checks if there are any changes to the screen size 
         if (screenSize.x != Screen.width || screenSize.y != Screen.height)
         {
-  
             screenSize.x = Screen.width;
             screenSize.y = Screen.height;
 
             UpdateScreenSize();
         }
    
-
+        //If player tries to drag food out of bounds its position gets locked on that axis
         if (isDragging)
         {
+            //Mouse at left side
             if (Input.mousePosition.x <= 0)
             {
-
                 if (Input.mousePosition.y <= 0 || Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
                 {
-
+                    //If the mouse is in the corner don't allow movement
                 }
                 else
                 {
@@ -84,7 +79,7 @@ public class DragAndDrop : MonoBehaviour
                     transform.position = mousePosition;
 
                 }
-            }
+            }//Mouse at right side
             else if (Input.mousePosition.x >= Screen.width - boundaryOffsetWidth)
             {
                 if (Input.mousePosition.y <= 0 || Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
@@ -98,14 +93,14 @@ public class DragAndDrop : MonoBehaviour
                     transform.position = mousePosition;
 
                 }
-            }
+            }//Mouse at the top 
             else if (Input.mousePosition.y <= 0)
             {
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePosition.y = -objectY;
                 transform.position = mousePosition;
 
-            }
+            }//Mouse at the bottom
             else if (Input.mousePosition.y >= Screen.height - boundaryOffsetHeight)
             {
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -113,7 +108,7 @@ public class DragAndDrop : MonoBehaviour
                 transform.position = mousePosition;
 
             }
-            else
+            else //Allow free movement
             {
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 transform.position = mousePosition;
@@ -128,6 +123,7 @@ public class DragAndDrop : MonoBehaviour
                 activeFood.GetClickedFood(gameObject);
                 activeFood.ValidFood(gameObject);
 
+                //If user tries to drag food out of bounds food stops moving else allow free movement
                 if (touch.position.x <= 0 || touch.position.x >= Screen.width - boundaryOffsetWidth ||
                     touch.position.y <= 0 || touch.position.y >= Screen.height - boundaryOffsetHeight)
                 {
@@ -135,20 +131,17 @@ public class DragAndDrop : MonoBehaviour
                 }
                 else
                 {
-                   
                     Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position) + offset;
-                    transform.position = touchPosition;
-          
+                    transform.position = touchPosition;    
                 }
           
             }
         }
-        else
+        else //If player chooses another food the previous food goes back to its original position
         {
-            if (move && gameObject != ActiveFood.activeFood.currentActiveFood)
+            if (moveFood && gameObject != ActiveFood.activeFood.currentActiveFood)
             {
                 initialPosition = RandomAnimalAndFood.randomAnimalAndFood.FoodPositionDictionary[gameObject];
-
 
                 float t = Time.deltaTime * moveSpeed;
 
@@ -157,7 +150,7 @@ public class DragAndDrop : MonoBehaviour
             }
         }
     }
-
+    //Updates screen boundaries so that 
     void UpdateScreenSize()
     {
         boundaryOffsetHeight = Screen.height * 0.05f;
@@ -170,11 +163,11 @@ public class DragAndDrop : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        move = false;
+        moveFood = false;
 
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        move = true;
+        moveFood = true;
     }
 }
