@@ -498,7 +498,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 19811824}
 --- !u!114 &19811824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1910,7 +1909,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 135644140}
 --- !u!114 &135644140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2489,7 +2487,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 184676913}
 --- !u!114 &184676913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2555,7 +2552,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 187458787}
 --- !u!61 &187458785
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3405,7 +3401,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 252024794}
 --- !u!114 &252024794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6693,7 +6688,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 508751059}
 --- !u!114 &508751059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8182,7 +8176,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 659768725}
 --- !u!114 &659768725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9033,7 +9026,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 685726594}
 --- !u!114 &685726594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10030,7 +10022,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 712699488}
 --- !u!114 &712699488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11125,7 +11116,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 779020589}
 --- !u!114 &779020589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11836,7 +11826,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 814517612}
 --- !u!114 &814517612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12179,7 +12168,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 851917925}
 --- !u!114 &851917925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12734,7 +12722,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 931263062}
 --- !u!61 &931263060
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13156,7 +13143,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1007338163}
 --- !u!114 &1007338163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14423,7 +14409,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1182638220}
 --- !u!114 &1182638220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14941,7 +14926,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1219963495}
 --- !u!114 &1219963495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15168,7 +15152,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1227722492}
 --- !u!114 &1227722492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15276,7 +15259,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1260361979}
 --- !u!61 &1260361977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15420,7 +15402,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1272442537}
 --- !u!61 &1272442535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15704,7 +15685,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1283740309}
 --- !u!114 &1283740309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16971,7 +16951,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1438685635}
 --- !u!61 &1438685633
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17269,7 +17248,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1470379375}
 --- !u!114 &1470379375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17869,7 +17847,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1525443708}
 --- !u!61 &1525443706
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20283,7 +20260,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1782428167}
 --- !u!114 &1782428167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20821,7 +20797,6 @@ GameObject:
   - component: {fileID: 1853107108}
   - component: {fileID: 1853107111}
   - component: {fileID: 1853107110}
-  - component: {fileID: 1853107109}
   m_Layer: 5
   m_Name: SeasonalChanges
   m_TagString: Untagged
@@ -20849,23 +20824,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0008544922, y: 0.00012207031}
   m_SizeDelta: {x: 0.6699829, y: -0.6700134}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1853107109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853107107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 212b480f844c44b4ea63edbd4173841a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  springSprite: {fileID: 21300000, guid: 81b40e7e92c583243b0ab1a3c406c302, type: 3}
-  summerSprite: {fileID: 21300000, guid: 81b40e7e92c583243b0ab1a3c406c302, type: 3}
-  fallSprite: {fileID: 21300000, guid: 30ae6aeec4c6517499908e4336fb9e1d, type: 3}
-  winterSprite: {fileID: 21300000, guid: fac0009ae6c968244bcfc9d25af8c272, type: 3}
-  spriteRenderer: {fileID: 1853107110}
 --- !u!114 &1853107110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21280,7 +21238,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1905808433}
 --- !u!61 &1905808431
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22026,7 +21983,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 1967661556}
 --- !u!114 &1967661556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22611,7 +22567,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 2015040032}
 --- !u!114 &2015040032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22755,7 +22710,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 2029470525}
 --- !u!114 &2029470525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23728,7 +23682,6 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0}
   moveSpeed: 3
   activeFood: {fileID: 600050449}
-  confineObjects: {fileID: 2145211241}
 --- !u!114 &2145211241
 MonoBehaviour:
   m_ObjectHideFlags: 0
